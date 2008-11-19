@@ -79,12 +79,10 @@ if ($getip3['ip'] != $user_ip)
 		$page = '';
 	}
 	$ipdetails = str_pad($client_ip,15,' ') . ' - ' . str_pad($page,61,' ') . ' - ' . str_pad($_SERVER['REQUEST_URI'],27,' ') . ' - ' . time() . chr(13) . chr(10);
-//	file_put_contents('/var/www/fourisland/ipdetails.txt',$ipdetails,FILE_APPEND);
 	$milestones = array(100,500,1000,1337,4444,5000,10000,15000,50000,75000,100000,150000,250000,500000,750000,1000000);
 	$i=0;
 	for ($i=0; $i<15; $i++) {
 		if (($gethits3['value']+1)==$milestones[$i]) {
-			file_put_contents('/var/www/fourisland/tophits.txt',$ipdetails,FILE_APPEND);
 			$setmst = 'UPDATE config SET value = "' . time() . '" WHERE name = "milestonetime"';
 			$setmst2 = mysql_query($setmst);
 			$setms = 'UPDATE config SET value = "' . ($gethits3['value']+1) . '" WHERE name = "milestone"';
