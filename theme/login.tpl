@@ -12,7 +12,6 @@ A NOTICE TO ALL MEMBERS! Do NOT share your password with anyone! If you misplace
 <FORM ACTION="login.php?submit=" METHOD="POST">
 	<LABEL FOR="username">Username:</LABEL><INPUT TYPE="text" NAME="username" ID="username"><BR>
 	<LABEL FOR="password">Password:</LABEL><INPUT TYPE="password" NAME="password" ID="password"><BR>
-	<!--RECAPTCHA-->
 	<INPUT TYPE="hidden" NAME="redirect" VALUE="<!--REDIRECT-->">
 	<INPUT TYPE="submit">
 </FORM></CENTER>
