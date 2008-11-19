@@ -1,12 +1,3 @@
-<!--<script>
-var idcomments_acct = '150cde7e591dedeb7098b992cc4f382a';
-var idcomments_post_id;
-var idcomments_post_url;
-</script>
-<span id="IDCommentsPostTitle" style="display:none"></span>
-<script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
--->
-
 <!--BEGIN COMMENTS-->
 <DIV CLASS="bubble">
 	<BLOCKQUOTE>

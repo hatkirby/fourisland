@@ -75,20 +75,12 @@ while ($getcomments3[$i] = mysql_fetch_array($getcomments2))
 			$text = 'This comment has been rated down below the threshold for public viewing (-1), suggesting that it may contain inappropriate or off topic content. (Or it may have been flame bait, or simply bad!)';
 		}
 
-		if ($getcomments3[$i]['title'] != '')
-		{
-			$title2 = $getcomments3[$i]['title'];
-		} else {
-			$title2 = 'Untitled';
-		}
-
 		$template->add_ref($curID, 'COMMENTS', array(	'CODEDEMAIL' => md5(strtolower($email)),
 								'USERNAME' => (($website != '') ? '<A HREF="http://' . $website . '">' . $username . '</A>' : $username),
 								'DATE' => date("F dS Y \a\\t g:i:s a",strtotime($getcomments3[$i]['posttime'])),
 								'RATING' => $getcomments3[$i]['rating'],
 								'ID' => $getcomments3[$i]['id'],
-								'TEXT' => $text,
-								'TITLE' => $title2));
+								'TEXT' => $text));
 	}
 	$i++;
 }
