@@ -1,0 +1,97 @@
+<?php
+/*
+       444444444  
+      4::::::::4  
+     4:::::::::4  
+    4::::44::::4  
+   4::::4 4::::4   Four Island
+  4::::4  4::::4  
+ 4::::4   4::::4   Written and maintained by Starla Insigna
+4::::444444::::444
+4::::::::::::::::4  includes/comments.php
+4444444444:::::444
+          4::::4   Please do not use, reproduce or steal the
+          4::::4   contents of this file without explicit
+          4::::4   permission from Hatkirby.
+        44::::::44
+        4::::::::4
+        4444444444
+*/
+
+if (!defined('S_INCLUDE_FILE')) {define('S_INCLUDE_FILE',1);}
+
+require('headerproc.php');
+
+include('includes/recaptchalib.php');
+$publickey = "6LfgvgEAAAAAAG_BJMkWk8sNcT1nBaGoXKJYb-JT";
+$privatekey = "6LfgvgEAAAAAAD0_UVLp57MU7tqcypsbZPS9qTnr";
+
+$curID = 0;
+
+$template = new FITemplate('comments');
+$template->add('PAGEID',$page_id);
+$template->add('CODEDDEF',urlencode('http://www.fourisland.com/images/error404.png'));
+$template->add('USERNAME',(isLoggedIn() ? sess_get('uname') : 'Anonymous'));
+
+if (!isLoggedIn())
+{
+	$template->add('RECAPTCHA',recaptcha_get_html($publickey));
+	$template->adds_block('NOLOG',array('exi'=>1));
+}
+
+$getcomments = "SELECT * FROM comments WHERE page_id = \"" . $page_id . "\" ORDER BY posttime";
+$getcomments2 = mysql_query($getcomments) or die($getcomments);
+$i=0;
+while ($getcomments3[$i] = mysql_fetch_array($getcomments2))
+{
+	$getuser = "SELECT * FROM users WHERE username = \"" . $getcomments3[$i]['username'] . "\"";
+	$getuser2 = mysql_query($getuser);
+	$getuser3 = mysql_fetch_array($getuser2);
+
+	if ($getuser3['username'] == $getcomments3[$i]['username'])
+	{
+		$username = $getuser3['username'];
+		$email = $getuser3['user_email'];
+		$website = $getuser3['website'];
+	} else {
+		$getanon = "SELECT * FROM anon_commenters WHERE username = \"" . $getcomments3[$i]['username'] . "\"";
+		$getanon2 = mysql_query($getanon);
+		$getanon3 = mysql_fetch_array($getanon2);
+
+		if ($getanon3['username'] == $getcomments3[$i]['username'])
+		{
+			$username = $getanon3['username'] . ' (Guest)';
+			$email = $getanon3['email'];
+			$website = $getanon3['website'];
+		}
+	}
+
+	if (isset($username))
+	{
+		if ($getcomments3[$i]['rating'] > -2)
+		{
+			$text = parseBBCode($getcomments3[$i]['comment']);
+		} else {
+			$text = 'This comment has been rated down below the threshold for public viewing (-1), suggesting that it may contain inappropriate or off topic content. (Or it may have been flame bait, or simply bad!)';
+		}
+
+		if ($getcomments3[$i]['title'] != '')
+		{
+			$title2 = $getcomments3[$i]['title'];
+		} else {
+			$title2 = 'Untitled';
+		}
+
+		$template->add_ref($curID, 'COMMENTS', array(	'CODEDEMAIL' => md5(strtolower($email)),
+								'USERNAME' => (($website != '') ? '<A HREF="http://' . $website . '">' . $username . '</A>' : $username),
+								'DATE' => date("F dS Y \a\\t g:i:s a",strtotime($getcomments3[$i]['posttime'])),
+								'RATING' => $getcomments3[$i]['rating'],
+								'ID' => $getcomments3[$i]['id'],
+								'TEXT' => $text,
+								'TITLE' => $title2));
+	}
+	$i++;
+}
+$template->display();
+
+?>

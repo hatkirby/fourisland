@@ -1,0 +1,37 @@
+RewriteEngine On
+
+RewriteRule ^blog/$ /index.php?area=blog [QSA,L]
+RewriteRule ^blog/author/(.+).php /index.php?area=blog&author=$1 [QSA,L]
+RewriteRule ^blog/tag/(.+).php /index.php?area=blog&tag=$1 [QSA,L]
+RewriteRule ^blog/(.+)/ /index.php?area=blog&post=$1 [QSA,L]
+
+RewriteRule ^comments/(.+)/ /index.php?area=comment&id=$1 [QSA,L]
+
+RewriteRule ^wiki/$ /wiki/Main_Page [QSA]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^wiki/(.+) /w/index.php?title=$1 [QSA,L]
+
+RewriteRule ^poll/$ /index.php?area=poll [QSA,L]
+RewriteRule ^poll/(.+).php /index.php?area=poll&id=$1 [QSA,L]
+
+RewriteRule ^quotes/$ /index.php?area=quotes [QSA,L]
+RewriteRule ^quotes/(.+).php /index.php?area=quotes&act=$1 [QSA,L]
+
+RewriteRule ^admin/$ /index.php?area=admin [QSA,L]
+RewriteRule ^admin/(.+).php /index.php?area=admin&page=$1 [QSA,L]
+
+RewriteRule ^error/$ /index.php?area=error [QSA,L]
+RewriteRule ^error/(.+).php /index.php?area=error&id=$1 [QSA,L]
+
+RewriteRule ^projects/ - [L]
+
+RewriteRule ^comic/$ /index.php?area=comic [QSA,L]
+RewriteRule ^comic/(.+)/ /index.php?area=comic&comic=$1 [QSA,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+).php /index.php?area=$1 [QSA,L]
+
+RewriteCond %{HTTP_HOST} ^www.fourisland.com [NC]
+RewriteRule ^(.*)$ http://fourisland.com/$1 [R=301,NC]
