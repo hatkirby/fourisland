@@ -548,6 +548,7 @@ if (isLoggedIn())
 					$template->adds_block('QUOTE', array(	'ID' => $getpending3[$i]['id'],
 										'TEXT' => nl2br($getpending3[$i]['quote'])));
 				}
+
 				$i++;
 			}
 		} else if ($_GET['page'] == 'actionPendingQuotes')
