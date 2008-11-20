@@ -12,12 +12,6 @@ Welcome to the ubiquitous administration panel!<P>
 	<LI><A HREF="/admin/moderateComments.php">Moderate Comments</A></LI>
 </UL>
 
-<H3>Wiki</H3>
-
-<UL>
-	<LI><A HREF="/admin/managePages.php">Manage Pages</A></LI>
-</UL>
-
 <H3>Poll</H3>
 
 <UL>
