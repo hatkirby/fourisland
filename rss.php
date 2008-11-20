@@ -23,7 +23,6 @@ require('headerproc.php');
 include('../security/config.php');
 include('includes/db.php');
 include('includes/bbcode.php');
-include('includes/phpsvnclient.php');
 
 header('Content-type: application/rss+xml');
 
@@ -61,9 +60,6 @@ if (isset($_GET['mode']))
 		case 'poll':
 ?> Polls<?php
 			break;
-		case 'projects':
-?> Projects<?php
-			break;
 		case 'comments':
 ?> Comments<?php
 			break;
@@ -99,9 +95,6 @@ if (isset($_GET['mode']))
 			break;
 		case 'poll':
 ?>An archive of all of the Four Island POTWs<?php
-			break;
-		case 'projects':
-?>An archive of all of the Four Island Project checkins<?php
 			break;
 		case 'comments':
 ?>An archive of all of the comments people have left on Four Island<?php
@@ -165,33 +158,6 @@ if ($_GET['mode'] == 'poll')
 		$items[$i]['sortDate'] = strtotime($items[$i]['week']);
 		$items[$i]['itemType'] = 'poll';
 		$i++;
-	}
-}
-
-if (!isset($_GET['mode']) || ($_GET['mode'] == 'projects'))
-{
-	$svn = new phpSVNclient();
-	ob_start();
-	$projs = explode("  ",system('dir /var/svn'));
-	ob_end_clean();
-
-//	$si = $i;
-
-	foreach ($projs as $name)
-	{
-		$svn->setRespository('http://svn.fourisland.com/' . $name);
-//		$svn->setAuth('hatkirby','popstartwo506');
-		$logs = $svn->getFileLogs('');
-
-		$k=0;
-		while (($items[$i] = $logs[$k]))
-		{
-			$items[$i]['sortDate'] = strtotime($items[$i]['date']);
-			$items[$i]['itemType'] = 'project';
-			$items[$i]['project'] = $name;
-			$i++;
-			$k++;
-		}
 	}
 }
 
@@ -287,26 +253,6 @@ foreach ($items as $key => $value)
 <?php
 			break;
 		case 'poll':
-			break;
-		case 'project':
-			$value['comment'] = str_replace('[','',str_replace(']','',$value['comment']));
-			if (strpos($value['comment'],"\n") !== FALSE)
-			{
-				$title = htmlentities(substr($value['comment'],0,strpos($value['comment'],"\n")));
-			} else {
-				$title = htmlentities($value['comment']);
-			}
-?>
-		<item>
-			<title><?php echo($value['project']); ?> r<?php echo($value['version']); ?> - <?php echo($title); ?></title>
-
-			<link>http://www.fourisland.com/projects/<?php echo($value['project']); ?>/changeset/<?php echo(urlencode($value['version'])); ?></link>
-
-			<description><?php echo(htmlentities(nl2br($value['comment']))); ?></description>
-
-			<pubDate><?php echo(date('D, d M Y H:i:s O',$value['sortDate'])); ?></pubDate>
-		</item>
-<?php
 			break;
 		case 'comment':
 ?>
