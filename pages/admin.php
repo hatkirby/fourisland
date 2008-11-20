@@ -604,8 +604,15 @@ if (isLoggedIn())
 			$i=0;
 			while ($getpending3[$i] = mysql_fetch_array($getpending2))
 			{
-				$template->adds_block('QUOTE', array(	'ID' => $getpending3[$i]['id'],
-									'TEXT' => $getpending3[$i]['quote']));
+				if ($i % 2 == 1)
+				{
+					$template->adds_block('QUOTE', array(	'ID' => $getpending3[$i]['id'],
+										'TEXT' => nl2br($getpending3[$i]['quote']),
+										'EVEN' => 'even'));
+				} else {
+					$template->adds_block('QUOTE', array(	'ID' => $getpending3[$i]['id'],
+										'TEXT' => nl2br($getpending3[$i]['quote'])));
+				}
 				$i++;
 			}
 		} else if ($_GET['page'] == 'actionPendingQuotes')

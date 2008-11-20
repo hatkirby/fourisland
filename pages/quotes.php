@@ -31,7 +31,35 @@ if (isset($_GET['id']))
 	$quote_num = $_GET['id'];
 }
 
-if ($_GET['act'] == 'add')
+if (!isset($_GET['act']))
+{
+	$template = new FITemplate('post');
+	$template->adds_block('INTERNAL',array('exi'=>1));
+
+	$getpost = "SELECT * FROM updates WHERE tag1 = \"quotes\" OR tag2 = \"tag2\" OR tag3 = \"tag3\" ORDER BY id DESC LIMIT 0,1";
+	$getpost2 = mysql_query($getpost);
+	$getpost3 = mysql_fetch_array($getpost2);
+
+	$title = $getpost3['title'] . ' - Blog Archive';
+
+	$template->adds_block('POST', array(	'ID' => $getpost3['id'],
+						'YEARID' => ((date('Y',strtotime($getpost3['pubDate']))-2006) % 4),
+						'DATE' => date('F dS Y \a\\t g:i:s a',strtotime($getpost3['pubDate'])),
+						'MONTH' => date('M',strtotime($getpost3['pubDate'])),
+						'DAY' => date('d',strtotime($getpost3['pubDate'])),
+						'CODED' => urlencode($getpost3['title']),
+						'TITLE' => $getpost3['title'],
+						'AUTHOR' => $getpost3['author'],
+						'TAG1' => $getpost3['tag1'],
+						'TAG2' => $getpost3['tag2'],
+						'TAG3' => $getpost3['tag3'],
+						'TEXT' => parseBBCode($getpost3['text'])));
+
+	$template->display();
+	$page_id = 'updates-' . $getpost3['id'];
+
+	include('includes/comments.php');
+} else if ($_GET['act'] == 'add')
 {
 	$template = new FITemplate('quotes/add');
 	if (isset($_GET['submit']))
@@ -135,32 +163,8 @@ if ($_GET['act'] == 'add')
 		quote_generation($query, "#" . $_GET['act'], -1);
 		$page_id = 'quote-' . $_GET['act'];
 	} else {
-		$template = new FITemplate('post');
-		$template->adds_block('INTERNAL',array('exi'=>1));
-
-		$getpost = "SELECT * FROM updates WHERE tag1 = \"quotes\" OR tag2 = \"tag2\" OR tag3 = \"tag3\" ORDER BY id DESC LIMIT 0,1";
-		$getpost2 = mysql_query($getpost);
-		$getpost3 = mysql_fetch_array($getpost2);
-
-		$title = $getpost3['title'] . ' - Blog Archive';
-
-		$template->adds_block('POST', array(	'ID' => $getpost3['id'],
-							'YEARID' => ((date('Y',strtotime($getpost3['pubDate']))-2006) % 4),
-							'DATE' => date('F dS Y \a\\t g:i:s a',strtotime($getpost3['pubDate'])),
-							'MONTH' => date('M',strtotime($getpost3['pubDate'])),
-							'DAY' => date('d',strtotime($getpost3['pubDate'])),
-							'CODED' => urlencode($getpost3['title']),
-							'TITLE' => $getpost3['title'],
-							'AUTHOR' => $getpost3['author'],
-							'TAG1' => $getpost3['tag1'],
-							'TAG2' => $getpost3['tag2'],
-							'TAG3' => $getpost3['tag3'],
-							'TEXT' => parseBBCode($getpost3['text'])));
-
-		$template->display();
-		$page_id = 'updates-' . $getpost3['id'];
+		generateError('404');
 	}
-	include('includes/comments.php');
 }
 
 ?>

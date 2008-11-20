@@ -7,7 +7,7 @@
 	</TR>
 
 	<!--BEGIN QUOTE-->
-	<TR>
+	<TR CLASS="<!--QUOTE.EVEN-->">
 		<TD><!--QUOTE.TEXT--></TD>
 
 		<TD>
