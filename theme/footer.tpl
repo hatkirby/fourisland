@@ -110,7 +110,7 @@
 										<P>
 											<UL>
 												<!--BEGIN COMMENTS-->
-												<LI STYLE="font-size: 0.9em"><!--COMMENTS.AUTHOR--> on <A HREF="/blog/<!--COMMENTS.CODED-->/"><!--COMMENTS.TITLE--></A></LI>
+												<LI STYLE="font-size: 0.9em"><!--COMMENTS.AUTHOR--> on <A HREF="/<!--COMMENTS.AREA-->/<!--COMMENTS.CODED--><!--COMMENTS.ENDING-->"><!--COMMENTS.TITLE--></A></LI>
 												<!--END COMMENTS-->
 											</UL>
 										</P>

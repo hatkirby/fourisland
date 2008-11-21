@@ -161,7 +161,9 @@ if (!isset($_GET['act']))
 	{
 		$query = "SELECT id, quote, rating, flag FROM rash_quotes WHERE id = " . $_GET['act'];
 		quote_generation($query, "#" . $_GET['act'], -1);
+
 		$page_id = 'quote-' . $_GET['act'];
+		include('includes/comments.php');
 	} else {
 		generateError('404');
 	}

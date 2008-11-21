@@ -79,15 +79,11 @@ if (!isset($noRightbar))
 		$i++;
 	}
 
-	$getcomments = "SELECT * FROM comments WHERE page_id LIKE \"updates-%\" ORDER BY id DESC LIMIT 0,5";
+	$getcomments = "SELECT * FROM comments WHERE page_id LIKE \"updates-%\" OR page_id LIKE \"quote-%\" ORDER BY id DESC LIMIT 0,5";
 	$getcomments2 = mysql_query($getcomments);
 	$i=0;
 	while ($getcomments3[$i] = mysql_fetch_array($getcomments2))
 	{
-		$getpost = "SELECT * FROM updates WHERE id = " . substr($getcomments3[$i]['page_id'],strpos($getcomments3[$i]['page_id'],'-')+1);
-		$getpost2 = mysql_query($getpost);
-		$getpost3 = mysql_fetch_array($getpost2);
-
 		$getuser = "SELECT * FROM users WHERE username = \"" . $getcomments3[$i]['username'] . "\"";
 		$getuser2 = mysql_query($getuser);
 		$getuser3 = mysql_fetch_array($getuser2);
@@ -109,10 +105,29 @@ if (!isset($noRightbar))
 		}
 
 
-		$template->adds_block('COMMENTS', array(	'CODED' => $getpost3['slug'],
-								'TITLE' => stripslashes($getpost3['title']),
-								'AUTHOR' => (($website != '') ? '<A HREF="http://' . $website . '">' . $username . '</A>' : $username)));
-		$i++;
+		if (strpos($getcomments3[$i]['page_id'], 'updates') !== FALSE)
+		{
+			$getpost = "SELECT * FROM updates WHERE id = " . substr($getcomments3[$i]['page_id'],strpos($getcomments3[$i]['page_id'],'-')+1);
+			$getpost2 = mysql_query($getpost);
+			$getpost3 = mysql_fetch_array($getpost2);
+
+			$template->adds_block('COMMENTS', array(	'AREA' => 'blog',
+									'CODED' => $getpost3['slug'],
+									'ENDING' => '/',
+									'TITLE' => stripslashes($getpost3['title']),
+									'AUTHOR' => (($website != '') ? '<A HREF="http://' . $website . '">' . $username . '</A>' : $username)));
+			$i++;
+		} else if (strpos($getcomments3[$i]['page_id'], 'quote') !== FALSE)
+		{
+			$num = substr($getcomments3[$i]['page_id'],strpos($getcomments3[$i]['page_id'],'-')+1);
+
+			$template->adds_block('COMMENTS', array(	'AREA' => 'quotes',
+									'CODED' => $num,
+									'ENDING' => '.php',
+ 									'TITLE' => 'Quote #' . $num,
+									'AUTHOR' => (($website != '') ? '<A HREF="http://' . $website . '">' . $username . '</A>' : $username)));
+			$i++;			
+		}
 	}
 
 	$getusers = "SELECT DISTINCT username FROM comments";
