@@ -333,6 +333,73 @@ if (isLoggedIn())
 				$template->add('BACK', 'the previous page');
 				$template->add('MSG', 'I\'m sorry, that pending post doesn\'t exist.');
 			}
+		} else if ($_GET['page'] == 'movePending')
+		{
+			$getpending = "SELECT * FROM pending WHERE id = " . $_GET['id'];
+			$getpending2 = mysql_query($getpending);
+			$getpending3 = mysql_fetch_array($getpending2);
+
+			if ($getpending3['id'] == $_GET['id'])
+			{
+				if ($_GET['dir'] == 'up')
+				{
+					$get2pending = "SELECT * FROM pending WHERE id = " . ($_GET['id']-1);
+					$get2pending2 = mysql_query($get2pending);
+					$get2pending3 = mysql_fetch_array($get2pending2);
+
+					if ($get2pending3['id'] == ($_GET['id']-1))
+					{
+						$otherPending = $get2pending3;
+					} else {
+						$template = new FITemplate('msg');
+						$template->add('BACK', 'the previous page');
+						$template->add('MSG', 'I\'m sorry, that pending post is already the first.');
+					}
+				} else if ($_GET['dir'] == 'down')
+				{
+					$get2pending = "SELECT * FROM pending WHERE id = " . ($_GET['id']+1);
+					$get2pending2 = mysql_query($get2pending);
+					$get2pending3 = mysql_fetch_array($get2pending2);
+
+					if ($get2pending3['id'] == ($_GET['id']+1))
+					{
+						$otherPending = $get2pending3;
+					} else {
+						$template = new FITemplate('msg');
+						$template->add('BACK', 'the previous page');
+						$template->add('MSG', 'I\'m sorry, that pending post is already the last.');
+					}
+				}
+
+				if (isset($otherPending))
+				{
+					$delpending = "DELETE FROM pending WHERE id = " . $_GET['id'] . " OR id = " . $otherPending['id'];
+					$delpending2 = mysql_query($delpending);
+
+					$inspending = "INSERT INTO pending (id, title, author, text, tag1, tag2, tag3, slug) VALUES (" . $_GET['id'] . ",\"" . $otherPending['title'] . "\",\"" . $otherPending['author'] . "\",\"" . $otherPending['text'] . "\",\"" . $otherPending['tag1'] . "\",\"" . $otherPending['tag2'] . "\",\"" . $otherPending['tag3'] . "\",\"" . $otherPending['slug'] . "\")";
+					$inspending2 = mysql_query($inspending);
+
+					$ins2pending = "INSERT INTO pending (id, title, author, text, tag1, tag2, tag3, slug) VALUES (" . $otherPending['id'] . ",\"" . $getpending3['title'] . "\",\"" . $getpending3['author'] . "\",\"" . $getpending3['text'] . "\",\"" . $getpending3['tag1'] . "\",\"" . $getpending3['tag2'] . "\",\"" . $getpending3['tag3'] . "\",\"" . $getpending3['slug'] . "\")";
+					$ins2pending2 = mysql_query($ins2pending);
+
+					$template = new FITemplate('admin/managePending');
+
+					$getpending = "SELECT * FROM pending ORDER BY id ASC";
+					$getpending2 = mysql_query($getpending);
+					$i=0;
+					while ($getpending3[$i] = mysql_fetch_array($getpending2))
+					{
+						$template->adds_block('PENDING', array(	'TITLE' => $getpending3[$i]['title'],
+											'AUTHOR' => $getpending3[$i]['author'],
+											'ID' => $getpending3[$i]['id']));
+						$i++;
+					}
+				}
+			} else {
+				$template = new FITemplate('msg');
+				$template->add('BACK', 'the previous page');
+				$template->add('MSG', 'I\'m sorry, that pending post doesn\'t exist.');
+			}
 		} else if ($_GET['page'] == 'managePosts')
 		{
 			$template = new FITemplate('admin/managePosts');
@@ -561,7 +628,8 @@ if (isLoggedIn())
 			{
 				if (isset($_GET['approve']))
 				{
-					$insquote = "INSERT INTO rash_quotes (quote) VALUES (\"" . addslashes($getpending3['quote']) . "\")";
+					$today = mktime(date('G'),date('i'),date('s'),date('m'),date('d'),date('Y'));
+					$insquote = "INSERT INTO rash_quotes (quote,date) VALUES (\"" . addslashes($getpending3['quote']) . "\",\"" . $today . "\")";
 					$insquote2 = mysql_query($insquote);
 
 					$delpending = "DELETE FROM rash_queue WHERE id = " . $_GET['id'];

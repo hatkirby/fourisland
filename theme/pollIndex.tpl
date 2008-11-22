@@ -1,6 +1,18 @@
 <H2>Poll of the Week</H2>
 <P>
-<CENTER><!--INCLUDE polloftheweek--></CENTER>
+<DIV CLASS="sidebar" STYLE="margin: auto">
+        <DIV CLASS="bubble">
+                <DIV CLASS="rounded">
+                        <BLOCKQUOTE>
+                                <DIV ID="hatbar">
+                                        <P>
+                                                <!--INCLUDE polloftheweek-->
+                                        </P>
+                                </DIV>
+                        </BLOCKQUOTE>
+                </DIV>
+        </DIV>
+</DIV>
 <P>
 Welcome to the Poll of the Week! Feel free to vote on these! You can review old ones and also comment on them if
 you're logged in using the links below!

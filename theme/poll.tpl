@@ -1,8 +1,18 @@
 <H2><!--QUESTION--></H2>
 <P>
-<CENTER>
-	<!--INCLUDE polloftheweek-->
-</CENTER>
+<DIV CLASS="sidebar" STYLE="margin: auto">
+	<DIV CLASS="bubble">
+        	<DIV CLASS="rounded">
+	                <BLOCKQUOTE>
+        	                <DIV ID="hatbar">
+                	                <P>
+                        	                <!--INCLUDE polloftheweek-->
+                                        </P>
+                                </DIV>
+                        </BLOCKQUOTE>
+                </DIV>
+	</DIV>
+</DIV>
 <P>
 <DIV CLASS="bubble">
 	<DIV CLASS="rounded">

@@ -16,6 +16,8 @@
 			<A HREF="/admin/editPending.php?id=<!--PENDING.ID-->"><IMG SRC="/theme/images/icons/page_edit.png" ALT="Edit"></A>
 			<A HREF="/admin/deletePending.php?id=<!--PENDING.ID-->"><IMG SRC="/theme/images/icons/page_delete.png" ALT="Delete"></A>
 			<A HREF="/admin/viewPending.php?id=<!--PENDING.ID-->"><IMG SRC="/theme/images/icons/page_go.png" ALT="View"></A>
+			<A HREF="/admin/movePending.php?id=<!--PENDING.ID-->&amp;dir=up"><IMG SRC="/theme/images/icons/thumb_up.png" ALT="Move Up"></A>
+			<A HREF="/admin/movePending.php?id=<!--PENDING.ID-->&amp;dir=down"><IMG SRC="/theme/images/icons/thumb_down.png" ALT="Move Down"></A>
 		</TD>
 	</TR>
 	<!--END PENDING-->

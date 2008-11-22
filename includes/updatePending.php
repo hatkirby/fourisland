@@ -22,7 +22,7 @@ if (!defined('S_INCLUDE_FILE')) {define('S_INCLUDE_FILE',1);}
 
 require('headerproc.php');
 
-//$disablePendingQueue = 1; // Use this when Four Island goes down
+$disablePendingQueue = 1; // Use this when Four Island goes down
 
 if (!isset($disablePendingQueue))
 {

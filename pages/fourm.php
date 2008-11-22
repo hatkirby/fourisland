@@ -22,6 +22,10 @@ if (!defined('S_INCLUDE_FILE')) {define('S_INCLUDE_FILE',1);}
 
 require('headerproc.php');
 
+echo('<DIV ID="phpbb3-bubble">');
+
 include('fourm/link.php');
+
+echo('</DIV>');
 
 ?>

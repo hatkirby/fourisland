@@ -25,16 +25,8 @@ header('Content-type: text/css');
 include('../../security/config.php');
 include('../includes/db.php');
 
-if (!isset($_GET['background']))
-{
-	include("css/website.php");
-	include("css/headers.php");
-	include("css/navigation.php");
-	include("css/uniform.php");
-	include("css/quotes.php");
-	include("css/bubbles.css");
-}
-
-include("css/backgrounds.php");
+include("css/website.php");
+include("css/bubbles.css");
+include("css/thickbox.css");
 
 ?>

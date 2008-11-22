@@ -45,17 +45,6 @@ $headerTemp->add('HEADTAGS',isset($headtags) ? $headtags : '');
 $headerTemp->add('EXTRATITLE',isset($title) ? ($title . ' - ') : '');
 $headerTemp->add('PAGEID',(isset($pageID)) ? $pageID : 'none');
 
-if (!isset($noMembers))
-{
-	$headerTemp->add('LOWERLOGDATA',strtolower(echoLogData()));
-	$headerTemp->add('REDIRPAGE',rawurlencode($_SERVER['REQUEST_URI']));
-	$headerTemp->add('LOGDATA',echoLogData());
-	if (getUserlevel() < 3)
-	{
-		$headerTemp->adds_block('PANEL',array('exi'=>1));
-	}
-}
-
 if (isset($_POST['message']))
 {
 	$headerTemp->adds_block('MESSAGE',array('MSG' => $_POST['message']));

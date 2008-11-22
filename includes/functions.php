@@ -63,9 +63,9 @@ function generateError($error)
 function echoLogData()
 {
 	if (!isLoggedIn()) {
-		return('Login');
+		return('in');
 	} else {
-		return('Logout');
+		return('out');
 	}
 }
 

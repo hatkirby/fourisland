@@ -111,7 +111,8 @@ if (!isset($noRightbar))
 			$getpost2 = mysql_query($getpost);
 			$getpost3 = mysql_fetch_array($getpost2);
 
-			$template->adds_block('COMMENTS', array(	'AREA' => 'blog',
+			$template->adds_block('COMMENTS', array(	'ID' => $getcomments3[$i]['id'],
+									'AREA' => 'blog',
 									'CODED' => $getpost3['slug'],
 									'ENDING' => '/',
 									'TITLE' => stripslashes($getpost3['title']),
@@ -121,7 +122,8 @@ if (!isset($noRightbar))
 		{
 			$num = substr($getcomments3[$i]['page_id'],strpos($getcomments3[$i]['page_id'],'-')+1);
 
-			$template->adds_block('COMMENTS', array(	'AREA' => 'quotes',
+			$template->adds_block('COMMENTS', array(	'ID' => $getcomments3[$i]['id'],
+									'AREA' => 'quotes',
 									'CODED' => $num,
 									'ENDING' => '.php',
  									'TITLE' => 'Quote #' . $num,
@@ -207,6 +209,9 @@ if (!isset($noRightbar))
 							'USERNAME' => $getuser3['username']));
 	}
 }
+
+$template->add('REDIRPAGE',rawurlencode($_SERVER['REQUEST_URI']));
+$template->add('LOGDATA',echoLogData());
 
 $template->display();
 

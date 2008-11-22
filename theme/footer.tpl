@@ -22,38 +22,77 @@
 						</DIV>
 					</DIV>
 
-					<!--BEGIN USEHATNAV-->
 					<DIV class="sidebar">
 						<DIV CLASS="bubble">
 							<DIV CLASS="rounded">
 								<BLOCKQUOTE>
-									<DIV ID="hatnav"><H3>Hatnav</H3><P>
+									<DIV ID="hatbar"><H3>HatNav</H3><P>
 										<UL>
-											<!--BEGIN HATNAV-->
-											<LI STYLE="margin-left: 10"><A ID="<!--HATNAV.AID-->" HREF="<!--HATNAV.HREF-->"><IMG SRC="<!--HATNAV.IMAGE-->"><!--HATNAV.TEXT--><!--HATNAV.NEW--></A></LI>
-											<!--END HATNAV-->
+											<LI>
+												<IMG SRC="/theme/images/icons/newspaper.png" />
+												<A HREF="http://fourisland.com/">Blog</A>
+											</LI>
+
+											<LI>
+												<IMG SRC="/theme/images/projects.png" />
+												<A HREF="http://projects.fourisland.com/">Projects</A>
+											</LI>
+
+											<LI>
+												<IMG SRC="/theme/images/icons/comment.png" />
+												<A HREF="http://fourisland.com/fourm/">The Fourm</A>
+											</LI>
+
+											<LI>
+												<IMG SRC="/theme/images/icons/page_edit.png" />
+												<A HREF="http://fourisland.com/wiki/">Fouripedia</A>
+											</LI>
+
+											<LI>
+												<IMG SRC="/theme/images/icons/overlays.png" />
+												<A HREF="http://fourisland.com/poll/">Polls</A>
+											</LI>
+
+											<LI>
+												<IMG SRC="/theme/images/icons/16-file-page.png" />
+												<A HREF="http://fourisland.com/quotes/">Quotes</A>
+											</LI>
+
+											<LI>
+												<IMG SRC="/theme/images/icons/door_<!--LOGDATA-->.png" />
+												<A HREF="http://fourisland.com/log<!--LOGDATA-->.php?redirect=<!--REDIRPAGE-->">Log<!--LOGDATA--></A>
+											</LI>
 										</UL>
-									</P></DIV>
+									</DIV>
 								</BLOCKQUOTE>
 							</DIV>
 						</DIV>
 					</DIV>
-					<!--END USEHATNAV-->
-
-					<!--EXTRASIDEBARS-->
+											
+					<DIV class="sidebar">
+						<DIV CLASS="bubble">
+							<DIV CLASS="rounded">
+								<BLOCKQUOTE>
+									<DIV ID="hatbar"><H3>Poll of the Week</H3><P>
+										<P>
+											<!--INCLUDE polloftheweek-->
+										</P>
+									</DIV>
+								</BLOCKQUOTE>
+							</DIV>
+						</DIV>
+					</DIV>
 
 					<DIV class="sidebar">
 						<DIV CLASS="bubble">
 							<DIV CLASS="rounded">
 								<BLOCKQUOTE>
 									<DIV ID="hatbar"><H3>Hatbar</H3><P>
-										Confused? Email the webmaster at hatk<a href="http://mailhide.recaptcha.net/d?k=01gkW_nSHD3Qbf7dcAwJVdsg==&amp;c=M-Dz6vqhsLdR6tNVOO5f7c6jZUsKP1mUNWfmLFkJqak=" onclick="window.open('http://mailhide.recaptcha.net/d?k=01gkW_nSHD3Qbf7dcAwJVdsg==&amp;c=M-Dz6vqhsLdR6tNVOO5f7c6jZUsKP1mUNWfmLFkJqak=', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;" title="Reveal this e-mail address">...</a>@fourisland.com</SMALL>
 										<P>
 											<SPAN ID="hitcounter">
 												Hits: <!--HITS--><BR>
 												Today: <!--TODAY--><BR>
-											<SPAN>
-											<!--INCLUDE polloftheweek--><BR>
+											</SPAN>
 											<!--INCLUDE datefinder-->
 										</P>
 
@@ -110,7 +149,7 @@
 										<P>
 											<UL>
 												<!--BEGIN COMMENTS-->
-												<LI STYLE="font-size: 0.9em"><!--COMMENTS.AUTHOR--> on <A HREF="/<!--COMMENTS.AREA-->/<!--COMMENTS.CODED--><!--COMMENTS.ENDING-->"><!--COMMENTS.TITLE--></A></LI>
+												<LI STYLE="font-size: 0.9em"><!--COMMENTS.AUTHOR--> on <A HREF="/<!--COMMENTS.AREA-->/<!--COMMENTS.CODED--><!--COMMENTS.ENDING-->#comment-<!--COMMENTS.ID-->"><!--COMMENTS.TITLE--></A></LI>
 												<!--END COMMENTS-->
 											</UL>
 										</P>

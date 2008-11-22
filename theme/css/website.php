@@ -25,6 +25,21 @@ require('headerproc.php');
 ?>
 /* Four Island General CSS */
 
+body {
+ background-color: white;
+ background-repeat: repeat-x;
+ background-attachment: fixed;
+ background-position: bottom left;
+ font-family: Arial, FreeSans;
+ margin: 0px;
+ padding: 0px 0px 30px !important;
+}
+
+body.fourm {
+ font-family: Verdana, Helvetica, Arial, sans-serif ;
+}
+ 
+
 ul#bannernav, p {
  margin:0pt;
  padding:0pt;
@@ -34,7 +49,7 @@ ul#bannernav, p {
  text-align: none !important;
 }
 
-p {margin-top: 1em;}
+p {margin-top: 1em}
 
 ul, ol {margin-top: 1em; margin-bottom: 1em}
 
@@ -106,8 +121,6 @@ acronym, abbr {
  border-bottom: 1px dashed #999;
 }
 
-<?php if (!isset($_GET['nolayout'])) { ?>
-
 blockquote {
  padding-left: 10px;
  border-left: 3px solid #CCC;
@@ -118,8 +131,6 @@ blockquote {
  margin-left: 50px;
 }
 
-<?php } ?>
-
 pre {
  line-height: 12px;
 }
@@ -129,13 +140,8 @@ pre {
  cursor: help;
 }
 
-* html div#members {
- position: absolute;
-}
-
 #wrap {
  width: 910px;
- background: #FFFFFF url("/theme/images/bg_body.gif") repeat-y 0 0;
  margin: 10px auto;
  text-align: left;
  padding: 0;
@@ -143,35 +149,6 @@ pre {
 /* margin-left: 50px; */
 }
 
-#page-header {
- background: url("/theme/images/bg_header.gif") repeat-x 0 0;
- height: 150px;
- clear: both;
-}
-
-span.side-left, span.side-right {
-	display: block;
-	width: 20px;
-	height: 150px;
-	background: url("/theme/images/sides_top.gif") no-repeat;
-}
-span.side-left {
-	float: left;
-	margin-right: 10px;
-}
-span.side-right {
-	background-position: 100% 0;
-	float: right;
-}
-span.fcorners-bottom, span.fcorners-bottom span {
-	font-size: 1px;
-	line-height: 1px;
-	display: block;
-	height: 20px;
-	background-repeat: no-repeat;
-	background-image: url("/theme/images/corners_bottom.gif");
-	margin: 0;
-}
 span.fcorners-bottom {
 	background-position: 0 0;
 }
@@ -179,14 +156,12 @@ span.fcorners-bottom span {
 	background-position: 100% -20px;
 }
 
-<?php //if (!isset($_GET['nolayout'])) { ?>
-
 /* Banner */
 		
 div#banner, div#fi-banner {
  background-repeat: no-repeat;
- width: 850px;
- height: 129px;
+ width: 900px; /*728*/
+ height: 200px;
  float: left;
  margin-top: 21px;
 }
@@ -197,8 +172,8 @@ body div#banner h1, body div#fi-banner h1 {
 
 body div#banner h1 a, body div#fi-banner h1 a {
  display: block;
- width: 850px;
- height: 129px;
+ width: 900px;
+ height: 200px;
  text-indent: -5000px;
  text-decoration: none;
  margin: 0;
@@ -210,9 +185,10 @@ div#banner h1, div#fi-banner h1 {
  font-weight: normal;
 }
 				
-div#banner div#bannerNav, div#fi-banner div#bannerNav {
- position: relative;
- top: -20px;
+div#bannernav {
+/* position: relative;
+ top: -20px;*/
+ text-align: center;
 }
 
 #page-body {
@@ -270,7 +246,7 @@ body.login div#pageTabs ul li#bannernav-login {
 /* Sidebar */
 
 div#rightbar {
- float: right;
+ float: left;
  width: 250px; /*210*/
 /* clear: right; */
  padding: 0 10;
@@ -283,6 +259,10 @@ div#iconbar {
 
 div#iconbar ul li {
  list-style-type: none;
+}
+
+div#banner {
+ background-image: url("/theme/images/fourisland_header.png"); /*850x129*/
 }
 
 div.sidebar {
@@ -382,7 +362,7 @@ div#sidebar li img {
 /* Content */
 															
 div#content, div#fi-content {
- float: left;
+ float: right;
  width: 555px; /*465*/ /*555*/
 }
 
@@ -393,9 +373,6 @@ body#day div#page div#content code {
  width: 485px;
  overflow: visible;
 }
-
-<?php //} ?>
-
 
 div#content h2 {
  color: #59770e;
@@ -633,13 +610,9 @@ div#footer ul li img {
  vertical-align: top;
 }
 
-<?php if (!isset($_GET['nolayout'])) { ?>
-
 div#content ul {
  list-style: url(/theme/images/bullet_disk_big.png);
 }
-
-<?php } ?>
 
 div.push {
  clear: both;
@@ -709,33 +682,6 @@ div.post-date-4 {
  background: url(/theme/images/date-bg-4.gif) no-repeat;
 }
 
-div#members {
- position: fixed;
- left: -40px;
- top: 20px;
-}
-
-div#members ul li {
- list-style-type: none;
-}
-
-div#members ul li a {
- color: white;
- width: 100px;
- height: 30px;
- padding-right: 5px;
- background-image: url(/theme/images/tabBG.png);
- display: block;
- text-align: right;
- padding-top: 5px;
- padding-bottom: 0px;
- background-repeat: no-repeat;
-}
-
-div#members ul li a:hover {
- background-image: url(/theme/images/tabBG2.png);
-}
-
 div#content a img {
  border: solid transparent 1px;
 }
@@ -757,41 +703,6 @@ div.breadcrumb {
  margin-bottom: 10px;
  font-size: 10px;
  border-bottom: 1px dotted black;
-}
-
-.delicious-posts { margin: 1em; padding: 0.5em; font-family: sans-serif; }
-.delicious-posts ul, .delicious-posts li, .delicious-banner { margin: 0; padding: 0}
-.delicious-post { border-top: 1px solid #eee; padding: 0.25em; font-size: 80% }
-.delicious-posts a:hover { text-decoration: underline }
-
-/* #twitter_div {
- margin: 1em;
- padding: 0.5em;
- font-family: sans-serif;
-} */
-
-/* #twitter_div ul, #twitter_div li, .twitter-title {
- margin: 0;
- padding: 0;
-} */
-
-.twitter_update_list {
- list-style-type: none;
-}
-
-.twitter_update_list li {
- /* border-top: 1px solid #eee;
- padding: 0.25em; */
- display: inline;
-}
-
-/* .twitter-title {
- margin-left: -20px;
- font-size: 120%;
-} */
-
-.dispIfNew a:visited img {
- display: none;
 }
 
 /* Tables */
@@ -820,24 +731,4 @@ table.webmail th {
 
 table.webmail td {
  word-wrap: break-word;
-}
-
-/* Print Only */
-
-@media print {
- body {
-  width: 100% !important;
- }
-
- div#banner, div#footer, div#members {
-  display: none;
- }
- 
- span.print {
-  display: inline;
- }
- 
- div#cleardiv {
-  clear: none;
- }
 }

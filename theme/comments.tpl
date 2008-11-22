@@ -1,4 +1,8 @@
+<A NAME="comments" />
+
 <!--BEGIN COMMENTS-->
+<A NAME="comment-<!--COMMENTS.ID-->" />
+
 <DIV CLASS="bubble">
 	<BLOCKQUOTE>
 		<DIV>
