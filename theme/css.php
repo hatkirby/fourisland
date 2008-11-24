@@ -25,7 +25,7 @@ header('Content-type: text/css');
 include('../../security/config.php');
 include('../includes/db.php');
 
-include("css/website.php");
+include("css/website.css");
 include("css/bubbles.css");
 include("css/thickbox.css");
 
@@ -35,8 +35,14 @@ if ($_GET['id'] == 'day')
 } else if ($_GET['id'] == 'night')
 {
 	include("css/night.css");
-} else {
-	echo('body {display: none}');
+}
+
+if ($_GET['cat'] == 'home')
+{
+	include('css/blog.php');
+} else if ($_GET['cat'] == 'quotes')
+{
+	include('css/quotes.css');
 }
 
 ?>

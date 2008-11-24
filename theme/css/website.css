@@ -1,0 +1,330 @@
+/* Four Island CSS */
+
+body {
+ background-repeat: repeat-x;
+ background-attachment: fixed;
+ background-position: bottom left;
+ font-family: Arial, FreeSans;
+ margin: 0px;
+ padding: 0px 0px 30px !important;
+}
+
+body.fourm {
+ font-family: Verdana, Helvetica, Arial, sans-serif ;
+}
+
+/* Effects */
+
+::selection {
+	background: pink;
+}
+::-moz-selection {
+	background: pink;
+}
+
+form textarea:focus, form input:focus {
+ border: 2px solid #900;
+ background-color: #FEFFB2;
+}
+
+/* Links */
+
+a:link {
+ color: blue;
+ font-weight: bold;
+ text-decoration: none;
+}
+
+a:visited {
+ color: blue;
+ text-decoration: none;
+}
+
+a:hover, a:focus {
+ color: blue;
+ font-weight: bold;
+ text-decoration: none;
+ font-variant: small-caps;
+ text-transform: capitalize;
+}
+
+a:active {
+ color: blue;
+ text-decoration: none;
+}
+
+a img {
+ border: 0;
+}
+
+/* Random Elements */
+
+ul#bannernav, p {
+ margin:0pt;
+ padding:0pt;
+}
+
+p {margin-top: 1em}
+
+ul, ol {margin-top: 1em; margin-bottom: 1em}
+
+img.center, img[align="center"] {
+ display: block;
+ margin-left: auto;
+ margin-right: auto;
+}
+
+acronym, abbr, span.caps {
+ cursor: help;
+}
+
+acronym, abbr {
+ border-bottom: 1px dashed #999;
+}
+
+blockquote {
+ padding-left: 10px;
+ border-left: 3px solid #CCC;
+ font-family: helvetica;
+ font-size: 14px;
+ margin-top: 10px;
+ margin-bottom: 10px;
+ margin-left: 50px;
+}
+
+pre {
+ line-height: 12px;
+}
+
+/* Banner */
+		
+div#banner, div#fi-banner {
+ background-repeat: no-repeat;
+ width: 900px; /*728*/
+ height: 200px;
+ float: left;
+ margin-top: 21px;
+}
+
+div#banner {
+ background-image: url("/theme/images/fourisland_header.png");
+}
+
+body div#banner h1, body div#fi-banner h1 {
+ margin: 0;
+}
+
+body div#banner h1 a, body div#fi-banner h1 a {
+ display: block;
+ width: 900px;
+ height: 200px;
+ text-indent: -5000px;
+ text-decoration: none;
+ margin: 0;
+}
+
+div#banner h1, div#fi-banner h1 {
+ margin: 0;
+ font-size: 3.0em;
+ font-weight: normal;
+}
+				
+div#bannernav {
+ text-align: center;
+}
+
+/* Sidebar */
+
+div#rightbar {
+ float: left;
+ width: 250px; /*210*/
+ padding: 0 10;
+}
+
+div.sidebar {
+ width: 250px; /*250*/ /*240*/ /*210*/
+ padding: 0 10px;
+ margin-bottom: 5px;
+}
+
+div.sidebar h3 {
+ font-family: Verdana, Helvetica, Arial, sans-serif;
+ margin: 5px 0 0 0;
+ font-weight: bold;
+ color: #333333;
+}
+
+div.sidebar p {
+ font-size: 0.8em;
+ margin: 3px 0;
+}
+
+div.sidebar ul {
+ list-style-type: none;
+ padding: 0;
+ margin: 0;
+ line-height: normal !important;
+ list-style-image: none !important;
+}
+							
+div#sidebar ul li {
+ margin-top: 4px;
+}
+				
+div#sidebar ul li a {
+ display: block;
+ width: 230px;
+}
+
+div#sidebar li img {
+ border: 0;
+ height: 16px;
+ width: 16px;
+}
+
+/* Layout */
+
+#wrap {
+ width: 910px;
+ margin: 10px auto;
+ text-align: left;
+ padding: 0;
+ margin-top: 25px;
+}
+
+div#top-fade {
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
+ background-image: url(/theme/images/top_fade.png);
+ height: 400px;
+ z-index: 0;
+}
+
+#page-body {
+ margin: 0 30px;
+ clear: both;
+ position: relative;
+}
+
+body.fourm #page-body {
+ margin-left: 25;
+ margin-right: 10;
+ width: 95%;
+ font-size: 62.5%;
+}
+
+#phpBB3-page-body {
+ margin: 4px 0 !important;
+ clear: both;
+}
+
+/* Content */
+															
+div#content {
+ float: right;
+ width: 555px; /*465*/ /*555*/
+}
+
+body#day div#page div#content code {
+ display: block;
+ border: solid black 1px;
+ background-color: #FFFF64;
+ width: 485px;
+ overflow: visible;
+}
+
+div#content h2 {
+ color: #59770e;
+ margin: 0px 0px 2px;
+ border-bottom: 1px dotted #CCCCCC;
+ letter-spacing: -1px;
+ font: normal 140%/100% "Trebuchet MS", Tahoma, Arial;
+ padding-bottom: 3px;
+}
+
+/* Random Divs/Spans */
+
+div.cleardiv {
+ clear: both;
+ height: 1em;
+}
+				
+div#footer {
+ clear: both;
+ padding-bottom: 1em;
+ padding-top: .5em;
+ margin-top: .5em;
+ text-align: center;
+ font-size: .68em;
+ width: 100%;
+ border-top: 1px black solid;
+ border-bottom: 4px gray solid;
+}
+
+div#footer ul.rows li {
+ display: list-item;
+}
+
+div#footer ul {
+ padding: 0;
+ margin: 0;
+ list-style-type: none;
+}
+
+div#footer ul li {
+ display: inline;
+ margin-right: 1em;
+}
+
+div#footer ul li img {
+ width: 20px;
+ height: 20px;
+ vertical-align: top;
+}
+
+div#content ul {
+ list-style: url(/theme/images/bullet_disk_big.png);
+}
+
+div.push {
+ clear: both;
+ height: 20px;
+}
+
+div#content a img {
+ border: solid transparent 1px;
+}
+
+div#content a:hover img {
+ border: dashed gray 1px;
+}
+
+/* Tables */
+
+table.webmail {
+ border: 0;
+ width: 100%;
+}
+
+table.webmail, table.webmail td {
+ border-spacing: 0;
+}
+
+table.webmail tr {
+ background-color: #3CE4ED;
+}
+
+table.webmail tr.even {
+ background-color: #39B7CD;
+}
+
+table.webmail th {
+ background-color: #FF9912;
+ text-align: left;
+}
+
+table.webmail td {
+ word-wrap: break-word;
+}
