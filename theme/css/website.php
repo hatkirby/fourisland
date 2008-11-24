@@ -26,8 +26,6 @@ require('headerproc.php');
 /* Four Island General CSS */
 
 body {
- background-color: aqua;
- background-image: url(/theme/images/backgrounds/island6.PNG);
  background-repeat: repeat-x;
  background-attachment: fixed;
  background-position: bottom left;
@@ -46,15 +44,9 @@ ul#bannernav, p {
  padding:0pt;
 }
 
-.idw-container {
- text-align: none !important;
-}
-
 p {margin-top: 1em}
 
 ul, ol {margin-top: 1em; margin-bottom: 1em}
-
-/*li {margin-left: 60px}*/
 
 ::selection {
 	background: pink;
@@ -147,7 +139,6 @@ pre {
  text-align: left;
  padding: 0;
  margin-top: 25px;
-/* margin-left: 50px; */
 }
 
 span.fcorners-bottom {
@@ -165,6 +156,10 @@ div#banner, div#fi-banner {
  height: 200px;
  float: left;
  margin-top: 21px;
+}
+
+div#banner {
+ background-image: url("/theme/images/fourisland_header.png");
 }
 
 body div#banner h1, body div#fi-banner h1 {
@@ -187,8 +182,6 @@ div#banner h1, div#fi-banner h1 {
 }
 				
 div#bannernav {
-/* position: relative;
- top: -20px;*/
  text-align: center;
 }
 
@@ -250,7 +243,6 @@ body.login div#pageTabs ul li#bannernav-login {
 div#rightbar {
  float: left;
  width: 250px; /*210*/
-/* clear: right; */
  padding: 0 10;
 }
 
@@ -261,10 +253,6 @@ div#iconbar {
 
 div#iconbar ul li {
  list-style-type: none;
-}
-
-div#banner {
- background-image: url("/theme/images/fourisland_header.png"); /*850x129*/
 }
 
 div.sidebar {
@@ -587,7 +575,6 @@ span.post-comments {
 }
 
 div#page {
- /*margin: 0 auto;*/
  padding: 0;
  width: 850px;
  position: relative;
@@ -735,12 +722,12 @@ table.webmail td {
  word-wrap: break-word;
 }
 
-img#top-fade {
+div#top-fade {
  position: absolute;
  top: 0;
  left: 0;
  width: 100%;
- background-image: url(/theme/images/top-fade.png);
- height: 60%;
+ background-image: url(/theme/images/top_fade.png);
+ height: 400px;
  z-index: 0;
 }

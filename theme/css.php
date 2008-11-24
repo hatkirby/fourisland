@@ -29,4 +29,14 @@ include("css/website.php");
 include("css/bubbles.css");
 include("css/thickbox.css");
 
+if ($_GET['id'] == 'day')
+{
+	include("css/day.css");
+} else if ($_GET['id'] == 'night')
+{
+	include("css/night.css");
+} else {
+	echo('body {display: none}');
+}
+
 ?>

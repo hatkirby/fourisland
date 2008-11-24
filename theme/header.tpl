@@ -2,7 +2,7 @@
 	<HEAD>
 		<TITLE><!--EXTRATITLE-->Four Island</TITLE>
 
-		<LINK REL="stylesheet" TYPE="text/css" HREF="http://fourisland.com/theme/css.php" />
+		<LINK REL="stylesheet" TYPE="text/css" HREF="http://fourisland.com/theme/css.php?id=<!--BODYID-->" />
 		<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8" />
 		<META HTTP-EQUIV="Content-Language" CONTENT="en" />
 		<LINK REL="alternate" TYPE="application/rss+xml" HREF="http://feeds.feedburner.com/FourIsland?format=xml" TITLE="Four Island" />
@@ -26,7 +26,7 @@
 	</HEAD>
 
 	<BODY ID="<!--BODYID-->" CLASS="<!--CATEGORY--> <!--AID--> <!--CATEGORY-->-<!--AID-->"<!--BODYTAGS-->>
-		<IMG SRC="/theme/images/top_fade.png" ID="top-fade" />
+		<DIV ID="top-fade"></DIV>
 
 		<DIV ID="wrap">
 			<DIV ID="page-header">

@@ -1,0 +1,24 @@
+body {
+ width: 100% !important;
+}
+
+div#banner, div#footer, div#rightbar {
+ display: none;
+}
+
+span.print {
+ display: inline;
+}
+ 
+div#cleardiv {
+ clear: none;
+}
+
+div#content {
+ width: 100%;
+}
+
+div.post-title {
+ width: 90%;
+}
+
