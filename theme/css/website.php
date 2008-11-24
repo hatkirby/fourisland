@@ -26,7 +26,8 @@ require('headerproc.php');
 /* Four Island General CSS */
 
 body {
- background-color: white;
+ background-color: aqua;
+ background-image: url(/theme/images/backgrounds/island6.PNG);
  background-repeat: repeat-x;
  background-attachment: fixed;
  background-position: bottom left;
@@ -194,6 +195,7 @@ div#bannernav {
 #page-body {
  margin: 0 30px;
  clear: both;
+ position: relative;
 }
 
 body.fourm #page-body {
@@ -731,4 +733,14 @@ table.webmail th {
 
 table.webmail td {
  word-wrap: break-word;
+}
+
+img#top-fade {
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
+ background-image: url(/theme/images/top-fade.png);
+ height: 60%;
+ z-index: 0;
 }

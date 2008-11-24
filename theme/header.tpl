@@ -26,6 +26,8 @@
 	</HEAD>
 
 	<BODY ID="<!--BODYID-->" CLASS="<!--CATEGORY--> <!--AID--> <!--CATEGORY-->-<!--AID-->"<!--BODYTAGS-->>
+		<IMG SRC="/theme/images/top_fade.png" ID="top-fade" />
+
 		<DIV ID="wrap">
 			<DIV ID="page-header">
 				<DIV ID="banner" STYLE="position: relative;">
