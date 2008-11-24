@@ -1,12 +1,12 @@
-body#night {
+body {
  background-color: black;
  background-image: url(/theme/images/backgrounds/island6night.PNG);
 }
 
-body#night div#banner {
- background-image: url("/theme/images/fourisland_header_night.png");
+body div#banner {
+ background-image: url("/theme/images/fourisland_header_night.png") !important;
 }
 
-body#night div#top-fade {
- background-image: url(/theme/images/top_fade_night.png);
+body div#top-fade {
+ background-image: url(/theme/images/top_fade_night.png) !important;
 }

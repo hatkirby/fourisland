@@ -24,17 +24,23 @@ header('Content-type: text/css');
 
 include('../../security/config.php');
 include('../includes/db.php');
+include('../includes/specialdates.php');
 
 include("css/website.css");
 include("css/bubbles.css");
 include("css/thickbox.css");
 
-if ($_GET['id'] == 'day')
+if (sd_ifNoSpecialDay())
 {
-	include("css/day.css");
-} else if ($_GET['id'] == 'night')
-{
-	include("css/night.css");
+	if ($_GET['id'] == 'day')
+	{
+		include("css/day.css");
+	} else if ($_GET['id'] == 'night')
+	{
+		include("css/night.css");
+	}
+} else {
+	include("css/holiday.php");
 }
 
 if ($_GET['cat'] == 'home')
