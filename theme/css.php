@@ -46,6 +46,9 @@ if (sd_ifNoSpecialDay())
 if ($_GET['cat'] == 'home')
 {
 	include('css/blog.php');
+} else if ($_GET['cat'] == 'panel')
+{
+	include('css/blog.php');
 } else if ($_GET['cat'] == 'quotes')
 {
 	include('css/quotes.css');
