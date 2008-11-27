@@ -2,8 +2,20 @@ body {
  width: 100% !important;
 }
 
-div#banner, div#footer, div#rightbar {
+div#footer, div#rightbar, div#push {
  display: none;
+}
+
+div#banner {
+ background-image: none;
+ height: auto !important;
+}
+
+div#banner h1 a {
+ text-indent: 0 !important;
+ color: black;
+ text-align: center;
+ height: auto !important;
 }
 
 span.print {

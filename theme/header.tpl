@@ -4,6 +4,7 @@
 
 		<LINK REL="stylesheet" TYPE="text/css" HREF="http://fourisland.com/theme/css.php?id=<!--BODYID-->&amp;cat=<!--CATEGORY-->" />
 		<LINK REL="stylesheet" TYPE="text/css" HREF="http://fourisland.com/theme/css/thickbox.css" />
+		<LINK REL="stylesheet" TYPE="text/css" HREF="http://fourisland.com/theme/css/print.css" MEDIA="print" />
 		<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8" />
 		<META HTTP-EQUIV="Content-Language" CONTENT="en" />
 		<LINK REL="alternate" TYPE="application/rss+xml" HREF="http://feeds.feedburner.com/FourIsland?format=xml" TITLE="Four Island" />
