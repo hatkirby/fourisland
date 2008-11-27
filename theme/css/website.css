@@ -10,7 +10,15 @@ body {
 }
 
 body.fourm {
- font-family: Verdana, Helvetica, Arial, sans-serif ;
+ font-family: Verdana, Helvetica, Arial, sans-serif;
+}
+
+body.fourm div#wrap,
+body.poll div#wrap,
+body.quotes div#wrap,
+body.admin div#wrap {
+ background-image: url(/theme/images/bg_body.gif);
+ background-repeat: repeat-y;
 }
 
 /* Effects */
