@@ -123,6 +123,38 @@
 						<DIV CLASS="bubble">
 							<DIV CLASS="rounded">
 								<BLOCKQUOTE>
+									<DIV ID="hatbar"><H3>Affiliates</H3><P>
+										<UL>
+											<LI>
+												<IMG SRC="/theme/images/icons/tag_blue.png" />
+												<A HREF="http://ssite.fourisland.com/">The S Site</A>
+											</LI>
+
+											<LI>
+												<IMG SRC="/theme/images/icons/tag_green.png" />
+												<A HREF="http://nablecak.fourisland.com/">Wikipinia</A>
+											</LI>
+
+											<LI>
+												<IMG SRC="/theme/images/icons/tag_orange.png" />
+												<A HREF="http://gryph.fourisland.com/">Color Pencils</A>
+											</LI>
+
+											<LI>
+												<IMG SRC="/theme/images/icons/tag_pink.png" />
+												<A HREF="http://timbo94.fourisland.com/">Dream Weaver</A>
+											</LI>
+										</UL>
+									</DIV>
+								</BLOCKQUOTE>
+							</DIV>
+						</DIV>
+					</DIV>
+
+					<DIV class="sidebar">
+						<DIV CLASS="bubble">
+							<DIV CLASS="rounded">
+								<BLOCKQUOTE>
 									<DIV ID="hatbar">
 										<H3>Popular Posts</H3>
 
