@@ -58,9 +58,21 @@ function ping($xmlrpcmsg)
 					$title = $from;
 				}
 
-				$text = substr($page_data,(stripos($page_data,$to)-300),700);
-				$text = strip_tags($text);
-				$text = str_replace("\n",' ',$text);
+				preg_match_all('/HREF="([^"]+)">([^>]+)<\/A>/i',$page_data,$matches);
+				for ($i=0;$i<count($matches[1]);$i++)
+				{
+					if ($matches[1][$i] == $to)
+					{
+						$find = $matches[2][$i];
+					}
+				}
+
+				$text = strip_tags($page_data);
+				$text = substr($text,(stripos($text,$find)-300),700);
+				$text = str_ireplace('<BR>',"\n",$text);
+				$text = str_ireplace('<BR />',"\n",$text);
+				$text = str_replace("\t", ' ', $text);
+				$text = preg_replace('/' . "\n" . '([ ]*)' . "\n" . '/i', '', $text);
 
 				$commentText = "[url=" . $from . "]" . $title . "[/url]\n\n[....] " . $text . " [....]";
 

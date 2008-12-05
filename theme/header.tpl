@@ -17,10 +17,6 @@
 		<SCRIPT SRC="/theme/js/round_bubbles.js" TYPE="text/javascript"></SCRIPT>
 		<SCRIPT SRC="/theme/js/thickbox.js" TYPE="text/javascript"></SCRIPT>
 
-		<!--[if lt IE 8]>
-		<script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE8.js" type="text/javascript"></script>
-		<![endif]-->
-
 		<!--BEGIN SPLASH-->
 		<SCRIPT TYPE="text/javascript">
 			tb_splash();
