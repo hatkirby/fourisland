@@ -24,7 +24,7 @@ require('headerproc.php');
 
 //$disablePendingQueue = 1; // Use this when Four Island goes down
 
-if (!isset($disablePendingQueue))
+if ((!isset($disablePendingQueue)) && (date('j') != 'Sat'))
 {
 	$gettime = "SELECT * FROM config WHERE name = \"lastUpdate\"";
 	$gettime2 = mysql_query($gettime);
