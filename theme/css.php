@@ -28,8 +28,6 @@ include('../includes/specialdates.php');
 
 include("css/website.css");
 include("css/bubbles.css");
-include('css/navigation.css');
-include('css/headers.php');
 
 if (sd_ifNoSpecialDay())
 {
