@@ -108,16 +108,10 @@ pre {
 		
 div#banner, div#fi-banner {
  background-repeat: no-repeat;
- width: 850px;
- height: 129px;
+ width: 900px; /*728*/
+ height: 200px;
  float: left;
  margin-top: 21px;
-}
-
-#page-header {
- background: url("/theme/images/bg_header.gif") repeat-x 0 0;
- height: 150px;
- clear: both;
 }
 
 div#banner {
@@ -130,8 +124,8 @@ body div#banner h1, body div#fi-banner h1 {
 
 body div#banner h1 a, body div#fi-banner h1 a {
  display: block;
- width: 850px;
- height: 129px;
+ width: 900px;
+ height: 200px;
  text-indent: -5000px;
  text-decoration: none;
  margin: 0;
@@ -147,27 +141,10 @@ div#bannernav {
  text-align: center;
 }
 
-span.side-left, span.side-right {
- display: block;
- width: 20px;
- height: 150px;
- background: url("/theme/images/sides_top.gif") no-repeat;
-}
-
-span.side-left {
- float: left;
- margin-right: 10px;
-}
-
-span.side-right {
- background-position: 100% 0;
- float: right;
-}
-
 /* Sidebar */
 
 div#rightbar {
- float: right;
+ float: left;
  width: 250px; /*210*/
  padding: 0 10;
 }
@@ -216,12 +193,21 @@ div#sidebar li img {
 /* Layout */
 
 #wrap {
- background: #FFFFFF url("/theme/images/bg_body.gif") repeat-y 0 0;
  width: 910px;
  margin: 10px auto;
  text-align: left;
  padding: 0;
  margin-top: 25px;
+}
+
+div#top-fade {
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
+ background-image: url(/theme/images/top_fade.png);
+ height: 400px;
+ z-index: 0;
 }
 
 #page-body {
@@ -245,7 +231,7 @@ body.fourm #page-body {
 /* Content */
 															
 div#content {
- float: left;
+ float: right;
  width: 555px; /*465*/ /*555*/
 }
 
@@ -325,22 +311,6 @@ div#content a:hover img {
 
 div#hatbar.quotes-options ul {
  list-style: none;
-}
-
-div#stripe {
- position: fixed;
- top: 0;
- left: 0;
- width: 100%;
- background-color: #FBEC5D;
- height: 20px;
- z-index: 99;
- padding-top: 5px;
- text-align: center;
-}
-
-* > html div#stripe {
- position: absolute;
 }
 
 /* Tables */
