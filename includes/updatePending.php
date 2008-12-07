@@ -40,7 +40,7 @@ if ((!isset($disablePendingQueue)) && (date('j') != 'Sat'))
 			$getpost2 = mysql_query($getpost);
 			$getpost3 = mysql_fetch_array($getpost2);
 
-			postBlogPost($getpost3['title'], $getpost3['author'], $getpost3['tag1'], $getpost3['tag2'], $getpost3['tag3'], $getpost3['text']);
+			postBlogPost($getpost3['title'], $getpost3['author'], $getpost3['tags'], $getpost3['text']);
 
 			$delpost = "DELETE FROM pending WHERE id = " . $getpost3['id'];
 			$delpost2 = mysql_query($delpost);

@@ -65,13 +65,16 @@ while ($getpost3 = mysql_fetch_array($getpost2))
 							'CODED' => $getpost3['slug'],
 							'TITLE' => $getpost3['title'],
 							'AUTHOR' => $getpost3['author'],
-							'TAG1' => $getpost3['tag1'],
-							'TAG2' => $getpost3['tag2'],
-							'TAG3' => $getpost3['tag3'],
 							'PLURALCOMMENT' => (isset($plural) ? $plural : ''),
 							'COMMENTS' => $comText,
 							'RATING' => $getpost3['rating'],
 							'TEXT' => parseBBCode($getpost3['text'])));
+
+	$tags = unserialize($getpost3['tags']);
+	foreach ($tags as $tag)
+	{
+		$template->adds_ref_sub($curID, 'TAGS', array('TAG' => $tag));
+	}
 
 	$curID++;
 }

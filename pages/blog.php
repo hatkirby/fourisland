@@ -63,7 +63,7 @@ if (isset($_GET['post']))
 								'TITLE' => $getnext3['title']));
 		}
 
-		$template->adds_block('POST', array(	'ID' => $getpost3['id'],
+		$template->add_ref(0, 'POST', array(	'ID' => $getpost3['id'],
 							'YEARID' => ((date('Y',strtotime($getpost3['pubDate']))-2006) % 4),
 							'DATE' => date('F dS Y \a\\t g:i:s a',strtotime($getpost3['pubDate'])),
 							'MONTH' => date('M',strtotime($getpost3['pubDate'])),
@@ -71,11 +71,14 @@ if (isset($_GET['post']))
 							'CODED' => $getpost3['slug'],
 							'TITLE' => $getpost3['title'],
 							'AUTHOR' => $getpost3['author'],
-							'TAG1' => $getpost3['tag1'],
-							'TAG2' => $getpost3['tag2'],
-							'TAG3' => $getpost3['tag3'],
 							'RATING' => $getpost3['rating'],
 							'TEXT' => parseBBCode($getpost3['text'])));
+
+		$tags = unserialize($getpost3['tags']);
+		foreach ($tags as $tag)
+		{
+			$template->adds_ref_sub(0, 'TAGS', array('TAG' => $tag));
+		}
 
 		$template->display();
 		$page_id = 'updates-' . $getpost3['id'];
@@ -123,7 +126,7 @@ if (isset($_GET['post']))
 	} elseif (isset($_GET['tag']))
 	{
 		$title = 'Tag: ' . $_GET['tag'] . ' - Blog Archive';
-		$getposts = "SELECT * FROM updates WHERE tag1 = \"" . $_GET['tag'] . "\" OR tag2 = \"" . $_GET['tag'] . "\" OR tag3 = \"" . $_GET['tag'] . "\" ORDER BY id DESC";
+		$getposts = "SELECT * FROM updates WHERE tags LIKE '%s:" . strlen($_GET['tag']) . ":\"" . $_GET['tag'] . "\"%' ORDER BY id DESC";
 	} else {
 		$title = 'Blog Archive';
 		$getposts = "SELECT * FROM updates ORDER BY id DESC";
@@ -181,10 +184,7 @@ if (isset($_GET['post']))
 									'DAY' => date('d',strtotime($getposts3[$i]['pubDate'])),
 									'AUTHOR' => $getposts3[$i]['author'],
 									'PLURALCOMMENT' => (isset($plural) ? $plural : ''),
-									'COMMENTS' => $comText,
-									'TAG1' => $getposts3[$i]['tag1'],
-									'TAG2' => $getposts3[$i]['tag2'],
-									'TAG3' => $getposts3[$i]['tag3']));
+									'COMMENTS' => $comText));
 		} else {
 			$template->adds_ref_sub($curID, 'SMALL',array(	'DATE' => date('m-d-Y',strtotime($getposts3[$i]['pubDate'])),
 									'CODED' => $getposts3[$i]['slug'],

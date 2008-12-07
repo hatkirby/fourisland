@@ -24,9 +24,9 @@
 		</SPAN>
 
 		<SPAN CLASS="post-tag-3 category">
-			<A CLASS="noVisit" HREF="/blog/tag/<!--POST.TAG1-->.php" REL="tag" TITLE="<!--POST.TAG1-->"><!--POST.TAG1--></A>
-			<A CLASS="noVisit" HREF="/blog/tag/<!--POST.TAG2-->.php" REL="tag" TITLE="<!--POST.TAG2-->"><!--POST.TAG2--></A>
-			<A CLASS="noVisit" HREF="/blog/tag/<!--POST.TAG3-->.php" REL="tag" TITLE="<!--POST.TAG3-->"><!--POST.TAG3--></A>
+			<!--BEGIN POST.TAGS-->
+			<A CLASS="noVisit" HREF="/blog/tag/<!--POST.TAGS.TAG-->.php" REL="tag" TITLE="<!--POST.TAGS.TAG-->"><!--POST.TAGS.TAG--></A>
+			<!--END POST.TAGS-->
 		</SPAN>
 
 		<!--BEGIN EXTERNAL-->

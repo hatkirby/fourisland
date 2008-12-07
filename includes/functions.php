@@ -111,11 +111,11 @@ function generateSlug($title,$table)
 	return($title);
 }
 
-function postBlogPost($title,$author,$tag1,$tag2,$tag3,$content)
+function postBlogPost($title,$author,$tags,$content)
 {
 	$slug = generateSlug($title,'updates');
 
-	$inspost = "INSERT INTO updates (title,slug,author,tag1,tag2,tag3,text) VALUES (\"" . $title . "\",\"" . $slug . "\",\"" . $author . "\",\"" . $tag1 . "\",\"" . $tag2 . "\",\"" . $tag3 . "\",\"" . addslashes($content) . "\")";
+	$inspost = "INSERT INTO updates (title,slug,author,tags,text) VALUES (\"" . $title . "\",\"" . $slug . "\",\"" . $author . "\",\"" . $tags . "\",\"" . addslashes($content) . "\")";
 	$inspost2 = mysql_query($inspost);
 
 	$upconf = "UPDATE config SET value = \"" . date('md') . "\" WHERE name = \"lastUpdate\"";

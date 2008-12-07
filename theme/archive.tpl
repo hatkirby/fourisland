@@ -20,12 +20,6 @@
 				<A HREF="/blog/author/<!--MONTH.BIG.AUTHOR-->.php"><!--MONTH.BIG.AUTHOR--></A>
 			</SPAN>
 
-			<SPAN CLASS="post-tag-3 category">
-				<A CLASS="noVisit" HREF="/blog/tag/<!--MONTH.BIG.TAG1-->.php" REL="tag" TITLE="<!--MONTH.BIG.TAG1-->"><!--MONTH.BIG.TAG1--></A>
-				<A CLASS="noVisit" HREF="/blog/tag/<!--MONTH.BIG.TAG2-->.php" REL="tag" TITLE="<!--MONTH.BIG.TAG2-->"><!--MONTH.BIG.TAG2--></A>
-				<A CLASS="noVisit" HREF="/blog/tag/<!--MONTH.BIG.TAG3-->.php" REL="tag" TITLE="<!--MONTH.BIG.TAG3-->"><!--MONTH.BIG.TAG3--></A>
-			</SPAN>
-
 			<SPAN CLASS="post-comment<!--MONTH.BIG.PLURALCOMMENT-->">
 				<A CLASS="noVisit" HREF="/blog/<!--MONTH.BIG.CODED-->/#comments"><!--MONTH.BIG.COMMENTS-->&nbsp;&#187;</A>
 			</SPAN>

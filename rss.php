@@ -118,13 +118,11 @@ if (!isset($_GET['mode']) || ($_GET['mode'] == 'blog'))
 		$getposts = "SELECT * FROM updates WHERE author = \"" . $_GET['author'] . "\" ORDER BY id DESC";
 	} else if ($_GET['blog'] == 'tag')
 	{
-		$getposts = "SELECT * FROM updates WHERE tag1 = \"" . $_GET['tag'] . "\" OR tag2 = \"" . $_GET['tag'] . "\" OR tag3 = \"" . $_GET['tag'] . "\" ORDER BY id DESC";
+		$getposts = "SELECT * FROM updates WHERE tags LIKE '%s:" . strlen($_GET['tag']) . ":\"" . $_GET['tag'] . "\"%' ORDER BY id DESC";
 	} else if (!isset($_GET['blog'])) {
 		$getposts = "SELECT * FROM updates ORDER BY id DESC";
 	}
 	$getposts2 = mysql_query($getposts);
-
-//	$si = $i;
 
 	while (($items[$i] = mysql_fetch_array($getposts2)))
 	{
