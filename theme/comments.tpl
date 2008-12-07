@@ -11,12 +11,6 @@
 		</DIV>
 	</BLOCKQUOTE>
 	<CITE><STRONG><!--COMMENTS.USERNAME--></STRONG> on <!--COMMENTS.DATE--></CITE>
-
-	<SPAN STYLE="float: right">
-		<A HREF="/vote.php?id=<!--COMMENTS.ID-->&amp;dir=plus&amp;mode=comment" REL="nofollow"><IMG SRC="/theme/images/icons/thumb_up.png"></A>
-		<!--COMMENTS.RATING-->
-		<A HREF="/vote.php?id=<!--COMMENTS.ID-->&amp;dir=minus&amp;mode=comment" REL="nofollow"><IMG SRC="/theme/images/icons/thumb_down.png"></A>
-	</SPAN>
 </DIV>
 <!--END COMMENTS-->
 

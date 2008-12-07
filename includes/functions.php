@@ -215,30 +215,4 @@ function verifyUser($username, $password)
 	return (($_POST['username'] != '') && ($getuser3['username'] == $_POST['username']));
 }
 
-function updateCommentPop($id, $plus=1)
-{
-	$gettrack = "SELECT * FROM tracking_comments WHERE ip = \"" . $_SERVER['REMOTE_ADDR'] . "\"";
-	$gettrack2 = mysql_query($gettrack);
-	$gettrack3 = mysql_fetch_array($gettrack2);
-
-	$trackArr = explode(',',$gettrack3['comment_id']);
-
-	if (($gettrack3['ip'] != $_SERVER['REMOTE_ADDR']) || (array_search($id,$trackArr) === FALSE))
-	{
-		$setcomment = "UPDATE comments SET rating = rating+" . $plus . " WHERE id = " . $id;
-		$setcomment2 = mysql_query($setcomment);
-
-		if ($gettrack3['ip'] == $_SERVER['REMOTE_ADDR'])
-		{
-			$settrack = "UPDATE tracking SET rating = \"" . $gettrack3['comment_id'] . "," . $id . "\" WHERE id = " . $gettrack3['id'];
-		} else {
-			$settrack = "INSERT INTO tracking (ip,rating) VALUES (\"" . $_SERVER['REMOTE_ADDR'] . "\",\"" . $id . "\")";
-		}
-		$settrack2 = mysql_query($settrack) or die($settrack);
-		return 1;
-	} else {
-		return 0;
-	}
-}
-
 ?>

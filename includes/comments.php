@@ -68,19 +68,11 @@ while ($getcomments3[$i] = mysql_fetch_array($getcomments2))
 
 	if (isset($username))
 	{
-		if ($getcomments3[$i]['rating'] > -2)
-		{
-			$text = parseBBCode($getcomments3[$i]['comment']);
-		} else {
-			$text = 'This comment has been rated down below the threshold for public viewing (-1), suggesting that it may contain inappropriate or off topic content. (Or it may have been flame bait, or simply bad!)';
-		}
-
 		$template->add_ref($curID, 'COMMENTS', array(	'CODEDEMAIL' => md5(strtolower($email)),
 								'USERNAME' => (($website != '') ? '<A HREF="http://' . $website . '">' . $username . '</A>' : $username),
 								'DATE' => date("F dS Y \a\\t g:i:s a",strtotime($getcomments3[$i]['posttime'])),
-								'RATING' => $getcomments3[$i]['rating'],
 								'ID' => $getcomments3[$i]['id'],
-								'TEXT' => $text));
+								'TEXT' => parseBBCode($getcomments3[$i]['comment'])));
 	}
 	$i++;
 }
