@@ -166,12 +166,12 @@ function recalcPop($id)
 	$popularity += ($getpost3['views']*2);
 	$popularity += ($getpost3['rating']*5);
 
-	$getcomments = "SELECT COUNT(*) FROM comments WHERE page_id = \"updates-" . $id . "\" AND username <> \"Pingback\"";
+	$getcomments = "SELECT COUNT(*) FROM comments WHERE page_id = \"updates-" . $id . "\"";
 	$getcomments2 = mysql_query($getcomments);
 	$getcomments3 = mysql_fetch_array($getcomments2);
 	$popularity += ($getcomments3[0] * 10);
 
-	$getpings = "SELECT COUNT(*) FROM comments WHERE page_id = \"updates-" . $id . "\" AND username = \"Pingback\"";
+	$getpings = "SELECT COUNT(*) FROM pingbacks WHERE post_id = " . $id;
 	$getpings2 = mysql_query($getpings);
 	$getpings3 = mysql_fetch_array($getpings2);
 	$popularity += ($getpings3[0] * 25);

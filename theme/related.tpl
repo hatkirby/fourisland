@@ -1,3 +1,5 @@
+<BR BREAK="both" />
+
 <DIV CLASS="bubble">
 	<DIV CLASS="rounded">
 		<BLOCKQUOTE>

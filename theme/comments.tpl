@@ -1,7 +1,7 @@
-<A NAME="comments" />
+<A NAME="comments"></A>
 
 <!--BEGIN COMMENTS-->
-<A NAME="comment-<!--COMMENTS.ID-->" />
+<A NAME="comment-<!--COMMENTS.ID-->"></A>
 
 <DIV CLASS="bubble">
 	<BLOCKQUOTE>

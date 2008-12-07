@@ -176,12 +176,9 @@ if (!isset($noRightbar))
 			break;
 		}
 
-		if ($name != 'Pingback')
-		{
-			$template->adds_block('TOP', array(	'USERNAME' => $name,
-								'COUNT' => $count));
-			$i++;
-		}
+		$template->adds_block('TOP', array(	'USERNAME' => $name,
+							'COUNT' => $count));
+		$i++;
 	}
 
 	$gethits = "SELECT * FROM config WHERE name = \"hits\"";

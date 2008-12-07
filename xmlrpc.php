@@ -58,33 +58,15 @@ function ping($xmlrpcmsg)
 					$title = $from;
 				}
 
-				preg_match_all('/HREF="([^"]+)">([^>]+)<\/A>/i',$page_data,$matches);
-				for ($i=0;$i<count($matches[1]);$i++)
-				{
-					if ($matches[1][$i] == $to)
-					{
-						$find = $matches[2][$i];
-					}
-				}
-
-				$text = strip_tags($page_data);
-				$text = substr($text,(stripos($text,$find)-300),700);
-				$text = str_ireplace('<BR>',"\n",$text);
-				$text = str_ireplace('<BR />',"\n",$text);
-				$text = str_replace("\t", ' ', $text);
-				$text = preg_replace('/' . "\n" . '([ ]*)' . "\n" . '/i', '', $text);
-
-				$commentText = "[url=" . $from . "]" . $title . "[/url]\n\n[....] " . $text . " [....]";
-
-				$getping = "SELECT * FROM comments WHERE page_id = \"updates-" . $getpost3['id'] . "\" AND comment = \"" . addslashes($commentText) . "\"";
+				$getping = "SELECT * FROM pingbacks WHERE post_id = " . $getpost3['id'] . " AND url = \"" . mysql_real_escape_string($from) . "\"";
 				$getping2 = mysql_query($getping);
 				$getping3 = mysql_fetch_array($getping2);
 
-				if ($getping3['comment'] == $commentText)
+				if ($getping3['url'] == $from)
 				{
 					return new xmlrpcresp(0, 48, "Target uri cannot be used as target");
 				} else {
-					$insping = "INSERT INTO comments (page_id,username,comment) VALUES (\"updates-" . $getpost3['id'] . "\",\"Pingback\",\"" . $commentText . "\")";
+					$insping = "INSERT INTO pingbacks (post_id,title,url) VALUES (" . $getpost3['id'] . ",\"" . mysql_real_escape_string($title) . "\",\"" . mysql_real_escape_string($from) . "\")";
 					$insping2 = mysql_query($insping);
 					recalcPop($getpost3['id']);
 
@@ -101,13 +83,7 @@ function ping($xmlrpcmsg)
 	}
 }
 
-function rr($xmlrpcmsg)
-{
-	return new xmlrpcresp(new xmlrpcval(0, "int"));
-}
-
 $s = new xmlrpc_server(array(
-			"pingback.ping" => array("function" => "ping"),
-			"InstaDisc.checkRegistration" => array("function" => "rr")));
+			"pingback.ping" => array("function" => "ping")));
 
 ?>

@@ -20,7 +20,7 @@
 
 require('headerproc.php');
 
-header('X-Pingback: http://www.fourisland.com/xmlrpc.php');
+header('X-Pingback: http://fourisland.com/xmlrpc.php');
 
 include('../security/config.php');
 include('includes/db.php');
