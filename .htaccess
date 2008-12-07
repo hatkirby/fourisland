@@ -26,9 +26,6 @@ RewriteRule ^error/(.+).php /index.php?area=error&id=$1 [QSA,L]
 
 RewriteRule ^projects/ - [L]
 
-RewriteRule ^comic/$ /index.php?area=comic [QSA,L]
-RewriteRule ^comic/(.+)/ /index.php?area=comic&comic=$1 [QSA,L]
-
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.+).php /index.php?area=$1 [QSA,L]
