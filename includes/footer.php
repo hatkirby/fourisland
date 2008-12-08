@@ -205,6 +205,33 @@ if (!isset($noRightbar))
 							'POST' => $getpost3[$i]['post_id'],
 							'USERNAME' => $getuser3['username']));
 	}
+
+	$gettags = "SELECT DISTINCT tag FROM tags";
+	$gettags2 = mysql_query($gettags);
+	$i=0;
+	while ($gettags3[$i] = mysql_fetch_array($gettags2))
+	{
+		$cnttag = "SELECT COUNT(*) FROM tags WHERE tag = \"" . $gettags3[$i]['tag'] . "\"";
+		$cnttag2 = mysql_query($cnttag);
+		$cnttag3 = mysql_fetch_array($cnttag2);
+
+		$counts[$gettags3[$i]['tag']] = $cnttag3[0];
+
+		$i++;
+	}
+
+	$min_count = min($counts);
+	$spread = max($counts) - $min_count;
+	$spread = ($spread <= 0) ? 1 : $spread;
+	$font_step = 8 / $spread;
+
+	uksort($counts, 'strnatcasecmp');
+
+	foreach ($counts as $tag => $count)
+	{
+		$template->adds_block('TAGCLOUD', array(	'TAG' => $tag,
+								'SIZE' => (8 + (($count - $min_count) * $font_step))));
+	}
 }
 
 $template->add('REDIRPAGE',rawurlencode($_SERVER['REQUEST_URI']));

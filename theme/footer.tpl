@@ -175,6 +175,22 @@
 						<DIV CLASS="bubble">
 							<DIV CLASS="rounded">
 								<BLOCKQUOTE>
+									<DIV ID="hatbar"><H3>Tag Cloud</H3><P>
+										<P>
+											<!--BEGIN TAGCLOUD-->
+											<A HREF="/blog/tag/<!--TAGCLOUD.TAG-->.php" STYLE="font-size: <!--TAGCLOUD.SIZE-->pt"><!--TAGCLOUD.TAG--></A>
+											<!--END TAGCLOUD-->
+										</P>
+									</DIV>
+								</BLOCKQUOTE>
+							</DIV>
+						</DIV>
+					</DIV>
+
+					<DIV class="sidebar">
+						<DIV CLASS="bubble">
+							<DIV CLASS="rounded">
+								<BLOCKQUOTE>
 									<DIV ID="hatbar">
 										<H3>Recent Comments</H3>
 
