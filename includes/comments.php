@@ -30,7 +30,6 @@ $curID = 0;
 
 $template = new FITemplate('comments');
 $template->add('PAGEID',$page_id);
-$template->add('CODEDDEF',urlencode('http://www.fourisland.com/images/error404.png'));
 $template->add('USERNAME',(isLoggedIn() ? sess_get('uname') : 'Anonymous'));
 
 if (!isLoggedIn())
