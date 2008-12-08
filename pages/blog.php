@@ -81,6 +81,28 @@ if (isset($_GET['post']))
 		}
 
 		$template->display();
+
+		$getpings = "SELECT * FROM pingbacks WHERE post_id = " . $getpost3['id'];
+		$getpings2 = mysql_query($getpings);
+		$i=0;
+		while ($getpings3[$i] = mysql_fetch_array($getpings2))
+		{
+			if ($i==0)
+			{
+				$template = new FITemplate('pingbacks');
+			}
+
+			$template->adds_block('PINGBACK', array(	'TITLE' => $getpings3[$i]['title'],
+									'URL' => $getpings3[$i]['url'],
+									'DATE' => date('F d<\S\U\P>S</\S\U\P> Y', strtotime($getpings3[$i]['pubDate']))));
+			$i++;
+		}
+
+		if ($i > 0)
+		{
+			$template->display();
+		}
+
 		$page_id = 'updates-' . $getpost3['id'];
 		include('includes/comments.php');
 
@@ -98,27 +120,6 @@ if (isset($_GET['post']))
 								'CODED' => $getrelated3[$i]['slug'],
 								'AUTHOR' => $getrelated3[$i]['author'],
 								'DATE' => date('F d<\S\U\P>S</\S\U\P> Y',strtotime($getrelated3[$i]['pubDate']))));
-			$i++;
-		}
-
-		if ($i > 0)
-		{
-			$template->display();
-		}
-
-		$getpings = "SELECT * FROM pingbacks WHERE post_id = " . $getpost3['id'];
-		$getpings2 = mysql_query($getpings);
-		$i=0;
-		while ($getpings3[$i] = mysql_fetch_array($getpings2))
-		{
-			if ($i==0)
-			{
-				$template = new FITemplate('pingbacks');
-			}
-
-			$template->adds_block('PINGBACK', array(	'TITLE' => $getpings3[$i]['title'],
-									'URL' => $getpings3[$i]['url'],
-									'DATE' => date('F d<\S\U\P>S</\S\U\P> Y', strtotime($getpings3[$i]['pubDate']))));
 			$i++;
 		}
 
