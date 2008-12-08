@@ -115,8 +115,14 @@ function postBlogPost($title,$author,$tags,$content)
 {
 	$slug = generateSlug($title,'updates');
 
-	$inspost = "INSERT INTO updates (title,slug,author,tags,text) VALUES (\"" . $title . "\",\"" . $slug . "\",\"" . $author . "\",\"" . $tags . "\",\"" . addslashes($content) . "\")";
+	$inspost = "INSERT INTO updates (title,slug,author,text) VALUES (\"" . $title . "\",\"" . $slug . "\",\"" . $author . "\",\"" . addslashes($content) . "\")";
 	$inspost2 = mysql_query($inspost);
+
+	$getpost = "SELECT * FROM updates WHERE slug = \"" . $slug . "\"";
+	$getpost2 = mysql_query($getpost);
+	$getpost3 = mysql_fetch_array($getpost2);
+
+	addTags($getpost3['id'], $tags);
 
 	$upconf = "UPDATE config SET value = \"" . date('md') . "\" WHERE name = \"lastUpdate\"";
 	$upconf2 = mysql_query($upconf);
@@ -144,7 +150,7 @@ function postBlogPost($title,$author,$tags,$content)
 			if (preg_match('/<LINK REL="pingback" HREF="([^"]+)"/i',$page_data,$server))
 			{
 				$client = new xmlrpc_client($server[1]);
-				$msg = new xmlrpcmsg("pingback.ping", array(	new xmlrpcval('http://www.fourisland.com/blog/' . $slug . '/', 'string'),
+				$msg = new xmlrpcmsg("pingback.ping", array(	new xmlrpcval('http://fourisland.com/blog/' . $slug . '/', 'string'),
 										new xmlrpcval($link, 'string')));
 				$client->send($msg);
 			}
@@ -153,7 +159,7 @@ function postBlogPost($title,$author,$tags,$content)
 
 	$client = new xmlrpc_client('http://rpc.pingomatic.com');
 	$msg = new xmlrpcmsg("weblogUpdates.ping", array(	new xmlrpcval('Four Island', 'string'),
-								new xmlrpcval('http://www.fourisland.com/', 'string')));
+								new xmlrpcval('http://fourisland.com/', 'string')));
 	$client->send($msg);
 }
 
@@ -213,6 +219,36 @@ function verifyUser($username, $password)
 	$getuser2 = mysql_query($getuser);
 	$getuser3 = mysql_fetch_array($getuser2);
 	return (($_POST['username'] != '') && ($getuser3['username'] == $_POST['username']));
+}
+
+function getTags($id, $type = 'published')
+{
+	$gettags = "SELECT * FROM tags WHERE post_id = " . $id . " AND post_type = \"" . $type . "\"";
+	$gettags2 = mysql_query($gettags);
+	$i=0;
+	$tags = array();
+	while ($gettags3[$i] = mysql_fetch_array($gettags2))
+	{
+		$tags[] = $gettags3[$i]['tag'];
+		$i++;
+	}
+
+	return $tags;
+}
+
+function addTags($id, $tags, $type = 'published')
+{
+	foreach ($tags as $tag)
+	{
+		$instag = "INSERT INTO tags (post_id,post_type,tag) VALUES (" . $id . ",\"" . $type . "\",\"" . $tag . "\")";
+		$instag2 = mysql_query($instag);
+	}
+}
+
+function removeTags($id, $type = 'published')
+{
+	$deltags = "DELETE FROM tags WHERE post_id = " . $id . " AND post_type = \"" . $type . "\"";
+	$deltags2 = mysql_query($deltags);
 }
 
 ?>

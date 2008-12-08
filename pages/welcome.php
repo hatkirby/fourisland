@@ -70,7 +70,7 @@ while ($getpost3 = mysql_fetch_array($getpost2))
 							'RATING' => $getpost3['rating'],
 							'TEXT' => parseBBCode($getpost3['text'])));
 
-	$tags = unserialize($getpost3['tags']);
+	$tags = getTags($getpost3['id']);
 	foreach ($tags as $tag)
 	{
 		$template->adds_ref_sub($curID, 'TAGS', array('TAG' => $tag));

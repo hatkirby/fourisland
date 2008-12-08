@@ -37,16 +37,18 @@ if (isLoggedIn())
 			{
 				$template = new FITemplate('admin/write');
 			} else {
-				$tags = mysql_real_escape_string(serialize(explode(',', $_POST['tags'])));
+				$tags = explode(',', $_POST['tags']);
 
 				if ($_POST['type'] == 'draft')
 				{
-					$insdraft = "INSERT INTO drafts (title,author,text,tags,slug) VALUES (\"" . addslashes($_POST['title']) . "\",\"" . sess_get('uname') . "\",\"" . addslashes($_POST['text']) . "\",\"" . $tags . "\",\"" . generateSlug($_POST['title'],'updates') . "\")";
+					$insdraft = "INSERT INTO drafts (title,author,text,slug) VALUES (\"" . addslashes($_POST['title']) . "\",\"" . sess_get('uname') . "\",\"" . addslashes($_POST['text']) . "\",\"" . generateSlug($_POST['title'],'updates') . "\")";
 					$insdraft2 = mysql_query($insdraft);
 
 					$getdraft = "SELECT * FROM drafts ORDER BY id DESC LIMIT 0,1";
 					$getdraft2 = mysql_query($getdraft);
 					$getdraft3 = mysql_fetch_array($getdraft2);
+
+					addTags($getdraft3['id'], $tags, 'draft');
 
 					$template = new FITemplate('admin/draftSuccess');
 					$template->add('ID', $getdraft3['id']);
@@ -88,8 +90,10 @@ if (isLoggedIn())
 						generateError(404);
 					}
 
-					$inspending = "INSERT INTO pending (id,title,author,text,tags,slug) VALUES (" . $id . ",\"" . addslashes($_POST['title']) . "\",\"" . sess_get('uname') . "\",\"" . addslashes($_POST['text']) . "\",\"" . $tags . "\",\"" . generateSlug($_POST['title'],'updates') . "\")";
+					$inspending = "INSERT INTO pending (id,title,author,text,slug) VALUES (" . $id . ",\"" . addslashes($_POST['title']) . "\",\"" . sess_get('uname') . "\",\"" . addslashes($_POST['text']) . "\",\"" . generateSlug($_POST['title'],'updates') . "\")";
 					$inspending2 = mysql_query($inspending);
+
+					addTags($id, $tags, 'pending');
 
 					$template = new FITemplate('admin/pendingSuccess');
 					$template->add('ID', $id);
@@ -122,15 +126,18 @@ if (isLoggedIn())
 					$template = new FITemplate('admin/editDraft');
 					$template->add('ID', $_GET['id']);
 					$template->add('TEXT', $getdraft3['text']);
-					$template->add('TAGS', implode(',', unserialize($getdraft3['tags'])));
+					$template->add('TAGS', implode(',', getTags($getdraft3['id'], 'draft')));
 					$template->add('TITLE', $getdraft3['title']);
 				} else {
-					$tags = mysql_real_escape_string(serialize(explode(',', $_POST['tags'])));
+					$tags = explode(',', $_POST['tags']);
+					removeTags($_GET['id'], 'draft');
 
 					if ($_POST['type'] == 'draft')
 					{
-						$setdraft = "UPDATE drafts SET title = \"" . addslashes($_POST['title']) . "\", text = \"" . addslashes($_POST['text']) . "\", tags = \"" . $tags . "\" WHERE id = " . $_GET['id'];
+						$setdraft = "UPDATE drafts SET title = \"" . addslashes($_POST['title']) . "\", text = \"" . addslashes($_POST['text']) . "\" WHERE id = " . $_GET['id'];
 						$setdraft2 = mysql_query($setdraft);
+
+						addTags($_GET['id'], $tags, 'draft');
 
 						$template = new FITemplate('admin/draftSuccess');
 						$template->add('ID', $_GET['id']);
@@ -178,6 +185,8 @@ if (isLoggedIn())
 						$inspending = "INSERT INTO pending (id,title,author,text,tags,slug) VALUES (" . $id . ",\"" . addslashes($_POST['title']) . "\",\"" . sess_get('uname') . "\",\"" . addslashes($_POST['text']) . "\",\"" . $tags . "\",\"" . generateSlug($_POST['title'],'updates') . "\")";
 						$inspending2 = mysql_query($inspending);
 
+						addTags($id, $tags, 'pending');
+
 						$deldraft = "DELETE FROM drafts WHERE id = " . $_GET['id'];
 						$deldraft2 = mysql_query($deldraft);
 
@@ -205,6 +214,8 @@ if (isLoggedIn())
 				} else {
 					$deldraft = "DELETE FROM drafts WHERE id = " . $_GET['id'];
 					$deldraft2 = mysql_query($deldraft);
+
+					removeTags($_GET['id'], 'draft');
 
 					$template = new FITemplate('admin/deletedDraft');
 				}
@@ -234,7 +245,7 @@ if (isLoggedIn())
 									'RATING' => 0,
 									'TEXT' => parseBBCode($getdraft3['text'])));
 
-				$tags = unserialize($getdraft3['tags']);
+				$tags = getTags($getdraft3['id'], 'draft');
 				foreach ($tags as $tag)
 				{
 					$template->adds_ref_sub(0, 'TAGS', array('TAG' => $tag));
@@ -271,13 +282,16 @@ if (isLoggedIn())
 					$template = new FITemplate('admin/editPending');
 					$template->add('ID', $_GET['id']);
 					$template->add('TEXT', $getpending3['text']);
-					$template->add('TAGS', implode(',', unserialize($getdraft3['tags'])));
+					$template->add('TAGS', implode(',', getTags($getpending3['id'], 'pending')));
 					$template->add('TITLE', $getpending3['title']);
 				} else {
-					$tags = mysql_real_escape_string(serialize(explode(',', $_POST['tags'])));
+					$tags = explode(',', $_POST['tags']);
 
-					$setpending = "UPDATE pending SET title = \"" . addslashes($_POST['title']) . "\", text = \"" . addslashes($_POST['text']) . "\", tags = \"" . $tags . "\" WHERE id = " . $_GET['id'];
+					$setpending = "UPDATE pending SET title = \"" . addslashes($_POST['title']) . "\", text = \"" . addslashes($_POST['text']) . "\" WHERE id = " . $_GET['id'];
 					$setpending2 = mysql_query($setpending);
+
+					removeTags($_GET['id'], 'pending');
+					addTags($_GET['id'], $tags, 'pending');
 
 					$template = new FITemplate('admin/pendingSuccess');
 					$template->add('ID', $_GET['id']);
@@ -302,6 +316,8 @@ if (isLoggedIn())
 				} else {
 					$delpending = "DELETE FROM pending WHERE id = " . $_GET['id'];
 					$delpending2 = mysql_query($delpending);
+
+					removeTags($_GET['id'], 'pending');
 
 					$template = new FITemplate('admin/deletedPending');
 				}
@@ -331,7 +347,7 @@ if (isLoggedIn())
 									'RATING' => 0,
 									'TEXT' => parseBBCode($getpending3['text'])));	
 
-				$tags = unserialize($getpending3['tags']);
+				$tags = getTags($getpending3['id'], 'pending');
 				foreach ($tags as $tag)
 				{
 					$template->adds_ref_sub(0, 'TAGS', array('TAG' => $tag));
@@ -384,11 +400,18 @@ if (isLoggedIn())
 					$delpending = "DELETE FROM pending WHERE id = " . $_GET['id'] . " OR id = " . $otherPending['id'];
 					$delpending2 = mysql_query($delpending);
 
-					$inspending = "INSERT INTO pending (id, title, author, text, tags, slug) VALUES (" . $_GET['id'] . ",\"" . $otherPending['title'] . "\",\"" . $otherPending['author'] . "\",\"" . $otherPending['text'] . "\",\"" . $otherPending['tags'] . "\",\"" . $otherPending['slug'] . "\")";
+					$inspending = "INSERT INTO pending (id, title, author, text, slug) VALUES (" . $_GET['id'] . ",\"" . $otherPending['title'] . "\",\"" . $otherPending['author'] . "\",\"" . $otherPending['text'] . "\",\"" . $otherPending['slug'] . "\")";
 					$inspending2 = mysql_query($inspending);
 
-					$ins2pending = "INSERT INTO pending (id, title, author, text, tags, slug) VALUES (" . $otherPending['id'] . ",\"" . $getpending3['title'] . "\",\"" . $getpending3['author'] . "\",\"" . $getpending3['text'] . "\",\"" . $getpending3['tags'] . "\",\"" . $getpending3['slug'] . "\")";
+					$ins2pending = "INSERT INTO pending (id, title, author, text, slug) VALUES (" . $otherPending['id'] . ",\"" . $getpending3['title'] . "\",\"" . $getpending3['author'] . "\",\"" . $getpending3['text'] . "\",\"" . $getpending3['slug'] . "\")";
 					$ins2pending2 = mysql_query($ins2pending);
+
+					$tags1 = getTags($_GET['id'], 'pending');
+					$tags2 = getTags($otherPending['id'], 'pending');
+					removeTags($_GET['id'], 'pending');
+					removeTags($otherPending['id'], 'pending');
+					addTags($_GET['id'], $tags2, 'pending');
+					addTags($otherPending['id'], $tags1, 'pending');
 
 					$template = new FITemplate('admin/managePending');
 
@@ -436,13 +459,16 @@ if (isLoggedIn())
 					$template = new FITemplate('admin/editPost');
 					$template->add('ID', $_GET['id']);
 					$template->add('TEXT', $getpost3['text']);
-					$template->add('TAGS', implode(',', unserialize($getpost3['tags'])));
+					$template->add('TAGS', implode(',', getTags($getpost3['id'])));
 					$template->add('TITLE', $getpost3['title']);
 				} else {
-					$tags = mysql_real_escape_string(serialize(explode(',', $_POST['tags'])));
+					$tags = explode(',', $_POST['tags']);
 
-					$setpost = "UPDATE updates SET title = \"" . addslashes($_POST['title']) . "\", text = \"" . addslashes($_POST['text']) . "\", tags = \"" . $tags . "\" WHERE id = " . $_GET['id'];
+					$setpost = "UPDATE updates SET title = \"" . addslashes($_POST['title']) . "\", text = \"" . addslashes($_POST['text']) . "\" WHERE id = " . $_GET['id'];
 					$setpost2 = mysql_query($setpost);
+
+					removeTags($_GET['id']);
+					addTags($_GET['id'], $tags);
 
 					$template = new FITemplate('admin/postSuccess');
 					$template->add('ID', $_GET['id']);
@@ -468,6 +494,8 @@ if (isLoggedIn())
 				} else {
 					$delpost = "DELETE FROM updates WHERE id = " . $_GET['id'];
 					$delpost2 = mysql_query($delpost);
+
+					removeTags($_GET['id']);
 
 					$template = new FITemplate('admin/deletedPost');
 				}

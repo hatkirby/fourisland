@@ -118,7 +118,7 @@ if (!isset($_GET['mode']) || ($_GET['mode'] == 'blog'))
 		$getposts = "SELECT * FROM updates WHERE author = \"" . $_GET['author'] . "\" ORDER BY id DESC";
 	} else if ($_GET['blog'] == 'tag')
 	{
-		$getposts = "SELECT * FROM updates WHERE tags LIKE '%s:" . strlen($_GET['tag']) . ":\"" . $_GET['tag'] . "\"%' ORDER BY id DESC";
+		$getposts = "SELECT * FROM updates AS u, tags AS t WHERE u.id = t.post_id AND t.post_type = \"published\" AND t.tag = \"" . $_GET['tag'] . "\" ORDER BY u.id DESC";
 	} else if (!isset($_GET['blog'])) {
 		$getposts = "SELECT * FROM updates ORDER BY id DESC";
 	}

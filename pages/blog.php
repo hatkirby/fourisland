@@ -74,7 +74,7 @@ if (isset($_GET['post']))
 							'RATING' => $getpost3['rating'],
 							'TEXT' => parseBBCode($getpost3['text'])));
 
-		$tags = unserialize($getpost3['tags']);
+		$tags = getTags($getpost3['id']);
 		foreach ($tags as $tag)
 		{
 			$template->adds_ref_sub(0, 'TAGS', array('TAG' => $tag));
@@ -135,7 +135,7 @@ if (isset($_GET['post']))
 	if (isset($_GET['author']))
 	{
 		$title = 'Author: ' . $_GET['author'] . ' - Blog Archive';
-		$getposts = "SELECT * FROM updates WHERE author = \"" . $_GET['author'] . "\" ORDER BY id DESC";
+		$getposts = "SELECT * FROM updates AS u WHERE author = \"" . $_GET['author'] . "\" ORDER BY id DESC";
 		$getbio = "SELECT * FROM bio WHERE username = \"" . $_GET['author'] . "\"";
 		$getbio2 = mysql_query($getbio);
 		$getbio3 = mysql_fetch_array($getbio2);
@@ -148,10 +148,10 @@ if (isset($_GET['post']))
 	} elseif (isset($_GET['tag']))
 	{
 		$title = 'Tag: ' . $_GET['tag'] . ' - Blog Archive';
-		$getposts = "SELECT * FROM updates WHERE tags LIKE '%s:" . strlen($_GET['tag']) . ":\"" . $_GET['tag'] . "\"%' ORDER BY id DESC";
+		$getposts = "SELECT * FROM updates AS u, tags AS t WHERE u.id = t.post_id AND t.post_type = \"published\" AND t.tag = \"" . $_GET['tag'] . "\" ORDER BY u.id DESC";
 	} else {
 		$title = 'Blog Archive';
-		$getposts = "SELECT * FROM updates ORDER BY id DESC";
+		$getposts = "SELECT * FROM updates AS u ORDER BY id DESC";
 	}
 	$getposts2 = mysql_query($getposts);
 	$i=0;
