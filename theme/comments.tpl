@@ -6,7 +6,7 @@
 <DIV CLASS="bubble">
 	<BLOCKQUOTE>
 		<DIV>
-			<IMG SRC="http://www.gravatar.com/avatar/<!--COMMENTS.CODEDEMAIL-->?s=32&amp;d=wavatar&amp;r=G">
+			<IMG SRC="http://www.gravatar.com/avatar/<!--COMMENTS.CODEDEMAIL-->?s=32&amp;d=identicon&amp;r=G">
 			<!--COMMENTS.TEXT-->
 		</DIV>
 	</BLOCKQUOTE>
