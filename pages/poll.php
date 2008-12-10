@@ -24,7 +24,22 @@ require('headerproc.php');
 
 $pageCategory = 'poll';
 
-if (!isset($_GET['id']))
+if (isset($_GET['submit']))
+{
+	$setip = "INSERT INTO didpollalready SET ip = \"" . $_SERVER['REMOTE_ADDR'] . "\"";
+	$setip2 = mysql_query($setip);
+	$getpoll = "SELECT * FROM polloftheweek ORDER BY id DESC LIMIT 0,1";
+	$getpoll2 = mysql_query($getpoll);
+	$getpoll3 = mysql_fetch_array($getpoll2);
+	$setpoll = "UPDATE polloftheweek SET clicks" . $_POST['options'] . " = " . ($getpoll3['clicks' . $_POST['options']]+1) . " WHERE id = " . $getpoll3['id'];
+	$setpoll2 = mysql_query($setpoll);
+
+	$template = new FITemplate('msg');
+
+	$template->add('MSG','<H2>' . $getpoll3['question'] . '</H2><P>Thank you for voting on the Poll of the Week!<BR><A HREF="poll.php?id=' . $getpoll3['id'] . '">Click here to visit the page for this poll.');
+
+	$template->display();
+} else if (!isset($_GET['id']))
 {
 	$template = new FITemplate('pollIndex');
 

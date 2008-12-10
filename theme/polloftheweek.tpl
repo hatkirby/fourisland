@@ -1,5 +1,5 @@
 <!--BEGIN FORM-->
-<FORM ACTION="/polloftheweek.php?potw=" METHOD="POST">
+<FORM ACTION="/poll/?submit=" METHOD="POST">
 	<SPAN STYLE="font-size: 16px; text-align: center">
 		<!--QUESTION-->
 	</SPAN>
