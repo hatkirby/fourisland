@@ -257,7 +257,7 @@ foreach ($items as $key => $value)
 		<item>
 			<title>Comment on <?php echo($value['title']); ?> by <?php echo($value['username']); ?></title>
 
-			<link>http://fourisland.com/comments/<?php echo($value['id']); ?>/</link>
+			<link>http://fourisland.com/<?php echo($value['url']); ?>#comment-<?php echo($value['id']); ?></link>
 
 			<description><?php echo(stripslashes(htmlentities(parseBBCode($value['comment'])))); ?></description>
 

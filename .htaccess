@@ -5,8 +5,6 @@ RewriteRule ^blog/author/(.+).php /index.php?area=blog&author=$1 [QSA,L]
 RewriteRule ^blog/tag/(.+).php /index.php?area=blog&tag=$1 [QSA,L]
 RewriteRule ^blog/(.+)/ /index.php?area=blog&post=$1 [QSA,L]
 
-RewriteRule ^comments/(.+)/ /index.php?area=comment&id=$1 [QSA,L]
-
 RewriteRule ^wiki/$ /wiki/Main_Page [QSA]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
