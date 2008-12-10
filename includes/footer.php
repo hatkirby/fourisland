@@ -211,7 +211,7 @@ if (!isset($noRightbar))
 	$i=0;
 	while ($gettags3[$i] = mysql_fetch_array($gettags2))
 	{
-		$cnttag = "SELECT COUNT(*) FROM tags WHERE tag = \"" . $gettags3[$i]['tag'] . "\"";
+		$cnttag = "SELECT COUNT(*) FROM tags WHERE tag = \"" . $gettags3[$i]['tag'] . "\" AND post_type = \"published\"";
 		$cnttag2 = mysql_query($cnttag);
 		$cnttag3 = mysql_fetch_array($cnttag2);
 
