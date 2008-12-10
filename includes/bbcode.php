@@ -22,130 +22,87 @@ if (!defined('S_INCLUDE_FILE')) {define('S_INCLUDE_FILE',1);}
 
 require('headerproc.php');
 
-$bbcode = bbcode_create(array('' => array('type' => BBCODE_TYPE_ROOT)));
-
-// [b][/b] - Bold
-bbcode_add_element($bbcode,'b',array(	'type' => BBCODE_TYPE_NOARG,
-					'open_tag' => '<B>',
-					'close_tag' => '</B>'));
-
-// [i][/i] - Italic
-bbcode_add_element($bbcode,'i',array(	'type' => BBCODE_TYPE_NOARG,
-					'open_tag' => '<I>',
-					'close_tag' => '</I>'));
-
-// [url][/url] - [url=][/url] - Link
-bbcode_add_element($bbcode,'url',array(	'type' => BBCODE_TYPE_OPTARG,
-					'open_tag' => '<a href="{PARAM}">',
-					'close_tag' => '</a>',
-					'default_arg' => '{CONTENT}'));
-
-// [img][/img] - [img=][/img] - Image
-bbcode_add_element($bbcode,'img',array(	'type' => BBCODE_TYPE_OPTARG,
-					'open_tag' => '<IMG SRC="',
-					'close_tag' => '" ALT="{PARAM}" ALIGN="RIGHT"></IMG>',
-					'default_tag' => '{CONTENT}'));
-
-// [big][/big] - Big
-bbcode_add_element($bbcode,'big',array(	'type' => BBCODE_TYPE_NOARG,
-					'open_tag' => '<BIG>',
-					'close_tag' => '</BIG>'));
-
-// [small][/small] - Small
-bbcode_add_element($bbcode,'small',array(	'type' => BBCODE_TYPE_NOARG,
-						'open_tag' => '<SMALL>',
-						'close_tag' => '</SMALL>'));
-
-// [ul][/ul] - Unordered List
-bbcode_add_element($bbcode,'ul',array(	'type' => BBCODE_TYPE_NOARG,
-					'open_tag' => '<UL>',
-					'close_tag' => '</UL>',
-					'childs' => 'li'));
-
-// [ol][/ol] - Ordered List
-bbcode_add_element($bbcode,'ol',array(	'type' => BBCODE_TYPE_NOARG,
-					'open_tag' => '<OL>',
-					'close_tag' => '</OL>',
-					'childs' => 'li'));
-
-// [li][/li] - List Item
-bbcode_add_element($bbcode,'li',array(	'type' => BBCODE_TYPE_NOARG,
-					'open_tag' => '<LI>',
-					'close_tag' => '</LI>'));
-
-// [code][/code] - Code
-bbcode_add_element($bbcode,'code',array(	'type' => BBCODE_TYPE_NOARG,
-						'open_tag' => '<CODE>',
-						'close_tag' => '</CODE>'));
-
-// [pre][/pre] - Preformatted Code
-bbcode_add_element($bbcode,'pre',array(	'type' => BBCODE_TYPE_NOARG,
-					'open_tag' => '<P><DIV CLASS="autosize"><DIV CLASS="bubble"><DIV CLASS="bquote"><BLOCKQUOTE><DIV><PRE>',
-					'close_tag' => '</PRE></DIV></BLOCKQUOTE></DIV></DIV></DIV><DIV CLASS="cleardiv"></DIV>'));
-
-function bb_fixCode($string)
+class BBCode
 {
-	$he = htmlentities($string);
-	$br = nl2br($he);
-	$sp = str_replace('  ','&nbsp;$nbsp;',$br);
-	$ta = str_replace('	','&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',$sp);
-	return($ta);
+	var $init = false;
+	var $bbcodes;
+	var $bbcodes2;
+
+	function init()
+	{
+		$this->bbcodes['b'] = '<B>{CONTENT}</B>';
+		$this->bbcodes['i'] = '<I>{CONTENT}</I>';
+		$this->bbcodes['url'] = '<A HREF="{CONTENT}">{CONTENT}</A>';
+		$this->bbcodes2['url'] = '<A HREF="{PARAM}">{CONTENT}</A>';
+		$this->bbcodes['img'] = '<IMG SRC="{CONTENT}" />';
+		$this->bbcodes2['img'] = '<IMG SRC="{CONTENT}" ALT="{PARAM}" TITLE="{PARAM}" ALIGN="right" />';
+		$this->bbcodes['big'] = '<BIG>{CONTENT}</BIG>';
+		$this->bbcodes['small'] = '<SMALL>{CONTENT}</SMALL>';
+		$this->bbcodes['ul'] = '<UL>{CONTENT}</UL>';
+		$this->bbcodes['ol'] = '<OL>{CONTENT}</OL>';
+		$this->bbcodes['li'] = '<LI>{CONTENT}</LI>';
+		$this->bbcodes['code'] = '<CODE>{CONTENT}</CODE>';
+		$this->bbcodes['pre'] = '<P><DIV CLASS="autosize"><DIV CLASS="bubble"><DIV CLASS="bquote"><BLOCKQUOTE><DIV><PRE>{CONTENT}</PRE></DIV></BLOCKQUOTE></DIV></DIV></DIV><DIV CLASS="cleardiv"></DIV>';
+		$this->bbcodes2['blog'] = '<A HREF="/blog/{PARAM}/">{CONTENT}</A>';
+		$this->bbcodes['ins'] = '<INS>{CONTENT}</INS>';
+		$this->bbcodes['del'] = '<DEL>{CONTENT}</DEL>';
+		$this->bbcodes['bquote'] = '<P><DIV CLASS="autosize"><DIV CLASS="bubble"><DIV CLASS="bquote"><BLOCKQUOTE><DIV><NOBR>{CONTENT}</NOBR></DIV></BLOCKQUOTE></DIV><CITE><STRONG>Anonymous</STRONG></CITE></DIV></DIV><DIV CLASS="cleardiv"></DIV>';
+		$this->bbcodes2['bquote'] = '<P><DIV CLASS="autosize"><DIV CLASS="bubble"><DIV CLASS="bquote"><BLOCKQUOTE><DIV><NOBR>{CONTENT}</NOBR></DIV></BLOCKQUOTE></DIV><CITE><STRONG>{PARAM}</STRONG></CITE></DIV></DIV><DIV CLASS="cleardiv"></DIV>';
+		$this->bbcodes2['abbr'] = '<ABBR TITLE="{PARAM}">{CONTENT}</ABBR>';
+		$this->bbcodes['hidden'] = '<DIV STYLE="display: none">{CONTENT}</DIV>';
+
+		$this->init = true;
+	}
+
+	function parseBBCode($text)
+	{
+		if (!$this->init)
+		{
+			$this->init();
+		}
+
+		$to_parse = str_replace("\n",'[br]',htmlentities($text));
+		
+		foreach ($this->bbcodes as $name => $value)
+		{
+			while (strpos($to_parse, '[' . $name . ']') !== FALSE)
+			{
+				$bbcode_uid = unique_id();
+				$to_parse = substr_replace($to_parse, '[' . $name . ':' . $bbcode_uid . ']', strpos($to_parse, '[' . $name . ']'), strlen($name) + 2);
+				$to_parse = substr_replace($to_parse, '[/' . $name . ':' . $bbcode_uid . ']', strpos($to_parse, '[/' . $name . ']'), strlen($name) + 3);
+
+				$value = str_replace('{CONTENT}', '\1', $value);
+				$to_parse = preg_replace('/\[' . $name . ':' . $bbcode_uid . '\](.*)\[\/' . $name . ':' . $bbcode_uid . '\]/', $value, $to_parse);
+			}
+		}
+
+		foreach ($this->bbcodes2 as $name => $value)
+		{
+			while (strpos($to_parse, '[' . $name . '=') !== FALSE)
+			{
+				$bbcode_uid = unique_id();
+				$to_parse = substr_replace($to_parse, '[' . $name . ':' . $bbcode_uid . '=', strpos($to_parse, '[' . $name . '='), strlen($name) + 2);
+				$to_parse = substr_replace($to_parse, '[/' . $name . ':' . $bbcode_uid . ']', strpos($to_parse, '[/' . $name . ']'), strlen($name) + 3);
+
+				$value = str_replace('{PARAM}', '\1', $value);
+				$value = str_replace('{CONTENT}', '\2', $value);
+				$to_parse = preg_replace('/\[' . $name . ':' . $bbcode_uid . '=([^\]]*)\](.*)\[\/' . $name . ':' . $bbcode_uid . '\]/', $value, $to_parse);
+			}
+		}
+
+		return str_replace('[br]','<BR />',$to_parse);
+	}
 }
-
-// [blog][/blog] - Blog Link
-bbcode_add_element($bbcode,'blog',array(	'type' => BBCODE_TYPE_OPTARG,
-						'open_tag' => (isset($oldBlog) ? '<A HREF="/archives/{CONTENT}.php">' : '<A HREF="/blog/{PARAM}/">'),
-						'close_tag' => '</A>',
-						'default_arg' => '{CONTENT}'));
-
-// [quote][/quote] - Quotes DB Link
-bbcode_add_element($bbcode,'quote',array(	'type' => BBCODE_TYPE_NOARG,
-						'open_tag' => (isset($oldBlog) ? '<A HREF="http://quotes.fourisland.com/?{CONTENT}">#' : '<A HREF="/quotes/{CONTENT}.php">#'),
-						'close_tag' => '</A>'));
-
-// [ins][/ins] - Insert
-bbcode_add_element($bbcode,'ins',array(	'type' => BBCODE_TYPE_NOARG,
-					'open_tag' => '<INS>',
-					'close_tag' => '</INS>'));
-
-// [del][/del] - Delete
-bbcode_add_element($bbcode,'del',array(	'type' => BBCODE_TYPE_NOARG,
-					'open_tag' => '<DEL>',
-					'close_tag' => '</DEL>'));
-
-// [bquote][/bquote] - Blockquote
-bbcode_add_element($bbcode,'bquote',array(	'type' => BBCODE_TYPE_OPTARG,
-						'open_tag' => '<P><DIV CLASS="autosize"><DIV CLASS="bubble"><DIV CLASS="bquote"><BLOCKQUOTE><DIV><NOBR>',
-						'close_tag' => '</NOBR></DIV></BLOCKQUOTE></DIV><CITE><STRONG>{PARAM}</STRONG></CITE></DIV></DIV><DIV CLASS="cleardiv"></DIV>',
-						'default_arg' => 'Anonymous'));
-
-// [project][/project] - Project Link
-bbcode_add_element($bbcode,'project',array(	'type' => BBCODE_TYPE_NOARG,
-						'open_tag' => (isset($oldBlog) ? '<A HREF="http://projects.fourisland.com/{CONTENT}/">' : '<A HREF="/projects/{CONTENT}/">'),
-						'close_tag' => '</A>'));
-
-// [abbr][/abbr] - Abbreviation
-bbcode_add_element($bbcode,'abbr',array(	'type' => BBCODE_TYPE_OPTARG,
-						'open_tag' => '<ABBR TITLE="{PARAM}">',
-						'close_tag' => '</ABBR>',
-						'default_arg' => ''));
-
-// [br] - Line Break
-bbcode_add_element($bbcode,'br',array(	'type' => BBCODE_TYPE_SINGLE,
-					'open_tag' => '<BR>'));
-
-// [hidden][/hidden] - Hidden Text
-bbcode_add_element($bbcode,'hidden',array(	'type' => BBCODE_TYPE_OPTARG,
-						'open_tag' => '<DIV STYLE="display: none">',
-						'close_tag' => '</DIV>',
-						'default_arg' => ''));
 
 function parseBBCode($text)
 {
 	global $bbcode;
-	$to_parse = str_replace("\n",'[br]',htmlentities($text));
-	$to_parse = bbcode_parse($bbcode,$to_parse);
-	return str_replace('[br]','',$to_parse);
+	if (!isset($bbcode))
+	{
+		$bbcode = new BBCode();
+	}
+
+	return $bbcode->parseBBCode($text);
 }
 
 ?>
