@@ -1,7 +1,7 @@
 <DIV CLASS="bubble">
 	<BLOCKQUOTE>
 		<DIV>
-			<IMG SRC="http://www.gravatar.com/avatar.php?gravatar_id=<!--CODEDEMAIL-->&amp;rating=G&amp;size=40&amp;default=<!--CODEDDEF-->">
+			<IMG SRC="http://www.gravatar.com/avatar/<!--CODEDEMAIL-->?s=32&amp;d=identicon&amp;r=G">
 			<!--TEXT-->
 		</DIV>
 	</BLOCKQUOTE>

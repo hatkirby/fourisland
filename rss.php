@@ -229,7 +229,7 @@ foreach ($items as $key => $value)
 		<item>
 			<title><?php echo($value['title']); ?></title>
 
-			<link>http://www.fourisland.com/blog/<?php echo($value['slug']); ?>/</link>
+			<link>http://fourisland.com/blog/<?php echo($value['slug']); ?>/</link>
 
 			<description><?php echo(stripslashes(htmlentities(parseBBCode($value['text'])))); ?></description>
 
@@ -242,7 +242,7 @@ foreach ($items as $key => $value)
 		<item>
 			<title>Quote #<?php echo($value['id']); ?></title>
 
-			<link>http://www.fourisland.com/quotes/<?php echo(urlencode($value['id'])); ?>.php</link>
+			<link>http://fourisland.com/quotes/<?php echo(urlencode($value['id'])); ?>.php</link>
 
 			<description><?php echo(htmlentities(nl2br($value['quote']))); ?></description>
 
@@ -257,7 +257,7 @@ foreach ($items as $key => $value)
 		<item>
 			<title>Comment on <?php echo($value['title']); ?> by <?php echo($value['username']); ?></title>
 
-			<link>http://www.fourisland.com/comments/<?php echo($value['id']); ?>/</link>
+			<link>http://fourisland.com/comments/<?php echo($value['id']); ?>/</link>
 
 			<description><?php echo(stripslashes(htmlentities(parseBBCode($value['comment'])))); ?></description>
 

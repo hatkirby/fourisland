@@ -559,7 +559,6 @@ if (isLoggedIn())
 				$template->add('CODEDEMAIL', md5(strtolower($getuser3['email'])));
 				$template->add('TEXT', parseBBCode($getcomment3['comment']));
 				$template->add('DATE', date("F dS Y \a\\t g:i:s a",strtotime($getcomment3['pubDate'])));
-				$template->add('CODEDDEF',urlencode('http://www.fourisland.com/images/error404.png'));
 			} else {
 				$template = new FITemplate('msg');
 				$template->add('BACK', 'the previous page');
