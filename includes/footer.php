@@ -206,7 +206,7 @@ if (!isset($noRightbar))
 							'USERNAME' => $getuser3['username']));
 	}
 
-	$gettags = "SELECT DISTINCT tag FROM tags";
+	$gettags = "SELECT DISTINCT tag FROM tags WHERE post_type = \"published\"";
 	$gettags2 = mysql_query($gettags);
 	$i=0;
 	while ($gettags3[$i] = mysql_fetch_array($gettags2))
@@ -224,13 +224,14 @@ if (!isset($noRightbar))
 	$spread = max($counts) - $min_count;
 	$spread = ($spread <= 0) ? 1 : $spread;
 	$font_step = 8 / $spread;
-
-	uksort($counts, 'strnatcasecmp');
-
 	foreach ($counts as $tag => $count)
 	{
-		$template->adds_block('TAGCLOUD', array(	'TAG' => $tag,
-								'SIZE' => (8 + (($count - $min_count) * $font_step))));
+		if ($count != $min_count)
+		{
+			$template->adds_block('TAGCLOUD', array(	'TAG' => $tag,
+									'SIZE' => (8 + (($count - $min_count) * $font_step)),
+									'COUNT' => $count));
+		}
 	}
 }
 

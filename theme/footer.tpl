@@ -178,7 +178,7 @@
 									<DIV ID="hatbar"><H3>Tag Cloud</H3><P>
 										<P>
 											<!--BEGIN TAGCLOUD-->
-											<A HREF="/blog/tag/<!--TAGCLOUD.TAG-->.php" STYLE="font-size: <!--TAGCLOUD.SIZE-->pt"><!--TAGCLOUD.TAG--></A>
+											<A HREF="/blog/tag/<!--TAGCLOUD.TAG-->.php" STYLE="font-size: <!--TAGCLOUD.SIZE-->pt" ALT="<!--TAGCLOUD.TAG--> (<!--TAGCLOUD.COUNT-->)" TITLE="<!--TAGCLOUD.TAG--> (<!--TAGCLOUD.COUNT-->)"><!--TAGCLOUD.TAG--></A>
 											<!--END TAGCLOUD-->
 										</P>
 									</DIV>
