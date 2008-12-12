@@ -13,8 +13,6 @@
 		<LINK REL="pingback" HREF="http://fourisland.com/xmlrpc.php" />
 		<SCRIPT SRC="/theme/js/jquery-1.2.6.min.js" TYPE="text/javascript"></SCRIPT>
 		<SCRIPT SRC="/theme/js/jquery.ie6blocker.js" TYPE="text/javascript"></SCRIPT>
-		<SCRIPT SRC="/theme/js/rounded_corners.inc.js" TYPE="text/javascript"></SCRIPT>
-		<SCRIPT SRC="/theme/js/round_bubbles.js" TYPE="text/javascript"></SCRIPT>
 		<SCRIPT SRC="/theme/js/thickbox.js" TYPE="text/javascript"></SCRIPT>
 
 		<!--BEGIN SPLASH-->
