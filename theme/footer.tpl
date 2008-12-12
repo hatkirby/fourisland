@@ -144,6 +144,11 @@
 												<IMG SRC="/theme/images/icons/tag_pink.png" />
 												<A HREF="http://timbo94.fourisland.com/">Dream Weaver</A>
 											</LI>
+
+											<LI>
+												<IMG SRC="/theme/images/icons/tag_purple.png" />
+												<A HREF="http://pyro.fourisland.com/">Randomness</A>
+											</LI>
 										</UL>
 									</DIV>
 								</BLOCKQUOTE>
