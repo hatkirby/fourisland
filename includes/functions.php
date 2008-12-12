@@ -251,33 +251,36 @@ function removeTags($id, $type = 'published')
 	$deltags2 = mysql_query($deltags);
 }
 
-function unique_id()
+if (!function_exists('unique_id'))
 {
-	static $dss_seeded = false;
+	function unique_id()
+	{
+		static $dss_seeded = false;
 
-	$getconfig = "SELECT * FROM config WHERE name = \"rand_seed\"";
-	$getconfig2 = mysql_query($getconfig);
-	$getconfig3 = mysql_fetch_array($getconfig2);
+		$getconfig = "SELECT * FROM config WHERE name = \"rand_seed\"";
+		$getconfig2 = mysql_query($getconfig);
+		$getconfig3 = mysql_fetch_array($getconfig2);
 
-        $val = $getconfig3['value'] . microtime();
-        $val = md5($val);
-        $rand_seed = md5($getconfig3['value'] . $val . $extra);
+	        $val = $getconfig3['value'] . microtime();
+	        $val = md5($val);
+	        $rand_seed = md5($getconfig3['value'] . $val . $extra);
 
-	$getconfig = "SELECT * FROM config WHERE name = \"rand_seed_last_update\"";
-	$getconfig2 = mysql_query($getconfig);
-	$getconfig3 = mysql_fetch_array($getconfig2);
-        if ($dss_seeded !== true && ($getconfig3['value'] < time() - rand(1,10)))
-        {
-		$setconfig = "UPDATE config SET value = \"" . $rand_seed . "\" WHERE name = \"rand_seed\"";
-		$setconfig2 = mysql_query($setconfig);
+		$getconfig = "SELECT * FROM config WHERE name = \"rand_seed_last_update\"";
+		$getconfig2 = mysql_query($getconfig);
+		$getconfig3 = mysql_fetch_array($getconfig2);
+	        if ($dss_seeded !== true && ($getconfig3['value'] < time() - rand(1,10)))
+	        {
+			$setconfig = "UPDATE config SET value = \"" . $rand_seed . "\" WHERE name = \"rand_seed\"";
+			$setconfig2 = mysql_query($setconfig);
 
-		$setconfig = "UPDATE config SET value = \"" . time() . "\" WHERE name = \"rand_seed_last_update\"";
-		$setconfig2 = mysql_query($setconfig);
+			$setconfig = "UPDATE config SET value = \"" . time() . "\" WHERE name = \"rand_seed_last_update\"";
+			$setconfig2 = mysql_query($setconfig);
 
-                $dss_seeded = true;
-        }
+	                $dss_seeded = true;
+	        }
 
-        return substr($val, 4, 16);
+	        return substr($val, 4, 16);
+	}
 }
 
 ?>
