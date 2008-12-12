@@ -22,6 +22,7 @@ require('headerproc.php');
 
 include('../security/config.php');
 include('includes/db.php');
+include('includes/functions.php');
 include('includes/bbcode.php');
 
 header('Content-type: application/rss+xml');
