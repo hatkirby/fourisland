@@ -118,11 +118,8 @@ function postBlogPost($title,$author,$tags,$content)
 	$inspost = "INSERT INTO updates (title,slug,author,text) VALUES (\"" . $title . "\",\"" . $slug . "\",\"" . $author . "\",\"" . addslashes($content) . "\")";
 	$inspost2 = mysql_query($inspost);
 
-	$getpost = "SELECT * FROM updates WHERE slug = \"" . $slug . "\"";
-	$getpost2 = mysql_query($getpost);
-	$getpost3 = mysql_fetch_array($getpost2);
-
-	addTags($getpost3['id'], $tags);
+	$id = mysql_insert_id();
+	addTags($id, $tags);
 
 	$upconf = "UPDATE config SET value = \"" . date('md') . "\" WHERE name = \"lastUpdate\"";
 	$upconf2 = mysql_query($upconf);
@@ -161,6 +158,8 @@ function postBlogPost($title,$author,$tags,$content)
 	$msg = new xmlrpcmsg("weblogUpdates.ping", array(	new xmlrpcval('Four Island', 'string'),
 								new xmlrpcval('http://fourisland.com/', 'string')));
 	$client->send($msg);
+
+	return $id;
 }
 
 function recalcPop($id)

@@ -44,24 +44,21 @@ if (isLoggedIn())
 					$insdraft = "INSERT INTO drafts (title,author,text,slug) VALUES (\"" . addslashes($_POST['title']) . "\",\"" . sess_get('uname') . "\",\"" . addslashes($_POST['text']) . "\",\"" . generateSlug($_POST['title'],'updates') . "\")";
 					$insdraft2 = mysql_query($insdraft);
 
-					$getdraft = "SELECT * FROM drafts ORDER BY id DESC LIMIT 0,1";
-					$getdraft2 = mysql_query($getdraft);
-					$getdraft3 = mysql_fetch_array($getdraft2);
-
-					addTags($getdraft3['id'], $tags, 'draft');
+					$id = mysql_insert_id();
+					addTags($id, $tags, 'draft');
 
 					$template = new FITemplate('admin/draftSuccess');
-					$template->add('ID', $getdraft3['id']);
+					$template->add('ID', $id);
 				} else if ($_POST['type'] == 'instant')
 				{
-					postBlogPost($_POST['title'], sess_get('uname'), $tags, $_POST['text']);
+					$id = postBlogPost($_POST['title'], sess_get('uname'), $tags, $_POST['text']);
 
-					$getpost = "SELECT * FROM updates ORDER BY id DESC LIMIT 0,1";
+					$getpost = "SELECT * FROM updates WHERE id = " . $id;
 					$getpost2 = mysql_query($getpost);
 					$getpost3 = mysql_fetch_array($getpost2);
 
 					$template = new FITemplate('admin/postSuccess');
-					$template->add('ID', $getpost3['id']);
+					$template->add('ID', $id);
 					$template->add('CODED', $getpost3['slug']);
 				} else {
 					if ($_POST['type'] == 'normal')
@@ -143,17 +140,17 @@ if (isLoggedIn())
 						$template->add('ID', $_GET['id']);
 					} else if ($_POST['type'] == 'instant')
 					{
-						postBlogPost($_POST['title'], sess_get('uname'), $tags, $_POST['text']);
+						$id = postBlogPost($_POST['title'], sess_get('uname'), $tags, $_POST['text']);
 
 						$deldraft = "DELETE FROM drafts WHERE id = " . $_GET['id'];
 						$deldraft2 = mysql_query($deldraft);
 
-						$getpost = "SELECT * FROM updates ORDER BY id DESC LIMIT 0,1";
+						$getpost = "SELECT * FROM updates WHERE id = " . $id;
 						$getpost2 = mysql_query($getpost);
 						$getpost3 = mysql_fetch_array($getpost2);
 
 						$template = new FITemplate('admin/postSuccess');
-						$template->add('ID', $getpost3['id']);
+						$template->add('ID', $id);
 						$template->add('CODED', $getpost3['slug']);
 					} else {
 						if ($_POST['type'] == 'normal')
