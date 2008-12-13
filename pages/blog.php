@@ -45,7 +45,7 @@ if (isset($_GET['post']))
 
 		$title = stripslashes($getpost3['title']) . ' - Blog Archive';
 
-		$getback = "SELECT * FROM updates WHERE id = " . ($getpost3['id']-1);
+		$getback = "SELECT * FROM updates WHERE id < " . $getpost3['id'] . " ORDER BY id DESC LIMIT 0,1";
 		$getback2 = mysql_query($getback);
 		$getback3 = mysql_fetch_array($getback2);
 		if (isset($getback3['title']))
@@ -54,7 +54,7 @@ if (isset($_GET['post']))
 								'TITLE' => $getback3['title']));
 		}
 
-		$getnext = "SELECT * FROM updates WHERE id = " . ($getpost3['id']+1);
+		$getnext = "SELECT * FROM updates WHERE id > " . $getpost3['id'] . " ORDER BY id ASC LIMIT 0,1";
 		$getnext2 = mysql_query($getnext);
 		$getnext3 = mysql_fetch_array($getnext2);
 		if (isset($getnext3['title']))
