@@ -68,8 +68,9 @@ class BBCode
 			while (strpos($to_parse, '[' . $name . ']') !== FALSE)
 			{
 				$bbcode_uid = unique_id();
-				$to_parse = substr_replace($to_parse, '[' . $name . ':' . $bbcode_uid . ']', strpos($to_parse, '[' . $name . ']'), strlen($name) + 2);
-				$to_parse = substr_replace($to_parse, '[/' . $name . ':' . $bbcode_uid . ']', strpos($to_parse, '[/' . $name . ']'), strlen($name) + 3);
+				$bbpos = strpos($to_parse, '[' . $name . ']');
+				$to_parse = substr_replace($to_parse, '[' . $name . ':' . $bbcode_uid . ']', $bbpos, strlen($name) + 2);
+				$to_parse = substr_replace($to_parse, '[/' . $name . ':' . $bbcode_uid . ']', strpos(substr($to_parse, $bbpos), '[/' . $name . ']') + $bbpos, strlen($name) + 3);
 
 				$value = str_replace('{CONTENT}', '\1', $value);
 				$to_parse = preg_replace('/\[' . $name . ':' . $bbcode_uid . '\](.*)\[\/' . $name . ':' . $bbcode_uid . '\]/', $value, $to_parse);
@@ -81,8 +82,9 @@ class BBCode
 			while (strpos($to_parse, '[' . $name . '=') !== FALSE)
 			{
 				$bbcode_uid = unique_id();
-				$to_parse = substr_replace($to_parse, '[' . $name . ':' . $bbcode_uid . '=', strpos($to_parse, '[' . $name . '='), strlen($name) + 2);
-				$to_parse = substr_replace($to_parse, '[/' . $name . ':' . $bbcode_uid . ']', strpos($to_parse, '[/' . $name . ']'), strlen($name) + 3);
+				$bbpos = strpos($to_parse, '[' . $name . '=');
+				$to_parse = substr_replace($to_parse, '[' . $name . ':' . $bbcode_uid . '=', $bbpos, strlen($name) + 2);
+				$to_parse = substr_replace($to_parse, '[/' . $name . ':' . $bbcode_uid . ']', strpos(substr($to_parse, $bbpos), '[/' . $name . ']') + $bbpos, strlen($name) + 3);
 
 				$value = str_replace('{PARAM}', '\1', $value);
 				$value = str_replace('{CONTENT}', '\2', $value);
