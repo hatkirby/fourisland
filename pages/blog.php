@@ -106,27 +106,7 @@ if (isset($_GET['post']))
 		$page_id = 'updates-' . $getpost3['id'];
 		include('includes/comments.php');
 
-		$getrelated = "SELECT *, MATCH (title, text) AGAINST (\"" . addslashes($getpost3['title']) . "\") AS score FROM updates WHERE MATCH (title, text) AGAINST (\"" . addslashes($getpost3['title']) . "\") AND id <> " . $getpost3['id'] . " LIMIT 0,5";
-		$getrelated2 = mysql_query($getrelated);
-		$i=0;
-		while ($getrelated3[$i] = mysql_fetch_array($getrelated2))
-		{
-			if ($i==0)
-			{
-				$template = new FITemplate('related');
-			}
-
-			$template->adds_block('POST', array(	'TITLE' => $getrelated3[$i]['title'],
-								'CODED' => $getrelated3[$i]['slug'],
-								'AUTHOR' => $getrelated3[$i]['author'],
-								'DATE' => date('F d<\S\U\P>S</\S\U\P> Y',strtotime($getrelated3[$i]['pubDate']))));
-			$i++;
-		}
-
-		if ($i > 0)
-		{
-			$template->display();
-		}
+		displayRelated($getpost3['title'], $getpost3['id']);
 	} else {
 		generateError('404');
 	}
@@ -135,6 +115,7 @@ if (isset($_GET['post']))
 	if (isset($_GET['author']))
 	{
 		$title = 'Author: ' . $_GET['author'] . ' - Blog Archive';
+		$template->add('HEADER', 'Posts by ' . $_GET['author']);
 		$getposts = "SELECT * FROM updates AS u WHERE author = \"" . $_GET['author'] . "\" ORDER BY id DESC";
 		$getbio = "SELECT * FROM bio WHERE username = \"" . $_GET['author'] . "\"";
 		$getbio2 = mysql_query($getbio);
@@ -148,9 +129,11 @@ if (isset($_GET['post']))
 	} elseif (isset($_GET['tag']))
 	{
 		$title = 'Tag: ' . $_GET['tag'] . ' - Blog Archive';
+		$template->add('HEADER', 'Posts tagged with ' . $_GET['tag']);
 		$getposts = "SELECT * FROM updates AS u, tags AS t WHERE u.id = t.post_id AND t.post_type = \"published\" AND t.tag = \"" . $_GET['tag'] . "\" ORDER BY u.id DESC";
 	} else {
 		$title = 'Blog Archive';
+		$template->add('HEADER', 'Blog Archive');
 		$getposts = "SELECT * FROM updates AS u ORDER BY id DESC";
 	}
 	$getposts2 = mysql_query($getposts);
@@ -166,10 +149,6 @@ if (isset($_GET['post']))
 				$curID++;
 			}
 			$template->add_ref($curID, 'MONTH', array('TITLE' => date('F Y',strtotime($getposts3[$i]['pubDate']))));
-			if ($curID == 0)
-			{
-				$template->adds_ref_sub($curID, 'BIGEND',array('exi'=>1));
-			}
 			$lastmonth = date('m-Y',strtotime($getposts3[$i]['pubDate']));
 		}
 
@@ -195,23 +174,9 @@ if (isset($_GET['post']))
 			$comText = $total_post . ' Comments';
 		}
 
-		if ($curID == 0)
-		{
-			$template->adds_ref_sub($curID, 'BIG',array(	'DATE' => date('m-d-Y',strtotime($getposts3[$i]['pubDate'])),
-									'CODED' => $getposts3[$i]['slug'],
-									'TITLE' => $getposts3[$i]['title'],
-									'ID' => $getposts3[$i]['id'],
-									'YEARID' => ((date('Y',strtotime($getposts3[$i]['pubDate']))-2006) % 4),
-									'MONTH' => date('M',strtotime($getposts3[$i]['pubDate'])),
-									'DAY' => date('d',strtotime($getposts3[$i]['pubDate'])),
-									'AUTHOR' => $getposts3[$i]['author'],
-									'PLURALCOMMENT' => (isset($plural) ? $plural : ''),
-									'COMMENTS' => $comText));
-		} else {
-			$template->adds_ref_sub($curID, 'SMALL',array(	'DATE' => date('m-d-Y',strtotime($getposts3[$i]['pubDate'])),
-									'CODED' => $getposts3[$i]['slug'],
-									'TITLE' => $getposts3[$i]['title']));
-		}
+		$template->adds_ref_sub($curID, 'SMALL',array(	'DATE' => date('m-d-Y',strtotime($getposts3[$i]['pubDate'])),
+								'CODED' => $getposts3[$i]['slug'],
+								'TITLE' => $getposts3[$i]['title']));
 		$i++;
 	}
 	if ($i==0)

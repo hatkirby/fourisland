@@ -25,10 +25,6 @@ require('headerproc.php');
 include('includes/functions_quotes.php');
 
 $pageCategory = 'quotes';
-$headtags = '<LINK REL="stylesheet" HREF="/theme/css/quotes.css" />';
-
-$template = new FITemplate('quotes/header');
-$template->display();
 
 if (isset($_GET['id']))
 {

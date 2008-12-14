@@ -55,7 +55,7 @@
 			</DIV>
 			<CITE CLASS="rounded"><STRONG><!--POST.AUTHOR--></STRONG> on <!--POST.DATE--></CITE>
 
-			<SPAN STYLE="float: right">
+			<SPAN CLASS="post-vote">
 				<A HREF="/vote.php?id=<!--POST.ID-->&amp;dir=plus" REL="nofollow"><IMG SRC="/theme/images/icons/thumb_up.png"></A>
 				<BIG><!--POST.RATING--></BIG>
 				<A HREF="/vote.php?id=<!--POST.ID-->&amp;dir=minus" REL="nofollow"><IMG SRC="/theme/images/icons/thumb_down.png"></A>

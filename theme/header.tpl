@@ -36,7 +36,51 @@
 				</DIV>				
 			</DIV>
 
-			<DIV CLASS="push"></DIV>
+			<DIV CLASS="cleardiv"></DIV>
+
+			<DIV ID="fi-navbar">
+				<DIV CLASS="bubble">
+					<DIV CLASS="rounded">
+						<BLOCKQUOTE>
+							<UL>
+								<LI<!--HOMEACTIVE-->>
+									<IMG SRC="/theme/images/icons/newspaper.png" />
+									<A HREF="http://fourisland.com/">Blog</A>
+								</LI>
+
+								<LI>
+									<A HREF="http://projects.fourisland.com/">Projects</A>
+								</LI>
+
+								<LI<!--FOURMACTIVE-->>
+									<IMG SRC="/theme/images/icons/comment.png" />
+									<A HREF="http://fourisland.com/fourm/">The Fourm</A>
+								</LI>
+
+								<LI<!--WIKIACTIVE-->>
+									<IMG SRC="/theme/images/icons/page_edit.png" />
+									<A HREF="http://fourisland.com/wiki/">Fouripedia</A>
+								</LI>
+
+								<LI<!--POLLACTIVE-->>
+									<IMG SRC="/theme/images/icons/overlays.png" />
+									<A HREF="http://fourisland.com/poll/">Polls</A>
+								</LI>
+
+								<LI<!--QUOTESACTIVE-->>
+									<IMG SRC="/theme/images/icons/16-file-page.png" />
+									<A HREF="http://fourisland.com/quotes/">Quotes</A>
+								</LI>
+
+								<LI<!--LOGACTIVE-->>
+									<IMG SRC="/theme/images/icons/door_in.png" />
+									<A HREF="http://fourisland.com/log<!--LOGDATA-->.php?redirect=<!--REDIRPAGE-->">Log<!--LOGDATA--></A>
+								</LI>
+							</UL>
+						</BLOCKQUOTE>
+					</DIV>
+				</DIV>
+			</DIV>
 
 			<DIV id="page-body">
 				<DIV id="content">

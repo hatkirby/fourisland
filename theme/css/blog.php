@@ -91,6 +91,13 @@ div.entry {
  font: 75%/150% Arial, "Trebuchet MS", Tahoma;
 }
 
+div.entry ol,
+div.entry ul,
+a[name|="comment"]+div.bubble ol,
+a[name|="comment"]+div.bubble ul {
+ margin-left: 3em;
+}
+
 <?php
 
 $getupdates = "SELECT * FROM updates";
@@ -206,4 +213,10 @@ div.post-date-4 {
  height: 49px;
  float: left;
  background: url(/theme/images/date-bg-4.gif) no-repeat;
+}
+
+span.post-vote {
+ float: right;
+ position: relative;
+ top: -10px;
 }

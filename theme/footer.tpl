@@ -22,52 +22,23 @@
 						</DIV>
 					</DIV>
 
+					<!--BEGIN USEHATNAV-->
 					<DIV class="sidebar">
 						<DIV CLASS="bubble">
 							<DIV CLASS="rounded">
 								<BLOCKQUOTE>
-									<DIV ID="hatbar"><H3>HatNav</H3><P>
+									<DIV ID="hatnav"><H3>Hatnav</H3><P>
 										<UL>
-											<LI>
-												<IMG SRC="/theme/images/icons/newspaper.png" />
-												<A HREF="http://fourisland.com/">Blog</A>
-											</LI>
-
-											<LI>
-												<IMG SRC="/theme/images/projects.png" />
-												<A HREF="http://projects.fourisland.com/">Projects</A>
-											</LI>
-
-											<LI>
-												<IMG SRC="/theme/images/icons/comment.png" />
-												<A HREF="http://fourisland.com/fourm/">The Fourm</A>
-											</LI>
-
-											<LI>
-												<IMG SRC="/theme/images/icons/page_edit.png" />
-												<A HREF="http://fourisland.com/wiki/">Fouripedia</A>
-											</LI>
-
-											<LI>
-												<IMG SRC="/theme/images/icons/overlays.png" />
-												<A HREF="http://fourisland.com/poll/">Polls</A>
-											</LI>
-
-											<LI>
-												<IMG SRC="/theme/images/icons/16-file-page.png" />
-												<A HREF="http://fourisland.com/quotes/">Quotes</A>
-											</LI>
-
-											<LI>
-												<IMG SRC="/theme/images/icons/door_<!--LOGDATA-->.png" />
-												<A HREF="http://fourisland.com/log<!--LOGDATA-->.php?redirect=<!--REDIRPAGE-->">Log<!--LOGDATA--></A>
-											</LI>
+											<!--BEGIN HATNAV-->
+											<LI STYLE="margin-left: 10"><A ID="<!--HATNAV.AID-->" HREF="<!--HATNAV.HREF-->"><IMG SRC="<!--HATNAV.IMAGE-->"><!--HATNAV.TEXT--><!--HATNAV.NEW--></A></LI>
+											<!--END HATNAV-->
 										</UL>
-									</DIV>
+									</P></DIV>
 								</BLOCKQUOTE>
 							</DIV>
 						</DIV>
 					</DIV>
+					<!--END USEHATNAV-->
 											
 					<DIV class="sidebar">
 						<DIV CLASS="bubble">

@@ -46,4 +46,13 @@ function db_multi_select($query, $callback)
 	}
 }
 
+function db_count($query)
+{
+	$cntitem = $query;
+	$cntitem2 = mysql_query($cntitem) or die($cntitem);
+	$cntitem3 = mysql_fetch_array($cntitem2);
+
+	return $cntitem3['COUNT(*)'];
+}
+
 ?>

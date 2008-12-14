@@ -67,13 +67,12 @@ a img {
 
 /* Random Elements */
 
-ul#bannernav, p {
+* {
  margin:0pt;
  padding:0pt;
 }
 
-p {margin-top: 1em}
-
+p {margin-top: 1em;}
 ul, ol {margin-top: 1em; margin-bottom: 1em}
 
 img.center, img[align="center"] {
@@ -93,7 +92,7 @@ acronym, abbr {
 blockquote {
  padding-left: 10px;
  border-left: 3px solid #CCC;
- font-family: helvetica;
+ font-family: Helvetica, sans-serif;
  font-size: 14px;
  margin-top: 10px;
  margin-bottom: 10px;
@@ -111,7 +110,7 @@ div#banner, div#fi-banner {
  width: 900px; /*728*/
  height: 200px;
  float: left;
- margin-top: 21px;
+/* margin-top: 21px; */
 }
 
 div#banner {
@@ -136,9 +135,48 @@ div#banner h1, div#fi-banner h1 {
  font-size: 3.0em;
  font-weight: normal;
 }
-				
-div#bannernav {
+
+/* NavBar */
+
+div#fi-navbar {
+ position: relative;
+}
+
+div#fi-navbar .rounded {
+ padding: 0;
+}
+
+div#fi-navbar ul {
+ margin-top: .25em;
+ margin-bottom: .25em;
+ padding-left: 1em;
  text-align: center;
+}
+
+div#fi-navbar ul li {
+ display: inline;
+ font-family: Verdana, sans-serif;
+ font-size: 1.1em;
+}
+
+div#fi-navbar ul li+li:before {
+ content: " - ";
+}
+
+div#fi-navbar ul li img {
+ display: none;
+}
+
+div#fi-navbar ul li.active a {
+ display: none;
+}
+
+div#fi-navbar ul li.active img {
+ display: inline;
+ background-color: white;
+ outline: white solid .5em;
+ margin-left: .5em;
+ margin-right: .5em;
 }
 
 /* Sidebar */
@@ -197,7 +235,6 @@ div#sidebar li img {
  margin: 10px auto;
  text-align: left;
  padding: 0;
- margin-top: 25px;
 }
 
 div#top-fade {
@@ -256,7 +293,6 @@ div#content h2 {
 
 div.cleardiv {
  clear: both;
- height: 1em;
 }
 				
 div#footer {
@@ -269,6 +305,7 @@ div#footer {
  width: 100%;
  border-top: 1px black solid;
  border-bottom: 4px gray solid;
+ background-color: white;
 }
 
 div#footer ul.rows li {
@@ -296,11 +333,6 @@ div#content ul {
  list-style: url(/theme/images/bullet_disk_big.png);
 }
 
-div.push {
- clear: both;
- height: 20px;
-}
-
 div#content a img {
  border: solid transparent 1px;
 }
@@ -311,6 +343,20 @@ div#content a:hover img {
 
 div#hatbar.quotes-options ul {
  list-style: none;
+}
+
+div.autosize {
+ margin-bottom: 6px !important;
+}
+
+ul blockquote, ol blockquote {
+ position: relative;
+ left: -3em;
+ width: 110%;
+}
+
+li+br {
+ display: none;
 }
 
 /* Tables */

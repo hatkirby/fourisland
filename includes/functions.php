@@ -282,4 +282,29 @@ if (!function_exists('unique_id'))
 	}
 }
 
+function displayRelated($title, $avoid = 0)
+{
+	$getrelated = "SELECT *, MATCH (title, text) AGAINST (\"" . addslashes($title) . "\") AS score FROM updates WHERE MATCH (title, text) AGAINST (\"" . addslashes($title) . "\") AND id <> " . $avoid . " LIMIT 0,5";
+	$getrelated2 = mysql_query($getrelated);
+	$i=0;
+	while ($getrelated3[$i] = mysql_fetch_array($getrelated2))
+	{
+		if ($i==0)
+		{
+			$template = new FITemplate('related');
+		}
+
+		$template->adds_block('POST', array(	'TITLE' => $getrelated3[$i]['title'],
+							'CODED' => $getrelated3[$i]['slug'],
+							'AUTHOR' => $getrelated3[$i]['author'],
+							'DATE' => date('F d<\S\U\P>S</\S\U\P> Y',strtotime($getrelated3[$i]['pubDate']))));
+		$i++;
+	}
+
+	if ($i > 0)
+	{
+		$template->display();
+	}
+}
+
 ?>

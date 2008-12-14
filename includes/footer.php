@@ -37,32 +37,38 @@ if (!isset($noRightbar))
 
 	if (!isset($noHatNav))
 	{
-		$template->adds_block('USEHATNAV', array('exi'=>1));
-		if (!isset($genHatNav))
+		$cnthatnav = "SELECT COUNT(*) FROM hatnav WHERE category = \"" . $pageCategory . "\"";
+		$cnthatnav2 = mysql_query($cnthatnav);
+		$cnthatnav3 = mysql_fetch_array($cnthatnav2);
+
+		if ($cnthatnav3['COUNT(*)'] > 0)
 		{
-			$gethnis = 'SELECT * FROM hatnav WHERE category = "' . 
-			$pageCategory . '"';
-			$gethnis2 = mysql_query($gethnis);
-			$i=0;
-			while ($gethnis3[$i] = mysql_fetch_array($gethnis2))
+			$template->adds_block('USEHATNAV', array('exi'=>1));
+			if (!isset($genHatNav))
 			{
-				$template->adds_block('HATNAV', array(	'AID' => 	$gethnis3[$i]['AID'],
-									'HREF' => $gethnis3[$i]['href'],
-									'IMAGE' => '/theme/images/icons/' . $gethnis3[$i]['image'] . '.png',
-									'TEXT' => $gethnis3[$i]['text'],
-									'NEW' => dispIfNotOld($gethnis3[$i]['lastEdit'])));
-				$i++;
-			}
-		} else {
-			$i=0;
-			while ($i < $genHatNavNum)
-			{
-				$template->adds_block('HATNAV', array(	'AID' => 	'post',
-									'HREF' => $genHatNav[$i]['href'],
-									'IMAGE' => '/theme/images/blue.PNG',
-									'TEXT' => $genHatNav[$i]['text'],
-									'NEW' => ''));
-				$i++;
+				$gethnis = 'SELECT * FROM hatnav WHERE category = "' . $pageCategory . '"';
+				$gethnis2 = mysql_query($gethnis);
+				$i=0;
+				while ($gethnis3[$i] = mysql_fetch_array($gethnis2))
+				{
+					$template->adds_block('HATNAV', array(	'AID' => 	$gethnis3[$i]['AID'],
+										'HREF' => $gethnis3[$i]['href'],
+										'IMAGE' => '/theme/images/icons/' . $gethnis3[$i]['image'] . '.png',
+										'TEXT' => $gethnis3[$i]['text'],
+										'NEW' => dispIfNotOld($gethnis3[$i]['lastEdit'])));
+					$i++;
+				}
+			} else {
+				$i=0;
+				while ($i < $genHatNavNum)
+				{
+					$template->adds_block('HATNAV', array(	'AID' => 	'post',
+										'HREF' => $genHatNav[$i]['href'],
+										'IMAGE' => '/theme/images/blue.PNG',
+										'TEXT' => $genHatNav[$i]['text'],
+										'NEW' => ''));
+					$i++;
+				}
 			}
 		}
 	}
@@ -234,9 +240,6 @@ if (!isset($noRightbar))
 		}
 	}
 }
-
-$template->add('REDIRPAGE',rawurlencode($_SERVER['REQUEST_URI']));
-$template->add('LOGDATA',echoLogData());
 
 $template->display();
 

@@ -2,7 +2,7 @@
 div.bubble {
 	width: auto;
 	font-size: 0.75em;
-	margin-bottom: 24px;
+	margin-bottom: 14px;
 	font: 1em "Lucida Grande", Lucida, Verdana, sans-serif;
 }
 
@@ -20,7 +20,7 @@ div.bubble blockquote div {
 
 div.bubble cite {
 	position: relative;
-	margin: 0px;
+	margin: 0;
 	padding: 7px 0px 0px 15px;
 	top: 6px;
 	background: transparent url(/theme/images/tip.gif) no-repeat 20px 0;
@@ -62,8 +62,8 @@ div#pimped.bubble cite.rounded {
 }
 
 div.bubble div.bquote blockquote {
-	margin: 0px;
-	padding: 0px;
+	margin: 0;
+	padding: 4px 0;
 	border: 1px solid #c9c2c1;
 	background-color: #fff;
 }
@@ -85,4 +85,5 @@ div.bubble div.bquote blockquote {
         border-top-right-radius: 10px;
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
+	padding: 4px;
 }

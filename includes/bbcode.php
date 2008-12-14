@@ -32,6 +32,7 @@ class BBCode
 	{
 		$this->bbcodes['b'] = '<B>{CONTENT}</B>';
 		$this->bbcodes['i'] = '<I>{CONTENT}</I>';
+		$this->bbcodes['u'] = '<U>{CONTENT}</U>';
 		$this->bbcodes['url'] = '<A HREF="{CONTENT}">{CONTENT}</A>';
 		$this->bbcodes2['url'] = '<A HREF="{PARAM}">{CONTENT}</A>';
 		$this->bbcodes['img'] = '<IMG SRC="{CONTENT}" />';
@@ -46,8 +47,8 @@ class BBCode
 		$this->bbcodes2['blog'] = '<A HREF="/blog/{PARAM}/">{CONTENT}</A>';
 		$this->bbcodes['ins'] = '<INS>{CONTENT}</INS>';
 		$this->bbcodes['del'] = '<DEL>{CONTENT}</DEL>';
-		$this->bbcodes['bquote'] = '<P><DIV CLASS="autosize"><DIV CLASS="bubble"><DIV CLASS="bquote"><BLOCKQUOTE><DIV><NOBR>{CONTENT}</NOBR></DIV></BLOCKQUOTE></DIV><CITE><STRONG>Anonymous</STRONG></CITE></DIV></DIV><DIV CLASS="cleardiv"></DIV>';
-		$this->bbcodes2['bquote'] = '<P><DIV CLASS="autosize"><DIV CLASS="bubble"><DIV CLASS="bquote"><BLOCKQUOTE><DIV><NOBR>{CONTENT}</NOBR></DIV></BLOCKQUOTE></DIV><CITE><STRONG>{PARAM}</STRONG></CITE></DIV></DIV><DIV CLASS="cleardiv"></DIV>';
+		$this->bbcodes['bquote'] = '<P><DIV CLASS="autosize"><DIV CLASS="bubble"><DIV CLASS="bquote"><BLOCKQUOTE><DIV>{CONTENT}</DIV></BLOCKQUOTE></DIV><CITE><STRONG>Anonymous</STRONG></CITE></DIV></DIV><DIV CLASS="cleardiv"></DIV>';
+		$this->bbcodes2['bquote'] = '<P><DIV CLASS="autosize"><DIV CLASS="bubble"><DIV CLASS="bquote"><BLOCKQUOTE><DIV>{CONTENT}</DIV></BLOCKQUOTE></DIV><CITE><STRONG>{PARAM}</STRONG></CITE></DIV></DIV><DIV CLASS="cleardiv"></DIV>';
 		$this->bbcodes2['abbr'] = '<ABBR TITLE="{PARAM}">{CONTENT}</ABBR>';
 		$this->bbcodes['hidden'] = '<DIV STYLE="display: none">{CONTENT}</DIV>';
 

@@ -44,6 +44,9 @@ $headerTemp->add('BODYTAGS',(isset($bodyTags)) ? $bodyTags : '');
 $headerTemp->add('HEADTAGS',isset($headtags) ? $headtags : '');
 $headerTemp->add('EXTRATITLE',isset($title) ? ($title . ' - ') : '');
 $headerTemp->add('PAGEID',(isset($pageID)) ? $pageID : 'none');
+$headerTemp->add(strtoupper($pageCategory) . 'ACTIVE', ' CLASS="active"');
+$headerTemp->add('REDIRPAGE',rawurlencode($_SERVER['REQUEST_URI']));
+$headerTemp->add('LOGDATA',echoLogData());
 
 if (isset($_POST['message']))
 {

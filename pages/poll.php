@@ -43,15 +43,55 @@ if (isset($_GET['submit']))
 {
 	$template = new FITemplate('pollIndex');
 
-	$getpolls = "SELECT * FROM polloftheweek ORDER BY id DESC";
+	if (isset($_GET['start']))
+	{
+		$start = $_GET['start'] * 10;
+	} else {
+		$start = 0;
+	}
+
+	$getpolls = "SELECT * FROM polloftheweek ORDER BY id DESC LIMIT " . $start . ",10";
 	$getpolls2 = mysql_query($getpolls);
 	$i=0;
 	while ($getpolls3[$i] = mysql_fetch_array($getpolls2))
 	{
+		$question = strip_tags($getpolls3[$i]['question']);
+		if (strlen($question) > 50)
+		{
+			$question = substr($question, 0, 50);
+			while (substr($question, strlen($question)-1) != ' ')
+			{
+				$question = substr($question, 0, strlen($question)-1);
+			}
+
+			$question = substr($question, 0, strlen($question)-1);
+			$question .= '....';
+		}
 		$template->adds_block('POLL', array(	'ID' => $getpolls3[$i]['id'],
-							'QUESTION' => $getpolls3[$i]['question'],
-							'WEEK' => date('F jS Y', strtotime($getpolls3[$i]['week']))));
+							'QUESTION' => $question,
+							'WEEK' => date('F jS Y', strtotime($getpolls3[$i]['week'])),
+							'EVEN' => (($i % 2 == 1) ? ' CLASS="even"' : '')));
 		$i++;
+	}
+
+	if ($i==0)
+	{
+		generateError('404');
+		exit;
+	}
+
+	$start /= 10;
+	if ($start > 0)
+	{
+		$template->adds_block('PREVIOUS', array('ID' => ($start-1)));
+	}
+
+	$cntpolls = "SELECT COUNT(*) FROM polloftheweek";
+	$cntpolls2 = mysql_query($cntpolls);
+	$cntpolls3 = mysql_fetch_array($cntpolls2);
+	if ($start < floor($cntpolls3['COUNT(*)'] / 10))
+	{
+		$template->adds_block('NEXT', array('ID' => ($start+1)));
 	}
 
 	include('pages/polloftheweek.php');
@@ -95,6 +135,8 @@ if (isset($_GET['submit']))
 
 	$page_id = 'polloftheweek-' . $getpoll3['id'];
 	include('includes/comments.php');
+
+	displayRelated($getpoll3['question']);
 }
 
 ?>

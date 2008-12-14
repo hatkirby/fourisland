@@ -17,8 +17,19 @@
 Welcome to the Poll of the Week! Feel free to vote on these! You can review old ones and also comment on them if
 you're logged in using the links below!
 <P>
-<UL>
+<TABLE CLASS="webmail">
+	<TR><TH>Question</TH><TH>Week</TH></TR>
 	<!--BEGIN POLL-->
-	<LI><A HREF="/poll/<!--POLL.ID-->.php"><!--POLL.QUESTION--></A> -  Week of <!--POLL.WEEK--></LI>
+	<TR<!--POLL.EVEN-->><TD><A HREF="/poll/<!--POLL.ID-->.php"><!--POLL.QUESTION--></A></TD><TD><NOBR><!--POLL.WEEK--></NOBR></TD></TR>
 	<!--END POLL-->
-</UL>
+</TABLE>
+
+<P>
+	<!--BEGIN PREVIOUS-->
+	<A HREF="/poll/?start=<!--PREVIOUS.ID-->" STYLE="float: left">Previous</A>
+	<!--END PREVIOUS-->
+
+	<!--BEGIN NEXT-->
+	<A HREF="/poll/?start=<!--NEXT.ID-->" STYLE="float: right">Next</A>
+	<!--END NEXT-->
+</P>

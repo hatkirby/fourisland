@@ -2,16 +2,20 @@
 <!--INCLUDE quotes/pagenumbers-->
 <!--END PAGENUMBERS-->
 
-<P><!--ORIGIN--></P>
+<H2><!--ORIGIN--></H2>
 
 <!--BEGIN QUOTES-->
-<A HREF="/quotes/<!--QUOTES.NUMBER-->.php">#<!--QUOTES.NUMBER--></A>
-<A HREF="/quotes/vote.php?id=<!--QUOTES.NUMBER-->&dir=plus">+</A>
-<SPAN>(<!--QUOTES.RATING-->)</SPAN>
-<A HREF="/quotes/vote.php?id=<!--QUOTES.NUMBER-->&dir=minus">-</A>
-<A HREF="/quotes/flag.php?id=<!--QUOTES.NUMBER-->">[X]</A>
+<P>
+	<A HREF="/quotes/<!--QUOTES.NUMBER-->.php">#<!--QUOTES.NUMBER--></A>
+	<A HREF="/quotes/vote.php?id=<!--QUOTES.NUMBER-->&dir=plus">+</A>
+	<SPAN>(<!--QUOTES.RATING-->)</SPAN>
+	<A HREF="/quotes/vote.php?id=<!--QUOTES.NUMBER-->&dir=minus">-</A>
+	<A HREF="/quotes/flag.php?id=<!--QUOTES.NUMBER-->">[X]</A>
 
-<P><!--QUOTES.QUOTE--></P>
+	<BR />
+
+	<!--QUOTES.QUOTE-->
+</P>
 <!--END QUOTES-->
 
 <!--BEGIN PAGENUMBERS-->
