@@ -24,7 +24,10 @@ require('headerproc.php');
 
 $template = new FITemplate('footer');
 
-$template->add('EXTRASIDEBARS',(isset($extraSidebars) ? $extraSidebars : ''));
+if (isset($extraSidebars))
+{
+	$template->adds_block('EXTRA', array('SIDEBARS' => $extraSidebars));
+}
 
 if (isset($onFourm))
 {
