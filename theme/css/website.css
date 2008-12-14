@@ -314,7 +314,12 @@ div#footer {
  width: 100%;
  border-top: 1px black solid;
  border-bottom: 4px gray solid;
+}
+
+body.home div#footer {
  background-color: white;
+ border-left: 4px gray solid;
+ border-right: 4px gray solid;
 }
 
 div#footer ul.rows li {
