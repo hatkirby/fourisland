@@ -72,10 +72,12 @@
 									<A HREF="http://fourisland.com/quotes/">Quotes</A>
 								</LI>
 
+								<!--BEGIN MEMBERS-->
 								<LI<!--LOGACTIVE-->>
 									<IMG SRC="/theme/images/icons/door_in.png" />
 									<A HREF="http://fourisland.com/log<!--LOGDATA-->.php?redirect=<!--REDIRPAGE-->">Log<!--LOGDATA--></A>
 								</LI>
+								<!--END MEMBERS-->
 							</UL>
 						</BLOCKQUOTE>
 					</DIV>

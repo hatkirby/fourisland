@@ -179,6 +179,15 @@ div#fi-navbar ul li.active img {
  margin-right: .5em;
 }
 
+div#fi-navbar div.bubble blockquote {
+ background: none;
+ font-size: 0.9em;
+}
+
+div#fi-navbar div.bubble blockquote a {
+ color: blue;
+}
+
 /* Sidebar */
 
 div#rightbar {

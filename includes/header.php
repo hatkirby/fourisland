@@ -53,6 +53,11 @@ if (isset($_POST['message']))
 	$headerTemp->adds_block('MESSAGE',array('MSG' => $_POST['message']));
 }
 
+if (($pageCategory != 'fourm') && ($pageCategory != 'wiki'))
+{
+	$headerTemp->adds_block('MEMBERS',array('exi' => 1));
+}
+
 $headerTemp->display();
 
 ?>
