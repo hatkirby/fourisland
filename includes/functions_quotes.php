@@ -41,7 +41,7 @@ function quote_generation($query, $origin, $page = 1, $quote_limit = 50, $page_l
 	{
 		$template->adds_block('QUOTES',array(	'NUMBER' => $getquotes3[$i]['id'],
 							'RATING' => $getquotes3[$i]['rating'],
-							'QUOTE' => nl2br(stripslashes($getquotes3[$i]['quote']))));
+							'QUOTE' => parseSmilies(nl2br(stripslashes($getquotes3[$i]['quote'])))));
 		
 		$i++;
 	}
