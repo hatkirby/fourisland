@@ -240,7 +240,7 @@ if (isLoggedIn())
 									'TITLE' => $getdraft3['title'],
 									'AUTHOR' => $getdraft3['author'],
 									'RATING' => 0,
-									'TEXT' => parseBBCode($getdraft3['text'])));
+									'TEXT' => parseText($getdraft3['text'])));
 
 				$tags = getTags($getdraft3['id'], 'draft');
 				foreach ($tags as $tag)
@@ -342,7 +342,7 @@ if (isLoggedIn())
 									'TITLE' => $getpending3['title'],
 									'AUTHOR' => $getpending3['author'],
 									'RATING' => 0,
-									'TEXT' => parseBBCode($getpending3['text'])));	
+									'TEXT' => parseText($getpending3['text'])));	
 
 				$tags = getTags($getpending3['id'], 'pending');
 				foreach ($tags as $tag)
@@ -554,7 +554,7 @@ if (isLoggedIn())
 				$template->add('ID', $_GET['id']);
 				$template->add('USERNAME', $getcomment3['author']);
 				$template->add('CODEDEMAIL', md5(strtolower($getuser3['email'])));
-				$template->add('TEXT', parseBBCode($getcomment3['comment']));
+				$template->add('TEXT', parseText($getcomment3['comment']));
 				$template->add('DATE', date("F dS Y \a\\t g:i:s a",strtotime($getcomment3['pubDate'])));
 			} else {
 				$template = new FITemplate('msg');

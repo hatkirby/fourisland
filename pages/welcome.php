@@ -68,7 +68,7 @@ while ($getpost3 = mysql_fetch_array($getpost2))
 							'PLURALCOMMENT' => (isset($plural) ? $plural : ''),
 							'COMMENTS' => $comText,
 							'RATING' => $getpost3['rating'],
-							'TEXT' => parseBBCode($getpost3['text'])));
+							'TEXT' => parseText($getpost3['text'])));
 
 	$tags = getTags($getpost3['id']);
 	foreach ($tags as $tag)

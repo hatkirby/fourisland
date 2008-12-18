@@ -27,7 +27,7 @@ include('includes/db.php');
 include('includes/template.php');
 include('includes/mantainence.php');
 include('includes/session.php');
-include('includes/bbcode.php');
+include('includes/parsers.php');
 include('includes/xmlrpc/xmlrpc.inc');
 include('includes/specialdates.php');
 include('includes/functions.php');

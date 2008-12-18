@@ -232,7 +232,7 @@ foreach ($items as $key => $value)
 
 			<link>http://fourisland.com/blog/<?php echo($value['slug']); ?>/</link>
 
-			<description><?php echo(stripslashes(htmlentities(parseBBCode($value['text'])))); ?></description>
+			<description><?php echo(stripslashes(htmlentities(parseText($value['text'])))); ?></description>
 
 			<pubDate><?php echo(date('D, d M Y H:i:s O',$value['sortDate'])); ?></pubDate>
 		</item>
@@ -260,7 +260,7 @@ foreach ($items as $key => $value)
 
 			<link>http://fourisland.com/<?php echo($value['url']); ?>#comment-<?php echo($value['id']); ?></link>
 
-			<description><?php echo(stripslashes(htmlentities(parseBBCode($value['comment'])))); ?></description>
+			<description><?php echo(stripslashes(htmlentities(parseText($value['comment'])))); ?></description>
 
 			<pubDate><?php echo(date('D, d M Y H:i:s O',$value['sortDate'])); ?></pubDate>
 		</item>

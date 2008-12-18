@@ -112,7 +112,7 @@ if (isset($_GET['submit']))
 
 	if ($getrss3['id'] == $_GET['id'])
 	{
-		$template->adds_block('COMPLETE', array(	'RSS' => parseBBCode($getrss3['rss']),
+		$template->adds_block('COMPLETE', array(	'RSS' => parseText($getrss3['rss']),
 								'AUTHOR' => $getrss3['author'],
 								'DATE' => date("F dS Y \a\\t g:i:s a",strtotime($getrss3['date'])),
 								'OPTION1' => $getpoll3['option1'],

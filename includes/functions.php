@@ -124,7 +124,7 @@ function postBlogPost($title,$author,$tags,$content)
 	$upconf = "UPDATE config SET value = \"" . date('md') . "\" WHERE name = \"lastUpdate\"";
 	$upconf2 = mysql_query($upconf);
 
-	preg_match_all('|<a\s[^>]*href="([^"]+)"|i', parseBBCode($content), $matches);
+	preg_match_all('|<a\s[^>]*href="([^"]+)"|i', parseText($content), $matches);
 
 	foreach ($matches[1] as $link)
 	{

@@ -50,7 +50,7 @@ class BBCode
 		$this->bbcodes['bquote'] = '<P><DIV CLASS="autosize"><DIV CLASS="bubble"><DIV CLASS="bquote"><BLOCKQUOTE><DIV>{CONTENT}</DIV></BLOCKQUOTE></DIV><CITE><STRONG>Anonymous</STRONG></CITE></DIV></DIV><DIV CLASS="cleardiv"></DIV>';
 		$this->bbcodes2['bquote'] = '<P><DIV CLASS="autosize"><DIV CLASS="bubble"><DIV CLASS="bquote"><BLOCKQUOTE><DIV>{CONTENT}</DIV></BLOCKQUOTE></DIV><CITE><STRONG>{PARAM}</STRONG></CITE></DIV></DIV><DIV CLASS="cleardiv"></DIV>';
 		$this->bbcodes2['abbr'] = '<ABBR TITLE="{PARAM}">{CONTENT}</ABBR>';
-		$this->bbcodes['hidden'] = '<DIV STYLE="display: none">{CONTENT}</DIV>';
+		$this->bbcodes['hidden'] = '<SPAN STYLE="display: none">{CONTENT}</SPAN>';
 
 		$this->init = true;
 	}

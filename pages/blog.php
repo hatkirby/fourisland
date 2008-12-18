@@ -72,7 +72,7 @@ if (isset($_GET['post']))
 							'TITLE' => $getpost3['title'],
 							'AUTHOR' => $getpost3['author'],
 							'RATING' => $getpost3['rating'],
-							'TEXT' => parseBBCode($getpost3['text'])));
+							'TEXT' => parseText($getpost3['text'])));
 
 		$tags = getTags($getpost3['id']);
 		foreach ($tags as $tag)

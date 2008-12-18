@@ -71,7 +71,7 @@ while ($getcomments3[$i] = mysql_fetch_array($getcomments2))
 								'USERNAME' => (($website != '') ? '<A HREF="http://' . $website . '">' . $username . '</A>' : $username),
 								'DATE' => date("F dS Y \a\\t g:i:s a",strtotime($getcomments3[$i]['posttime'])),
 								'ID' => $getcomments3[$i]['id'],
-								'TEXT' => parseBBCode($getcomments3[$i]['comment'])));
+								'TEXT' => parseText($getcomments3[$i]['comment'])));
 	}
 	$i++;
 }
