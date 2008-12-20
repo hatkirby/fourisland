@@ -364,7 +364,7 @@ if (isLoggedIn())
 			{
 				if ($_GET['dir'] == 'up')
 				{
-					$get2pending = "SELECT * FROM pending WHERE id < " . $_GET['id'] . " LIMIT 0,1";
+					$get2pending = "SELECT * FROM pending WHERE id < " . $_GET['id'] . " ORDER BY id DESC LIMIT 0,1";
 					$get2pending2 = mysql_query($get2pending);
 					$get2pending3 = mysql_fetch_array($get2pending2);
 
@@ -379,7 +379,7 @@ if (isLoggedIn())
 					}
 				} else if ($_GET['dir'] == 'down')
 				{
-					$get2pending = "SELECT * FROM pending WHERE id > " . $_GET['id'] . " LIMIT 0,1";
+					$get2pending = "SELECT * FROM pending WHERE id > " . $_GET['id'] . " ORDER BY id ASC LIMIT 0,1";
 					$get2pending2 = mysql_query($get2pending);
 					$get2pending3 = mysql_fetch_array($get2pending2);
 
@@ -399,11 +399,11 @@ if (isLoggedIn())
 					$delpending = "DELETE FROM pending WHERE id = " . $_GET['id'] . " OR id = " . $otherPending['id'];
 					$delpending2 = mysql_query($delpending);
 
-					$inspending = "INSERT INTO pending (id, title, author, text, slug) VALUES (" . $_GET['id'] . ",\"" . $otherPending['title'] . "\",\"" . $otherPending['author'] . "\",\"" . $otherPending['text'] . "\",\"" . $otherPending['slug'] . "\")";
+					$inspending = "INSERT INTO pending (id, title, author, text, slug) VALUES (" . $_GET['id'] . ",\"" . $otherPending['title'] . "\",\"" . $otherPending['author'] . "\",\"" . mysql_real_escape_string($otherPending['text']) . "\",\"" . $otherPending['slug'] . "\")";
 					$inspending2 = mysql_query($inspending);
 
-					$ins2pending = "INSERT INTO pending (id, title, author, text, slug) VALUES (" . $otherPending['id'] . ",\"" . $getpending3['title'] . "\",\"" . $getpending3['author'] . "\",\"" . $getpending3['text'] . "\",\"" . $getpending3['slug'] . "\")";
-					$ins2pending2 = mysql_query($ins2pending);
+					$ins2pending = "INSERT INTO pending (id, title, author, text, slug) VALUES (" . $otherPending['id'] . ",\"" . $getpending3['title'] . "\",\"" . $getpending3['author'] . "\",\"" . mysql_real_escape_string($getpending3['text']) . "\",\"" . $getpending3['slug'] . "\")";
+					$ins2pending2 = mysql_query($ins2pending) or die($ins2pending);
 
 					$tags1 = getTags($_GET['id'], 'pending');
 					$tags2 = getTags($otherPending['id'], 'pending');
