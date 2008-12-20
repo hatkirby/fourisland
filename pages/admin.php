@@ -372,8 +372,9 @@ if (isLoggedIn())
 					{
 						$otherPending = $get2pending3;
 					} else {
-						$template = new FITemplate('msg');
-						$template->add('BACK', 'the previous page');
+						$template = new FITemplate('msg2');
+						$template->add('BACK', 'Back to the pending queue');
+						$template->add('LINK', 'managePending.php');
 						$template->add('MSG', 'I\'m sorry, that pending post is already the first.');
 					}
 				} else if ($_GET['dir'] == 'down')
@@ -386,8 +387,9 @@ if (isLoggedIn())
 					{
 						$otherPending = $get2pending3;
 					} else {
-						$template = new FITemplate('msg');
-						$template->add('BACK', 'the previous page');
+						$template = new FITemplate('msg2');
+						$template->add('BACK', 'Back to the pending queue');
+						$template->add('LINK', 'managePending.php');
 						$template->add('MSG', 'I\'m sorry, that pending post is already the last.');
 					}
 				}
@@ -410,22 +412,13 @@ if (isLoggedIn())
 					addTags($_GET['id'], $tags2, 'pending');
 					addTags($otherPending['id'], $tags1, 'pending');
 
-					$template = new FITemplate('admin/managePending');
-
-					$getpending = "SELECT * FROM pending ORDER BY id ASC";
-					$getpending2 = mysql_query($getpending);
-					$i=0;
-					while ($getpending3[$i] = mysql_fetch_array($getpending2))
-					{
-						$template->adds_block('PENDING', array(	'TITLE' => $getpending3[$i]['title'],
-											'AUTHOR' => $getpending3[$i]['author'],
-											'ID' => $getpending3[$i]['id']));
-						$i++;
-					}
+					header('Location: managePending.php');
+					exit;
 				}
 			} else {
-				$template = new FITemplate('msg');
-				$template->add('BACK', 'the previous page');
+				$template = new FITemplate('msg2');
+				$template->add('BACK', 'Back to the pending queue');
+				$template->add('LINK', 'managePending.php');
 				$template->add('MSG', 'I\'m sorry, that pending post doesn\'t exist.');
 			}
 		} else if ($_GET['page'] == 'managePosts')
