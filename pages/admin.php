@@ -364,11 +364,11 @@ if (isLoggedIn())
 			{
 				if ($_GET['dir'] == 'up')
 				{
-					$get2pending = "SELECT * FROM pending WHERE id = " . ($_GET['id']-1);
+					$get2pending = "SELECT * FROM pending WHERE id < " . $_GET['id'] . " LIMIT 0,1";
 					$get2pending2 = mysql_query($get2pending);
 					$get2pending3 = mysql_fetch_array($get2pending2);
 
-					if ($get2pending3['id'] == ($_GET['id']-1))
+					if (isset($get2pending3['id']))
 					{
 						$otherPending = $get2pending3;
 					} else {
@@ -379,11 +379,11 @@ if (isLoggedIn())
 					}
 				} else if ($_GET['dir'] == 'down')
 				{
-					$get2pending = "SELECT * FROM pending WHERE id = " . ($_GET['id']+1);
+					$get2pending = "SELECT * FROM pending WHERE id > " . $_GET['id'] . " LIMIT 0,1";
 					$get2pending2 = mysql_query($get2pending);
 					$get2pending3 = mysql_fetch_array($get2pending2);
 
-					if ($get2pending3['id'] == ($_GET['id']+1))
+					if (isset($get2pending3['id']))
 					{
 						$otherPending = $get2pending3;
 					} else {
