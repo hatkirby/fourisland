@@ -133,7 +133,7 @@ switch ($_GET['mode'])
 		}				
 	default:
 		$string = 'An error was encountered.';
-		$im2    = imagecreatefrompng("images/blue.png");
+		$im2    = imagecreatefrompng("theme/images/blue.PNG");
 		$im     = imagecreate(200,30);
 		$b      = imagecopyresized($im,$im2,0,0,0,0,400,400,1,1);
 		$orange = imagecolorallocate($im, 220, 210, 60);

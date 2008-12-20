@@ -51,6 +51,7 @@ class BBCode
 		$this->bbcodes2['bquote'] = '<P><DIV CLASS="autosize"><DIV CLASS="bubble"><DIV CLASS="bquote"><BLOCKQUOTE><DIV>{CONTENT}</DIV></BLOCKQUOTE></DIV><CITE><STRONG>{PARAM}</STRONG></CITE></DIV></DIV><DIV CLASS="cleardiv"></DIV>';
 		$this->bbcodes2['abbr'] = '<ABBR TITLE="{PARAM}">{CONTENT}</ABBR>';
 		$this->bbcodes['hidden'] = '<SPAN STYLE="display: none">{CONTENT}</SPAN>';
+		$this->bbcodes['thumb'] = '<A HREF="/images/{CONTENT}"><IMG SRC="http://fourisland.com/thumb.php?file=images/{CONTENT}&mode=scale&by=521&side=0" /></A>';
 
 		$this->init = true;
 	}
