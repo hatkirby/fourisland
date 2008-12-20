@@ -115,7 +115,7 @@ function postBlogPost($title,$author,$tags,$content)
 {
 	$slug = generateSlug($title,'updates');
 
-	$inspost = "INSERT INTO updates (title,slug,author,text) VALUES (\"" . $title . "\",\"" . $slug . "\",\"" . $author . "\",\"" . addslashes($content) . "\")";
+	$inspost = "INSERT INTO updates (title,slug,author,text) VALUES (\"" . $title . "\",\"" . $slug . "\",\"" . $author . "\",\"" . mysql_real_escape_string($content) . "\")";
 	$inspost2 = mysql_query($inspost);
 
 	$id = mysql_insert_id();
@@ -284,7 +284,7 @@ if (!function_exists('unique_id'))
 
 function displayRelated($title, $avoid = 0)
 {
-	$getrelated = "SELECT *, MATCH (title, text) AGAINST (\"" . addslashes($title) . "\") AS score FROM updates WHERE MATCH (title, text) AGAINST (\"" . addslashes($title) . "\") AND id <> " . $avoid . " LIMIT 0,5";
+	$getrelated = "SELECT *, MATCH (title, text) AGAINST (\"" . mysql_real_escape_string($title) . "\") AS score FROM updates WHERE MATCH (title, text) AGAINST (\"" . mysql_real_escape_string($title) . "\") AND id <> " . $avoid . " LIMIT 0,5";
 	$getrelated2 = mysql_query($getrelated);
 	$i=0;
 	while ($getrelated3[$i] = mysql_fetch_array($getrelated2))

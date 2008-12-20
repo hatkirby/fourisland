@@ -43,10 +43,10 @@ if ((!isset($_GET['act'])) || ($_GET['act'] == 'latest'))
 		$template->adds_block('SUBMITTED',array('QUOTE' => (nl2br(htmlspecialchars($_POST['rash_quote'])) . "\n")));
 		if (!isLoggedIn())
 		{
-			$insquote = "INSERT INTO rash_queue (quote) VALUES(\"" . addslashes(htmlspecialchars($_POST['rash_quote'])) . "\")";
+			$insquote = "INSERT INTO rash_queue (quote) VALUES(\"" . mysql_real_escape_string(htmlspecialchars($_POST['rash_quote'])) . "\")";
 		} else {
 			$today = mktime(date('G'),date('i'),date('s'),date('m'),date('d'),date('Y'));
-			$insquote = "INSERT INTO rash_quotes (quote, rating, flag, date) VALUES (\"" . addslashes($_POST['rash_quote']) . "\", 0, 0, \"" . $today . "\")";
+			$insquote = "INSERT INTO rash_quotes (quote, rating, flag, date) VALUES (\"" . mysql_real_escape_string($_POST['rash_quote']) . "\", 0, 0, \"" . $today . "\")";
 		}
 		$insquote2 = mysql_query($insquote);
 	}

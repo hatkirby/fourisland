@@ -41,7 +41,7 @@ if (isLoggedIn())
 
 				if ($_POST['type'] == 'draft')
 				{
-					$insdraft = "INSERT INTO drafts (title,author,text,slug) VALUES (\"" . addslashes($_POST['title']) . "\",\"" . sess_get('uname') . "\",\"" . addslashes($_POST['text']) . "\",\"" . generateSlug($_POST['title'],'updates') . "\")";
+					$insdraft = "INSERT INTO drafts (title,author,text,slug) VALUES (\"" . mysql_real_escape_string($_POST['title']) . "\",\"" . sess_get('uname') . "\",\"" . mysql_real_escape_string($_POST['text']) . "\",\"" . generateSlug($_POST['title'],'updates') . "\")";
 					$insdraft2 = mysql_query($insdraft);
 
 					$id = mysql_insert_id();
@@ -87,7 +87,7 @@ if (isLoggedIn())
 						generateError(404);
 					}
 
-					$inspending = "INSERT INTO pending (id,title,author,text,slug) VALUES (" . $id . ",\"" . addslashes($_POST['title']) . "\",\"" . sess_get('uname') . "\",\"" . addslashes($_POST['text']) . "\",\"" . generateSlug($_POST['title'],'updates') . "\")";
+					$inspending = "INSERT INTO pending (id,title,author,text,slug) VALUES (" . $id . ",\"" . mysql_real_escape_string($_POST['title']) . "\",\"" . sess_get('uname') . "\",\"" . mysql_real_escape_string($_POST['text']) . "\",\"" . generateSlug($_POST['title'],'updates') . "\")";
 					$inspending2 = mysql_query($inspending);
 
 					addTags($id, $tags, 'pending');
@@ -131,7 +131,7 @@ if (isLoggedIn())
 
 					if ($_POST['type'] == 'draft')
 					{
-						$setdraft = "UPDATE drafts SET title = \"" . addslashes($_POST['title']) . "\", text = \"" . addslashes($_POST['text']) . "\" WHERE id = " . $_GET['id'];
+						$setdraft = "UPDATE drafts SET title = \"" . mysql_real_escape_string($_POST['title']) . "\", text = \"" . mysql_real_escape_string($_POST['text']) . "\" WHERE id = " . $_GET['id'];
 						$setdraft2 = mysql_query($setdraft);
 
 						addTags($_GET['id'], $tags, 'draft');
@@ -179,7 +179,7 @@ if (isLoggedIn())
 							generateError(404);
 						}
 
-						$inspending = "INSERT INTO pending (id,title,author,text,slug) VALUES (" . $id . ",\"" . addslashes($_POST['title']) . "\",\"" . sess_get('uname') . "\",\"" . addslashes($_POST['text']) . "\",\"" . generateSlug($_POST['title'],'updates') . "\")";
+						$inspending = "INSERT INTO pending (id,title,author,text,slug) VALUES (" . $id . ",\"" . mysql_real_escape_string($_POST['title']) . "\",\"" . sess_get('uname') . "\",\"" . mysql_real_escape_string($_POST['text']) . "\",\"" . generateSlug($_POST['title'],'updates') . "\")";
 						$inspending2 = mysql_query($inspending);
 
 						addTags($id, $tags, 'pending');
@@ -284,7 +284,7 @@ if (isLoggedIn())
 				} else {
 					$tags = explode(',', $_POST['tags']);
 
-					$setpending = "UPDATE pending SET title = \"" . addslashes($_POST['title']) . "\", text = \"" . addslashes($_POST['text']) . "\" WHERE id = " . $_GET['id'];
+					$setpending = "UPDATE pending SET title = \"" . mysql_real_escape_string($_POST['title']) . "\", text = \"" . mysql_real_escape_string($_POST['text']) . "\" WHERE id = " . $_GET['id'];
 					$setpending2 = mysql_query($setpending);
 
 					removeTags($_GET['id'], 'pending');
@@ -454,7 +454,7 @@ if (isLoggedIn())
 				} else {
 					$tags = explode(',', $_POST['tags']);
 
-					$setpost = "UPDATE updates SET title = \"" . addslashes($_POST['title']) . "\", text = \"" . addslashes($_POST['text']) . "\" WHERE id = " . $_GET['id'];
+					$setpost = "UPDATE updates SET title = \"" . mysql_real_escape_string($_POST['title']) . "\", text = \"" . mysql_real_escape_string($_POST['text']) . "\" WHERE id = " . $_GET['id'];
 					$setpost2 = mysql_query($setpost);
 
 					removeTags($_GET['id']);
@@ -601,13 +601,13 @@ if (isLoggedIn())
 				$template = new FITemplate('admin/pollrss');
 			} else if ($_GET['step'] == 2)
 			{
-				$insrss = "INSERT INTO pollrss (author,rss) VALUES (\"" . sess_get('uname') . "\",\"" . addslashes($_POST['text']) . "\")";
+				$insrss = "INSERT INTO pollrss (author,rss) VALUES (\"" . sess_get('uname') . "\",\"" . mysql_real_escape_string($_POST['text']) . "\")";
 				$insrss2 = mysql_query($insrss);
 
 				$template = new FITemplate('admin/newPoll');
 			} else if ($_GET['step'] == 3)
 			{
-				$inspoll = "INSERT INTO polloftheweek (question,option1,option2,option3,option4) VALUES (\"" . addslashes($_POST['question']) . "\",\"" . $_POST['option1'] . "\",\"" . $_POST['option2'] . "\",\"" . $_POST['option3'] . "\",\"" . $_POST['option4'] . "\")";
+				$inspoll = "INSERT INTO polloftheweek (question,option1,option2,option3,option4) VALUES (\"" . mysql_real_escape_string($_POST['question']) . "\",\"" . $_POST['option1'] . "\",\"" . $_POST['option2'] . "\",\"" . $_POST['option3'] . "\",\"" . $_POST['option4'] . "\")";
 				$inspoll2 = mysql_query($inspoll);
 
 				$cleardid = "TRUNCATE TABLE didpollalready";
@@ -654,7 +654,7 @@ if (isLoggedIn())
 				if (isset($_GET['approve']))
 				{
 					$today = mktime(date('G'),date('i'),date('s'),date('m'),date('d'),date('Y'));
-					$insquote = "INSERT INTO rash_quotes (quote,date) VALUES (\"" . addslashes($getpending3['quote']) . "\",\"" . $today . "\")";
+					$insquote = "INSERT INTO rash_quotes (quote,date) VALUES (\"" . mysql_real_escape_string($getpending3['quote']) . "\",\"" . $today . "\")";
 					$insquote2 = mysql_query($insquote);
 
 					$delpending = "DELETE FROM rash_queue WHERE id = " . $_GET['id'];
