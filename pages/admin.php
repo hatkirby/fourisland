@@ -179,7 +179,7 @@ if (isLoggedIn())
 							generateError(404);
 						}
 
-						$inspending = "INSERT INTO pending (id,title,author,text,tags,slug) VALUES (" . $id . ",\"" . addslashes($_POST['title']) . "\",\"" . sess_get('uname') . "\",\"" . addslashes($_POST['text']) . "\",\"" . $tags . "\",\"" . generateSlug($_POST['title'],'updates') . "\")";
+						$inspending = "INSERT INTO pending (id,title,author,text,slug) VALUES (" . $id . ",\"" . addslashes($_POST['title']) . "\",\"" . sess_get('uname') . "\",\"" . addslashes($_POST['text']) . "\",\"" . generateSlug($_POST['title'],'updates') . "\")";
 						$inspending2 = mysql_query($inspending);
 
 						addTags($id, $tags, 'pending');
