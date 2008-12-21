@@ -24,13 +24,6 @@ require('headerproc.php');
 
 $headerTemp = new FITemplate('header');
 
-if (!isset($_COOKIE['splashOnce']))
-{
-        setcookie('splashOnce', '1');
-
-	$headerTemp->adds_block('SPLASH', array('exi'=>1));
-}
-
 if ((date('G') >= 20) || (date('G') <= 6))
 {
 	$bodyID = 'night';
