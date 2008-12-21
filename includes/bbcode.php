@@ -52,6 +52,7 @@ class BBCode
 		$this->bbcodes2['abbr'] = '<ABBR TITLE="{PARAM}">{CONTENT}</ABBR>';
 		$this->bbcodes['hidden'] = '<SPAN STYLE="display: none">{CONTENT}</SPAN>';
 		$this->bbcodes['thumb'] = '<A HREF="/images/{CONTENT}"><IMG SRC="http://fourisland.com/thumb.php?file=images/{CONTENT}&mode=scale&by=521&side=0" /></A>';
+		$this->bbcodes['thumb2'] = '<A HREF="/images/{CONTENT}"><IMG SRC="http://fourisland.com/thumb.php?file=images/{CONTENT}&mode=scale&by=260&side=0" ALIGN="right" /></A>';
 
 		$this->init = true;
 	}

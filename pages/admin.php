@@ -683,6 +683,15 @@ if (isLoggedIn())
 				$template->add('BACK', 'the previous page');
 				$template->add('MSG', 'I\'m sorry, but this pending quote doesn\'t exist.');
 			}
+		} else if ($_GET['page'] == 'hgUpdate')
+		{
+			$template = new FITemplate('msg');
+			$template->add('BACK', 'the Admin Panel');
+
+			ob_start();
+			system('hg update');
+			$template->add('MSG', ob_get_contents());
+			ob_end_clean();
 		} else {
 			generateError(404);
 		}

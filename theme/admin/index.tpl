@@ -23,3 +23,9 @@ Welcome to the ubiquitous administration panel!<P>
 <UL>
 	<LI><A HREF="/admin/managePendingQuotes.php">Manage Pending Quotes</A></LI>
 </UL>
+
+<H3>Administration</H3>
+
+<UL>
+	<LI><A HREF="/admin/hgUpdate.php">HG Update</A></LI>
+</UL>
