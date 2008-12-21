@@ -25,7 +25,7 @@ header('X-Pingback: http://fourisland.com/xmlrpc.php');
 include('../security/config.php');
 include('includes/db.php');
 include('includes/template.php');
-include('includes/mantainence.php');
+include('includes/maintenance.php');
 include('includes/session.php');
 include('includes/parsers.php');
 include('includes/xmlrpc/xmlrpc.inc');

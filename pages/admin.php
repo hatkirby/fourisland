@@ -692,6 +692,44 @@ if (isLoggedIn())
 			system('hg update');
 			$template->add('MSG', ob_get_contents());
 			ob_end_clean();
+		} else if ($_GET['page'] == 'maintenanceMode')
+		{
+			if (isset($_GET['submit']))
+			{
+				if ($_POST['mode'] == 'on')
+				{
+					$set = 1;
+				} else if ($_POST['mode'] == 'off')
+				{
+					$set = 0;
+				} else {
+					$template = new FITemplate('msg');
+					$template->add('MSG', 'You seem to have somehow messed up the form. That\'s weird.');
+					$template->add('BACK', 'the Maintenance Mode form');
+				}
+
+				if (isset($set))
+				{
+					$setconfig = "UPDATE config SET value = \"" . $set . "\" WHERE name = \"maintenanceMode\"";
+					$setconfig2 = mysql_query($setconfig);
+
+					$template = new FITemplate('msg');
+					$template->add('MSG', 'Maintenance Mode has successfully been set to "' . $_POST['mode'] . '"');
+					$template->add('BACK', 'the Maintenance Mode form');
+				}
+			} else {
+				$template = new FITemplate('admin/maintenanceMode');
+
+				$getconfig = "SELECT * FROM config WHERE name = \"maintenanceMode\"";
+				$getconfig2 = mysql_query($getconfig);
+				$getconfig3 = mysql_fetch_array($getconfig2);
+				if ($getconfig3['value'] == '1')
+				{
+					$template->add('ON', ' CHECKED="CHECKED"');
+				} else {
+					$template->add('OFF', ' CHECKED="CHECKED"');
+				}
+			}
 		} else {
 			generateError(404);
 		}

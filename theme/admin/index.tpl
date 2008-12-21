@@ -28,4 +28,5 @@ Welcome to the ubiquitous administration panel!<P>
 
 <UL>
 	<LI><A HREF="/admin/hgUpdate.php">HG Update</A></LI>
+	<LI><A HREF="/admin/maintenanceMode.php">Maintenance Mode</A></LI>
 </UL>
