@@ -1,5 +1,8 @@
 RewriteEngine On
 
+RewriteCond %{HTTP_HOST} ^www.fourisland.com [NC]
+RewriteRule ^(.*)$ http://fourisland.com/$1 [R=301,NC,L]
+
 RewriteRule ^blog/$ /index.php?area=blog [QSA,L]
 RewriteRule ^blog/author/(.+).php /index.php?area=blog&author=$1 [QSA,L]
 RewriteRule ^blog/tag/(.+).php /index.php?area=blog&tag=$1 [QSA,L]
@@ -27,6 +30,3 @@ RewriteRule ^projects/ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.+).php /index.php?area=$1 [QSA,L]
-
-RewriteCond %{HTTP_HOST} ^www.fourisland.com [NC]
-RewriteRule ^(.*)$ http://fourisland.com/$1 [R=301,NC]
