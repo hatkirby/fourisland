@@ -33,7 +33,7 @@ $template->add('BACK','the previous page');
 
 if (!isset($_GET['id']))
 {
-	$template->add('MSG','I\'m sorry, but there\'s no page-id set here, so sadly you can\'t comment yet. Why not contact the administratior (link on the HatBar) and tell him that you saw this error?');
+	$template->add('MSG','I\'m sorry, but there\'s no page-id set here, so sadly you can\'t comment yet. Why not contact the administratior (link on the HatBar) and tell her that you saw this error?');
 } else {
 	if ($_POST['comment'] == "")
 	{
