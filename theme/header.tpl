@@ -3,6 +3,7 @@
 		<TITLE><!--EXTRATITLE-->Four Island</TITLE>
 
 		<LINK REL="stylesheet" TYPE="text/css" HREF="http://fourisland.com/theme/css.php?id=<!--BODYID-->&amp;cat=<!--CATEGORY-->" />
+		<!--[if IE]><LINK REL="stylesheet" TYPE="text/css" HREF="http://fourisland.com/theme/css/ie.css" /><![endif]-->
 		<LINK REL="stylesheet" TYPE="text/css" HREF="http://fourisland.com/theme/css/print.css" MEDIA="print" />
 		<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8" />
 		<META HTTP-EQUIV="Content-Language" CONTENT="en" />
@@ -10,8 +11,6 @@
 		<LINK REL="shortcut" HREF="/images/kirbyfolder.ico" />
 		<LINK REL="icon" HREF="/images/kirbyfolder.ico" />
 		<LINK REL="pingback" HREF="http://fourisland.com/xmlrpc.php" />
-		<SCRIPT SRC="/theme/js/jquery-1.2.6.min.js" TYPE="text/javascript"></SCRIPT>
-		<SCRIPT SRC="/theme/js/jquery.ie6blocker.js" TYPE="text/javascript"></SCRIPT>
 
 		<!--HEADTAGS-->
 	</HEAD>

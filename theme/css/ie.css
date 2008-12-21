@@ -1,0 +1,11 @@
+div#top-fade {
+ display: none;
+}
+
+body * {
+ overflow: hidden;
+}
+
+dl.icon {
+ height: 50px;
+}
