@@ -41,10 +41,10 @@ if ($errorid == '404')
 	} else {
 		if ((strpos($strReferer,".looksmart.co")>0) || (strpos($strReferer,".ifind.freeserve")>0) || (strpos($strReferer,".ask.co")>0) || (strpos($strReferer,"google.co")>0) || (strpos($strReferer,"altavista.co")>0) || (strpos($strReferer,"msn.co")>0) || (strpos($strReferer,"yahoo.co")>0))
 		{
-			$arrSite = split("/",$strReferer);
-			$arrParams = split("?",$strReferer);
+			$arrSite = explode("/",$strReferer);
+			$arrParams = explode("?",$strReferer);
 			$strSearchTerms = $arrParams[1];
-			$arrParams = split("&",$strSearchTerms);
+			$arrParams = explode("&",$strSearchTerms);
 			$strSite = $arrSite[2];
 			$sQryStr="";
 			$arrQueryStrings = array("q=","p=","ask=","key=");
@@ -54,12 +54,14 @@ if ($errorid == '404')
 				for ($q=0;$q<count($arrQueryStrings);$q++)
 				{
 					$sQryStr = $arrQueryStrings[$q];
-					if (strpos($arrParams[$i],$sQryStr)==0)
+					if (strpos($arrParams[$i],$sQryStr) === 0)
 					{
 						$strSearchTerms = $arrParams[$i];
-						$strSearchTerms = split($sQryStr,$strSearchTerms);
+						$strSearchTerms = explode($sQryStr,$strSearchTerms);
 						$strSearchTerms = $strSearchTerms[1];
 						$strSearchTerms = str_replace("+"," ",$strSearchTerms);
+
+						break;
 					}
 				}
 			}
