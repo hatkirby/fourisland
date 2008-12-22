@@ -1,4 +1,4 @@
-<BR BREAK="both" />
+<DIV CLASS="cleardiv"></DIV>
 
 <DIV CLASS="bubble">
 	<DIV CLASS="rounded">

@@ -56,9 +56,9 @@
 			<CITE CLASS="rounded"><STRONG><!--POST.AUTHOR--></STRONG> on <!--POST.DATE--></CITE>
 
 			<SPAN CLASS="post-vote">
-				<A HREF="/vote.php?id=<!--POST.ID-->&amp;dir=plus" REL="nofollow"><IMG SRC="/theme/images/icons/thumb_up.png"></A>
+				<A HREF="/vote.php?id=<!--POST.ID-->&amp;dir=plus" REL="nofollow"><IMG SRC="/theme/images/icons/thumb_up.png" ALT="+1"></A>
 				<BIG><!--POST.RATING--></BIG>
-				<A HREF="/vote.php?id=<!--POST.ID-->&amp;dir=minus" REL="nofollow"><IMG SRC="/theme/images/icons/thumb_down.png"></A>
+				<A HREF="/vote.php?id=<!--POST.ID-->&amp;dir=minus" REL="nofollow"><IMG SRC="/theme/images/icons/thumb_down.png" ALT="-1"></A>
 			</SPAN>
 		</DIV>
 	</DIV>

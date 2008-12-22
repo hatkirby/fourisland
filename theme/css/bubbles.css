@@ -49,15 +49,15 @@ div.bubble cite.rounded {
 }
 
 /* Pimped Bubble */
-div#pimped.bubble {
+div.pimped.bubble {
 	font-size: 0.9em;
 }
-div#pimped.bubble div.rounded {
+div.pimped.bubble div.rounded {
 	color: #fff;
 	border: 3px solid #fff;
 	background-color: #111;
 }
-div#pimped.bubble cite.rounded {
+div.pimped.bubble cite.rounded {
 	background: transparent url(/theme/images/tip-pimped.gif) no-repeat 15px 0;
 }
 

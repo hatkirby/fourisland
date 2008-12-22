@@ -17,14 +17,14 @@
 
 			<DIV ID="footer">
 				<UL CLASS="rows">
-					<LI><span xmlns:dc="http://purl.org/dc/elements/1.1/" property="dc:title">Four Island</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://fourisland.com" property="cc:attributionName" rel="cc:attributionURL">Starla Insigna</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/">Creative Commons Attribution-Noncommercial-Share Alike 3.0 United States License</a>.</LI>
+					<LI>Four Island by <a href="http://fourisland.com">Starla Insigna</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/">Creative Commons Attribution-Noncommercial-Share Alike 3.0 United States License</a>.</LI>
 					<LI><A HREF="/wiki/privacy-policy/">Privacy Policy</A></LI>
 				</UL>
 
 				<UL CLASS="together">
-					<LI><A HREF="http://jigsaw.w3.org/css-validator/"><IMG SRC="/theme/images/icons/css_valid.png"></A></LI>
-					<LI><A HREF="/no-doctype.php"><IMG SRC="/theme/images/icons/html_valid.png"></A></LI>
-					<LI><A class="noVisit" HREF="/rss.php"><IMG SRC="/theme/images/icons/feed.png"></A></LI>
+					<LI><A HREF="http://jigsaw.w3.org/css-validator/"><IMG SRC="/theme/images/icons/css_valid.png" ALT="Valid CSS"></A></LI>
+					<LI><A HREF="/blog/sortof-valid-html-no-doctype/"><IMG SRC="/theme/images/icons/html_valid.png" ALT="Sortof Valid HTML"></A></LI>
+					<LI><A class="noVisit" HREF="/rss.php"><IMG SRC="/theme/images/icons/feed.png" ALT="RSS Feed"></A></LI>
 				</UL>
 			</DIV>
 		</DIV>

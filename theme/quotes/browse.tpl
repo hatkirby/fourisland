@@ -7,12 +7,12 @@
 <!--BEGIN QUOTES-->
 <P>
 	<A HREF="/quotes/<!--QUOTES.NUMBER-->.php">#<!--QUOTES.NUMBER--></A>
-	<A HREF="/quotes/vote.php?id=<!--QUOTES.NUMBER-->&dir=plus">+</A>
+	<A HREF="/quotes/vote.php?id=<!--QUOTES.NUMBER-->&amp;dir=plus">+</A>
 	<SPAN>(<!--QUOTES.RATING-->)</SPAN>
-	<A HREF="/quotes/vote.php?id=<!--QUOTES.NUMBER-->&dir=minus">-</A>
+	<A HREF="/quotes/vote.php?id=<!--QUOTES.NUMBER-->&amp;dir=minus">-</A>
 	<A HREF="/quotes/flag.php?id=<!--QUOTES.NUMBER-->">[X]</A>
 
-	<BR />
+	<BR>
 
 	<!--QUOTES.QUOTE-->
 </P>

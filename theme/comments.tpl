@@ -6,7 +6,7 @@
 <DIV CLASS="bubble">
 	<BLOCKQUOTE>
 		<DIV>
-			<IMG SRC="http://www.gravatar.com/avatar/<!--COMMENTS.CODEDEMAIL-->?s=32&amp;d=identicon&amp;r=G">
+			<IMG SRC="http://www.gravatar.com/avatar/<!--COMMENTS.CODEDEMAIL-->?s=32&amp;d=identicon&amp;r=G" ALT="Gravatar">
 			<!--COMMENTS.TEXT-->
 		</DIV>
 	</BLOCKQUOTE>
@@ -33,6 +33,6 @@
 		Website (Optional): <INPUT TYPE="text" NAME="website">
 		<P>
 		<!--END NOLOG-->
-		<INPUT TYPE="submit" VALUE="Post"></INPUT>
+		<INPUT TYPE="submit" VALUE="Post">
 	</CENTER>
 </FORM>
