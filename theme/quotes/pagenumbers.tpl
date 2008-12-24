@@ -1,3 +1,5 @@
+<DIV CLASS="cleardiv"></DIV>
+
 <CENTER>
 	<A HREF="/quotes/<!--LORIGIN-->.php">First</A>&nbsp;&nbsp;
 	<A HREF="/quotes/<!--LORIGIN-->.php?page=<!--MINUSTEN-->">-10</A>&nbsp;&nbsp;

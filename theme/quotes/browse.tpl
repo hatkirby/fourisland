@@ -1,3 +1,5 @@
+<DIV CLASS="cleardiv"></DIV>
+
 <!--BEGIN PAGENUMBERS-->
 <!--INCLUDE quotes/pagenumbers-->
 <!--END PAGENUMBERS-->

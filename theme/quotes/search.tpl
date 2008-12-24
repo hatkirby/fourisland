@@ -1,3 +1,5 @@
+<DIV CLASS="cleardiv"></DIV>
+
 <H1>Search</H1>
 
 <FORM METHOD="POST" ACTION="/quotes/search.php?fetch=">

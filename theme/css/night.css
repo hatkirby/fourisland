@@ -11,6 +11,8 @@ body div#top-fade {
  background-image: url(/theme/images/top_fade_night.png) !important;
 }
 
-body.home div.bubble cite {
+body.home div.bubble cite,
+body.quotes div#content p,
+body.quotes cite {
  color: yellow;
 }
