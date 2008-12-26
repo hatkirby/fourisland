@@ -23,7 +23,7 @@
 
 				<UL CLASS="together">
 					<LI><A HREF="http://jigsaw.w3.org/css-validator/"><IMG SRC="/theme/images/icons/css_valid.png" ALT="Valid CSS"></A></LI>
-					<LI><A HREF="/blog/sortof-valid-html-no-doctype/"><IMG SRC="/theme/images/icons/html_valid.png" ALT="Sortof Valid HTML"></A></LI>
+					<LI><A HREF="/blog/sortof-valid-html-no-lt-doctype-gt/"><IMG SRC="/theme/images/icons/html_valid.png" ALT="Sortof Valid HTML"></A></LI>
 					<LI><A class="noVisit" HREF="/rss.php"><IMG SRC="/theme/images/icons/feed.png" ALT="RSS Feed"></A></LI>
 				</UL>
 			</DIV>
