@@ -17,7 +17,8 @@
 
 			<DIV ID="footer">
 				<UL CLASS="rows">
-					<LI>Four Island by <a href="http://fourisland.com">Starla Insigna</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/">Creative Commons Attribution-Noncommercial-Share Alike 3.0 United States License</a>.</LI>
+					<LI>Four Island (r<!--REVISION-->) is by <a href="http://fourisland.com">Starla Insigna</a></LI>
+					<LI>Licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/">Creative Commons Attribution-Noncommercial-Share Alike 3.0 United States License</a>.</LI>
 					<LI><A HREF="/wiki/privacy-policy/">Privacy Policy</A></LI>
 				</UL>
 

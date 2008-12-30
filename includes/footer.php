@@ -244,6 +244,8 @@ if (!isset($noRightbar))
 	}
 }
 
+$template->add('REVISION', exec('hg tip --template {rev}'));
+
 $template->display();
 
 ?>
