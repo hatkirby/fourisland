@@ -34,7 +34,8 @@ div.bubble div.rounded {
 	border: 3px solid #fff;
 	background-color: #b7e0ff;
 }
-div.bubble div.rounded blockquote {
+div.bubble div.rounded blockquote,
+div.bubble div.navbar-rounded blockquote {
 	border: 0;
 	background-color: transparent;
 }

@@ -107,6 +107,7 @@ div#banner, div#fi-banner {
 
 div#banner {
  background-image: url("/theme/images/fourisland_header.png");
+ background-position: center;
 }
 
 body div#banner h1, body div#fi-banner h1 {
@@ -132,10 +133,19 @@ div#banner h1, div#fi-banner h1 {
 
 div#fi-navbar {
  position: relative;
+ background-color: #b7e0ff;
+ border-left: 5px solid gray;
+ border-right: 5px solid gray;
+ border-top: none;
+ border-bottom: none;
+ width: auto;
+ margin-bottom: 14px;
+ font: 0.9em "Lucida Grande", Lucida, Verdana, sans-serif;
 }
 
-div#fi-navbar .rounded {
- padding: 0;
+div#fi-navbar div {
+ padding: .001em 0;
+ margin: 10px;
 }
 
 div#fi-navbar ul {
@@ -185,7 +195,6 @@ div#fi-navbar div.bubble blockquote a {
 div#rightbar {
  float: left;
  width: 250px; /*210*/
- padding: 0 10;
 }
 
 div.sidebar {
@@ -236,23 +245,9 @@ div#sidebar li img {
  margin: 10px auto;
  text-align: left;
  padding: 0;
-}
-
-body.fourm div#wrap,
-body.poll div#wrap,
-body.admin div#wrap {
  background-image: url(/theme/images/bg_body.gif);
  background-repeat: repeat-y;
-}
-
-div#top-fade {
- position: absolute;
- top: 0;
- left: 0;
- width: 100%;
- background-image: url(/theme/images/top_fade.png);
- height: 400px;
- z-index: 0;
+ border-top: 4px solid gray;
 }
 
 #page-body {
@@ -310,15 +305,8 @@ div#footer {
  margin-top: .5em;
  text-align: center;
  font-size: .68em;
- width: 100%;
  border-top: 1px black solid;
  border-bottom: 4px gray solid;
-}
-
-body.home div#footer {
- background-color: white;
- border-left: 4px gray solid;
- border-right: 4px gray solid;
 }
 
 div#footer ul.rows li {

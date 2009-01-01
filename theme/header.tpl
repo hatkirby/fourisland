@@ -16,8 +16,6 @@
 	</HEAD>
 
 	<BODY ID="<!--BODYID-->" CLASS="<!--CATEGORY--> <!--AID--> <!--CATEGORY-->-<!--AID-->"<!--BODYTAGS-->>
-		<DIV ID="top-fade"></DIV>
-
 		<DIV ID="wrap">
 			<DIV ID="page-header">
 				<DIV ID="banner" STYLE="position: relative;">
@@ -30,48 +28,44 @@
 			<DIV CLASS="cleardiv"></DIV>
 
 			<DIV ID="fi-navbar">
-				<DIV CLASS="bubble">
-					<DIV CLASS="rounded">
-						<BLOCKQUOTE>
-							<UL>
-								<LI<!--HOMEACTIVE-->>
-									<IMG SRC="/theme/images/icons/newspaper.png" ALT="Blog">
-									<A HREF="http://fourisland.com/">Blog</A>
-								</LI>
+				<DIV>
+					<UL>
+						<LI<!--HOMEACTIVE-->>
+							<IMG SRC="/theme/images/icons/newspaper.png" ALT="Blog">
+							<A HREF="http://fourisland.com/">Blog</A>
+						</LI>
 
-								<LI>
-									<A HREF="http://projects.fourisland.com/">Projects</A>
-								</LI>
+						<LI>
+							<A HREF="http://projects.fourisland.com/">Projects</A>
+						</LI>
 
-								<LI<!--FOURMACTIVE-->>
-									<IMG SRC="/theme/images/icons/comment.png" ALT="The Fourm">
-									<A HREF="http://fourisland.com/fourm/">The Fourm</A>
-								</LI>
+						<LI<!--FOURMACTIVE-->>
+							<IMG SRC="/theme/images/icons/comment.png" ALT="The Fourm">
+							<A HREF="http://fourisland.com/fourm/">The Fourm</A>
+						</LI>
 
-								<LI<!--WIKIACTIVE-->>
-									<IMG SRC="/theme/images/icons/page_edit.png" ALT="Fouripedia">
-									<A HREF="http://fourisland.com/wiki/">Fouripedia</A>
-								</LI>
+						<LI<!--WIKIACTIVE-->>
+							<IMG SRC="/theme/images/icons/page_edit.png" ALT="Fouripedia">
+							<A HREF="http://fourisland.com/wiki/">Fouripedia</A>
+						</LI>
 
-								<LI<!--POLLACTIVE-->>
-									<IMG SRC="/theme/images/icons/overlays.png" ALT="Polls">
-									<A HREF="http://fourisland.com/poll/">Polls</A>
-								</LI>
+						<LI<!--POLLACTIVE-->>
+							<IMG SRC="/theme/images/icons/overlays.png" ALT="Polls">
+							<A HREF="http://fourisland.com/poll/">Polls</A>
+						</LI>
 
-								<LI<!--QUOTESACTIVE-->>
-									<IMG SRC="/theme/images/icons/16-file-page.png" ALT="Quotes">
-									<A HREF="http://fourisland.com/quotes/">Quotes</A>
-								</LI>
+						<LI<!--QUOTESACTIVE-->>
+							<IMG SRC="/theme/images/icons/16-file-page.png" ALT="Quotes">
+							<A HREF="http://fourisland.com/quotes/">Quotes</A>
+						</LI>
 
-								<!--BEGIN MEMBERS-->
-								<LI<!--LOGACTIVE-->>
-									<IMG SRC="/theme/images/icons/door_in.png" ALT="Log<!--LOGDATA-->">
-									<A HREF="http://fourisland.com/log<!--LOGDATA-->.php?redirect=<!--REDIRPAGE-->">Log<!--LOGDATA--></A>
-								</LI>
-								<!--END MEMBERS-->
-							</UL>
-						</BLOCKQUOTE>
-					</DIV>
+						<!--BEGIN MEMBERS-->
+						<LI<!--LOGACTIVE-->>
+							<IMG SRC="/theme/images/icons/door_in.png" ALT="Log<!--LOGDATA-->">
+							<A HREF="http://fourisland.com/log<!--LOGDATA-->.php?redirect=<!--REDIRPAGE-->">Log<!--LOGDATA--></A>
+						</LI>
+						<!--END MEMBERS-->
+					</UL>
 				</DIV>
 			</DIV>
 
