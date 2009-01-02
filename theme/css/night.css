@@ -2,17 +2,3 @@ body {
  background-color: black;
  background-image: url(/theme/images/backgrounds/island6night.PNG);
 }
-
-body div#banner {
- background-image: url("/theme/images/fourisland_header_night.png") !important;
-}
-
-body div#top-fade {
- background-image: url(/theme/images/top_fade_night.png) !important;
-}
-
-body.home div.bubble cite,
-body.quotes div#content p,
-body.quotes cite {
- color: yellow;
-}
