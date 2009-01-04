@@ -31,6 +31,7 @@ class Smilies
 	{
 		$this->smilies[':)'] = '001_smile.gif';
 		$this->smilies[':('] = 'sad.gif';
+		$this->smilies[':D'] = 'biggrin.gif';
 
 		$this->init = true;
 	}
