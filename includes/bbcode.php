@@ -35,7 +35,7 @@ class BBCode
 		$this->bbcodes['u'] = '<U>{CONTENT}</U>';
 		$this->bbcodes['url'] = '<A HREF="{CONTENT}">{CONTENT}</A>';
 		$this->bbcodes2['url'] = '<A HREF="{PARAM}">{CONTENT}</A>';
-		$this->bbcodes['img'] = '<IMG SRC="{CONTENT}" ALT="{CONTENT}">';
+		$this->bbcodes['img'] = '<IMG SRC="{CONTENT}" ALT="Image">';
 		$this->bbcodes2['img'] = '<IMG SRC="{CONTENT}" ALT="{PARAM}" TITLE="{PARAM}">';
 		$this->bbcodes['big'] = '<BIG>{CONTENT}</BIG>';
 		$this->bbcodes['small'] = '<SMALL>{CONTENT}</SMALL>';
@@ -51,8 +51,8 @@ class BBCode
 		$this->bbcodes2['bquote'] = '<P><DIV CLASS="autosize"><DIV CLASS="bubble"><DIV CLASS="bquote"><BLOCKQUOTE><DIV>{CONTENT}</DIV></BLOCKQUOTE></DIV><CITE><STRONG>{PARAM}</STRONG></CITE></DIV></DIV><DIV CLASS="cleardiv"></DIV>';
 		$this->bbcodes2['abbr'] = '<ABBR TITLE="{PARAM}">{CONTENT}</ABBR>';
 		$this->bbcodes['hidden'] = '<SPAN STYLE="display: none">{CONTENT}</SPAN>';
-		$this->bbcodes['thumb'] = '<A HREF="/images/{CONTENT}"><IMG SRC="http://fourisland.com/thumb.php?file=images/{CONTENT}&amp;mode=scale&amp;by=521&amp;side=0" ALT="{CONTENT}"></A>';
-		$this->bbcodes['thumb2'] = '<A HREF="/images/{CONTENT}"><IMG SRC="http://fourisland.com/thumb.php?file=images/{CONTENT}&amp;mode=scale&amp;by=260&amp;side=0" ALIGN="right" ALT="{CONTENT}"></A>';
+		$this->bbcodes['thumb'] = '<A HREF="/images/{CONTENT}"><IMG SRC="http://fourisland.com/thumb.php?file=images/{CONTENT}&amp;mode=scale&amp;by=521&amp;side=0" ALT="Image"></A>';
+		$this->bbcodes['thumb2'] = '<A HREF="/images/{CONTENT}"><IMG SRC="http://fourisland.com/thumb.php?file=images/{CONTENT}&amp;mode=scale&amp;by=260&amp;side=0" ALIGN="right" ALT="Image"></A>';
 
 		$this->init = true;
 	}
