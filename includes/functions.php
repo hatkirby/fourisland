@@ -22,24 +22,6 @@ if (!defined('S_INCLUDE_FILE')) {define('S_INCLUDE_FILE',1);}
 
 require('headerproc.php');
 
-function isLoggedIn()
-{
-	return sess_exists('uname');
-}
-
-function getUserlevel()
-{
-	if (isLoggedIn())
-	{
-		$getuser = "SELECT * FROM users WHERE username = \"" . sess_get('uname') . "\"";
-		$getuser2 = mysql_query($getuser);
-		$getuser3 = mysql_fetch_array($getuser2);
-		return $getuser3['user_group'];
-	} else {
-		return 4;
-	}
-}
-
 function countRows($table, $extra = '')
 {
 	$cntrows = "SELECT * FROM " . $table . " " . $extra;
@@ -62,7 +44,8 @@ function generateError($error)
 
 function echoLogData()
 {
-	if (!isLoggedIn()) {
+	if (!isLoggedIn())
+	{
 		return('in');
 	} else {
 		return('out');
@@ -210,14 +193,6 @@ function updatePop($id, $area, $plus=1)
 	} else {
 		return 0;
 	}
-}
-
-function verifyUser($username, $password)
-{
-	$getuser = 'SELECT * FROM users WHERE username = "' . $username . '" AND user_password = "' . md5($password) . '"';
-	$getuser2 = mysql_query($getuser);
-	$getuser3 = mysql_fetch_array($getuser2);
-	return (($_POST['username'] != '') && ($getuser3['username'] == $_POST['username']));
 }
 
 function getTags($id, $type = 'published')

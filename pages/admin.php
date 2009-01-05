@@ -26,7 +26,7 @@ $pageCategory = 'panel';
 
 if (isLoggedIn())
 {
-	if (getUserlevel() == 1)
+	if (isAdmin())
 	{
 		if (!isset($_GET['page']))
 		{
@@ -41,7 +41,7 @@ if (isLoggedIn())
 
 				if ($_POST['type'] == 'draft')
 				{
-					$insdraft = "INSERT INTO drafts (title,author,text,slug) VALUES (\"" . mysql_real_escape_string($_POST['title']) . "\",\"" . sess_get('uname') . "\",\"" . mysql_real_escape_string($_POST['text']) . "\",\"" . generateSlug($_POST['title'],'updates') . "\")";
+					$insdraft = "INSERT INTO drafts (title,author,text,slug) VALUES (\"" . mysql_real_escape_string($_POST['title']) . "\",\"" . getSessionUsername() . "\",\"" . mysql_real_escape_string($_POST['text']) . "\",\"" . generateSlug($_POST['title'],'updates') . "\")";
 					$insdraft2 = mysql_query($insdraft);
 
 					$id = mysql_insert_id();
@@ -51,7 +51,7 @@ if (isLoggedIn())
 					$template->add('ID', $id);
 				} else if ($_POST['type'] == 'instant')
 				{
-					$id = postBlogPost($_POST['title'], sess_get('uname'), $tags, $_POST['text']);
+					$id = postBlogPost($_POST['title'], getSessionUsername(), $tags, $_POST['text']);
 
 					$getpost = "SELECT * FROM updates WHERE id = " . $id;
 					$getpost2 = mysql_query($getpost);
@@ -87,7 +87,7 @@ if (isLoggedIn())
 						generateError(404);
 					}
 
-					$inspending = "INSERT INTO pending (id,title,author,text,slug) VALUES (" . $id . ",\"" . mysql_real_escape_string($_POST['title']) . "\",\"" . sess_get('uname') . "\",\"" . mysql_real_escape_string($_POST['text']) . "\",\"" . generateSlug($_POST['title'],'updates') . "\")";
+					$inspending = "INSERT INTO pending (id,title,author,text,slug) VALUES (" . $id . ",\"" . mysql_real_escape_string($_POST['title']) . "\",\"" . getSessionUsername() . "\",\"" . mysql_real_escape_string($_POST['text']) . "\",\"" . generateSlug($_POST['title'],'updates') . "\")";
 					$inspending2 = mysql_query($inspending);
 
 					addTags($id, $tags, 'pending');
@@ -140,7 +140,7 @@ if (isLoggedIn())
 						$template->add('ID', $_GET['id']);
 					} else if ($_POST['type'] == 'instant')
 					{
-						$id = postBlogPost($_POST['title'], sess_get('uname'), $tags, $_POST['text']);
+						$id = postBlogPost($_POST['title'], getSessionUsername(), $tags, $_POST['text']);
 
 						$deldraft = "DELETE FROM drafts WHERE id = " . $_GET['id'];
 						$deldraft2 = mysql_query($deldraft);
@@ -179,7 +179,7 @@ if (isLoggedIn())
 							generateError(404);
 						}
 
-						$inspending = "INSERT INTO pending (id,title,author,text,slug) VALUES (" . $id . ",\"" . mysql_real_escape_string($_POST['title']) . "\",\"" . sess_get('uname') . "\",\"" . mysql_real_escape_string($_POST['text']) . "\",\"" . generateSlug($_POST['title'],'updates') . "\")";
+						$inspending = "INSERT INTO pending (id,title,author,text,slug) VALUES (" . $id . ",\"" . mysql_real_escape_string($_POST['title']) . "\",\"" . getSessionUsername() . "\",\"" . mysql_real_escape_string($_POST['text']) . "\",\"" . generateSlug($_POST['title'],'updates') . "\")";
 						$inspending2 = mysql_query($inspending);
 
 						addTags($id, $tags, 'pending');
@@ -539,14 +539,14 @@ if (isLoggedIn())
 
 			if ($getcomment3['id'] == $_GET['id'])
 			{
-				$getuser = "SELECT * FROM users WHERE username = \"" . $getcomment3['author'] . "\"";
+				$getuser = "SELECT * FROM phpbb_users WHERE username = \"" . $getcomment3['author'] . "\"";
 				$getuser2 = mysql_query($getuser);
 				$getuser3 = mysql_fetch_array($getuser2);
 
 				$template = new FITemplate('admin/viewComment');
 				$template->add('ID', $_GET['id']);
 				$template->add('USERNAME', $getcomment3['author']);
-				$template->add('CODEDEMAIL', md5(strtolower($getuser3['email'])));
+				$template->add('CODEDEMAIL', md5(strtolower($getuser3['user_email'])));
 				$template->add('TEXT', parseText($getcomment3['comment']));
 				$template->add('DATE', date("F dS Y \a\\t g:i:s a",strtotime($getcomment3['pubDate'])));
 			} else {
@@ -601,7 +601,7 @@ if (isLoggedIn())
 				$template = new FITemplate('admin/pollrss');
 			} else if ($_GET['step'] == 2)
 			{
-				$insrss = "INSERT INTO pollrss (author,rss) VALUES (\"" . sess_get('uname') . "\",\"" . mysql_real_escape_string($_POST['text']) . "\")";
+				$insrss = "INSERT INTO pollrss (author,rss) VALUES (\"" . getSessionUsername() . "\",\"" . mysql_real_escape_string($_POST['text']) . "\")";
 				$insrss2 = mysql_query($insrss);
 
 				$template = new FITemplate('admin/newPoll');

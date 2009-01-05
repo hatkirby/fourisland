@@ -38,8 +38,6 @@ $headerTemp->add('HEADTAGS',isset($headtags) ? $headtags : '');
 $headerTemp->add('EXTRATITLE',isset($title) ? ($title . ' - ') : '');
 $headerTemp->add('PAGEID',(isset($pageID)) ? $pageID : 'none');
 $headerTemp->add(strtoupper($pageCategory) . 'ACTIVE', ' CLASS="active"');
-$headerTemp->add('REDIRPAGE',rawurlencode($_SERVER['REQUEST_URI']));
-$headerTemp->add('LOGDATA',echoLogData());
 
 if (isset($_POST['message']))
 {
@@ -48,6 +46,9 @@ if (isset($_POST['message']))
 
 if (($pageCategory != 'fourm') && ($pageCategory != 'wiki'))
 {
+	$headerTemp->add('REDIRPAGE',rawurlencode($_SERVER['REQUEST_URI']));
+	$headerTemp->add('LOGDATA',echoLogData());
+	$headerTemp->add('SID',getSessionID());
 	$headerTemp->adds_block('MEMBERS',array('exi' => 1));
 }
 

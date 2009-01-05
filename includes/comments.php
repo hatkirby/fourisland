@@ -30,7 +30,7 @@ $curID = 0;
 
 $template = new FITemplate('comments');
 $template->add('PAGEID',$page_id);
-$template->add('USERNAME',(isLoggedIn() ? sess_get('uname') : 'Anonymous'));
+$template->add('USERNAME',(isLoggedIn() ? getSessionUsername() : 'Anonymous'));
 
 if (!isLoggedIn())
 {
@@ -43,7 +43,7 @@ $getcomments2 = mysql_query($getcomments) or die($getcomments);
 $i=0;
 while ($getcomments3[$i] = mysql_fetch_array($getcomments2))
 {
-	$getuser = "SELECT * FROM users WHERE username = \"" . $getcomments3[$i]['username'] . "\"";
+	$getuser = "SELECT * FROM phpbb_users WHERE username = \"" . $getcomments3[$i]['username'] . "\"";
 	$getuser2 = mysql_query($getuser);
 	$getuser3 = mysql_fetch_array($getuser2);
 
@@ -51,7 +51,7 @@ while ($getcomments3[$i] = mysql_fetch_array($getcomments2))
 	{
 		$username = $getuser3['username'];
 		$email = $getuser3['user_email'];
-		$website = $getuser3['website'];
+		$website = $getuser3['user_website'];
 	} else {
 		$getanon = "SELECT * FROM anon_commenters WHERE username = \"" . $getcomments3[$i]['username'] . "\"";
 		$getanon2 = mysql_query($getanon);
@@ -68,7 +68,7 @@ while ($getcomments3[$i] = mysql_fetch_array($getcomments2))
 	if (isset($username))
 	{
 		$template->add_ref($curID, 'COMMENTS', array(	'CODEDEMAIL' => md5(strtolower($email)),
-								'USERNAME' => (($website != '') ? '<A HREF="http://' . $website . '">' . $username . '</A>' : $username),
+								'USERNAME' => (($website != '') ? '<A HREF="' . $website . '">' . $username . '</A>' : $username),
 								'DATE' => date("F dS Y \a\\t g:i:s a",strtotime($getcomments3[$i]['posttime'])),
 								'ID' => $getcomments3[$i]['id'],
 								'TEXT' => parseText($getcomments3[$i]['comment'])));

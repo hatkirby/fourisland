@@ -84,10 +84,10 @@ if (!isset($_GET['id']))
 				}
 			}
 		} else {
-			$setcomment = "INSERT INTO comments SET page_id = \"" . $_GET['id'] . "\", username = \"" . sess_get('uname') . "\", comment = \"" . $_POST['comment'] . "\"";
+			$setcomment = "INSERT INTO comments SET page_id = \"" . $_GET['id'] . "\", username = \"" . getSessionUsername() . "\", comment = \"" . $_POST['comment'] . "\"";
 			$setcomment2 = mysql_query($setcomment);
 
-			mail('hatkirby@fourisland.com', 'New comment on Four Island!', sess_get('uname') . ' has posted a comment on Four Island under the "page id" ' . $_GET['id']);
+			mail('hatkirby@fourisland.com', 'New comment on Four Island!', getSessionUsername() . ' has posted a comment on Four Island under the "page id" ' . $_GET['id']);
 
 			$page_id = $_GET['id'];
 			$comType = substr($page_id,0,strpos($page_id,'-'));
@@ -97,7 +97,7 @@ if (!isset($_GET['id']))
 				recalcPop($comID);
 			}
 
-			$template->add('MSG',"Thank you, " . sess_get('uname') . ", for posting your valuable comment!");
+			$template->add('MSG',"Thank you, " . getSessionUsername() . ", for posting your valuable comment!");
 		}
 	}
 }

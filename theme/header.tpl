@@ -62,7 +62,7 @@
 						<!--BEGIN MEMBERS-->
 						<LI<!--LOGACTIVE-->>
 							<IMG SRC="/theme/images/icons/door_in.png" ALT="Log<!--LOGDATA-->">
-							<A HREF="http://fourisland.com/log<!--LOGDATA-->.php?redirect=<!--REDIRPAGE-->">Log<!--LOGDATA--></A>
+							<A HREF="http://fourisland.com/fourm/ucp.php?mode=log<!--LOGDATA-->&amp;redirect=<!--REDIRPAGE-->&amp;sid=<!--SID-->">Log<!--LOGDATA--></A>
 						</LI>
 						<!--END MEMBERS-->
 					</UL>

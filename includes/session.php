@@ -24,38 +24,74 @@ require('headerproc.php');
 
 session_start();
 
-function sess_exists($name)
+function getSessionID()
 {
-	return(isset($_SESSION[$name]));
-}
+	$getconfig = "SELECT * FROM phpbb_config WHERE config_name LIKE \"cookie_name\"";
+	$getconfig2 = mysql_query($getconfig);
+	$getconfig3 = mysql_fetch_array($getconfig2);
 
-function sess_set($name,$value)
-{
-	$_SESSION[$name] = $value;
-}
-
-function sess_get($name)
-{
-	return $_SESSION[$name];
-}
-
-
-function sess_getifset($name)
-{
-	if (sess_exists($name))
+	if (isset($_COOKIE[$getconfig3['config_value'] . '_sid']))
 	{
-		return sess_get($name);
-	} else {
-		return false;
+		return $_COOKIE[$getconfig3['config_value'] . '_sid'];
 	}
+
+	return false;
 }
 
-function sess_delete($name)
+function getSessionUsername()
 {
-	if (sess_exists($name))
+	$getconfig = "SELECT * FROM phpbb_config WHERE config_name LIKE \"cookie_name\"";
+	$getconfig2 = mysql_query($getconfig);
+	$getconfig3 = mysql_fetch_array($getconfig2);
+
+	if (isset($_COOKIE[$getconfig3['config_value'] . '_sid']))
 	{
-		unset($_SESSION[$name]);
+		$getsession = "SELECT * FROM phpbb_sessions AS s, phpbb_users AS u WHERE s.session_id LIKE \"" . mysql_real_escape_string($_COOKIE[$getconfig3['config_value'] . '_sid']) . "\" AND u.user_id = s.session_user_id";
+		$getsession2 = mysql_query($getsession) or die($getsession);
+		$getsession3 = mysql_fetch_array($getsession2);
+
+		return $getsession3['username'];
 	}
+
+	return false;
+}
+
+function isLoggedIn()
+{
+	$getconfig = "SELECT * FROM phpbb_config WHERE config_name LIKE \"cookie_name\"";
+	$getconfig2 = mysql_query($getconfig);
+	$getconfig3 = mysql_fetch_array($getconfig2);
+
+	if (isset($_COOKIE[$getconfig3['config_value'] . '_sid']))
+	{
+		$getsession = "SELECT * FROM phpbb_sessions WHERE session_id LIKE \"" . mysql_real_escape_string($_COOKIE[$getconfig3['config_value'] . '_sid']) . "\"";
+		$getsession2 = mysql_query($getsession);
+		$getsession3 = mysql_fetch_array($getsession2);
+
+		if ($getsession3['session_user_id'] != '1')
+		{
+			return true;
+		}
+	}
+
+	return false;
+}
+
+function isAdmin()
+{
+	if (isLoggedIn())
+	{
+		$getgroup = "SELECT COUNT(*) FROM phpbb_user_group, phpbb_users WHERE phpbb_user_group.user_id = phpbb_users.user_id AND phpbb_users.username = \"" . getSessionUsername() . "\" AND phpbb_user_group.group_id = 2";
+		$getgroup2 = mysql_query($getgroup);
+		$getgroup3 = mysql_fetch_array($getgroup2);
+
+		if ($getgroup3['COUNT(*)'] == '1')
+		{
+			return true;
+		}
+	}
+
+	return false;
 }
 
 ?>

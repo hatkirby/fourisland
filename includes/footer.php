@@ -93,14 +93,14 @@ if (!isset($noRightbar))
 	$i=0;
 	while ($getcomments3[$i] = mysql_fetch_array($getcomments2))
 	{
-		$getuser = "SELECT * FROM users WHERE username = \"" . $getcomments3[$i]['username'] . "\"";
+		$getuser = "SELECT * FROM phpbb_users WHERE username = \"" . $getcomments3[$i]['username'] . "\"";
 		$getuser2 = mysql_query($getuser);
 		$getuser3 = mysql_fetch_array($getuser2);
 
 		if ($getuser3['username'] == $getcomments3[$i]['username'])
 		{
 			$username = $getuser3['username'];
-			$website = $getuser3['website'];
+			$website = $getuser3['user_website'];
 		} else {
 			$getanon = "SELECT * FROM anon_commenters WHERE username = \"" . $getcomments3[$i]['username'] . "\"";
 			$getanon2 = mysql_query($getanon);
@@ -125,7 +125,7 @@ if (!isset($noRightbar))
 									'CODED' => $getpost3['slug'],
 									'ENDING' => '/',
 									'TITLE' => stripslashes($getpost3['title']),
-									'AUTHOR' => (($website != '') ? '<A HREF="http://' . $website . '">' . $username . '</A>' : $username)));
+									'AUTHOR' => (($website != '') ? '<A HREF="' . $website . '">' . $username . '</A>' : $username)));
 			$i++;
 		} else if (strpos($getcomments3[$i]['page_id'], 'quote') !== FALSE)
 		{
@@ -136,11 +136,12 @@ if (!isset($noRightbar))
 									'CODED' => $num,
 									'ENDING' => '.php',
  									'TITLE' => 'Quote #' . $num,
-									'AUTHOR' => (($website != '') ? '<A HREF="http://' . $website . '">' . $username . '</A>' : $username)));
+									'AUTHOR' => (($website != '') ? '<A HREF="' . $website . '">' . $username . '</A>' : $username)));
 			$i++;			
 		}
 	}
 
+	$users = array();
 	$getusers = "SELECT DISTINCT username FROM comments";
 	$getusers2 = mysql_query($getusers);
 	$i=0;
@@ -150,14 +151,14 @@ if (!isset($noRightbar))
 		$getcount2 = mysql_query($getcount);
 		$getcount3 = mysql_fetch_array($getcount2);
 
-		$getuser = "SELECT * FROM users WHERE username = \"" . $getusers3[$i]['username'] . "\"";
+		$getuser = "SELECT * FROM phpbb_users WHERE username = \"" . $getusers3[$i]['username'] . "\"";
 		$getuser2 = mysql_query($getuser);
 		$getuser3 = mysql_fetch_array($getuser2);
 
 		if ($getuser3['username'] == $getusers3[$i]['username'])
 		{
 			$username = $getuser3['username'];
-			$website = $getuser3['website'];
+			$website = $getuser3['user_website'];
 		} else {
 			$getanon = "SELECT * FROM anon_commenters WHERE username = \"" . $getusers3[$i]['username'] . "\"";
 			$getanon2 = mysql_query($getanon);
@@ -170,23 +171,39 @@ if (!isset($noRightbar))
 			}
 		}
 
-		$name = (($website != '') ? '<A HREF="http://' . $website . '">' . $username . '</A>' : $username);
-		$users[$name] = $getcount3[0];
+		$name = (($website != '') ? '<A HREF="' . $website . '">' . $username . '</A>' : $username);
+		$users[] = array('name' => $name, 'count' => $getcount3['COUNT(*)']);
 
 		$i++;
 	}
 
-	arsort($users);
+	function count_sort($a, $b)
+	{
+		$a = $a['count'];
+		$b = $b['count'];
+
+		if ($a > $b)
+		{
+			return -1;
+		} else if ($a < $b)
+		{
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+
+	usort($users, 'count_sort');
 	$i=0;
-	foreach ($users as $name => $count)
+	foreach ($users as $value)
 	{
 		if ($i == 5)
 		{
 			break;
 		}
 
-		$template->adds_block('TOP', array(	'USERNAME' => $name,
-							'COUNT' => $count));
+		$template->adds_block('TOP', array(	'USERNAME' => $value['name'],
+							'COUNT' => $value['count']));
 		$i++;
 	}
 
