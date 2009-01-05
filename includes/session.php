@@ -81,7 +81,7 @@ function isAdmin()
 {
 	if (isLoggedIn())
 	{
-		$getgroup = "SELECT COUNT(*) FROM phpbb_user_group, phpbb_users WHERE phpbb_user_group.user_id = phpbb_users.user_id AND phpbb_users.username = \"" . getSessionUsername() . "\" AND phpbb_user_group.group_id = 2";
+		$getgroup = "SELECT COUNT(*) FROM phpbb_user_group, phpbb_users WHERE phpbb_user_group.user_id = phpbb_users.user_id AND phpbb_users.username = \"" . getSessionUsername() . "\" AND phpbb_user_group.group_id = 5";
 		$getgroup2 = mysql_query($getgroup);
 		$getgroup3 = mysql_fetch_array($getgroup2);
 
