@@ -50,6 +50,11 @@ if (($pageCategory != 'fourm') && ($pageCategory != 'wiki'))
 	$headerTemp->add('LOGDATA',echoLogData());
 	$headerTemp->add('SID',getSessionID());
 	$headerTemp->adds_block('MEMBERS',array('exi' => 1));
+
+	if (isAdmin())
+	{
+		$headerTemp->adds_block('ADMIN',array('exi' => 1));
+	}
 }
 
 $headerTemp->display();

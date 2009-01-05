@@ -65,6 +65,13 @@
 							<A HREF="http://fourisland.com/fourm/ucp.php?mode=log<!--LOGDATA-->&amp;redirect=<!--REDIRPAGE-->&amp;sid=<!--SID-->">Log<!--LOGDATA--></A>
 						</LI>
 						<!--END MEMBERS-->
+
+						<!--BEGIN ADMIN-->
+						<LI<!--PANELACTIVE-->>
+							<IMG SRC="/theme/images/icons/rainbow.png" ALT="Admin">
+							<A HREF="http://fourisland.com/admin/">Admin</A>
+						</LI>
+						<!--END ADMIN-->
 					</UL>
 				</DIV>
 			</DIV>
