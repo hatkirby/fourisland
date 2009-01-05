@@ -539,14 +539,10 @@ if (isLoggedIn())
 
 			if ($getcomment3['id'] == $_GET['id'])
 			{
-				$getuser = "SELECT * FROM phpbb_users WHERE username = \"" . $getcomment3['author'] . "\"";
-				$getuser2 = mysql_query($getuser);
-				$getuser3 = mysql_fetch_array($getuser2);
-
 				$template = new FITemplate('admin/viewComment');
 				$template->add('ID', $_GET['id']);
 				$template->add('USERNAME', $getcomment3['author']);
-				$template->add('CODEDEMAIL', md5(strtolower($getuser3['user_email'])));
+				$template->add('CODEDEMAIL', md5(strtolower($getcomment3['email'])));
 				$template->add('TEXT', parseText($getcomment3['comment']));
 				$template->add('DATE', date("F dS Y \a\\t g:i:s a",strtotime($getcomment3['pubDate'])));
 			} else {
@@ -567,7 +563,7 @@ if (isLoggedIn())
 					$insanon = "INSERT INTO anon_commenters (username,email,website) VALUES (\"" . $getcomment3['author'] . "\",\"" . $getcomment3['email'] . "\",\"" . $getcomment3['website'] . "\")";
 					$insanon2 = mysql_query($insanon);
 
-					$inscomment = "INSERT INTO comments (page_id,username,comment) VALUES (\"" . $getcomment3['page_id'] . "\",\"" . $getcomment3['author'] . "\",\"" . $getcomment3['comment'] . "\")";
+					$inscomment = "INSERT INTO comments (page_id,username,comment,is_anon) VALUES (\"" . $getcomment3['page_id'] . "\",\"" . $getcomment3['author'] . "\",\"" . $getcomment3['comment'] . "\",1)";
 					$inscomment2 = mysql_query($inscomment);
 
 					$delcomment = "DELETE FROM moderation WHERE id = " . $getcomment3['id'];

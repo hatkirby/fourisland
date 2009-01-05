@@ -43,16 +43,17 @@ $getcomments2 = mysql_query($getcomments) or die($getcomments);
 $i=0;
 while ($getcomments3[$i] = mysql_fetch_array($getcomments2))
 {
-	$getuser = "SELECT * FROM phpbb_users WHERE username = \"" . $getcomments3[$i]['username'] . "\"";
-	$getuser2 = mysql_query($getuser);
-	$getuser3 = mysql_fetch_array($getuser2);
-
-	if ($getuser3['username'] == $getcomments3[$i]['username'])
+	if ($getcomments3[$i]['is_anon'] == 0)
 	{
+		$getuser = "SELECT * FROM phpbb_users WHERE username = \"" . $getcomments3[$i]['username'] . "\"";
+		$getuser2 = mysql_query($getuser);
+		$getuser3 = mysql_fetch_array($getuser2);
+
 		$username = $getuser3['username'];
 		$email = $getuser3['user_email'];
 		$website = $getuser3['user_website'];
-	} else {
+	} else if ($getcomments3[$i]['is_anon'] == 1)
+	{
 		$getanon = "SELECT * FROM anon_commenters WHERE username = \"" . $getcomments3[$i]['username'] . "\"";
 		$getanon2 = mysql_query($getanon);
 		$getanon3 = mysql_fetch_array($getanon2);
