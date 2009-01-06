@@ -95,7 +95,7 @@ if (!isset($noRightbar))
 	{
 		if ($getcomments3[$i]['is_anon'] == 0)
 	        {
-        	        $getuser = "SELECT * FROM phpbb_users WHERE username = \"" . $getcomments3[$i]['username'] . "\"";
+        	        $getuser = "SELECT * FROM phpbb_users WHERE user_id = " . $getcomments3[$i]['user_id'];
 	                $getuser2 = mysql_query($getuser);
 	                $getuser3 = mysql_fetch_array($getuser2);
 
@@ -103,11 +103,11 @@ if (!isset($noRightbar))
 	                $website = $getuser3['user_website'];
         	} else if ($getcomments3[$i]['is_anon'] == 1) 
 	        {
-	                $getanon = "SELECT * FROM anon_commenters WHERE username = \"" . $getcomments3[$i]['username'] . "\"";
+	                $getanon = "SELECT * FROM anon_commenters WHERE id = " . $getcomments3[$i]['user_id'];
 	                $getanon2 = mysql_query($getanon);
 	                $getanon3 = mysql_fetch_array($getanon2);
 
-	                if ($getanon3['username'] == $getcomments3[$i]['username'])
+	                if ($getanon3['id'] == $getcomments3[$i]['user_id'])
 	                {
 	                        $username = $getanon3['username'] . ' (Guest)';
 	                        $website = $getanon3['website'];
@@ -142,16 +142,16 @@ if (!isset($noRightbar))
 	}
 
 	$users = array();
-	$getusers = "SELECT DISTINCT username FROM comments WHERE is_anon = 0";
+	$getusers = "SELECT DISTINCT user_id FROM comments WHERE is_anon = 0";
 	$getusers2 = mysql_query($getusers);
 	$i=0;
 	while ($getusers3[$i] = mysql_fetch_array($getusers2))
 	{
-		$getcount = "SELECT COUNT(*) FROM comments WHERE username = \"" . $getusers3[$i]['username'] . "\"";
+		$getcount = "SELECT COUNT(*) FROM comments WHERE user_id = " . $getusers3[$i]['user_id'];
 		$getcount2 = mysql_query($getcount);
 		$getcount3 = mysql_fetch_array($getcount2);
 
-                $getuser = "SELECT * FROM phpbb_users WHERE username = \"" . $getusers3[$i]['username'] . "\"";
+                $getuser = "SELECT * FROM phpbb_users WHERE user_id = " . $getusers3[$i]['user_id'];
                 $getuser2 = mysql_query($getuser);
                 $getuser3 = mysql_fetch_array($getuser2);
 

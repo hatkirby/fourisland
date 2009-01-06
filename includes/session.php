@@ -38,6 +38,24 @@ function getSessionID()
 	return false;
 }
 
+function getSessionUserID()
+{
+	$getconfig = "SELECT * FROM phpbb_config WHERE config_name LIKE \"cookie_name\"";
+	$getconfig2 = mysql_query($getconfig);
+	$getconfig3 = mysql_fetch_array($getconfig2);
+
+	if (isset($_COOKIE[$getconfig3['config_value'] . '_sid']))
+	{
+		$getsession = "SELECT * FROM phpbb_sessions WHERE session_id LIKE \"" . mysql_real_escape_string($_COOKIE[$getconfig3['config_value'] . '_sid']) . "\"";
+		$getsession2 = mysql_query($getsession) or die($getsession);
+		$getsession3 = mysql_fetch_array($getsession2);
+
+		return $getsession3['session_user_id'];
+	}
+
+	return false;
+}
+
 function getSessionUsername()
 {
 	$getconfig = "SELECT * FROM phpbb_config WHERE config_name LIKE \"cookie_name\"";

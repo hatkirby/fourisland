@@ -56,7 +56,7 @@ if (!isset($_GET['id']))
 					{
 						if ($getanon3['email'] == $_POST['email'])
 						{
-							$setcomment = "INSERT INTO comments SET page_id = \"" . $_GET['id'] . "\", username = \"" . $_POST['username'] . "\", comment = \"" . $_POST['comment'] . "\", is_anon = 1";
+							$setcomment = "INSERT INTO comments SET page_id = \"" . $_GET['id'] . "\", user_id = " . $getanon3['id'] . ", comment = \"" . $_POST['comment'] . "\", is_anon = 1";
 							$setcomment2 = mysql_query($setcomment);
 
 							$page_id = $_GET['id'];
@@ -84,7 +84,7 @@ if (!isset($_GET['id']))
 				}
 			}
 		} else {
-			$setcomment = "INSERT INTO comments SET page_id = \"" . $_GET['id'] . "\", username = \"" . getSessionUsername() . "\", comment = \"" . $_POST['comment'] . "\", is_anon = 0";
+			$setcomment = "INSERT INTO comments SET page_id = \"" . $_GET['id'] . "\", user_id = " . getSessionUserID() . ", comment = \"" . $_POST['comment'] . "\", is_anon = 0";
 			$setcomment2 = mysql_query($setcomment);
 
 			mail('hatkirby@fourisland.com', 'New comment on Four Island!', getSessionUsername() . ' has posted a comment on Four Island under the "page id" ' . $_GET['id']);

@@ -563,7 +563,7 @@ if (isLoggedIn())
 					$insanon = "INSERT INTO anon_commenters (username,email,website) VALUES (\"" . $getcomment3['author'] . "\",\"" . $getcomment3['email'] . "\",\"" . $getcomment3['website'] . "\")";
 					$insanon2 = mysql_query($insanon);
 
-					$inscomment = "INSERT INTO comments (page_id,username,comment,is_anon) VALUES (\"" . $getcomment3['page_id'] . "\",\"" . $getcomment3['author'] . "\",\"" . $getcomment3['comment'] . "\",1)";
+					$inscomment = "INSERT INTO comments (page_id,user_id,comment,is_anon) VALUES (\"" . $getcomment3['page_id'] . "\"," . mysql_insert_id() . ",\"" . $getcomment3['comment'] . "\",1)";
 					$inscomment2 = mysql_query($inscomment);
 
 					$delcomment = "DELETE FROM moderation WHERE id = " . $getcomment3['id'];
