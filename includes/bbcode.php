@@ -43,7 +43,7 @@ class BBCode
 		$this->bbcodes['ol'] = '<OL>{CONTENT}</OL>';
 		$this->bbcodes['li'] = '<LI>{CONTENT}</LI>';
 		$this->bbcodes['code'] = '<CODE>{CONTENT}</CODE>';
-		$this->bbcodes['pre'] = '<P><DIV CLASS="autosize"><DIV CLASS="bubble"><DIV CLASS="bquote"><BLOCKQUOTE><DIV><PRE>{CONTENT}</PRE></DIV></BLOCKQUOTE></DIV></DIV></DIV><DIV CLASS="cleardiv"></DIV>';
+		$this->bbcodes['pre'] = '<P><DIV CLASS="autosize"><DIV CLASS="bubble"><DIV CLASS="bquote"><BLOCKQUOTE><DIV><CODE>{CONTENT}</CODE></DIV></BLOCKQUOTE></DIV></DIV></DIV><DIV CLASS="cleardiv"></DIV>';
 		$this->bbcodes2['blog'] = '<A HREF="/blog/{PARAM}/">{CONTENT}</A>';
 		$this->bbcodes2['quote'] = '<A HREF="/quotes/{PARAM}.php">{CONTENT}</A>';
 		$this->bbcodes['ins'] = '<INS>{CONTENT}</INS>';
