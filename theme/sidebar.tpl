@@ -73,7 +73,7 @@
 
 											<a href="http://whos.amung.us/show/t1sj4g2u"><img src="http://whos.amung.us/swidget/t1sj4g2u.gif" alt="website stats" width="80" height="15" border="0"></a>
 
-											<a href="http://feeds.feedburner.com/FourIsland"><img src="http://feeds.feedburner.com/~fc/FourIsland?bg=99CCFF&amp;fg=444444&amp;anim=0" height="26" width="88" style="border:0" alt=""></a><BR>
+											<a href="http://feeds2.feedburner.com/FourIsland"><img src="http://feeds2.feedburner.com/~fc/FourIsland?bg=99CCFF&amp;fg=444444&amp;anim=0" height="26" width="88" style="border:0" alt=""></a><BR>
 
 											<A HREF="/rss.php?mode=comments">Comments Feed</A>
 										</P>
