@@ -127,6 +127,30 @@
 							<DIV CLASS="rounded">
 								<BLOCKQUOTE>
 									<DIV CLASS="hatbar">
+										<H3>Website Projects</H3>
+
+										<UL>
+											<LI>
+												<IMG SRC="/theme/images/icons/tag_blue.png" ALT="The Sabrina FanWiki">
+												<A HREF="http://sabrina.fourisland.com/">The Sabrina FanWiki</A>
+											</LI>
+
+											<LI>
+												<IMG SRC="/theme/images/icons/tag_green.png" ALT="True Falsities">
+												<A HREF="http://false.fourisland.com/">True Falsities</A>
+											</LI>
+										</UL>
+									</DIV>
+								</BLOCKQUOTE>
+							</DIV>
+						</DIV>
+					</DIV>
+
+					<DIV class="sidebar">
+						<DIV CLASS="bubble">
+							<DIV CLASS="rounded">
+								<BLOCKQUOTE>
+									<DIV CLASS="hatbar">
 										<H3>Popular Posts</H3>
 
 										<UL>
