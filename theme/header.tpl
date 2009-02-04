@@ -25,7 +25,7 @@
 				</DIV>				
 			</DIV>
 
-			<DIV CLASS="cleardiv"></DIV>
+			<DIV CLASS="cleardiv" />
 
 			<DIV ID="fi-navbar">
 				<DIV>
