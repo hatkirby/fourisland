@@ -16,3 +16,10 @@ div#fi-navbar ul li.active img {
  background-color: black;
  outline: black solid .5em;
 }
+
+#rightbar .sidebar  .pimped cite,
+.post .entry .bubble cite,
+#footer,
+body.quotes #content {
+ color: #555555;
+}
