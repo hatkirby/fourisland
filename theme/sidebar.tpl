@@ -139,6 +139,11 @@
 												<IMG SRC="/theme/images/icons/tag_green.png" ALT="True Falsities">
 												<A HREF="http://false.fourisland.com/">True Falsities</A>
 											</LI>
+
+											<LI>
+												<IMG SRC="/theme/images/icons/tag_orange.png" ALT="Pillowcase">
+												<A HREF="http://pillowcase.fourisland.com/">Pillowcase</A>
+											</LI>
 										</UL>
 									</DIV>
 								</BLOCKQUOTE>
