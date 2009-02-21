@@ -11,6 +11,7 @@
 		<LINK REL="shortcut" HREF="/images/kirbyfolder.ico">
 		<LINK REL="icon" HREF="/images/kirbyfolder.ico">
 		<LINK REL="pingback" HREF="http://fourisland.com/xmlrpc.php">
+		<SCRIPT TYPE="text/javascript" SRC="/theme/js/jquery.js"></SCRIPT>
 
 		<!--HEADTAGS-->
 	</HEAD>

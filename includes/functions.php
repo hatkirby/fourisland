@@ -282,4 +282,26 @@ function displayRelated($title, $avoid = 0)
 	}
 }
 
+function getCommentUrl($getcomment3)
+{
+	$page_id = $getcomment3['page_id'];
+	$comType = substr($page_id,0,strpos($page_id,'-'));
+	$comID = substr($page_id,strpos($page_id,'-')+1);
+
+	if ($comType == 'updates')
+	{
+		$getupdate = "SELECT * FROM updates WHERE id = " . $comID;
+		$getupdate2 = mysql_query($getupdate);
+		$getupdate3 = mysql_fetch_array($getupdate2);
+
+		return '/blog/' . $getupdate3['slug'] . '/';
+	} else if ($comType == 'polloftheweek')
+	{
+		return '/poll/' . $comID . '.php';
+	} else if ($comType == 'quote')
+	{
+		return '/quotes/' . $comID . '.php';
+	}
+}
+
 ?>

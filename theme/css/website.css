@@ -359,6 +359,10 @@ li+br {
  display: none;
 }
 
+.invisible {
+ display: none;
+}
+
 /* Tables */
 
 table.webmail {

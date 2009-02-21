@@ -73,6 +73,14 @@ while ($getcomments3[$i] = mysql_fetch_array($getcomments2))
 								'DATE' => date("F dS Y \a\\t g:i:s a",strtotime($getcomments3[$i]['posttime'])),
 								'ID' => $getcomments3[$i]['id'],
 								'TEXT' => parseText($getcomments3[$i]['comment'])));
+
+		if (isLoggedIn())
+		{
+			if ((isAdmin()) || (($getcomments3[$i]['is_anon'] == 0) && (getSessionUserID() === $getcomments3[$i]['user_id'])))
+			{
+				$template->adds_ref_sub($curID, 'EDITOR', array('BEFORE' => $getcomments3[$i]['comment']));
+			}
+		}
 	}
 	$i++;
 }
