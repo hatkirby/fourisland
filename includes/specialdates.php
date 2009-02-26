@@ -42,7 +42,7 @@ sd_lunar_annual('Presidents Day',2,1,3); //DateFinder
 sd_solar_annual('Valentines Day',2,14); //BG Pic; DateFinder
 sd_solar_multiannual('Leap Day',2,29,4,2004); //DateFinder
 sd_solar_annual('St Patricks Day',3,17); //DateFinder
-sd_solar_annual('Tris CIEday',4,22); //DateFinder
+sd_solar_annual('Tri\'s CIEday',4,22); //DateFinder
 sd_solar_annual('Silence Day',4,25); //DateFinder
 sd_solar_annual('WCA Day',5,5); //DateFinder
 sd_lunar_annual('Mothers Day',5,7,2); //BG Pic; DateFinder; Header Pic
@@ -105,10 +105,7 @@ function sd_getMonthStart($month)
 		return 0;
 	} else {
 		$c = sd_daysInMonth($month-1)+sd_getMonthStart($month-1);
-		if (date('F jS Y',sd_clearDate()+($c*60*60*24)) == 'March 31st 2008' || $month == 2)
-		{
-//			echo($month . ':' . sd_daysInMonth($month-1) . ':' . sd_getMonthStart($month-1) . "\n");
-		}
+
 		return ($c);
 	}
 }
@@ -209,6 +206,7 @@ function sd_easter()
 	$nWD = sd_date('N',$ys);
 	if ($nWD==7) {$nWD=0;}
 	$ys+=(60*60*24*(7-$nWD));
+	$ys-=(60*60*24);
 	sd_solar_annual('Easter',sd_date('m',$ys),sd_date('j',$ys));
 	$ys-=(60*60*24*46);
 	sd_solar_annual('Mardi Gras',sd_date('m',$ys),sd_date('j',$ys));
