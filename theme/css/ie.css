@@ -5,3 +5,11 @@ body * {
 dl.icon {
  height: 50px;
 }
+
+#wrap {
+ text-align: center;
+}
+
+#wrap * {
+ text-align: left;
+}
