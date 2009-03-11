@@ -115,6 +115,11 @@
 												<IMG SRC="/theme/images/icons/tag_purple.png" ALT="Randomness">
 												<A HREF="http://pyro.fourisland.com/">Randomness</A>
 											</LI>
+
+											<LI>
+												<IMG SRC="/theme/images/icons/tag_red.png" ALT="Bubble Blog">
+												<A HREF="http://sammi9494.fourisland.com/">Bubble Blog</A>
+											</LI>
 										</UL>
 									</DIV>
 								</BLOCKQUOTE>
