@@ -23,7 +23,7 @@ if (!defined('S_INCLUDE_FILE')) {define('S_INCLUDE_FILE',1);}
 require('headerproc.php');
 
 $template = new FITemplate('fuhsdiufgsadiufgaisfioas');
-$template->add('NUMBER', time() - strtotime('June 17 2008'));
+$template->add('NUMBER', time() - strtotime('June 17 2008 6:23:37 PM'));
 $template->display();
 
 ?>
