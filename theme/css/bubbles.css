@@ -1,4 +1,5 @@
 /* Normal Bubble */
+
 div.bubble {
 	width: auto;
 	font-size: 0.75em;
@@ -20,9 +21,9 @@ div.bubble blockquote div {
 
 div.bubble cite {
 	position: relative;
+	top: 6px;
 	margin: 0;
 	padding: 7px 0px 0px 15px;
-	top: 6px;
 	background: transparent url(/theme/images/tip.gif) no-repeat 20px 0;
 	font-style: normal;
 	font-size: small;
@@ -34,31 +35,36 @@ div.bubble div.rounded {
 	border: 3px solid #fff;
 	background-color: #b7e0ff;
 }
+
 div.bubble div.rounded blockquote,
 div.bubble div.navbar-rounded blockquote {
 	border: 0;
 	background-color: transparent;
 }
+
 div.bubble div.rounded blockquote div {
 	margin: 0px 10px;
 }
+
 div.bubble cite.rounded {
 	margin: 0px;
-	padding-left: 15px;
-	padding-top: 19px;
+	padding: 19px 0 0 15px;
 	background: transparent url(/theme/images/tip-rounded.gif) no-repeat 15px 0;
 }
 
 /* Pimped Bubble */
-div.pimped.bubble {
+
+div.pimped {
 	font-size: 0.9em;
 }
-div.pimped.bubble div.rounded {
+
+div.pimped div.rounded {
 	color: #fff;
 	border: 3px solid #fff;
 	background-color: #111;
 }
-div.pimped.bubble cite.rounded {
+
+div.pimped cite.rounded {
 	background: transparent url(/theme/images/tip-pimped.gif) no-repeat 15px 0;
 }
 
@@ -70,21 +76,9 @@ div.bubble div.bquote blockquote {
 }
 
 .rounded {
-        -moz-border-radius-topleft: 10px;
-        -moz-border-radius-topright: 10px;
-        -moz-border-radius-bottomleft: 10px;
-        -moz-border-radius-bottomright: 10px;
-        -webkit-border-top-left-radius: 10px;
-        -webkit-border-top-right-radius: 10px;
-        -webkit-border-bottom-left-radius: 10px;
-        -webkit-border-bottom-right-radius: 10px;
-        -khtml-border-top-left-radius: 10px;
-        -khtml-border-top-right-radius: 10px;
-        -khtml-border-bottom-left-radius: 10px;
-        -khtml-border-bottom-right-radius: 10px;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-khtml-border-radius: 10px;
+	border-radius: 10px;
 	padding: 4px;
 }

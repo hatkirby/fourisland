@@ -1,9 +1,7 @@
 /* Four Island CSS */
 
 body {
- background-repeat: repeat-x;
- background-attachment: fixed;
- background-position: bottom left;
+ background: repeat-x bottom left fixed;
  font-family: Arial, FreeSans;
  margin: 0px;
  padding: 0px 0px 30px !important;
@@ -15,9 +13,15 @@ body.fourm {
 
 /* Effects */
 
+/* NOTE: The ::selection and ::-moz-selection groups below, while 
+ * containing the same code, do not, for some reason, work when put 
+ * together
+ */
+
 ::selection {
 	background: pink;
 }
+
 ::-moz-selection {
 	background: pink;
 }
@@ -35,7 +39,7 @@ a:link {
  text-decoration: none;
 }
 
-a:visited {
+a:visited, a:active {
  color: blue;
  text-decoration: none;
 }
@@ -46,11 +50,6 @@ a:hover, a:focus {
  text-decoration: none;
  font-variant: small-caps;
  text-transform: capitalize;
-}
-
-a:active {
- color: blue;
- text-decoration: none;
 }
 
 a img {
@@ -86,9 +85,7 @@ blockquote {
  border-left: 3px solid #CCC;
  font-family: Helvetica, sans-serif;
  font-size: 14px;
- margin-top: 10px;
- margin-bottom: 10px;
- margin-left: 50px;
+ margin: 10px 0 10px 50px;
 }
 
 pre {
@@ -106,9 +103,7 @@ div#banner, div#fi-banner {
 }
 
 div#banner {
- background-image: url("/theme/images/fourisland_header.png");
- background-position: center;
- background-color: white;
+ background: white url("/theme/images/fourisland_header.png") center no-repeat;
  width: 100%;
 }
 
@@ -139,6 +134,8 @@ div#fi-navbar {
  width: auto;
  margin-bottom: 14px;
  font: 0.9em "Lucida Grande", Lucida, Verdana, sans-serif;
+ height: 1.9em;
+ clear: both;
 }
 
 div#fi-navbar div {
@@ -147,8 +144,7 @@ div#fi-navbar div {
 }
 
 div#fi-navbar ul {
- margin-top: .25em;
- margin-bottom: .25em;
+ margin: .25em 0;
  padding-left: 1em;
  text-align: center;
 }
@@ -163,11 +159,8 @@ div#fi-navbar ul li+li:before {
  content: " - ";
 }
 
-div#fi-navbar ul li img {
- display: none;
-}
-
-div#fi-navbar ul li.active a {
+div#fi-navbar ul li img,
+div#fi-navbar ul li.active span {
  display: none;
 }
 
@@ -175,8 +168,7 @@ div#fi-navbar ul li.active img {
  display: inline;
  background-color: white;
  outline: white solid .5em;
- margin-left: .5em;
- margin-right: .5em;
+ margin: 0 .5em;
 }
 
 div#fi-navbar div.bubble blockquote {
@@ -192,7 +184,7 @@ div#fi-navbar div.bubble blockquote a {
 
 div#rightbar {
  float: left;
- width: 250px; /*210*/
+ width: 270px; /*210*/
 }
 
 div.sidebar {
@@ -241,7 +233,6 @@ div#sidebar li img {
 #wrap {
  width: 910px;
  margin: 10px auto;
- text-align: left;
  padding: 0;
  background-color: white;
  background-color: rgba(255, 255, 255, 0.5);
@@ -255,8 +246,7 @@ div#sidebar li img {
 }
 
 body.fourm #page-body {
- margin-left: 25;
- margin-right: 10;
+ margin: 0 10px 0 25px;
  width: 95%;
  font-size: 62.5%;
 }
@@ -298,8 +288,7 @@ div.cleardiv {
 				
 div#footer {
  clear: both;
- padding-bottom: 1em;
- padding-top: .5em;
+ padding: .5em 0 1em 0;
  margin-top: .5em;
  text-align: center;
  font-size: .68em;
@@ -383,8 +372,4 @@ table.webmail tr.even {
 table.webmail th {
  background-color: #FF9912;
  text-align: left;
-}
-
-table.webmail td {
- word-wrap: break-word;
 }

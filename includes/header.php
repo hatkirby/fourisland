@@ -24,12 +24,18 @@ require('headerproc.php');
 
 $headerTemp = new FITemplate('header');
 
-if ((date('G') >= 20) || (date('G') <= 6))
+if (!isset($_GET['emulateTime']))
 {
-	$bodyID = 'night';
+	if ((date('G') >= 20) || (date('G') <= 6))
+	{
+		$bodyID = 'night';
+	} else {
+		$bodyID = 'day';
+	}
 } else {
-	$bodyID = 'day';
+	$bodyID = $_GET['emulateTime'];
 }
+
 $headerTemp->add('BODYID',$bodyID);
 $headerTemp->add('CATEGORY',(isset($pageCategory)) ? $pageCategory : 'none');
 $headerTemp->add('AID',(isset($pageAID)) ? $pageAID : 'none');

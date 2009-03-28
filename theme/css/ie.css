@@ -8,8 +8,37 @@ dl.icon {
 
 #wrap {
  text-align: center;
+ background:transparent;
+ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99FFFFFF,endColorstr=#99FFFFFF);
+ zoom: 1;
 }
 
-#wrap * {
+#wrap #page-body {
  text-align: left;
+}
+
+body#night #wrap {
+ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000);
+}
+
+div#fi-navbar ul li a {
+ position: relative;
+ top: -0.4em;
+}
+
+div.bubble cite {
+ position: static;
+ padding-top: 4px;
+}
+
+div.bubble cite.rounded {
+ padding-top: 13px;
+}
+
+div.pimped cite.rounded {
+ padding-top: 14px;
+}
+
+span.post-vote {
+ position: static;
 }

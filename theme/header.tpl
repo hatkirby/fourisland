@@ -1,3 +1,5 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <HTML>
 	<HEAD>
 		<TITLE><!--EXTRATITLE-->Four Island</TITLE>
@@ -26,14 +28,14 @@
 				</DIV>				
 			</DIV>
 
-			<DIV CLASS="cleardiv" />
-
 			<DIV ID="fi-navbar">
 				<DIV>
 					<UL>
 						<LI<!--HOMEACTIVE-->>
-							<IMG SRC="/theme/images/icons/newspaper.png" ALT="Blog">
-							<A HREF="http://fourisland.com/">Blog</A>
+							<A HREF="http://fourisland.com/">
+								<IMG SRC="/theme/images/icons/newspaper.png" ALT="Blog">
+								<SPAN>Blog</SPAN>
+							</A>
 						</LI>
 
 						<LI>
@@ -41,36 +43,48 @@
 						</LI>
 
 						<LI<!--FOURMACTIVE-->>
-							<IMG SRC="/theme/images/icons/comment.png" ALT="The Fourm">
-							<A HREF="http://fourisland.com/fourm/">The Fourm</A>
+							<A HREF="http://fourisland.com/fourm/">
+								<IMG SRC="/theme/images/icons/comment.png" ALT="The Fourm">
+								<SPAN>The Fourm</SPAN>
+							</A>
 						</LI>
 
 						<LI<!--WIKIACTIVE-->>
-							<IMG SRC="/theme/images/icons/page_edit.png" ALT="Fouripedia">
-							<A HREF="http://fourisland.com/wiki/">Fouripedia</A>
+							<A HREF="http://fourisland.com/wiki/">
+								<IMG SRC="/theme/images/icons/page_edit.png" ALT="Fouripedia">
+								<SPAN>Fouripedia</SPAN>
+							</A>
 						</LI>
 
 						<LI<!--POLLACTIVE-->>
-							<IMG SRC="/theme/images/icons/overlays.png" ALT="Polls">
-							<A HREF="http://fourisland.com/poll/">Polls</A>
+							<A HREF="http://fourisland.com/poll/">
+								<IMG SRC="/theme/images/icons/overlays.png" ALT="Polls">
+								<SPAN>Polls</SPAN>
+							</A>
 						</LI>
 
 						<LI<!--QUOTESACTIVE-->>
-							<IMG SRC="/theme/images/icons/16-file-page.png" ALT="Quotes">
-							<A HREF="http://fourisland.com/quotes/">Quotes</A>
+							<A HREF="http://fourisland.com/quotes/">
+								<IMG SRC="/theme/images/icons/16-file-page.png" ALT="Quotes">
+								<SPAN>Quotes</SPAN>
+							</A>
 						</LI>
 
 						<!--BEGIN MEMBERS-->
 						<LI<!--LOGACTIVE-->>
-							<IMG SRC="/theme/images/icons/door_in.png" ALT="Log<!--LOGDATA-->">
-							<A HREF="http://fourisland.com/fourm/ucp.php?mode=log<!--LOGDATA-->&amp;redirect=<!--REDIRPAGE-->&amp;sid=<!--SID-->">Log<!--LOGDATA--></A>
+							<A HREF="http://fourisland.com/fourm/ucp.php?mode=log<!--LOGDATA-->&amp;redirect=<!--REDIRPAGE-->&amp;sid=<!--SID-->">
+								<IMG SRC="/theme/images/icons/door_in.png" ALT="Log<!--LOGDATA-->">
+								<SPAN>Log<!--LOGDATA--></SPAN>
+							</A>
 						</LI>
 						<!--END MEMBERS-->
 
 						<!--BEGIN ADMIN-->
 						<LI<!--PANELACTIVE-->>
-							<IMG SRC="/theme/images/icons/rainbow.png" ALT="Admin">
-							<A HREF="http://fourisland.com/admin/">Admin</A>
+							<A HREF="http://fourisland.com/admin/">
+								<IMG SRC="/theme/images/icons/rainbow.png" ALT="Admin">
+								<SPAN>Admin</SPAN>
+							</A>
 						</LI>
 						<!--END ADMIN-->
 					</UL>
