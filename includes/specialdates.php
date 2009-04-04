@@ -206,13 +206,12 @@ function sd_easter()
 	$nWD = sd_date('N',$ys);
 	if ($nWD==7) {$nWD=0;}
 	$ys+=(60*60*24*(7-$nWD));
-	$ys-=(60*60*24);
 	sd_solar_annual('Easter',sd_date('m',$ys),sd_date('j',$ys));
-	$ys-=(60*60*24*46);
+	$ys-=(60*60*24*47);
 	sd_solar_annual('Mardi Gras',sd_date('m',$ys),sd_date('j',$ys));
 	$ys+=(60*60*24);
 	sd_solar_annual('Ash Wednesday',sd_date('m',$ys),sd_date('j',$ys));
-	$ys+=(60*60*24*38);
+	$ys+=(60*60*24*39);
 	sd_solar_annual('Palm Sunday',sd_date('m',$ys),sd_date('j',$ys));
 	$ys+=(60*60*24*5);
 	sd_solar_annual('Good Friday',sd_date('m',$ys),sd_date('j',$ys));
