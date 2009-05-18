@@ -146,7 +146,7 @@ if (!isset($noRightbar))
 
 			$template->adds_block('COMMENTS', array(	'ID' => $getcomments3[$i]['id'],
 									'AREA' => 'poll',
-									'CODED' => $num,
+									'CODED' => $getpotw3['id'],
 									'ENDING' => '.php',
  									'TITLE' => 'Poll "' . $getpotw3['question'] . '"',
 									'AUTHOR' => (($website != '') ? '<A HREF="' . $website . '">' . $username . '</A>' : $username)));
