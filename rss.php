@@ -166,8 +166,28 @@ if (!isset($_GET['mode']) || ($_GET['mode'] == 'comments'))
 	$getcomments2 = mysql_query($getcomments);
 	while ($items[$i] = mysql_fetch_array($getcomments2))
 	{
+		if ($items[$i]['is_anon'] == 0)
+		{
+			$getuser = "SELECT * FROM phpbb_users WHERE user_id = " . $items[$i]['user_id'];
+			$getuser2 = mysql_query($getuser);
+               		$getuser3 = mysql_fetch_array($getuser2);
+
+	                $username = $getuser3['username'];
+	        } else if ($items[$i]['is_anon'] == 1)
+	        {
+	                $getanon = "SELECT * FROM anon_commenters WHERE id = " . $items[$i]['user_id'];
+	                $getanon2 = mysql_query($getanon);
+	                $getanon3 = mysql_fetch_array($getanon2);
+
+	                if ($getanon3['id'] == $items[$i]['user_id'])
+	                {
+	                        $username = $getanon3['username'] . ' (Guest)';
+	                }
+	        }
+
 		$items[$i]['sortDate'] = strtotime($items[$i]['posttime']);
 		$items[$i]['itemType'] = 'comment';
+		$items[$i]['username'] = $username;
 
 		$page_id = $items[$i]['page_id'];
 		$comType = substr($page_id,0,strpos($page_id,'-'));
@@ -180,15 +200,15 @@ if (!isset($_GET['mode']) || ($_GET['mode'] == 'comments'))
 				$getpost2 = mysql_query($getpost);
 				$getpost3 = mysql_fetch_array($getpost2);
 
-				$items[$i]['title'] = $getpost3['title'];
+				$items[$i]['title'] = '"' . $getpost3['title'] . '"';
 				$items[$i]['url'] = 'blog/' . $getpost3['slug'] . '/';
 				break;
-			case 'poll':
+			case 'polloftheweek':
 				$getpoll = "SELECT * FROM polloftheweek WHERE id = " . $comID;
 				$getpoll2 = mysql_query($getpoll);
 				$getpoll3 = mysql_fetch_array($getpoll2);
 
-				$items[$i]['title'] = $getpoll3['question'];
+				$items[$i]['title'] = '"' . $getpoll3['question'] . '"';
 				$items[$i]['url'] = 'poll/' . $getpoll3['id'] . '.php';
 				break;
 			case 'quote':
@@ -196,7 +216,7 @@ if (!isset($_GET['mode']) || ($_GET['mode'] == 'comments'))
 				$getquote2 = mysql_query($getquote);
 				$getquote3 = mysql_fetch_array($getquote2);
 
-				$items[$i]['title'] = '#' . $getquote3['id'];
+				$items[$i]['title'] = 'Quote #' . $getquote3['id'];
 				$items[$i]['url'] = 'quotes/' . $getquote3['id'] . '.php';
 				break;
 		}
