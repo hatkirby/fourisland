@@ -88,7 +88,7 @@ if (!isset($noRightbar))
 		$i++;
 	}
 
-	$getcomments = "SELECT * FROM comments WHERE page_id LIKE \"updates-%\" OR page_id LIKE \"quote-%\" ORDER BY id DESC LIMIT 0,5";
+	$getcomments = "SELECT * FROM comments ORDER BY id DESC LIMIT 0,5";
 	$getcomments2 = mysql_query($getcomments);
 	$i=0;
 	while ($getcomments3[$i] = mysql_fetch_array($getcomments2))
@@ -136,6 +136,19 @@ if (!isset($noRightbar))
 									'CODED' => $num,
 									'ENDING' => '.php',
  									'TITLE' => 'Quote #' . $num,
+									'AUTHOR' => (($website != '') ? '<A HREF="' . $website . '">' . $username . '</A>' : $username)));
+			$i++;			
+		} else if (strpos($getcomments3[$i]['page_id'], 'polloftheweek') !== FALSE)
+		{
+			$getpotw = "SELECT * FROM polloftheweek WHERE id = " . substr($getcomments3[$i]['page_id'],strpos($getcomments3[$i]['page_id'],'-')+1);
+			$getpotw2 = mysql_query($getpotw);
+			$getpotw3 = mysql_fetch_array($getpotw2);
+
+			$template->adds_block('COMMENTS', array(	'ID' => $getcomments3[$i]['id'],
+									'AREA' => 'poll',
+									'CODED' => $num,
+									'ENDING' => '.php',
+ 									'TITLE' => 'Poll "' . $getpotw3['question'] . '"',
 									'AUTHOR' => (($website != '') ? '<A HREF="' . $website . '">' . $username . '</A>' : $username)));
 			$i++;			
 		}
