@@ -149,6 +149,11 @@
 												<IMG SRC="/theme/images/icons/tag_orange.png" ALT="Pillowcase">
 												<A HREF="http://pillowcase.fourisland.com/">Pillowcase</A>
 											</LI>
+
+											<LI>
+												<IMG SRC="/theme/images/icons/tag_pink.png" ALT="Endlenge">
+												<A HREF="http://endlenge.fourisland.com/">Endlenge</A>
+											</LI>
 										</UL>
 									</DIV>
 								</BLOCKQUOTE>
