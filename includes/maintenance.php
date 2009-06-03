@@ -27,7 +27,7 @@ $getconfig2 = mysql_query($getconfig);
 $getconfig3 = mysql_fetch_array($getconfig2);
 if ($getconfig3['value'] == '1')
 {
-	if ($_SERVER['REMOTE_ADDR'] != '127.0.0.1')
+	if (($_SERVER['REMOTE_ADDR'] != '127.0.0.1') && (!isAdmin()))
 	{
 		$template = new FITemplate('maintenance');
 		$template->display($template);
