@@ -1,36 +1,34 @@
-body {
- width: 100% !important;
-}
-
-div#footer, div#rightbar, div#push {
+div#sidebar, div#footer .foot-module, div#newComment {
  display: none;
 }
 
-div#banner {
- background-image: none;
- height: auto !important;
+div#content div#window, div#content div#actual-content {
+ background-color: white;
+ padding: 0;
+ -moz-border-radius: 0;
+ -webkit-border-radius: 0;
+ -khtml-border-radius: 0;
+ border-radius: 0;
+ margin: 0;
 }
 
-div#banner h1 a {
- text-indent: 0 !important;
- color: black;
- text-align: center;
- height: auto !important;
-}
-
-span.print {
- display: inline;
-}
- 
 div#cleardiv {
  clear: none;
 }
 
 div#content {
- width: 100%;
+ width: 95%;
 }
 
 div.post-title {
  width: 90%;
 }
 
+div#banner a {
+ text-indent: 0 !important;
+ color: black;
+ text-align: center;
+ height: auto !important;
+ font-size: 4em;
+ padding-top: 1em;
+}

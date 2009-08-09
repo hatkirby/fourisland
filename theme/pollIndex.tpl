@@ -1,35 +1,24 @@
-<H2>Poll of the Week</H2>
-<P>
-<DIV CLASS="sidebar" STYLE="margin: auto">
-        <DIV CLASS="bubble">
-                <DIV CLASS="rounded">
-                        <BLOCKQUOTE>
-                                <DIV ID="hatbar">
-                                        <P>
-                                                <!--INCLUDE polloftheweek-->
-                                        </P>
-                                </DIV>
-                        </BLOCKQUOTE>
-                </DIV>
-        </DIV>
-</DIV>
-<P>
-Welcome to the Poll of the Week! Feel free to vote on these! You can review old ones and also comment on them if
-you're logged in using the links below!
-<P>
-<TABLE CLASS="webmail">
-	<TR><TH>Question</TH><TH>Week</TH></TR>
-	<!--BEGIN POLL-->
-	<TR<!--POLL.EVEN-->><TD><A HREF="/poll/<!--POLL.ID-->.php"><!--POLL.QUESTION--></A></TD><TD><NOBR><!--POLL.WEEK--></NOBR></TD></TR>
-	<!--END POLL-->
-</TABLE>
+<h2 class="light-at-night">Poll of the Week</h2>
 
-<P>
+<div class="module rounded sidebar center">
+	<!--POTW-->
+</div>
+
+<p class="light-at-night">Welcome to the Poll of the Week! Feel free to vote on these! You can review old ones and also comment on them if you're logged in using the links below!</p>
+
+<table class="webmail">
+	<tr><th>Question</th><th>Week</th></tr>
+	<!--BEGIN POLL-->
+	<tr<!--POLL.EVEN-->><td><a href="/poll/<!--POLL.ID-->.php"><!--POLL.QUESTION--></a></td><td class="nobr"><!--POLL.WEEK--></td></tr>
+	<!--END POLL-->
+</table>
+
+<p>
 	<!--BEGIN PREVIOUS-->
-	<A HREF="/poll/?start=<!--PREVIOUS.ID-->" STYLE="float: left">Previous</A>
+	<a href="/poll/?start=<!--PREVIOUS.ID-->" style="float: left">Previous</a>
 	<!--END PREVIOUS-->
 
 	<!--BEGIN NEXT-->
-	<A HREF="/poll/?start=<!--NEXT.ID-->" STYLE="float: right">Next</A>
+	<a href="/poll/?start=<!--NEXT.ID-->" style="float: right">Next</a>
 	<!--END NEXT-->
-</P>
+</p>

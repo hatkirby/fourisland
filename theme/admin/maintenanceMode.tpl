@@ -1,15 +1,15 @@
-<H2>Maintenance Mode</H2>
+<h2>Maintenance Mode</h2>
 
-<P>Here you can enable/disable Maintenance Mode. When Maintenance Mode is enabled, no one can access Four Island except localhost.</P>
+<p>Here you can enable/disable Maintenance Mode. When Maintenance Mode is enabled, no one can access Four Island except localhost.</p>
 
-<FORM ACTION="/admin/maintenanceMode.php?submit=" METHOD="POST">
-	<CENTER>
-		<INPUT TYPE="radio" NAME="mode" VALUE="on"<!--ON-->>On</INPUT><BR />
-		<INPUT TYPE="radio" NAME="mode" VALUE="off"<!--OFF-->>Off</INPUT><BR />
-		<INPUT TYPE="submit" />
-	</CENTER>
-</FORM>
+<form action="/admin/maintenanceMode.php?submit=" method="post">
+	<center>
+		<input type="radio" name="mode" value="on"<!--ON--> />On<br />
+		<input type="radio" name="mode" value="off"<!--OFF--> />Off<br />
+		<input type="submit" />
+	</center>
+</form>
 
-<P>
-	<A HREF="/admin/">Back to Admin Panel</A>
-</P>
+<p>
+	<a href="/admin/">Back to Admin Panel</a>
+</p>

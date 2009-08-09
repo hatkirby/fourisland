@@ -22,12 +22,23 @@ if (!defined('S_INCLUDE_FILE')) {define('S_INCLUDE_FILE',1);}
 
 require('headerproc.php');
 
-$pageCategory = 'home';
+$pageCategory = 'blog';
+
+$hatNav = array(        array(  'title' => 'Archive',
+                                'url' => 'http://fourisland.com/blog/',
+                                'icon' => '16-file-archive'));
+
 
 $template = new FITemplate('post');
 $template->adds_block('EXTERNAL',array('exi'=>1));
 
 $curID = 0;
+
+$gettrack = "SELECT * FROM tracking WHERE ip = \"" . $_SERVER['REMOTE_ADDR'] . "\"";
+$gettrack2 = mysql_query($gettrack);
+$gettrack3 = mysql_fetch_array($gettrack2);
+
+$trackArr = explode(',',$gettrack3['rating']);
 
 $getpost = "SELECT * FROM updates ORDER BY id DESC LIMIT 0,4";
 $getpost2 = mysql_query($getpost);
@@ -59,7 +70,7 @@ while ($getpost3 = mysql_fetch_array($getpost2))
 
 	$template->add_ref($curID, 'POST', array(	'ID' => $getpost3['id'],
 							'YEARID' => ((date('Y',strtotime($getpost3['pubDate']))-2006) % 4),
-							'DATE' => date('F dS Y \a\\t g:i:s a',strtotime($getpost3['pubDate'])),
+							'DATE' => date('F jS Y \a\\t g:i:s a',strtotime($getpost3['pubDate'])),
 							'MONTH' => date('M',strtotime($getpost3['pubDate'])),
 							'DAY' => date('d',strtotime($getpost3['pubDate'])),
 							'CODED' => $getpost3['slug'],
@@ -74,6 +85,13 @@ while ($getpost3 = mysql_fetch_array($getpost2))
 	foreach ($tags as $tag)
 	{
 		$template->adds_ref_sub($curID, 'TAGS', array('TAG' => $tag));
+	}
+
+	if (($gettrack3['ip'] != $_SERVER['REMOTE_ADDR']) || (array_search($getpost3['id'],$trackArr) === FALSE))
+	{
+		$template->adds_ref_sub($curID, 'CANVOTE', array('exi'=>1));
+	} else {
+		$template->adds_ref_sub($curID, 'NOVOTE', array('exi'=>1));
 	}
 
 	$curID++;

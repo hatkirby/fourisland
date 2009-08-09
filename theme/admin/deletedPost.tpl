@@ -1,6 +1,6 @@
 You've just deleted a post!
 
-<UL>
-	<LI><A HREF="/admin/managePosts.php">Manage Posts</A></LI>
-	<LI><A HREF="/admin/">Return to the Admin Panel</A></LI>
-</UL>
+<ul>
+	<li><a href="/admin/managePosts.php">Manage Posts</a></li>
+	<li><a href="/admin/">Return to the Admin Panel</a></li>
+</ul>

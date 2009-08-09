@@ -21,6 +21,8 @@
 if (!defined('S_INCLUDE_FILE')) {define('S_INCLUDE_FILE',1);}
 
 require('headerproc.php');
+include_once('../../security/config.php');
+include_once('../includes/db.php');
 
 ?>
 
@@ -82,13 +84,14 @@ span.post-day {
 div.post-title {
  float: left;
  margin-left: 10px;
- width: 500px; /* 430px */
+ width: 90%; /* 500px */
 }
 
 div.entry {
  clear: both;
  padding-top: 10px;
- font: 75%/150% Arial, "Trebuchet MS", Tahoma;
+ /*font-size: 75%;
+ line-height: 150%;*/
 }
 
 div.entry ol,
@@ -218,5 +221,14 @@ div.post-date-4 {
 span.post-vote {
  float: right;
  position: relative;
- top: -10px;
+ top: -2em;
+ right: 1em;
+}
+
+span.post-rating {
+ font-size: big;
+}
+
+span.post-action-done {
+        opacity: 0.2;
 }

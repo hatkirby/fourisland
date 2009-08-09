@@ -1,6 +1,6 @@
 You've just deleted a pending post!
 
-<UL>
-	<LI><A HREF="/admin/managePending.php">Manage Pending Posts</A></LI>
-	<LI><A HREF="/admin/">Return to the Admin Panel</A></LI>
-</UL>
+<ul>
+	<li><a href="/admin/managePending.php">Manage Pending Posts</a></li>
+	<li><a href="/admin/">Return to the Admin Panel</a></li>
+</ul>

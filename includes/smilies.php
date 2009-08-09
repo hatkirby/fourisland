@@ -45,7 +45,7 @@ class Smilies
 
 		foreach ($this->smilies as $name => $value)
 		{
-			$text = str_replace($name, '<IMG SRC="http://fourisland.com/theme/images/smilies/' . $value . '" ALT="' . $name . '">', $text);
+			$text = str_replace($name, '<img src="http://fourisland.com/theme/images/smilies/' . $value . '" alt="' . $name . '" />', $text);
 		}
 
 		return $text;

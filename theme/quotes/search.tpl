@@ -1,19 +1,19 @@
-<DIV CLASS="cleardiv"></DIV>
+<div class="cleardiv"></div>
 
-<H1>Search</H1>
+<h1 class="light-at-night">Search</h1>
 
-<FORM METHOD="POST" ACTION="/quotes/search.php?fetch=">
-	<INPUT TYPE="text" NAME="search" SIZE="28">&nbsp;
-	<INPUT TYPE="submit" NAME="submit"><BR>
-	Sort: <SELECT NAME="sortby" SIZE="1">
-		<OPTION SELECTED>Rating</OPTION>
-		<OPTION>ID</OPTION>
-	</SELECT>&nbsp;
-	How many: <SELECT NAME="number" SIZE="1">
-		<OPTION SELECTED>10</OPTION>
-		<OPTION>25</OPTION>
-		<OPTION>50</OPTION>
-		<OPTION>75</OPTION>
-		<OPTION>100</OPTION>
-	</SELECT>
-</FORM>
+<form method="POST" action="/quotes/search.php?fetch=">
+	<input type="text" name="search" size="28" />&nbsp;
+	<input type="submit" name="submit" /><br />
+	<span class="light-at-night">Sort:</span> <select name="sortby" size="1">
+		<option selected="selected">Rating</option>
+		<option>ID</option>
+	</select>&nbsp;
+	<span class="light-at-night">How many:</span> <select name="number" size="1">
+		<option selected="selected">10</option>
+		<option>25</option>
+		<option>50</option>
+		<option>75</option>
+		<option>100</option>
+	</select>
+</form>

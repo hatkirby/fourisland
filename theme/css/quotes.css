@@ -1,0 +1,61 @@
+ul.quote-list {
+	list-style-type: none;
+}
+
+li.quote {
+	margin: 0 0 1em;
+	padding-bottom: 0.1em;
+	background-color: #FCFCFC;
+}
+
+h3.quote-header {
+	background-color: #F7F7F7;
+	border: 1px solid #F4F4F4;
+	margin: 0;
+	padding: 0.25em 0.75em;
+}
+
+li.quote, h3.quote-header {
+        -moz-border-radius-topleft: 0.5em;
+        -moz-border-radius-topright: 0.5em;
+        -webkit-border-top-left-radius: 0.5em;
+        -webkit-border-top-right-radius: 0.5em;
+        -khtml-border-top-left-radius: 0.5em;
+        -khtml-border-top-right-radius: 0.5em;
+        border-top-left-radius: 0.5em;
+        border-top-right-radius: 0.5em;
+}
+
+span.quote-date {
+	font-size: 70%;
+}
+
+blockquote.quote-body {
+	font-family: Consolas, Monaco, Courier New, monospace;
+	font-size: 12px;
+	margin: 0.5em 0.75em;
+	padding: 0;
+	position: static;
+	width: 100%;
+}
+
+ul.quote-list li:hover {
+	background: #FFFCEC;
+}
+
+ul.quote-list li:hover h3.quote-header {
+	background: #FEC;
+	border-color: #FFE9C9;
+}
+
+span.quote-action-done {
+	opacity: 0.2;
+}
+
+span.quote-update-result {
+	float: right;
+	text-transform: uppercase;
+	font-size: 70%;
+	position: relative;
+	top: -1.2em;
+}

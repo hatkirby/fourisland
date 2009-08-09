@@ -1,51 +1,48 @@
-<A NAME="comments"></A>
+<a name="comments" />
 
 <!--BEGIN COMMENTS-->
-<A NAME="comment-<!--COMMENTS.ID-->"></A>
+<a name="comment-<!--COMMENTS.ID-->" />
 
 <!--BEGIN COMMENTS.EDITOR-->
-<FORM ACTION="/edit-comment.php?id=<!--COMMENTS.ID-->" METHOD="POST">
+<form action="/edit-comment.php?id=<!--COMMENTS.ID-->" method="post">
 <!--END COMMENTS.EDITOR-->
 
-<DIV CLASS="bubble" ID="comment-<!--COMMENTS.ID-->">
-	<BLOCKQUOTE>
-		<DIV ID="textBubble-<!--COMMENTS.ID-->">
-			<IMG SRC="http://www.gravatar.com/avatar/<!--COMMENTS.CODEDEMAIL-->?s=32&amp;d=identicon&amp;r=G">
-			<!--COMMENTS.TEXT-->
-		</DIV>
-
-		<!--BEGIN COMMENTS.EDITOR-->
-
-		<DIV ID="postBubble-<!--COMMENTS.ID-->" CLASS="invisible">
-	                <TEXTAREA ROWS="4" CLASS="comments_field" NAME="comment" COLS="73"><!--COMMENTS.EDITOR.BEFORE--></TEXTAREA>
-                </DIV>
-
-		<!--END COMMENTS.EDITOR-->
-	</BLOCKQUOTE>
-	<CITE><STRONG><!--COMMENTS.USERNAME--></STRONG> on <!--COMMENTS.DATE--></CITE>
+<div class="module unrounded" id="comment-<!--COMMENTS.ID-->">
+	<div id="textBubble-<!--COMMENTS.ID-->" class="comment">
+		<img src="http://www.gravatar.com/avatar/<!--COMMENTS.CODEDEMAIL-->?s=32&amp;d=identicon&amp;r=G" alt="" />
+		<!--COMMENTS.TEXT-->
+	</div>
 
 	<!--BEGIN COMMENTS.EDITOR-->
 
-	<SPAN CLASS="post-vote">
-		<A HREF="#comment-<!--COMMENTS.ID-->" ONCLICK="openEditor('<!--COMMENTS.ID-->');"><IMG SRC="/theme/images/icons/note_edit.png" ALT="Edit"></A>
-		<A HREF="/delete-comment.php?id=<!--COMMENTS.ID-->"><IMG SRC="/theme/images/icons/note_delete.png" ALT="Delete"></A>
-	</SPAN>
+	<div id="postBubble-<!--COMMENTS.ID-->" class="invisible">
+		<textarea rows="4" class="comments_field" name="comment" cols="100"><!--COMMENTS.EDITOR.BEFORE--></textarea>
+	</div>
 
 	<!--END COMMENTS.EDITOR-->
-</DIV>
+</div>
+
+<cite class="light-at-night"><strong><!--COMMENTS.USERNAME--></strong> on <!--COMMENTS.DATE--></cite>
 
 <!--BEGIN COMMENTS.EDITOR-->
-	<DIV ID="editComment-<!--COMMENTS.ID-->" CLASS="invisible" STYLE="text-align: center">
-		<INPUT TYPE="submit" VALUE="Edit">
-		<BUTTON TYPE="button" ONCLICK="closeEditor(<!--COMMENTS.ID-->);">Cancel</BUTTON>
-	</DIV>
 
-</FORM>
+	<span class="post-vote">
+		<a href="#comment-<!--COMMENTS.ID-->" onclick="openEditor('<!--COMMENTS.ID-->');"><img src="/theme/images/icons/note_edit.png" alt="Edit" /></a>
+		<a href="#comment-<!--COMMENTS.ID-->" onclick="if (confirm('Are you sure you would like to delete this comment?')) {window.location='/delete-comment.php?id=<!--COMMENTS.ID-->';}"><img src="/theme/images/icons/note_delete.png" alt="Delete" /></a>
+	</span>
+
+	<div id="editComment-<!--COMMENTS.ID-->" class="invisible" style="text-align: center">
+		<input type="submit" value="Edit" />
+		<button type="button" onclick="closeEditor(<!--COMMENTS.ID-->);">Cancel</button>
+	</div>
+</form>
 <!--END COMMENTS.EDITOR-->
 
 <!--END COMMENTS-->
 
-<SCRIPT TYPE="text/javascript">
+<div class="cleardiv"></div>
+
+<script type="text/javascript">
 
 function openEditor(id)
 {
@@ -65,29 +62,60 @@ function closeEditor(id)
 	jQuery("#editComment-" + id).addClass("invisible");
 }
 
-</SCRIPT>
+function postComment()
+{
+	jQuery("#newComment textarea, #newComment input, #newComment button").attr("disabled", "disabled");
+	jQuery("#flash").text("Processing....").slideDown();
+	jQuery.ajax({
+		type: "POST",
+		url: "/post.php",
+		data: ({
+			id: "<!--PAGEID-->",
+			comment: jQuery("#newComment textarea").val(),
+			username: jQuery("#newComment input:text[name=username]").val(),
+			email: jQuery("#newComment input:text[name=email]").val(),
+			website: jQuery("#newComment input:text[name=website]").val(),
+			recaptcha_challenge_field: jQuery("#newComment input[name=recaptcha_challenge_field]").val(),
+			recaptcha_response_field: jQuery("#newComment input[name=recaptcha_response_field]").val()
+		}),
+		dataType: "text",
+		success: function(msg) {
+			if (msg.indexOf("textBubble") != -1)
+			{
+				jQuery("#flash").text("Your comment has been posted.");
+				jQuery("#newComment").html(msg);
+			} else {
+				jQuery("#newComment textarea, #newComment input, #newComment button").removeAttr("disabled");
+				jQuery("#flash").text(msg);
+			}
+		},
+		error: function() {
+			jQuery("#newComment textarea, #newComment input, #newComment button").removeAttr("disabled");
+			jQuery("#flash").text("There was an error posting your comment.");
+		}
+	});
+}
 
-<DIV ID="newComment">
-	<FORM ACTION="/post.php?id=<!--PAGEID-->" METHOD="POST">
-		<DIV CLASS="bubble">
-			<BLOCKQUOTE>
-				<DIV ID="postBubble">
-					<TEXTAREA ROWS="4" CLASS="comments_field" NAME="comment" COLS="73"></TEXTAREA>
-				</DIV>
-			</BLOCKQUOTE>
-			<CITE><STRONG><!--USERNAME--></STRONG>, feel free to post a comment</CITE>
-		</DIV>
+</script>
 
-		<CENTER>
+<div id="newComment">
+	<form action="/post.php?id=<!--PAGEID-->" method="post">
+		<div class="module unrounded" id="postBubble">
+			<textarea rows="4" class="comments_field" name="comment" cols="100"></textarea>
+		</div>
+		
+		<cite class="light-at-night"><strong><!--USERNAME--></strong>, feel free to post a comment</cite>
+
+		<center class="light-at-night">
 			<!--BEGIN NOLOG-->
 			<!--RECAPTCHA-->
-			<P>
-			Name: <INPUT TYPE="text" NAME="username"><BR>
-			Email: <INPUT TYPE="text" NAME="email"><BR>
-			Website (Optional): <INPUT TYPE="text" NAME="website">
-			<P>
+			<p>
+			Name: <input type="text" name="username" /><br />
+			Email: <input type="text" name="email" /><br />
+			Website (Optional): <input type="text" name="website" />
+			</p>
 			<!--END NOLOG-->
-			<INPUT TYPE="submit" VALUE="Post">
-		</CENTER>
-	</FORM>
-</DIV>
+			<button type="button" onclick="postComment();">Post</button>
+		</center>
+	</form>
+</div>

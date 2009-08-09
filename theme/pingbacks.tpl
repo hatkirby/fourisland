@@ -1,14 +1,9 @@
-<DIV CLASS="cleardiv"></DIV>
+<div class="cleardiv"></div>
 
-<DIV CLASS="bubble">
-	<DIV CLASS="rounded">
-		<BLOCKQUOTE>
-			<DIV>
-				<!--BEGIN PINGBACK-->
-				<A HREF="<!--PINGBACK.URL-->"><!--PINGBACK.TITLE--></A> on <!--PINGBACK.DATE--><BR>
-				<!--END PINGBACK-->
-			</DIV>
-		</BLOCKQUOTE>
-	</DIV>
-	<CITE CLASS="rounded"><STRONG>Pingbacks</STRONG></CITE>
-</DIV>
+<div class="module rounded">
+	<!--BEGIN PINGBACK-->
+	<a href="<!--PINGBACK.URL-->"><!--PINGBACK.TITLE--></a> on <!--PINGBACK.DATE--><br />
+	<!--END PINGBACK-->
+</div>
+
+<cite class="rounded light-at-night"><strong>Pingbacks</strong></cite>

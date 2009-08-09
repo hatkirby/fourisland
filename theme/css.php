@@ -22,32 +22,10 @@ require('../headerproc.php');
 
 header('Content-type: text/css');
 
-include('../../security/config.php');
-include('../includes/db.php');
-include('../includes/specialdates.php');
-
-include("css/website.css");
-include("css/bubbles.css");
-
-if (sd_ifNoSpecialDay())
-{
-	if ($_GET['id'] == 'day')
-	{
-		include("css/day.css");
-	} else if ($_GET['id'] == 'night')
-	{
-		include("css/night.css");
-	}
-} else {
-	include("css/holiday.php");
-}
-
-if ($_GET['cat'] == 'home')
-{
-	include('css/blog.php');
-} else if ($_GET['cat'] == 'panel')
-{
-	include('css/blog.php');
-}
+include('css/website.css');
+include('css/blog.php');
+include('css/bubbles.css');
+include('css/quotes.css');
+include('css/holiday.php');
 
 ?>

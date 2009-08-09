@@ -1,6 +1,6 @@
-<H2>Write a Poll RSS</H2><P>
+<h2>Write a Poll RSS</h2>
 
-<FORM ACTION="/admin/pollProcess.php?step=2" METHOD="POST">
-	<TEXTAREA NAME="text" COLS="80" ROWS="20"></TEXTAREA><P>
-	<INPUT TYPE="submit" VALUE="Write RSS">
-</FORM>
+<form action="/admin/pollProcess.php?step=2" method="POST">
+	<textarea name="text" cols="80" rows="20"></textarea><br />
+	<input type="submit" value="Write RSS" />
+</form>

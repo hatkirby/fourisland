@@ -24,70 +24,92 @@ require('headerproc.php');
 
 $pageCategory = 'quotes';
 
-if (isset($_GET['id']))
+$hatNav = array(	array(	'title' => 'Latest',
+							'url' => 'http://fourisland.com/quotes/latest.php',
+							'icon' => '16-star-hot'
+					),
+					array(	'title' => 'Best',
+							'url' => 'http://fourisland.com/quotes/top.php',
+							'icon' => 'medal_gold_1'
+					),
+					array(	'title' => 'Worst',
+							'url' => 'http://fourisland.com/quotes/bottom.php',
+							'icon' => '16-message-warn'
+					),
+					array(	'title' => 'Browse All',
+							'url' => 'http://fourisland.com/quotes/browse.php',
+							'icon' => '16-file-archive'
+					),
+					array(	'title' => 'Random',
+							'url' => 'http://fourisland.com/quotes/random.php',
+							'icon' => '16-clock'
+					),
+					array(	'title' => 'Add',
+							'url' => 'http://fourisland.com/quotes/add.php',
+							'icon' => '16-em-pencil'
+					),
+					array(	'title' => 'Search',
+							'url' => 'http://fourisland.com/quotes/search.php',
+							'icon' => 'book_open'
+					));
+
+if (isset($_GET['id']) && is_numeric($_GET['id']))
 {
 	$quote_num = $_GET['id'];
 }
 
-if ((!isset($_GET['act'])) || ($_GET['act'] == 'latest'))
+if (isset($_GET['id']) && !(is_numeric($_GET['id'])))
 {
-	$query = "SELECT id, quote, rating, flag FROM rash_quotes ORDER BY id DESC LIMIT 50";
+	generateError('404');
+} else if ((!isset($_GET['act'])) || ($_GET['act'] == 'latest'))
+{
+	$query = "SELECT * FROM rash_quotes ORDER BY id DESC LIMIT 50";
 	quote_generation($query, "Latest", -1);
 } else if ($_GET['act'] == 'add')
 {
 	$template = new FITemplate('quotes/add');
 	if (isset($_GET['submit']))
 	{
-		$template->adds_block('SUBMITTED',array('QUOTE' => (nl2br(htmlspecialchars($_POST['rash_quote'])) . "\n")));
+		$template->adds_block('SUBMITTED',array('QUOTE' => str_replace("\n","<br />",htmlentities($_POST['rash_quote']))));
 		if (!isLoggedIn())
 		{
 			$insquote = "INSERT INTO rash_queue (quote) VALUES(\"" . mysql_real_escape_string(htmlspecialchars($_POST['rash_quote'])) . "\")";
 		} else {
-			$today = mktime(date('G'),date('i'),date('s'),date('m'),date('d'),date('Y'));
-			$insquote = "INSERT INTO rash_quotes (quote, rating, flag, date) VALUES (\"" . mysql_real_escape_string($_POST['rash_quote']) . "\", 0, 0, \"" . $today . "\")";
+			$insquote = "INSERT INTO rash_quotes (quote, rating, flag, date) VALUES (\"" . mysql_real_escape_string($_POST['rash_quote']) . "\", 0, 0, \"" . time() . "\")";
 		}
 		$insquote2 = mysql_query($insquote);
 	}
 	$template->display();
 } elseif ($_GET['act'] == 'bottom')
 {
-	$query = "SELECT id, quote, rating, flag FROM rash_quotes WHERE rating < 0 ORDER BY rating ASC LIMIT 50";
+	$query = "SELECT * FROM rash_quotes WHERE rating < 0 ORDER BY rating ASC LIMIT 50";
 	quote_generation($query, "Bottom", -1);
 } elseif ($_GET['act'] == 'browse')
 {
-	$query = "SELECT id, quote, rating, flag FROM rash_quotes ORDER BY id ASC ";
+	$query = "SELECT * FROM rash_quotes ORDER BY id ASC ";
 	quote_generation($query, "Browse", (isset($_GET['page']) ? $_GET['page'] : 1), 10, 5);
 } elseif ($_GET['act'] == 'flag')
 {
-	$template = new FITemplate('msg');
-	$tracking_verdict = user_quote_status('flag', $quote_num, $template);
-	if ($tracking_verdict < 3)
-	{
-		$getfla = "SELECT flag FROM rash_quotes WHERE id = " . $quote_num . " LIMIT 0,1";
-		$getfla2 = mysql_query($getfla);
-		$getfla3 = mysql_fetch_array($getfla2);
+	$getfla = "SELECT * FROM rash_quotes WHERE id = " . $quote_num . " LIMIT 0,1";
+	$getfla2 = mysql_query($getfla);
+	$getfla3 = mysql_fetch_array($getfla2);
 
-		if ($getfla3['flag'] == 2)
-		{
-			$template->add('MSG',"This quote has been flagged and rechecked by a moderator already.");
-		} elseif ($getfla3['flag'] == 1)
-		{
-			$template->add('MSG',"This quote is currently pending deletion.");
-		} else {
-			$template->add('MSG',"You have marked this quote for deletion.");
-			$setfla = "UPDATE rash_quotes SET flag = 1 WHERE id = " . $quote_num;
-			$setfla2 = mysql_query($setfla);
-		}
+	if ($getfla3['flag'] == 2)
+	{
+		die('0');
+	} else {
+		$setfla = "UPDATE rash_quotes SET flag = 1 WHERE id = " . $quote_num;
+		$setfla2 = mysql_query($setfla);
+
+		die('1');
 	}
-	$template->add('BACK','Quote #' . $quote_num);
-	$template->display();
 } elseif ($_GET['act'] == 'random')
 {
-	$query = "SELECT id, quote, rating, flag FROM rash_quotes ORDER BY rand() LIMIT 50";
+	$query = "SELECT * FROM rash_quotes ORDER BY rand() LIMIT 50";
 	quote_generation($query, "Random", -1);
 } elseif ($_GET['act'] == 'random2')
 {
-	$query = "SELECT id, quote, rating, flag FROM rash_quotes WHERE rating > 1 ORDER BY rand() LIMIT 50";
+	$query = "SELECT * FROM rash_quotes WHERE rating > 1 ORDER BY rand() LIMIT 50";
 	quote_generation($query, "Random2", -1);
 } elseif ($_GET['act'] == 'search')
 {
@@ -99,22 +121,24 @@ if ((!isset($_GET['act'])) || ($_GET['act'] == 'latest'))
 		} else {
 			$how = 'asc';
 		}
-		$getquotes = "SELECT id, quote, rating, flag FROM rash_quotes WHERE quote LIKE \"%" . $_POST['search'] . "%\" ORDER BY " . $_POST['sortby'] . " " . $how . " LIMIT 0," . $_POST['number'];
+		$getquotes = "SELECT * FROM rash_quotes WHERE quote LIKE \"%" . $_POST['search'] . "%\" ORDER BY " . $_POST['sortby'] . " " . $how . " LIMIT 0," . $_POST['number'];
 		quote_generation($getquotes, "Query Results", -1);
 	}
 	$template = new FITemplate('quotes/search');
 	$template->display();
 } elseif ($_GET['act'] == 'top')
 {
-	$query = "SELECT id, quote, rating, flag FROM rash_quotes WHERE rating > 0 ORDER BY rating DESC LIMIT 50";
+	$query = "SELECT * FROM rash_quotes WHERE rating > 0 ORDER BY rating DESC LIMIT 50";
 	quote_generation($query, "Top", -1);
 } elseif ($_GET['act'] == 'vote')
 {
-	$template = new FITemplate('msg');
-	$tracking_verdict = user_quote_status('vote', $quote_num,$template);
-	$template->add('BACK','Quote #' . $quote_num);
-	$template->display();
-	if ($tracking_verdict < 3)
+	$gettrack = "SELECT * FROM rash_tracking WHERE ip = \"" . $_SERVER['REMOTE_ADDR'] . "\"";
+	$gettrack2 = mysql_query($gettrack);
+	$gettrack3 = mysql_fetch_array($gettrack2);
+
+	$trackArr = explode(',',$gettrack3['vote']);
+
+	if (($gettrack3['ip'] != $_SERVER['REMOTE_ADDR']) || (array_search($quote_num,$trackArr) === FALSE))
 	{
 		if ($_GET['dir'] == "plus")
 		{
@@ -125,18 +149,32 @@ if ((!isset($_GET['act'])) || ($_GET['act'] == 'latest'))
 			$setquote = "UPDATE rash_quotes SET rating = rating-1 WHERE id = " . $quote_num;
 			$setquote2 = mysql_query($setquote);
 		}
-	}
-} else {
-	if ((is_int($_GET['act']) || ($_GET['act'] != false)) && (verify_int($_GET['act'])))
-	{
-		$query = "SELECT id, quote, rating, flag FROM rash_quotes WHERE id = " . $_GET['act'];
-		quote_generation($query, "#" . $_GET['act'], -1);
 
-		$page_id = 'quote-' . $_GET['act'];
-		include('includes/comments.php');
+		if ($gettrack3['ip'] == $_SERVER['REMOTE_ADDR'])
+		{
+			$settrack = "UPDATE rash_tracking SET vote = \"" . $gettrack3['vote'] . "," . $quote_num . "\" WHERE id = " . $gettrack3['id'];
+		} else {
+			$settrack = "INSERT INTO tracking (ip,vote) VALUES (\"" . $_SERVER['REMOTE_ADDR'] . "\",\"" . $quote_num . "\")";
+		}
+		$settrack2 = mysql_query($settrack) or die($settrack);
+
+		$getquote = "SELECT * FROM rash_quotes WHERE id = " . $quote_num;
+		$getquote2 = mysql_query($getquote);
+		$getquote3 = mysql_fetch_array($getquote2);
+
+		die($getquote3['rating']);
 	} else {
-		generateError('404');
+		die;
 	}
+} else if (is_numeric($_GET['act']))
+{
+	$query = "SELECT * FROM rash_quotes WHERE id = " . $_GET['act'];
+	quote_generation($query, "#" . $_GET['act'], -1);
+
+	$page_id = 'quote-' . $_GET['act'];
+	include('includes/comments.php');
+} else {
+	generateError('404');
 }
 
 function quote_generation($query, $origin, $page = 1, $quote_limit = 50, $page_limit = 10)
@@ -152,13 +190,56 @@ function quote_generation($query, $origin, $page = 1, $quote_limit = 50, $page_l
 	}
 	$template->add('ORIGIN',$origin);
 
+	$gettrack = "SELECT * FROM rash_tracking WHERE ip = \"" . $_SERVER['REMOTE_ADDR'] . "\"";
+	$gettrack2 = mysql_query($gettrack);
+	$gettrack3 = mysql_fetch_array($gettrack2);
+
+	$trackArr = explode(',',$gettrack3['vote']);
+
 	$getquotes2 = mysql_query($query);
 	$i=0;
 	while ($getquotes3[$i] = mysql_fetch_array($getquotes2))
 	{
-		$template->adds_block('QUOTES',array(	'NUMBER' => $getquotes3[$i]['id'],
-							'RATING' => $getquotes3[$i]['rating'],
-							'QUOTE' => parseSmilies(str_replace("\n","<BR>",stripslashes($getquotes3[$i]['quote'])))));
+		if (!isset($curID))
+		{
+			$curID = 0;
+		} else {
+			$curID++;
+		}
+
+		$cntcomments = "SELECT COUNT(*) FROM comments WHERE page_id = \"quote-" . $getquotes3[$i]['id'] . "\"";
+		$cntcomments2 = mysql_query($cntcomments);
+		$cntcomments3 = mysql_fetch_array($cntcomments2);
+
+		if ($cntcomments3['COUNT(*)'] == 0)
+		{
+			$comments = '';
+		} else if ($cntcomments3['COUNT(*)'] == 1)
+		{
+			$comments = '1 Comment';
+		} else {
+			$comments = $cntcomments3['COUNT(*)'] . ' Comments';
+		}
+
+		$template->add_ref($curID,'QUOTES',array(	'NUMBER' => $getquotes3[$i]['id'],
+								'RATING' => $getquotes3[$i]['rating'],
+								'DATE' => ($getquotes3[$i]['date'] != 0 ? date('F jS Y \a\\t g:i:s a', $getquotes3[$i]['date']) : ''),
+								'QUOTE' => str_replace("\n","<br />",htmlentities(stripslashes($getquotes3[$i]['quote']))),
+								'COMMENTS' => $comments));
+
+		if (($gettrack3['ip'] != $_SERVER['REMOTE_ADDR']) || (array_search($getquotes3[$i]['id'],$trackArr) === FALSE))
+		{
+			$template->adds_ref_sub($curID, 'CANVOTE', array('exi'=>1));
+		} else {
+			$template->adds_ref_sub($curID, 'NOVOTE', array('exi'=>1));
+		}
+
+		if ($getquotes3[$i]['flag'] == 0)
+		{
+			$template->adds_ref_sub($curID, 'CANFLAG', array('exi'=>1));
+		} else {
+			$template->adds_ref_sub($curID, 'NOFLAG', array('exi'=>1));
+		}
 		
 		$i++;
 	}
@@ -170,7 +251,7 @@ function page_numbers($template, $origin, $quote_limit, $page_default, $page_lim
 {
 	$numrows = countRows('rash_quotes');
 	$testrows = $numrows;
-	$pagenum = (($testrows + 1) / ($quote_limit > 0 ? $quote_limit : 1));
+	$pagenum = floor(($testrows + 1) / ($quote_limit > 0 ? $quote_limit : 1));
 
 	if (($page_limit % 2))
 	{
@@ -225,88 +306,6 @@ function page_numbers($template, $origin, $quote_limit, $page_default, $page_lim
 
 	$template->add('PLUSTEN',(($page_default + 10) < $pagenum) ? ($page_default + 10) : $pagenum);
 	$template->add('LASTPAGE',$pagenum);
-}
-
-function user_quote_status($where, $quote_num, $template)
-{
-	$tracking_verdict = ip_track($where, $quote_num);
-	if ($where != 'flag')
-	{
-		switch ($tracking_verdict)
-		{
-			case 1:
-				$template->add('TRACKING',"Quote has been modified, and data of your action has been recorded in the database.");
-				break;
-			case 2:
-				$template->add('TRACKING',"Quote has been modified, your IP has been logged, and data of your action has been recorded in the database.");
-				break;
-			case 3:
-				$template->add('TRACKING',"You have already voted on this quote, please try again later.");
-				break;
-		}
-	}
-	return $tracking_verdict;
-}
-
-function ip_track($where, $quote_num)
-{
-	switch ($where)
-	{
-		case 'flag':
-			$where2 = 'vote';
-			break;
-		case 'vote':
-			$where2 = 'flag';
-			break;
-	}
-	
-	$getip = "SELECT * FROM rash_tracking WHERE ip = \"" . $_SERVER['REMOTE_ADDR'] . "\"";
-	$getip2 = mysql_query($getip);
-	$getip3 = mysql_fetch_array($getip2);
-
-	if ($getip3['ip'] == $_SERVER['REMOTE_ADDR'])
-	{
-		$quote_array = explode(",", $getip3['quote_id']);
-		$quote_place = array_search($quote_num, $quote_array);
-		if (in_array($quote_num, $quote_array))
-		{
-			$where_result = explode(",", $getip3[$where]);
-			if (!isset($where_result[$quote_place]))
-			{
-				$where_result[$quote_place] = 1;
-				$where_result = implode(",", $where_result);
-				$setip = "UPDATE rash_tracking SET " . $where . " = \"" . $where_result . "\" WHERE ip = \"" . $_SERVER['REMOTE_ADDR'] . "\"";
-				$setip2 = mysql_query($getip);
-				return 1;
-			} else {
-				return 3;
-			}
-		} else {
-			$setip = "UPDATE rash_tracking SET " . $where . " = CONCAT(" . $where . ",\",1\"), " . $where2 . " = CONCAT(" . $where2 . ",\",0\"), quote_id = CONCAT(quote_id,\"," . $quote_num . "\") WHERE ip = \"" . $_SERVER['REMOTE_ADDR'] . "\"";
-			$setip2 = mysql_query($setip);
-			return 1;
-		}
-	} else {
-		$insip = "INSERT INTO rash_tracking (ip, quote_id, " . $where . ", " . $where2 . ") VALUES (\"" . $_SERVER['REMOTE_ADDR'] . "\", \"" . $quote_num . "\", 1, 0)";
-		$insip2 = mysql_query($insip);
-		return 2;
-	}
-}
-
-function verify_int($subject)
-{
-	$ymax = strlen($subject);
-	$y = 0;
-	while($y < $ymax)
-	{
-		if ((is_int((int)($subject{$y})) && (int)($subject{$y})) || (int)($subject{$y}) === 0 )
-		{
-			$y++;
-		} else {
-			return false;
-		}
-	}
-	return true;
 }
 
 ?>

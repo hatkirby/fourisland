@@ -1,6 +1,6 @@
-<H2>Delete a Draft</H2><P>
+<h2>Delete a Draft</h2>
 
-Are you ABSOLUTELY SURE that you want to delete this draft?<P>
+<p>Are you ABSOLUTELY SURE that you want to delete this draft?</p>
 
-<A HREF="/admin/deleteDraft.php?id=<!--ID-->&submit=">Yes</A><BR>
-<A HREF="javascript:history.back();window.refresh();">Ummm.... actually I'd rather not</A>
+<p><a href="/admin/deleteDraft.php?id=<!--ID-->&amp;submit=">Yes</a><br />
+<a href="javascript:history.back();window.refresh();">Ummm.... actually I'd rather not</a></p>

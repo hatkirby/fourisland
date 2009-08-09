@@ -1,26 +1,26 @@
-<H2>Manage Pending</H2>
+<h2>Manage Pending</h2>
 
-<TABLE WIDTH="100%" CLASS="webmail">
-	<TR>
-		<TH>Pending Post Title</TH>
-		<TH>Pending Post Author</TH>
-		<TH>Actions</TH>
-	</TR>
+<table width="100%" class="webmail">
+	<tr>
+		<th>Pending Post Title</th>
+		<th>Pending Post Author</th>
+		<th>Actions</th>
+	</tr>
 
 	<!--BEGIN PENDING-->
-	<TR>
-		<TD><!--PENDING.TITLE--></TD>
-		<TD><!--PENDING.AUTHOR--></TD>
+	<tr>
+		<td><!--PENDING.TITLE--></td>
+		<td><!--PENDING.AUTHOR--></td>
 
-		<TD>
-			<A HREF="/admin/editPending.php?id=<!--PENDING.ID-->"><IMG SRC="/theme/images/icons/page_edit.png" ALT="Edit"></A>
-			<A HREF="/admin/deletePending.php?id=<!--PENDING.ID-->"><IMG SRC="/theme/images/icons/page_delete.png" ALT="Delete"></A>
-			<A HREF="/admin/viewPending.php?id=<!--PENDING.ID-->"><IMG SRC="/theme/images/icons/page_go.png" ALT="View"></A>
-			<A HREF="/admin/movePending.php?id=<!--PENDING.ID-->&amp;dir=up"><IMG SRC="/theme/images/icons/thumb_up.png" ALT="Move Up"></A>
-			<A HREF="/admin/movePending.php?id=<!--PENDING.ID-->&amp;dir=down"><IMG SRC="/theme/images/icons/thumb_down.png" ALT="Move Down"></A>
-		</TD>
-	</TR>
+		<td>
+			<a href="/admin/editPending.php?id=<!--PENDING.ID-->"><img src="/theme/images/icons/page_edit.png" alt="Edit" /></a>
+			<a href="/admin/deletePending.php?id=<!--PENDING.ID-->"><img src="/theme/images/icons/page_delete.png" alt="Delete" /></a>
+			<a href="/admin/viewPending.php?id=<!--PENDING.ID-->"><img src="/theme/images/icons/page_go.png" alt="View" /></a>
+			<a href="/admin/movePending.php?id=<!--PENDING.ID-->&amp;dir=up"><img src="/theme/images/icons/thumb_up.png" alt="Move Up" /></a>
+			<a href="/admin/movePending.php?id=<!--PENDING.ID-->&amp;dir=down"><img src="/theme/images/icons/thumb_down.png" alt="Move Down" /></a>
+		</td>
+	</tr>
 	<!--END PENDING-->
-</TABLE>
+</table>
 
-<A HREF="/admin/">Back to Admin Panel</A>
+<a href="/admin/">Back to Admin Panel</a>

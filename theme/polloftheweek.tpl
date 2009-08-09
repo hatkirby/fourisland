@@ -1,59 +1,59 @@
 <!--BEGIN FORM-->
-<FORM ACTION="/poll/?submit=" METHOD="POST">
-	<SPAN STYLE="font-size: 16px; text-align: center">
+<div id="potw-ajax">
+	<span style="font-size: 16px; text-align: center">
 		<!--QUESTION-->
-	</SPAN>
+	</span>
 
-	<BR>
+	<br />
 
-	<INPUT TYPE="radio" NAME="options" VALUE="1" ID="option1">
-	<LABEL FOR="option1"><!--OPTION1--></LABEL>
+	<input type="radio" name="options" value="1" class="option1" />
+	<!--OPTION1-->
 
-	<BR>
+	<br />
 
-	<INPUT TYPE="radio" NAME="options" VALUE="2" ID="option2">
-	<LABEL FOR="option2"><!--OPTION2--></LABEL>
+	<input type="radio" name="options" value="2" class="option2" />
+	<!--OPTION2-->
 
-	<BR>
+	<br />
 
-	<INPUT TYPE="radio" NAME="options" VALUE="3" ID="option3">
-	<LABEL FOR="option3"><!--OPTION3--></LABEL>
+	<input type="radio" name="options" value="3" class="option3" />
+	<!--OPTION3-->
 
-	<BR>
+	<br />
 
-	<INPUT TYPE="radio" NAME="options" VALUE="4" ID="option4">
-	<LABEL FOR="option4"><!--OPTION4--></LABEL>
+	<input type="radio" name="options" value="4" class="option4" />
+	<!--OPTION4-->
 
-	<P ALIGN="center">
-		<INPUT TYPE="submit" VALUE="Vote!">
-	</P>
-</FORM>
+	<p align="center">
+		<button type="button" onclick="jQuery('#potw-ajax').slideUp().load('/poll-results.php?id='+jQuery('#potw-ajax input:radio[name=options]:checked').val()).slideDown();">Vote!</button>
+	</p>
+</div>
 <!--END FORM-->
 
 <!--BEGIN DISPLAY-->
-<SPAN STYLE="font-size: 16px; text-align: center">
+<span style="font-size: 16px; text-align: center">
 	<!--QUESTION-->
-</SPAN>
+</span>
 
-<TABLE WIDTH="100%" BORDER="0" STYLE="font-size: 12px">
-	<TR>
-		<TD>%<!--PERCENT1--></TD>
-		<TD><!--OPTION1--></TD>
-	</TR>
+<table width="100%" border="0" style="font-size: 12px">
+	<tr>
+		<td>%<!--PERCENT1--></td>
+		<td><!--OPTION1--></td>
+	</tr>
 
-	<TR>
-		<TD>%<!--PERCENT2--></TD>
-		<TD><!--OPTION2--></TD>
-	</TR>
+	<tr>
+		<td>%<!--PERCENT2--></td>
+		<td><!--OPTION2--></td>
+	</tr>
 
-	<TR>
-		<TD>%<!--PERCENT3--></TD>
-		<TD><!--OPTION3--></TD>
-	</TR>
+	<tr>
+		<td>%<!--PERCENT3--></td>
+		<td><!--OPTION3--></td>
+	</tr>
 
-	<TR>
-		<TD>%<!--PERCENT4--></TD>
-		<TD><!--OPTION4--></TD>
-	</TR>
-</TABLE>
+	<tr>
+		<td>%<!--PERCENT4--></td>
+		<td><!--OPTION4--></td>
+	</tr>
+</table>
 <!--END DISPLAY-->

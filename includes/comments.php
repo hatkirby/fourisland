@@ -69,8 +69,8 @@ while ($getcomments3[$i] = mysql_fetch_array($getcomments2))
 	if (isset($username))
 	{
 		$template->add_ref($curID, 'COMMENTS', array(	'CODEDEMAIL' => md5(strtolower($email)),
-								'USERNAME' => (($website != '') ? '<A HREF="' . $website . '">' . $username . '</A>' : $username),
-								'DATE' => date("F dS Y \a\\t g:i:s a",strtotime($getcomments3[$i]['posttime'])),
+								'USERNAME' => (($website != '') ? '<a href="' . $website . '">' . $username . '</a>' : $username),
+								'DATE' => date("F jS Y \a\\t g:i:s a",strtotime($getcomments3[$i]['posttime'])),
 								'ID' => $getcomments3[$i]['id'],
 								'TEXT' => parseText($getcomments3[$i]['comment'])));
 
@@ -78,7 +78,7 @@ while ($getcomments3[$i] = mysql_fetch_array($getcomments2))
 		{
 			if ((isAdmin()) || (($getcomments3[$i]['is_anon'] == 0) && (getSessionUserID() === $getcomments3[$i]['user_id'])))
 			{
-				$template->adds_ref_sub($curID, 'EDITOR', array('BEFORE' => $getcomments3[$i]['comment']));
+				$template->adds_ref_sub($curID, 'EDITOR', array('BEFORE' => htmlspecialchars($getcomments3[$i]['comment'])));
 			}
 		}
 	}

@@ -20,6 +20,7 @@
 
 require('headerproc.php');
 
+header('Content-type: application/xhtml+xml');
 header('X-Pingback: http://fourisland.com/xmlrpc.php');
 
 include('../security/config.php');

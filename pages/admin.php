@@ -233,7 +233,7 @@ if (isLoggedIn())
 				$template->adds_block('INTERNAL',array('exi'=>1));
 				$template->add_ref(0, 'POST', array(	'ID' => $getdraft3['id'],
 									'YEARID' => ((date('Y')-2006) % 4),
-									'DATE' => date('F dS Y \a\\t g:i:s a'),
+									'DATE' => date('F jS Y \a\\t g:i:s a'),
 									'MONTH' => date('M'),
 									'DAY' => date('d'),
 									'CODED' => $getdraft3['slug'],
@@ -335,7 +335,7 @@ if (isLoggedIn())
 				$template->adds_block('INTERNAL',array('exi'=>1));
 				$template->add_ref(0, 'POST', array(	'ID' => $getpending3['id'],
 									'YEARID' => ((date('Y')-2006) % 4),
-									'DATE' => date('F dS Y \a\\t g:i:s a'),
+									'DATE' => date('F jS Y \a\\t g:i:s a'),
 									'MONTH' => date('M'),
 									'DAY' => date('d'),
 									'CODED' => $getpending3['slug'],
@@ -544,7 +544,7 @@ if (isLoggedIn())
 				$template->add('USERNAME', $getcomment3['author']);
 				$template->add('CODEDEMAIL', md5(strtolower($getcomment3['email'])));
 				$template->add('TEXT', parseText($getcomment3['comment']));
-				$template->add('DATE', date("F dS Y \a\\t g:i:s a",strtotime($getcomment3['pubDate'])));
+				$template->add('DATE', date("F jS Y \a\\t g:i:s a",strtotime($getcomment3['pubDate'])));
 			} else {
 				$template = new FITemplate('msg');
 				$template->add('BACK', 'the previous page');
@@ -649,8 +649,7 @@ if (isLoggedIn())
 			{
 				if (isset($_GET['approve']))
 				{
-					$today = mktime(date('G'),date('i'),date('s'),date('m'),date('d'),date('Y'));
-					$insquote = "INSERT INTO rash_quotes (quote,date) VALUES (\"" . mysql_real_escape_string($getpending3['quote']) . "\",\"" . $today . "\")";
+					$insquote = "INSERT INTO rash_quotes (quote,date) VALUES (\"" . mysql_real_escape_string($getpending3['quote']) . "\",\"" . time() . "\")";
 					$insquote2 = mysql_query($insquote);
 
 					$delpending = "DELETE FROM rash_queue WHERE id = " . $_GET['id'];
@@ -721,9 +720,9 @@ if (isLoggedIn())
 				$getconfig3 = mysql_fetch_array($getconfig2);
 				if ($getconfig3['value'] == '1')
 				{
-					$template->add('ON', ' CHECKED="CHECKED"');
+					$template->add('ON', ' checked="checked"');
 				} else {
-					$template->add('OFF', ' CHECKED="CHECKED"');
+					$template->add('OFF', ' checked="checked"');
 				}
 			}
 		} else {

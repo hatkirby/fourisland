@@ -272,7 +272,7 @@ function displayRelated($title, $avoid = 0)
 		$template->adds_block('POST', array(	'TITLE' => $getrelated3[$i]['title'],
 							'CODED' => $getrelated3[$i]['slug'],
 							'AUTHOR' => $getrelated3[$i]['author'],
-							'DATE' => date('F d<\S\U\P>S</\S\U\P> Y',strtotime($getrelated3[$i]['pubDate']))));
+							'DATE' => date('F jS Y',strtotime($getrelated3[$i]['pubDate']))));
 		$i++;
 	}
 
@@ -302,6 +302,52 @@ function getCommentUrl($getcomment3)
 	{
 		return '/quotes/' . $comID . '.php';
 	}
+}
+
+function getPollOfTheWeek($id = -1)
+{
+	static $showed_form = false;
+
+	$potw = new FITemplate('polloftheweek');
+	
+	if ($id == -1)
+	{
+		$getpoll = "SELECT * FROM polloftheweek ORDER BY id DESC LIMIT 0,1";
+	} else {
+		$getpoll = "SELECT * FROM polloftheweek WHERE id = " . $id;
+	}
+	$getpoll2 = mysql_query($getpoll);
+	$getpoll3 = mysql_fetch_array($getpoll2);
+
+	$potw->add('QUESTION', $getpoll3['question']);
+	$potw->add('OPTION1', $getpoll3['option1']);
+	$potw->add('OPTION2', $getpoll3['option2']);
+	$potw->add('OPTION3', $getpoll3['option3']);
+	$potw->add('OPTION4', $getpoll3['option4']);
+
+	$getip = "SELECT * FROM didpollalready WHERE ip = \"" . $_SERVER['REMOTE_ADDR'] . "\"";
+	$getip2 = mysql_query($getip);
+	$getip3 = mysql_fetch_array($getip2);
+
+	if (($getip3['ip'] != $_SERVER['REMOTE_ADDR']) && ($id == -1) && ($showed_form == false))
+	{
+		$potw->adds_block('FORM',array('exi'=>1));
+		$showed_form = true;
+	} else {
+		$potw->adds_block('DISPLAY',array('exi'=>1));
+
+		$potw->add('PERCENT1', getpercent($getpoll3,'1'));
+		$potw->add('PERCENT2', getpercent($getpoll3,'2'));
+		$potw->add('PERCENT3', getpercent($getpoll3,'3'));
+		$potw->add('PERCENT4', getpercent($getpoll3,'4'));
+	}
+	
+	ob_start();
+	$potw->display();
+	$result = ob_get_contents();
+	ob_end_clean();
+	
+	return $result;
 }
 
 ?>

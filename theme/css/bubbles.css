@@ -1,27 +1,14 @@
-/* Normal Bubble */
-
-div.bubble {
-	width: auto;
-	font-size: 0.75em;
-	margin-bottom: 14px;
-	font: 1em "Lucida Grande", Lucida, Verdana, sans-serif;
+.rounded {
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-khtml-border-radius: 10px;
+	border-radius: 10px;
+	padding: 4px;
 }
 
-div.bubble blockquote {
-	margin: 0px;
-	padding: 0px;
-	border: 1px solid #c9c2c1;
-	background-color: #fff;
-}
-
-div.bubble blockquote div {
-	margin: 10px;
-	padding: 0px;
-}
-
-div.bubble cite {
+div.module + cite {
 	position: relative;
-	top: 6px;
+	top: -1em;
 	margin: 0;
 	padding: 7px 0px 0px 15px;
 	background: transparent url(/theme/images/tip.gif) no-repeat 20px 0;
@@ -29,56 +16,46 @@ div.bubble cite {
 	font-size: small;
 }
 
-/* Rounded Bubble */
-div.bubble div.rounded {
-	margin-bottom: 10px;
-	border: 3px solid #fff;
-	background-color: #b7e0ff;
+div.module.unrounded + cite {
+	top: -0.9em;
 }
 
-div.bubble div.rounded blockquote,
-div.bubble div.navbar-rounded blockquote {
-	border: 0;
-	background-color: transparent;
+div.module.bquote + cite {
+	top: -0.8em;
 }
 
-div.bubble div.rounded blockquote div {
-	margin: 0px 10px;
-}
-
-div.bubble cite.rounded {
+div.module.rounded + cite {
 	margin: 0px;
-	padding: 19px 0 0 15px;
 	background: transparent url(/theme/images/tip-rounded.gif) no-repeat 15px 0;
 }
 
-/* Pimped Bubble */
-
-div.pimped {
-	font-size: 0.9em;
-}
-
-div.pimped div.rounded {
+div.module.pimped {
 	color: #fff;
 	border: 3px solid #fff;
-	background-color: #111;
+	background-color: #111 !important;
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
 
-div.pimped cite.rounded {
-	background: transparent url(/theme/images/tip-pimped.gif) no-repeat 15px 0;
+div.module.pimped + cite {
+	background: transparent url(/theme/images/tip-pimped.gif) no-repeat 20px 0;
 }
 
-div.bubble div.bquote blockquote {
-	margin: 0;
-	padding: 4px 0;
-	border: 1px solid #c9c2c1;
-	background-color: #fff;
+div.module {
+	margin: auto 10px 14px 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+	font-size: 0.9em;
+	background-color: #B7E0FF !important;
+	border: 3px solid #FFFFFF;
 }
 
-.rounded {
-	-moz-border-radius: 10px;
-	-webkit-border-radius: 10px;
-	-khtml-border-radius: 10px;
-	border-radius: 10px;
-	padding: 4px;
+div.module.unrounded {
+	background-color: white !important;
+	border: 1px solid #c9c2c1 !important;
+	padding: 5px;
+}
+
+div.module.sidebar {
+	width: 250px;
 }

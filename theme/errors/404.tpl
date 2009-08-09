@@ -1,100 +1,102 @@
-<H2>Hello, my name is Waddle Dee</H2>
+<div class="light-at-night">
+	<h2>Hello, my name is Waddle Dee</h2>
 
-<P>
-	Aaaa.... well... I'm really sorry, but I can't find the page you're looking for. Really, I'm so sorry! Please don't tell Hat Kirby! This is 
-	the 17'th page I lost this week!
-</P>
+	<p>
+		Aaaa.... well... I'm really sorry, but I can't find the page you're looking for. Really, I'm so sorry! Please don't tell Hat Kirby! This is 
+		the 17'th page I lost this week!
+	</p>
 
-<P>
-	Oh wait. Here we go. We can't find your page because... hmmm... oh not again... It seems Kirby ate the page you are looking for.
-	Yes, I'm really sorry! He gets really hungry sometimes (all of the time) but we try to keep him fed.
-</P>
+	<p>
+		Oh wait. Here we go. We can't find your page because... hmmm... oh not again... It seems Kirby ate the page you are looking for.
+		Yes, I'm really sorry! He gets really hungry sometimes (all of the time) but we try to keep him fed.
+	</p>
 
-<!--BEGIN NOREFERER-->
-	<P>
-		Anyway, instead of talking to me, you can:
-	</P>
+	<!--BEGIN NOREFERER-->
+		<p>
+			Anyway, instead of talking to me, you can:
+		</p>
 
-	<UL>
-		<LI>Swim over to <A HREF="http://fourisland.com/">Fourever Island</A></LI>
-		<LI>Try <A HREF="http://fourisland.com/fourm/">The Fourm</A>!</LI>
-		<LI>Or maybe you could go to the <A HREF="http://code.fourisland.com">Mercurial Respository</A>!</LI>
-	</UL>
+		<ul>
+			<li>Swim over to <a href="http://fourisland.com/">Fourever Island</a></li>
+			<li>Try <a href="http://fourisland.com/fourm/">The Fourm</a>!</li>
+			<li>Or maybe you could go to the <a href="http://code.fourisland.com">Mercurial Respository</a>!</li>
+		</ul>
 
-	<P>
-		I'm sure you'll have fun.
-	</P>
+		<p>
+			I'm sure you'll have fun.
+		</p>
 
-	<P>
-		<STRONG>Oh, oh! More info has come in! You may not be able to find the page because of:</STRONG>
-	</P>
+		<p>
+			<strong>Oh, oh! More info has come in! You may not be able to find the page because of:</strong>
+		</p>
 
-	<OL TYPE="A">
-		<LI>An <STRONG>out-of-date bookmark/favourite</STRONG></LI>
-		<LI>A search engine that has an <STRONG>out-of-date listing for us</STRONG></LI>
-		<LI>A <STRONG>mis-typed address</STRONG></LI>
-	</OL>
-<!--END NOREFERER-->
+		<ol type="A">
+			<li>An <strong>out-of-date bookmark/favourite</strong></li>
+			<li>A search engine that has an <strong>out-of-date listing for us</strong></li>
+			<li>A <strong>mis-typed address</strong></li>
+		</ol>
+	<!--END NOREFERER-->
 
-<!--BEGIN SEARCHREF-->
-	<P>
-		<STRONG>Oh, oh! More info has come in!</STRONG>
-	</P>
+	<!--BEGIN SEARCHREF-->
+		<p>
+			<strong>Oh, oh! More info has come in!</strong>
+		</p>
 
-	<P>
-		You did a search on <STRONG><A HREF="<!--SEARCHREF.REF-->" TARGET="_blank"><!--SEARCHREF.SITE--></A></STRONG>
-		for "<STRONG><!--SEARCHREF.TERMS--></STRONG>". However, their index appears to be out of date. Because Kirby ate the page, no doubt.
-	</P>
+		<p>
+			You did a search on <strong><a href="<!--SEARCHREF.REF-->" target="_blank"><!--SEARCHREF.SITE--></a></strong>
+			for "<strong><!--SEARCHREF.TERMS--></strong>". However, their index appears to be out of date. Because Kirby ate the page, no doubt.
+		</p>
 
-	<P>
-		All is not lost! Why not try one of these links?
-	</P>
+		<p>
+			All is not lost! Why not try one of these links?
+		</p>
 
-	<UL>
-		<LI>Swim over to <A HREF="http://fourisland.com/">Fourever Island</A></LI>
-		<LI>Try <A HREF="http://fourisland.com/fourm/">The Fourm</A>!</LI>
-		<LI>Or maybe you could go to the <A HREF="http://code.fourisland.com">Mercurial Respository</A>!</LI>
-	</UL>
+		<ul>
+			<li>Swim over to <a href="http://fourisland.com/">Fourever Island</a></li>
+			<li>Try <a href="http://fourisland.com/fourm/">The Fourm</a>!</li>
+			<li>Or maybe you could go to the <a href="http://code.fourisland.com">Mercurial Respository</a>!</li>
+		</ul>
 
-	<P>
-		I'm sure you'll have fun.
-	</P>
-<!--END SEARCHREF-->
+		<p>
+			I'm sure you'll have fun.
+		</p>
+	<!--END SEARCHREF-->
 
-<!--BEGIN NORMALREF-->
-	<P>
-		<STRONG>Oh, oh! More info has come in!</STRONG>
-	</P>
+	<!--BEGIN NORMALREF-->
+		<p>
+			<strong>Oh, oh! More info has come in!</strong>
+		</p>
 
-	<P>
-		You were referred to this page by:
-		<STRONG><A HREF="<!--NORMALREF.REF-->" TARGET="_blank"><!--NORMALREF.SITE--></A></STRONG><BR />
-		I guess they didn't know that Kirby ate the page.
-	</P>
+		<p>
+			You were referred to this page by:
+			<strong><a href="<!--NORMALREF.REF-->" target="_blank"><!--NORMALREF.SITE--></a></strong><br />
+			I guess they didn't know that Kirby ate the page.
+		</p>
 
-	<!--BEGIN OURBAD-->
-		<P>
-			Wait a minute! That's us! Uh oh! It looks like one of our own links is broken!
-			I'm really sorry about this, and I'll try to fix it before Hatkirby notices.
-			Please PM "hatkirby" on The Fourm, or post a topic about it in "Fourscore Improvements". Thanks!
-		</P>
-	<!--END OURBAD-->
+		<!--BEGIN OURBAD-->
+			<p>
+				Wait a minute! That's us! Uh oh! It looks like one of our own links is broken!
+				I'm really sorry about this, and I'll try to fix it before Hatkirby notices.
+				Please PM "hatkirby" on The Fourm, or post a topic about it in "Fourscore Improvements". Thanks!
+			</p>
+		<!--END OURBAD-->
 
-	<P>
-		Why not try one of these links?
-	</P>
+		<p>
+			Why not try one of these links?
+		</p>
 
-	<UL>
-		<LI>Swim over to <A HREF="http://fourisland.com/">Fourever Island</A></LI>
-		<LI>Try <A HREF="http://fourisland.com/fourm/">The Fourm</A>!</LI>
-		<LI>Or maybe you could go to the <A HREF="http://code.fourisland.com">Mercurial Respository</A>!</LI>
-	</UL>
+		<ul>
+			<li>Swim over to <a href="http://fourisland.com/">Fourever Island</a></li>
+			<li>Try <a href="http://fourisland.com/fourm/">The Fourm</a>!</li>
+			<li>Or maybe you could go to the <a href="http://code.fourisland.com">Mercurial Respository</a>!</li>
+		</ul>
 
-	<P>
-		I'm sure you'll have fun.
-	</P>
-<!--END NORMALREF-->
+		<p>
+			I'm sure you'll have fun.
+		</p>
+	<!--END NORMALREF-->
 
-<P>
-	Oh wait, I have to go. Hatkirby's coming and I better have an explation for her this time!
-</P>
+	<p>
+		Oh wait, I have to go. Hatkirby's coming and I better have an explation for her this time!
+	</p>
+</div>

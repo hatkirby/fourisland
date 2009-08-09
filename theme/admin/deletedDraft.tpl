@@ -1,6 +1,6 @@
 You've just deleted a draft!
 
-<UL>
-	<LI><A HREF="/admin/manageDrafts.php">Manage Drafts</A></LI>
-	<LI><A HREF="/admin/">Return to the Admin Panel</A></LI>
-</UL>
+<ul>
+	<li><a href="/admin/manageDrafts.php">Manage Drafts</a></li>
+	<li><a href="/admin/">Return to the Admin Panel</a></li>
+</ul>

@@ -27,7 +27,7 @@ if ((strpos($_SERVER['REQUEST_URI'],'index.php')) && (isset($_GET['post'])))
 	header('Location: /blog/' . $_GET['post'] . '/');
 }
 
-$pageCategory = 'home';
+$pageCategory = 'blog';
 $pageAID = 'archive';
 
 if (isset($_GET['post']))
@@ -65,7 +65,7 @@ if (isset($_GET['post']))
 
 		$template->add_ref(0, 'POST', array(	'ID' => $getpost3['id'],
 							'YEARID' => ((date('Y',strtotime($getpost3['pubDate']))-2006) % 4),
-							'DATE' => date('F dS Y \a\\t g:i:s a',strtotime($getpost3['pubDate'])),
+							'DATE' => date('F jS Y \a\\t g:i:s a',strtotime($getpost3['pubDate'])),
 							'MONTH' => date('M',strtotime($getpost3['pubDate'])),
 							'DAY' => date('d',strtotime($getpost3['pubDate'])),
 							'CODED' => $getpost3['slug'],
@@ -78,6 +78,19 @@ if (isset($_GET['post']))
 		foreach ($tags as $tag)
 		{
 			$template->adds_ref_sub(0, 'TAGS', array('TAG' => $tag));
+		}
+
+		$gettrack = "SELECT * FROM tracking WHERE ip = \"" . $_SERVER['REMOTE_ADDR'] . "\"";
+		$gettrack2 = mysql_query($gettrack);
+		$gettrack3 = mysql_fetch_array($gettrack2);
+
+		$trackArr = explode(',',$gettrack3['rating']);
+
+		if (($gettrack3['ip'] != $_SERVER['REMOTE_ADDR']) || (array_search($getpost3['id'],$trackArr) === FALSE))
+		{
+			$template->adds_ref_sub(0, 'CANVOTE', array('exi'=>1));
+		} else {
+			$template->adds_ref_sub(0, 'NOVOTE', array('exi'=>1));
 		}
 
 		$template->display();
@@ -93,8 +106,8 @@ if (isset($_GET['post']))
 			}
 
 			$template->adds_block('PINGBACK', array(	'TITLE' => $getpings3[$i]['title'],
-									'URL' => $getpings3[$i]['url'],
-									'DATE' => date('F d<\S\U\P>S</\S\U\P> Y', strtotime($getpings3[$i]['pubDate']))));
+									'URL' => htmlspecialchars($getpings3[$i]['url']),
+									'DATE' => date('F jS Y', strtotime($getpings3[$i]['pubDate']))));
 			$i++;
 		}
 
@@ -124,7 +137,7 @@ if (isset($_GET['post']))
 		{
 			$template->adds_block('BIO', array(	'TEXT' => $getbio3['text'],
 								'USERNAME' => $getbio3['username'],
-								'DATE' => date('F dS Y \a\\t g:i:s a',strtotime($getbio3['lastUpdated']))));
+								'DATE' => date('F jS Y \a\\t g:i:s a',strtotime($getbio3['lastUpdated']))));
 		}
 	} elseif (isset($_GET['tag']))
 	{

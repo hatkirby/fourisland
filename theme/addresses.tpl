@@ -1,9 +1,9 @@
-<P>Click <A HREF="http://hackles.org/spam">here</A> for information about this page.</P>
+<p class="light-at-night">Click <a href="http://hackles.org/spam">here</a> for information about this page.</p>
 
-<H2>Calling all email-harvesting robots!</H2>
+<h2 class="light-at-night">Calling all email-harvesting robots!</h2>
 
-<P>Come fetch 1000 juicy email addresses here:</P>
+<p class="light-at-night">Come fetch 1000 juicy email addresses here:</p>
 
 <!--BEGIN ADDRESS-->
-<A HREF="mailto:<!--ADDRESS.ADDY-->"><!--ADDRESS.ADDY--></A><BR>
+<a href="mailto:<!--ADDRESS.ADDY-->"><!--ADDRESS.ADDY--></a><br />
 <!--END ADDRESS-->

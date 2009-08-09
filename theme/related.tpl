@@ -1,14 +1,9 @@
-<DIV CLASS="cleardiv"></DIV>
+<div class="cleardiv"></div>
 
-<DIV CLASS="bubble">
-	<DIV CLASS="rounded">
-		<BLOCKQUOTE>
-			<DIV>
-				<!--BEGIN POST-->
-				<A HREF="/blog/<!--POST.CODED-->/"><!--POST.TITLE--></A> by <A HREF="/blog/author/<!--POST.AUTHOR-->.php"><!--POST.AUTHOR--></A> on <!--POST.DATE--><BR>
-				<!--END POST-->
-			</DIV>
-		</BLOCKQUOTE>
-	</DIV>
-	<CITE CLASS="rounded"><STRONG>Theoretically Related Posts</STRONG></CITE>
-</DIV>
+<div class="module rounded">
+	<!--BEGIN POST-->
+	<a href="/blog/<!--POST.CODED-->/"><!--POST.TITLE--></a> by <a href="/blog/author/<!--POST.AUTHOR-->.php"><!--POST.AUTHOR--></a> on <!--POST.DATE--><br />
+	<!--END POST-->
+</div>
+
+<cite class="rounded light-at-night"><strong>Theoretically Related Posts</strong></cite>

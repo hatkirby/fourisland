@@ -24,22 +24,7 @@ require('headerproc.php');
 
 $pageCategory = 'poll';
 
-if (isset($_GET['submit']))
-{
-	$setip = "INSERT INTO didpollalready SET ip = \"" . $_SERVER['REMOTE_ADDR'] . "\"";
-	$setip2 = mysql_query($setip);
-	$getpoll = "SELECT * FROM polloftheweek ORDER BY id DESC LIMIT 0,1";
-	$getpoll2 = mysql_query($getpoll);
-	$getpoll3 = mysql_fetch_array($getpoll2);
-	$setpoll = "UPDATE polloftheweek SET clicks" . $_POST['options'] . " = " . ($getpoll3['clicks' . $_POST['options']]+1) . " WHERE id = " . $getpoll3['id'];
-	$setpoll2 = mysql_query($setpoll);
-
-	$template = new FITemplate('msg');
-
-	$template->add('MSG','<H2>' . $getpoll3['question'] . '</H2><P>Thank you for voting on the Poll of the Week!<BR><A HREF="poll.php?id=' . $getpoll3['id'] . '">Click here to visit the page for this poll.');
-
-	$template->display();
-} else if (!isset($_GET['id']))
+if (!isset($_GET['id']))
 {
 	$template = new FITemplate('pollIndex');
 
@@ -70,7 +55,7 @@ if (isset($_GET['submit']))
 		$template->adds_block('POLL', array(	'ID' => $getpolls3[$i]['id'],
 							'QUESTION' => $question,
 							'WEEK' => date('F jS Y', strtotime($getpolls3[$i]['week'])),
-							'EVEN' => (($i % 2 == 1) ? ' CLASS="even"' : '')));
+							'EVEN' => (($i % 2 == 1) ? ' class="even"' : '')));
 		$i++;
 	}
 
@@ -94,8 +79,7 @@ if (isset($_GET['submit']))
 		$template->adds_block('NEXT', array('ID' => ($start+1)));
 	}
 
-	include('pages/polloftheweek.php');
-
+	$template->add('POTW', getPollOfTheWeek());
 	$template->display();
 } else {
 	$template = new FITemplate('poll');
@@ -114,7 +98,7 @@ if (isset($_GET['submit']))
 	{
 		$template->adds_block('COMPLETE', array(	'RSS' => parseText($getrss3['rss']),
 								'AUTHOR' => $getrss3['author'],
-								'DATE' => date("F dS Y \a\\t g:i:s a",strtotime($getrss3['date'])),
+								'DATE' => date("F jS Y \a\\t g:i:s a",strtotime($getrss3['date'])),
 								'OPTION1' => $getpoll3['option1'],
 								'OPTION2' => $getpoll3['option2'],
 								'OPTION3' => $getpoll3['option3'],
@@ -127,10 +111,7 @@ if (isset($_GET['submit']))
 		$template->adds_block('INCOMPLETE', array('exi'=>1));
 	}
 
-	$forceDisplay = $_GET['id'];
-	include('pages/polloftheweek.php');
-	unset($forceDisplay);
-
+	$template->add('POTW', getPollOfTheWeek($_GET['id']));
 	$template->display();
 
 	$page_id = 'polloftheweek-' . $getpoll3['id'];

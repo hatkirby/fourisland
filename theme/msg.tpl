@@ -1,1 +1,1 @@
-<!--TRACKING--><P><!--MSG--><P><A HREF="javascript:history.back();window.reload();">Back to <!--BACK--></A>
+<p><!--MSG--></p><p><a href="javascript:history.back();window.reload();">Back to <!--BACK--></a></p>

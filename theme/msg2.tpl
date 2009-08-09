@@ -1,1 +1,1 @@
-<!--MSG--><P><A HREF="<!--LINK-->"><!--BACK--></A>
+<p><!--MSG--></p><p><a href="<!--LINK-->"><!--BACK--></a></p>

@@ -1,21 +1,21 @@
-<H2>Manage Pending Quotes</H2>
+<h2>Manage Pending Quotes</h2>
 
-<TABLE WIDTH="100%" CLASS="webmail">
-	<TR>
-		<TH>Quote</TH>
-		<TH>Actions</TH>
-	</TR>
+<table width="100%" class="webmail">
+	<tr>
+		<th>Quote</th>
+		<th>Actions</th>
+	</tr>
 
 	<!--BEGIN QUOTE-->
-	<TR CLASS="<!--QUOTE.EVEN-->">
-		<TD><!--QUOTE.TEXT--></TD>
+	<tr class="<!--QUOTE.EVEN-->">
+		<td><!--QUOTE.TEXT--></td>
 
-		<TD>
-			<A HREF="/admin/actionPendingQuotes.php?id=<!--QUOTE.ID-->&approve"><IMG SRC="/theme/images/icons/page_attach.png" ALT="Approve"></A>
-			<A HREF="/admin/actionPendingQuotes.php?id=<!--QUOTE.ID-->&deny"><IMG SRC="/theme/images/icons/page_delete.png" ALT="Deny"></A>
-		</TD>
-	</TR>
+		<td>
+			<a href="/admin/actionPendingQuotes.php?id=<!--QUOTE.ID-->&amp;approve"><img src="/theme/images/icons/page_attach.png" alt="Approve" /></a>
+			<a href="/admin/actionPendingQuotes.php?id=<!--QUOTE.ID-->&amp;deny"><img src="/theme/images/icons/page_delete.png" alt="Deny" /></a>
+		</td>
+	</tr>
 	<!--END QUOTE-->
-</TABLE>
+</table>
 
-<A HREF="/admin/">Back to Admin Panel</A>
+<a href="/admin/">Back to Admin Panel</a>

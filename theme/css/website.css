@@ -1,14 +1,6 @@
-/* Four Island CSS */
-
-body {
- background: repeat-x bottom left fixed;
- font-family: Arial, FreeSans;
- margin: 0px;
- padding: 0px 0px 30px !important;
-}
-
-body.fourm {
- font-family: Verdana, Helvetica, Arial, sans-serif;
+* {
+	margin: 0;
+	padding: 0;
 }
 
 /* Effects */
@@ -27,49 +19,183 @@ body.fourm {
 }
 
 form textarea:focus, form input:focus {
- border: 2px solid #900;
- background-color: #FEFFB2;
+	border: 2px solid #900;
+	background-color: #FEFFB2;
 }
 
 /* Links */
 
 a:link {
- color: blue;
- font-weight: bold;
- text-decoration: none;
+	color: blue;
+	font-weight: bold;
+	text-decoration: none;
 }
 
 a:visited, a:active {
- color: blue;
- text-decoration: none;
+	color: blue;
+	text-decoration: none;
 }
 
 a:hover, a:focus {
- color: blue;
- font-weight: bold;
- text-decoration: none;
- font-variant: small-caps;
- text-transform: capitalize;
+	color: blue;
+	font-weight: bold;
+	text-decoration: none;
+	font-variant: small-caps;
+	text-transform: capitalize;
 }
 
 a img {
- border: 0;
+	border: 0;
 }
 
-/* Random Elements */
+/* Body */
 
-* {
- margin:0pt;
- padding:0pt;
+body {
+	font-family: "Lucida Grande", "Arial", sans;
+	background-color: #111;
 }
 
-p {margin-top: 1em;}
-ul, ol {margin-top: 1em; margin-bottom: 1em}
+div#header {
+	width: 100%;
+	height: 200px;
+	background-image: url(http://fourisland.com/theme/images/header-repeat.png);
+	background-repeat: repeat-x;
+}
 
-img.center, img[align="center"] {
- display: block;
- margin-left: auto;
- margin-right: auto;
+div#banner {
+	width: 800px;
+	height: 200px;
+	margin: 0 auto;
+	background-image: url(http://fourisland.com/theme/images/header.png);
+	background-position: bottom right;
+}
+
+div#header a {
+	width: 800px;
+	height: 200px;
+	text-indent: -5000px;
+	display: block;
+}
+
+div#sidebar {
+	width: 21%;
+	float: left;
+}
+
+div#content {
+	width: 69%;
+	float: right;
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-top: 20px;
+}
+
+div#content div.rounded {
+	padding: 10px;
+}
+
+div#footer {
+	width: 100%;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+div#footer div.foot-module {
+	margin: 0 auto;
+	float: left;
+	width: 20%;
+	margin-left: 4%;
+	color: white;
+	font-size: 0.9em;
+}
+
+div#footer a {
+	color: white;
+	border-bottom: 1px dotted white;
+}
+
+div#footer div.foot-module ul {
+	list-style-type: square;
+}
+
+div#footer p {
+	font-size: 0.5em;
+	color: white;
+	text-align: center;
+}
+
+div#page-content {
+	background-color: #00ff00; /*#8B4513;*/
+	padding-bottom: 10px;
+}
+
+body[id^=fourm] div#page div#content code {
+	display: block;
+	border: solid black 1px;
+	background-color: #FFFF64;
+	width: 485px;
+	overflow: visible;
+}
+
+body[id^=fourm] div#content h2 {
+	color: #59770e;
+	margin: 0px 0px 2px;
+	border-bottom: 1px dotted #CCCCCC;
+	letter-spacing: -1px;
+	font-size: 140%;
+	padding-bottom: 3px;
+}
+
+body#fourm div#actual-content {
+	font-size: 60%;
+}
+
+ul#navbar {
+	text-align: center;
+	margin-top: 0;
+}
+
+ul#navbar li {
+	display: inline;
+	font-family: Verdana, sans-serif;
+	font-size: 1.1em;
+}
+
+ul#navbar li+li:before {
+	content: " - ";
+}
+
+ul#navbar li img, ul#navbar li.active span {
+	display: none;
+}
+
+ul#navbar li.active img {
+	display: inline;
+	background-color: white;
+	outline: white solid .5em;
+	margin: 0 .5em;
+}
+
+.invisible {
+	display: none;
+}
+
+a img {
+	border: 0;
+}
+
+p {
+	margin-top: 1em;
+}
+
+ul, ol {
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.center, img[align="center"] {
+	display: block;
+	margin: 0 auto !important;
 }
 
 acronym, abbr, span.caps {
@@ -80,296 +206,158 @@ acronym, abbr {
  border-bottom: 1px dashed #999;
 }
 
-blockquote {
- padding-left: 10px;
- border-left: 3px solid #CCC;
- font-family: Helvetica, sans-serif;
- font-size: 14px;
- margin: 10px 0 10px 50px;
-}
-
 pre {
- line-height: 12px;
+	background: #eee; 
+	padding: 10px; 
+	border: 2px solid #c94a29; 
+	overflow: auto;
+	margin: 15px 0;
+	font-family: Courier, Monospace;
 }
 
-/* Banner */
-		
-div#banner, div#fi-banner {
- background-repeat: no-repeat;
- width: 900px; /*728*/
- height: 200px;
- float: left;
-/* margin-top: 21px; */
-}
-
-div#banner {
- background: white url("/theme/images/fourisland_header.png") center no-repeat;
- width: 100%;
-}
-
-body div#banner h1, body div#fi-banner h1 {
- margin: 0;
-}
-
-body div#banner h1 a, body div#fi-banner h1 a {
- display: block;
- width: 900px;
- height: 200px;
- text-indent: -5000px;
- text-decoration: none;
- margin: 0;
-}
-
-div#banner h1, div#fi-banner h1 {
- margin: 0;
- font-size: 3.0em;
- font-weight: normal;
-}
-
-/* NavBar */
-
-div#fi-navbar {
- position: relative;
- background-color: #b7e0ff;
- width: auto;
- margin-bottom: 14px;
- font: 0.9em "Lucida Grande", Lucida, Verdana, sans-serif;
- height: 1.9em;
- clear: both;
-}
-
-div#fi-navbar div {
- padding: .001em 0;
- margin: 10px;
-}
-
-div#fi-navbar ul {
- margin: .25em 0;
- padding-left: 1em;
- text-align: center;
-}
-
-div#fi-navbar ul li {
- display: inline;
- font-family: Verdana, sans-serif;
- font-size: 1.1em;
-}
-
-div#fi-navbar ul li+li:before {
- content: " - ";
-}
-
-div#fi-navbar ul li img,
-div#fi-navbar ul li.active span {
- display: none;
-}
-
-div#fi-navbar ul li.active img {
- display: inline;
- background-color: white;
- outline: white solid .5em;
- margin: 0 .5em;
-}
-
-div#fi-navbar div.bubble blockquote {
- background: none;
- font-size: 0.9em;
-}
-
-div#fi-navbar div.bubble blockquote a {
- color: blue;
-}
-
-/* Sidebar */
-
-div#rightbar {
- float: left;
- width: 270px; /*210*/
-}
-
-div.sidebar {
- width: 250px; /*250*/ /*240*/ /*210*/
- padding: 0 10px;
- margin-bottom: 5px;
-}
-
-div.sidebar h3 {
- font-family: Verdana, Helvetica, Arial, sans-serif;
- margin: 5px 0 0 0;
- font-weight: bold;
- color: #333333;
-}
-
-div.sidebar p {
- font-size: 0.8em;
- margin: 3px 0;
-}
-
-div.sidebar ul {
- list-style-type: none;
- padding: 0;
- margin: 0;
- line-height: normal !important;
- list-style-image: none !important;
-}
-							
-div#sidebar ul li {
- margin-top: 4px;
-}
-				
-div#sidebar ul li a {
- display: block;
- width: 230px;
-}
-
-div#sidebar li img {
- border: 0;
- height: 16px;
- width: 16px;
-}
-
-/* Layout */
-
-#wrap {
- width: 910px;
- margin: 10px auto;
- padding: 0;
- background-color: white;
- background-color: rgba(255, 255, 255, 0.5);
- border: 4px solid gray;
-}
-
-#page-body {
- margin: 0 30px;
- clear: both;
- position: relative;
-}
-
-body.fourm #page-body {
- margin: 0 10px 0 25px;
- width: 95%;
- font-size: 62.5%;
-}
-
-#phpBB3-page-body {
- margin: 4px 0 !important;
- clear: both;
-}
-
-/* Content */
-															
-div#content {
- float: right;
- width: 555px; /*465*/ /*555*/
-}
-
-body#day div#page div#content code {
- display: block;
- border: solid black 1px;
- background-color: #FFFF64;
- width: 485px;
- overflow: visible;
-}
-
-div#content h2 {
- color: #59770e;
- margin: 0px 0px 2px;
- border-bottom: 1px dotted #CCCCCC;
- letter-spacing: -1px;
- font: normal 140%/100% "Trebuchet MS", Tahoma, Arial;
- padding-bottom: 3px;
-}
-
-/* Random Divs/Spans */
-
-div.cleardiv {
- clear: both;
-}
-				
-div#footer {
- clear: both;
- padding: .5em 0 1em 0;
- margin-top: .5em;
- text-align: center;
- font-size: .68em;
- border-top: 1px black solid;
-}
-
-div#footer ul.rows li {
- display: list-item;
-}
-
-div#footer ul {
- padding: 0;
- margin: 0;
- list-style-type: none;
-}
-
-div#footer ul li {
- display: inline;
- margin-right: 1em;
-}
-
-div#footer ul li img {
- width: 20px;
- height: 20px;
- vertical-align: top;
-}
-
-div#content ul {
- list-style: url(/theme/images/bullet_disk_big.png);
-}
-
-div#content a img {
- border: solid transparent 1px;
-}
-
-div#content a:hover img {
- border: dashed gray 1px;
-}
-
-div#hatbar.quotes-options ul {
- list-style: none;
+ul pre, ol pre {
+	margin-left: -3em;
 }
 
 div.autosize {
- margin-bottom: 6px !important;
+	margin-bottom: 6px !important;
 }
 
 ul blockquote, ol blockquote {
- position: relative;
- left: -3em;
- width: 110%;
+	position: relative;
+	left: -3em;
+	width: 110%;
+}
+
+.comment ul, .comment ol {
+	margin-left: 3em;
+}
+
+ul div.bquote blockquote, ol div.bquote blockquote {
+	left: 0;
 }
 
 li+br {
- display: none;
-}
-
-.invisible {
- display: none;
+	display: none;
 }
 
 /* Tables */
 
 table.webmail {
- border: 0;
- width: 100%;
+	border: 0;
+	width: 100%;
 }
 
 table.webmail, table.webmail td {
- border-spacing: 0;
+	border-spacing: 0;
 }
 
 table.webmail tr {
- background-color: #3CE4ED;
+	background-color: #3CE4ED;
 }
 
 table.webmail tr.even {
- background-color: #39B7CD;
+	background-color: #39B7CD;
 }
 
 table.webmail th {
- background-color: #FF9912;
- text-align: left;
+	background-color: #FF9912;
+	text-align: left;
+}
+
+/* Sidebar */
+
+div#rightbar {
+	float: left;
+	width: 270px; /*210*/
+}
+
+div.sidebar {
+	width: 250px; /*250*/ /*240*/ /*210*/
+	padding: 0 10px;
+	margin-bottom: 5px;
+}
+
+div.sidebar h3 {
+	font-family: Verdana, Helvetica, Arial, sans-serif;
+	margin: 5px 0 0 0;
+	font-weight: bold;
+	color: #333333;
+}
+
+div.sidebar p {
+	font-size: 0.8em;
+	margin: 3px 0;
+}
+
+div#sidebar ul.hatnav {
+	list-style-type: none;
+	padding-left: 24px;
+	margin-top: 0 !important;
+	line-height: normal !important;
+	list-style-image: none !important;
+}
+
+div#sidebar ul {
+	list-style-type: none;
+}
+							
+div#sidebar ul.hatnav li {
+	text-align: right;
+	border: 1px gray solid;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	background-color: #111;
+	color: white;
+}
+				
+div#sidebar ul.hatnav li a {
+	display: block;
+	width: 230px;
+	color: white;
+}
+
+div#sidebar li img {
+	border: 0;
+	height: 16px;
+	width: 16px;
+}
+
+div#sidebar ul.hatnav li.active {
+	background-color:#00FF00;
+	border: none;
+}
+
+div#sidebar ul.hatnav li:hover {
+	background-color:yellow;
+	border: none;
+}
+
+div#sidebar ul li.active a, div#sidebar ul li a:hover {
+	color: black;
+}
+
+div.cleardiv {
+	clear: both;
+}
+
+.nobr {
+	white-space: nowrap;
+}
+
+textarea {
+	width: 99%;
+}
+
+div#flash {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	background-color: yellow;
+	padding: 10px 0;
+	text-align: center;
+	border-bottom: 1px solid black;
+	display: none;
+	z-index: 9999;
 }

@@ -1,16 +1,16 @@
-<DIV CLASS="cleardiv"></DIV>
+<div class="cleardiv"></div>
 
-<H1>Contribute</H1>
+<h1 class="light-at-night">Contribute</h1>
 
 <!--BEGIN SUBMITTED-->
-	<P>The quote you have submitted is:</P>
-	<P><CODE><!--SUBMITTED.QUOTE--></CODE></P>
-	<P>If this is not the quote you have entered, please contact the administrator and explain your problem. 
-	   Also, there is no need to press the submit button again. You're quote has already been sent.</P>
+	<p class="light-at-night">The quote you have submitted is:</p>
+	<p class="light-at-night"><code><!--SUBMITTED.QUOTE--></code></p>
+	<p class="light-at-night">If this is not the quote you have entered, please contact the administrator and explain your problem. 
+	   Also, there is no need to press the submit button again. You're quote has already been sent.</p>
 <!--END SUBMITTED-->
 
-<FORM ACTION="/quotes/add.php?submit=" METHOD="POST">
-	<TEXTAREA COLS="80" ROWS="5" NAME="rash_quote"></TEXTAREA><BR>
-	<INPUT TYPE="submit" VALUE="Add Quote!">
-	<INPUT TYPE="reset" VALUE="Reset">
-</FORM>
+<form action="/quotes/add.php?submit=" method="POST">
+	<textarea cols="80" rows="5" name="rash_quote"></textarea><br />
+	<input type="submit" value="Add Quote!" />
+	<input type="reset" value="Reset" />
+</form>

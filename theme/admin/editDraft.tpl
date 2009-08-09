@@ -1,14 +1,14 @@
-<H2>Edit a draft</H2><P>
+<h2>Edit a draft</h2>
 
-<FORM ACTION="/admin/editDraft.php?id=<!--ID-->&submit=" METHOD="POST">
-	Draft Title: <INPUT TYPE="text" NAME="title" VALUE="<!--TITLE-->"><BR>
-	<TEXTAREA NAME="text" COLS="80" ROWS="20"><!--TEXT--></TEXTAREA><P>
-	Tags (comma-seperated): <INPUT TYPE="text" NAME="tags" VALUE="<!--TAGS-->"><BR>
-	Post Type: <SELECT NAME="type" SIZE="4">
-		<OPTION VALUE="draft" SELECTED>Draft</OPTION>
-		<OPTION VALUE="normal">Normal (Article-style) Post</OPTION>
-		<OPTION VALUE="priority">High-Priority Post</OPTION>
-		<OPTION VALUE="instant">Instant Post</OPTION>
-	</SELECT><BR>
-	<INPUT TYPE="submit" VALUE="Edit draft">
-</FORM>
+<p><form action="/admin/editDraft.php?id=<!--ID-->&amp;submit=" method="post">
+	Draft Title: <input type="text" name="title" value="<!--TITLE-->" /><br />
+	<textarea name="text" cols="80" rows="20"><!--TEXT--></textarea><br />
+	Tags (comma-seperated): <input type="text" name="tags" value="<!--TAGS-->" /><br />
+	Post Type: <select name="type" size="4">
+		<option value="draft" selected="selected">Draft</option>
+		<option value="normal">Normal (Article-style) Post</option>
+		<option value="priority">High-Priority Post</option>
+		<option value="instant">Instant Post</option>
+	</select><br />
+	<input type="submit" value="Edit draft" />
+</form></p>

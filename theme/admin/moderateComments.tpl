@@ -1,24 +1,24 @@
-<H2>Moderate Comments</H2>
+<h2>Moderate Comments</h2>
 
-<TABLE WIDTH="100%" CLASS="webmail">
-	<TR>
-		<TH>Title of Article Commented Upon</TH>
-		<TH>Comment Author</TH>
-		<TH>Actions</TH>
-	</TR>
+<table width="100%" class="webmail">
+	<tr>
+		<th>Title of Article Commented Upon</th>
+		<th>Comment Author</th>
+		<th>Actions</th>
+	</tr>
 
 	<!--BEGIN COMMENT-->
-	<TR>
-		<TD><!--COMMENT.TITLE--></TD>
-		<TD><!--COMMENT.AUTHOR--></TD>
+	<tr>
+		<td><!--COMMENT.TITLE--></td>
+		<td><!--COMMENT.AUTHOR--></td>
 
-		<TD>
-			<A HREF="/admin/viewComment.php?id=<!--COMMENT.ID-->"><IMG SRC="/theme/images/icons/page_go.png" ALT="View"></A>
-			<A HREF="/admin/actionComment.php?id=<!--COMMENT.ID-->&approve"><IMG SRC="/theme/images/icons/page_attach.png" ALT="Approve"></A>
-			<A HREF="/admin/actionComment.php?id=<!--COMMENT.ID-->&deny"><IMG SRC="/theme/images/icons/page_delete.png" ALT="Deny"></A>
-		</TD>
-	</TR>
+		<td>
+			<a href="/admin/viewComment.php?id=<!--COMMENT.ID-->"><img src="/theme/images/icons/page_go.png" alt="View" /></a>
+			<a href="/admin/actionComment.php?id=<!--COMMENT.ID-->&amp;approve"><img src="/theme/images/icons/page_attach.png" alt="Approve" /></a>
+			<a href="/admin/actionComment.php?id=<!--COMMENT.ID-->&amp;deny"><img src="/theme/images/icons/page_delete.png" alt="Deny" /></a>
+		</td>
+	</tr>
 	<!--END COMMENT-->
-</TABLE>
+</table>
 
-<A HREF="/admin/">Back to Admin Panel</A>
+<a href="/admin/">Back to Admin Panel</a>

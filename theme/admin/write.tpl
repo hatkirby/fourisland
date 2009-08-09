@@ -1,14 +1,14 @@
-<H2>Write a post</H2><P>
+<h2>Write a post</h2>
 
-<FORM ACTION="/admin/writePost.php?submit=" METHOD="POST">
-	Post Title: <INPUT TYPE="text" NAME="title"><BR>
-	<TEXTAREA NAME="text" COLS="80" ROWS="20"></TEXTAREA><P>
-	Tags (comma-seperated): <INPUT TYPE="text" NAME="tags" VALUE="update"><BR>
-	Post Type: <SELECT NAME="type" SIZE="4">
-		<OPTION VALUE="draft">Draft</OPTION>
-		<OPTION VALUE="normal" SELECTED>Normal (Article-style) Post</OPTION>
-		<OPTION VALUE="priority">High-Priority Post</OPTION>
-		<OPTION VALUE="instant">Instant Post</OPTION>
-	</SELECT><BR>
-	<INPUT TYPE="submit" VALUE="Write post">
-</FORM>
+<form action="/admin/writePost.php?submit=" method="post">
+	Post Title: <input type="text" name="title" /><br />
+	<textarea name="text" cols="80" rows="20"></textarea><br />
+	Tags (comma-seperated): <input type="text" name="tags" value="update" /><br />
+	Post Type: <select name="type" size="4">
+		<option value="draft">Draft</option>
+		<option value="normal" selected="selected">Normal (Article-style) Post</option>
+		<option value="priority">High-Priority Post</option>
+		<option value="instant">Instant Post</option>
+	</select><br />
+	<input type="submit" value="Write post" />
+</form>

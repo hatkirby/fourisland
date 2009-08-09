@@ -1,45 +1,60 @@
-				<!-- End content --></DIV>
+					</div>
+				</div>
+			</div>
+			
+			<div class="cleardiv"></div>
+		</div>
+		
+		<div id="footer">
+			<div class="foot-module">
+				<h3>Recent Comments</h3>
 
-				<!--BEGIN RIGHTBAR-->
-					<!--INCLUDE sidebar-->
-				<!--END RIGHTBAR-->
+				<ul>
+					<!--BEGIN COMMENTS-->
+					<li style="font-size: 0.9em"><!--COMMENTS.AUTHOR--> on <a href="/<!--COMMENTS.AREA-->/<!--COMMENTS.CODED--><!--COMMENTS.ENDING-->#comment-<!--COMMENTS.ID-->"><!--COMMENTS.TITLE--></a></li>
+					<!--END COMMENTS-->
+				</ul>
+			</div>
 
-				<!--BEGIN EXTRA-->
-					<!--EXTRA.SIDEBARS-->
-				<!--END EXTRA-->
+			<div class="foot-module">
+				<h3>Recent Fourm Posts</h3>
 
-				<DIV CLASS="cleardiv"></DIV>
+				<ul>
+					<!--BEGIN FOURM-->
+					<li style="font-size: 0.9em"><!--FOURM.USERNAME--> on <a href="/fourm/viewtopic.php?t=<!--FOURM.TOPIC-->&amp;p=<!--FOURM.POST-->#p<!--FOURM.POST-->"><!--FOURM.SUBJECT--></a></li>
+					<!--END FOURM-->
+				</ul>
+			</div>
 
-				<!--BEGIN ONFOURM-->
-				<DIV>
-				<!--END ONFOURM-->
-			</DIV>
+			<div class="foot-module">
+				<h3>Top Commenters</h3>
 
-			<DIV ID="footer">
-				<UL CLASS="rows">
-					<LI>Four Island (r<!--REVISION-->) is by <a href="http://fourisland.com">Starla Insigna</a></LI>
-					<LI>Licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/">Creative Commons Attribution-Noncommercial-Share Alike 3.0 United States License</a>.</LI>
-					<LI><A HREF="/wiki/privacy-policy/">Privacy Policy</A></LI>
-				</UL>
+				<ul>
+					<!--BEGIN TOP-->
+					<li style="font-size: 0.9em"><!--TOP.USERNAME--> (<!--TOP.COUNT-->)</li>
+					<!--END TOP-->
+				</ul>
+			</div>
 
-				<UL CLASS="together">
-					<LI><A HREF="http://jigsaw.w3.org/css-validator/"><IMG SRC="/theme/images/icons/css_valid.png" ALT="Valid CSS"></A></LI>
-					<LI><A HREF="/blog/sortof-valid-html-no-lt-doctype-gt/"><IMG SRC="/theme/images/icons/html_valid.png" ALT="Sortof Valid HTML"></A></LI>
-					<LI><A class="noVisit" HREF="/rss.php"><IMG SRC="/theme/images/icons/feed.png" ALT="RSS Feed"></A></LI>
-				</UL>
-			</DIV>
-		</DIV>
+			<div class="foot-module">
+				<h3>Popular Posts</h3>
 
-		<!--Google Analytics-->
-		<script type="text/javascript">
-			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-			document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-		</script>
-		<script type="text/javascript">
-			var pageTracker = _gat._getTracker("UA-2895652-1");
-			pageTracker._initData();
-			pageTracker._trackPageview();
-		</script>
-		<!--Google Analytics-->
-	</BODY>
-</HTML>
+				<ul>
+					<!--BEGIN POPULAR-->
+					<li style="font-size: 0.9em"><a href="/blog/<!--POPULAR.CODED-->/"><!--POPULAR.TITLE--></a></li>
+					<!--END POPULAR-->
+				</ul>
+			</div>
+			
+			<div class="cleardiv"></div>
+			
+			<p>
+				Four Island (<a href="http://code.fourisland.com/fourisland/">r<!--REVISION--></a>) is by <a href="http://fourisland.com">Starla Insigna</a>.
+				Licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/">Creative Commons Attribution-Noncommercial-Share Alike 3.0 United States License</a>.
+				<a href="http://jigsaw.w3.org/css-validator/"><img src="/theme/images/icons/css_valid.png" alt="Valid CSS" /></a>
+				<a href="http://validator.w3.org/check/referer"><img src="/theme/images/icons/xhtml_valid.png" alt="Valid XHTML" /></a>
+				<a class="noVisit" href="/rss.php"><img src="/theme/images/icons/feed.png" alt="RSS Feed" /></a>
+			</p>
+		</div>
+	</body>
+</html>

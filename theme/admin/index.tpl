@@ -1,32 +1,32 @@
-<H2>Admin Panel</H2><P>
+<h2>Admin Panel</h2><p>
 
-Welcome to the ubiquitous administration panel!<P>
+Welcome to the ubiquitous administration panel!</p>
 
-<H3>Blog</H3>
+<h3>Blog</h3>
 
-<UL>
-	<LI><A HREF="/admin/writePost.php">Write a post</A></LI>
-	<LI><A HREF="/admin/manageDrafts.php">Manage Drafts</A></LI>
-	<LI><A HREF="/admin/managePending.php">Manage Pending Posts</A></LI>
-	<LI><A HREF="/admin/managePosts.php">Manage Published Posts</A></LI>
-	<LI><A HREF="/admin/moderateComments.php">Moderate Comments</A></LI>
-</UL>
+<ul>
+	<li><a href="/admin/writePost.php">Write a post</a></li>
+	<li><a href="/admin/manageDrafts.php">Manage Drafts</a></li>
+	<li><a href="/admin/managePending.php">Manage Pending Posts</a></li>
+	<li><a href="/admin/managePosts.php">Manage Published Posts</a></li>
+	<li><a href="/admin/moderateComments.php">Moderate Comments</a></li>
+</ul>
 
-<H3>Poll</H3>
+<h3>Poll</h3>
 
-<UL>
-	<LI><A HREF="/admin/pollProcess.php">Weekly Poll Process</A></LI>
-</UL>
+<ul>
+	<li><a href="/admin/pollProcess.php">Weekly Poll Process</a></li>
+</ul>
 
-<H3>Quotes</H3>
+<h3>Quotes</h3>
 
-<UL>
-	<LI><A HREF="/admin/managePendingQuotes.php">Manage Pending Quotes</A></LI>
-</UL>
+<ul>
+	<li><a href="/admin/managePendingQuotes.php">Manage Pending Quotes</a></li>
+</ul>
 
-<H3>Administration</H3>
+<h3>Administration</h3>
 
-<UL>
-	<LI><A HREF="/admin/hgUpdate.php">HG Update</A></LI>
-	<LI><A HREF="/admin/maintenanceMode.php">Maintenance Mode</A></LI>
-</UL>
+<ul>
+	<li><a href="/admin/hgUpdate.php">HG Update</a></li>
+	<li><a href="/admin/maintenanceMode.php">Maintenance Mode</a></li>
+</ul>

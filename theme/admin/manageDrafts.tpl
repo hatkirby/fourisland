@@ -1,24 +1,24 @@
-<H2>Manage Drafts</H2>
+<h2>Manage Drafts</h2>
 
-<TABLE WIDTH="100%" CLASS="webmail">
-	<TR>
-		<TH>Draft Title</TH>
-		<TH>Draft Author</TH>
-		<TH>Actions</TH>
-	</TR>
+<table width="100%" class="webmail">
+	<tr>
+		<th>Draft Title</th>
+		<th>Draft Author</th>
+		<th>Actions</th>
+	</tr>
 
 	<!--BEGIN DRAFT-->
-	<TR>
-		<TD><!--DRAFT.TITLE--></TD>
-		<TD><!--DRAFT.AUTHOR--></TD>
+	<tr>
+		<td><!--DRAFT.TITLE--></td>
+		<td><!--DRAFT.AUTHOR--></td>
 
-		<TD>
-			<A HREF="/admin/editDraft.php?id=<!--DRAFT.ID-->"><IMG SRC="/theme/images/icons/page_edit.png" ALT="Edit"></A>
-			<A HREF="/admin/deleteDraft.php?id=<!--DRAFT.ID-->"><IMG SRC="/theme/images/icons/page_delete.png" ALT="Delete"></A>
-			<A HREF="/admin/viewDraft.php?id=<!--DRAFT.ID-->"><IMG SRC="/theme/images/icons/page_go.png" ALT="View"></A>
-		</TD>
-	</TR>
+		<td>
+			<a href="/admin/editDraft.php?id=<!--DRAFT.ID-->"><img src="/theme/images/icons/page_edit.png" alt="Edit" /></a>
+			<a href="/admin/deleteDraft.php?id=<!--DRAFT.ID-->"><img src="/theme/images/icons/page_delete.png" alt="Delete" /></a>
+			<a href="/admin/viewDraft.php?id=<!--DRAFT.ID-->"><img src="/theme/images/icons/page_go.png" alt="View" /></a>
+		</td>
+	</tr>
 	<!--END DRAFT-->
-</TABLE>
+</table>
 
-<A HREF="/admin/">Back to Admin Panel</A>
+<a href="/admin/">Back to Admin Panel</a>

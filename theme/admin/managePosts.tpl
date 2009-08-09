@@ -1,24 +1,24 @@
-<H2>Manage Posts</H2>
+<h2>Manage Posts</h2>
 
-<TABLE WIDTH="100%" CLASS="webmail">
-	<TR>
-		<TH>Post Title</TH>
-		<TH>Post Author</TH>
-		<TH>Actions</TH>
-	</TR>
+<table width="100%" class="webmail">
+	<tr>
+		<th>Post Title</th>
+		<th>Post Author</th>
+		<th>Actions</th>
+	</tr>
 
 	<!--BEGIN POST-->
-	<TR>
-		<TD><!--POST.TITLE--></TD>
-		<TD><!--POST.AUTHOR--></TD>
+	<tr>
+		<td><!--POST.TITLE--></td>
+		<td><!--POST.AUTHOR--></td>
 
-		<TD>
-			<A HREF="/admin/editPost.php?id=<!--POST.ID-->"><IMG SRC="/theme/images/icons/page_edit.png" ALT="Edit"></A>
-			<A HREF="/admin/deletePost.php?id=<!--POST.ID-->"><IMG SRC="/theme/images/icons/page_delete.png" ALT="Delete"></A>
-			<A HREF="/blog/<!--POST.CODED-->/"><IMG SRC="/theme/images/icons/page_go.png" ALT="View"></A>
-		</TD>
-	</TR>
+		<td>
+			<a href="/admin/editPost.php?id=<!--POST.ID-->"><img src="/theme/images/icons/page_edit.png" alt="Edit" /></a>
+			<a href="/admin/deletePost.php?id=<!--POST.ID-->"><img src="/theme/images/icons/page_delete.png" alt="Delete" /></a>
+			<a href="/blog/<!--POST.CODED-->/"><img src="/theme/images/icons/page_go.png" alt="View" /></a>
+		</td>
+	</tr>
 	<!--END POST-->
-</TABLE>
+</table>
 
-<A HREF="/admin/">Back to Admin Panel</A>
+<a href="/admin/">Back to Admin Panel</a>

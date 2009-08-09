@@ -24,31 +24,10 @@ require('headerproc.php');
 
 $headerTemp = new FITemplate('header');
 
-if (!isset($_GET['emulateTime']))
-{
-	if ((date('G') >= 20) || (date('G') <= 6))
-	{
-		$bodyID = 'night';
-	} else {
-		$bodyID = 'day';
-	}
-} else {
-	$bodyID = $_GET['emulateTime'];
-}
-
-$headerTemp->add('BODYID',$bodyID);
 $headerTemp->add('CATEGORY',(isset($pageCategory)) ? $pageCategory : 'none');
 $headerTemp->add('AID',(isset($pageAID)) ? $pageAID : 'none');
-$headerTemp->add('BODYTAGS',(isset($bodyTags)) ? $bodyTags : '');
-$headerTemp->add('HEADTAGS',isset($headtags) ? $headtags : '');
 $headerTemp->add('EXTRATITLE',isset($title) ? ($title . ' - ') : '');
-$headerTemp->add('PAGEID',(isset($pageID)) ? $pageID : 'none');
-$headerTemp->add(strtoupper($pageCategory) . 'ACTIVE', ' CLASS="active"');
-
-if (isset($_POST['message']))
-{
-	$headerTemp->adds_block('MESSAGE',array('MSG' => $_POST['message']));
-}
+$headerTemp->add(strtoupper($pageCategory) . 'ACTIVE', ' class="active"');
 
 if (($pageCategory != 'fourm') && ($pageCategory != 'wiki'))
 {
@@ -62,6 +41,30 @@ if (($pageCategory != 'fourm') && ($pageCategory != 'wiki'))
 		$headerTemp->adds_block('ADMIN',array('exi' => 1));
 	}
 }
+
+if (isset($hatNav) && is_array($hatNav))
+{
+	$headerTemp->adds_block('CREATE_HATNAV', array('exi'=>1));
+	
+	foreach ($hatNav as $item)
+	{
+		$headerTemp->adds_block('HATNAV',array('TITLE' => $item['title'], 'URL' => $item['url'], 'ICON' => $item['icon']));
+	}
+}
+
+$headerTemp->add('POTW', getPollOfTheWeek());
+
+$gethits = "SELECT * FROM config WHERE name = \"hits\"";
+$gethits2 = mysql_query($gethits);
+$gethits3 = mysql_fetch_array($gethits2);
+$headerTemp->add('HITS', $gethits3['value']);
+
+$gethits = "SELECT * FROM config WHERE name = \"todayHits\"";
+$gethits2 = mysql_query($gethits);
+$gethits3 = mysql_fetch_array($gethits2);
+$headerTemp->add('TODAY', $gethits3['value']);
+
+$headerTemp->add('DATEFINDER', sd_dateFinder());
 
 $headerTemp->display();
 

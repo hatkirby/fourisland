@@ -1,40 +1,24 @@
-<H2><!--QUESTION--></H2>
-<P>
-<DIV CLASS="sidebar" STYLE="margin: auto">
-	<DIV CLASS="bubble">
-        	<DIV CLASS="rounded">
-	                <BLOCKQUOTE>
-        	                <DIV ID="hatbar">
-                	                <P>
-                        	                <!--INCLUDE polloftheweek-->
-                                        </P>
-                                </DIV>
-                        </BLOCKQUOTE>
-                </DIV>
-	</DIV>
-</DIV>
-<P>
-<DIV CLASS="bubble">
-	<DIV CLASS="rounded">
-		<BLOCKQUOTE>
-			<DIV>
-				<!--BEGIN COMPLETE-->
-				<!--COMPLETE.RSS-->
-				<P>
-				<!--COMPLETE.OPTION1--> - <!--COMPLETE.CLICKS1--> vote(s)!<BR>
-				<!--COMPLETE.OPTION2--> - <!--COMPLETE.CLICKS2--> vote(s)!<BR>
-				<!--COMPLETE.OPTION3--> - <!--COMPLETE.CLICKS3--> vote(s)!<BR>
-				<!--COMPLETE.OPTION4--> - <!--COMPLETE.CLICKS4--> vote(s)!
-			</DIV>
-		</BLOCKQUOTE>
-	</DIV>
-	<CITE CLASS="rounded"><STRONG><!--COMPLETE.AUTHOR--></STRONG> on <!--COMPLETE.DATE--></CITE>
-			<!--END COMPLETE-->
-			<!--BEGIN INCOMPLETE-->
-				The results of this poll of the week are pending. Meanwhile, if you haven't voted yet, why not do so?
-			</DIV>
-		</BLOCKQUOTE>
-	</DIV>
-			<!--END INCOMPLETE-->
-</DIV>
-</CENTER>
+<h2 class="light-at-night"><!--QUESTION--></h2>
+
+<div class="module rounded center sidebar">
+	<!--POTW-->
+</div>
+
+<div class="module rounded">
+	<!--BEGIN COMPLETE-->
+	<!--COMPLETE.RSS-->
+
+	<p>
+		<!--COMPLETE.OPTION1--> - <!--COMPLETE.CLICKS1--> vote(s)!<br />
+		<!--COMPLETE.OPTION2--> - <!--COMPLETE.CLICKS2--> vote(s)!<br />
+		<!--COMPLETE.OPTION3--> - <!--COMPLETE.CLICKS3--> vote(s)!<br />
+		<!--COMPLETE.OPTION4--> - <!--COMPLETE.CLICKS4--> vote(s)!
+	</p>
+</div>
+
+<cite class="rounded"><strong><!--COMPLETE.AUTHOR--></strong> on <!--COMPLETE.DATE--></cite>
+<!--END COMPLETE-->
+<!--BEGIN INCOMPLETE-->
+	The results of this poll of the week are pending. Meanwhile, if you haven't voted yet, why not do so?
+</div>
+<!--END INCOMPLETE-->

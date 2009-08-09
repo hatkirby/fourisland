@@ -1,17 +1,17 @@
-<DIV CLASS="cleardiv"></DIV>
+<div class="cleardiv"></div>
 
-<CENTER>
-	<A HREF="/quotes/<!--LORIGIN-->.php">First</A>&nbsp;&nbsp;
-	<A HREF="/quotes/<!--LORIGIN-->.php?page=<!--MINUSTEN-->">-10</A>&nbsp;&nbsp;
-	<!--BDDD-->
+<center>
+	<a href="/quotes/<!--LORIGIN-->.php">First</a>&nbsp;&nbsp;
+	<a href="/quotes/<!--LORIGIN-->.php?page=<!--MINUSTEN-->">-10</a>&nbsp;&nbsp;
+	<span class="light-at-night"><!--BDDD--></span>
 	<!--BEGIN BPAGES-->
-	<A HREF="/quotes/<!--LORIGIN-->.php?page=<!--BPAGES.PAGENUM-->"><!--BPAGES.PAGENUM--></A>&nbsp;&nbsp;
+	<a href="/quotes/<!--LORIGIN-->.php?page=<!--BPAGES.PAGENUM-->"><!--BPAGES.PAGENUM--></a>&nbsp;&nbsp;
 	<!--END BPAGES-->
-	<!--CURPAGE-->&nbsp;&nbsp;
+	<span class="light-at-night"><!--CURPAGE--></span>&nbsp;&nbsp;
 	<!--BEGIN APAGES-->
-	<A HREF="/quotes/<!--LORIGIN-->.php?page=<!--APAGES.PAGENUM-->"><!--APAGES.PAGENUM--></A>&nbsp;&nbsp;
+	<a href="/quotes/<!--LORIGIN-->.php?page=<!--APAGES.PAGENUM-->"><!--APAGES.PAGENUM--></a>&nbsp;&nbsp;
 	<!--END APAGES-->
-	<!--ADDD-->
-	<A HREF="/quotes/<!--LORIGIN-->.php?page=<!--PLUSTEN-->">+10</A>&nbsp;&nbsp;
-	<A HREF="/quotes/<!--LORIGIN-->.php?page=<!--LASTPAGE-->">Last</A>&nbsp;&nbsp;
-</CENTER>
+	<span class="light-at-night"><!--ADDD--></span>
+	<a href="/quotes/<!--LORIGIN-->.php?page=<!--PLUSTEN-->">+10</a>&nbsp;&nbsp;
+	<a href="/quotes/<!--LORIGIN-->.php?page=<!--LASTPAGE-->">Last</a>&nbsp;&nbsp;
+</center>

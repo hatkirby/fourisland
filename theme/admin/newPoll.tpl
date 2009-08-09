@@ -1,10 +1,10 @@
-Congradulations! You've successfully added a Poll RSS. Now it's time to add the new Poll Of The Week:<P>
+Congradulations! You've successfully added a Poll RSS. Now it's time to add the new Poll Of The Week:
 
-<FORM ACTION="/admin/pollProcess.php?step=3" METHOD="POST">
-	Question: <INPUT TYPE="text" NAME="question"><BR>
-	Option 1: <INPUT TYPE="text" NAME="option1"><BR>
-	Option 2: <INPUT TYPE="text" NAME="option2"><BR>
-	Option 3: <INPUT TYPE="text" NAME="option3"><BR>
-	Option 4: <INPUT TYPE="text" NAME="option4"><BR>
-	<INPUT TYPE="submit" VALUE="Create poll">
-</FORM>
+<form action="/admin/pollProcess.php?step=3" method="post">
+	Question: <input type="text" name="question" /><br />
+	Option 1: <input type="text" name="option1" /><br />
+	Option 2: <input type="text" name="option2" /><br />
+	Option 3: <input type="text" name="option3" /><br />
+	Option 4: <input type="text" name="option4" /><br />
+	<input type="submit" value="Create poll" />
+</form>

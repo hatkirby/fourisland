@@ -21,6 +21,9 @@
 if (!defined('S_INCLUDE_FILE')) {define('S_INCLUDE_FILE',1);}
 
 require('headerproc.php');
+include('../includes/specialdates.php');
+
+$bgcolor='aqua';
 
 if (sd_isSpecialDay('Four Island A'))
 {
@@ -93,20 +96,44 @@ if (sd_isSpecialDay('Four Island A'))
 } elseif (sd_isSpecialDay('Valentines Day'))
 {
 	$bgimgm = 'valentines';
-}
-
-$bodyID = $_GET['id'];
-if (!isset($bgcolor))
-{
-	$bgcolor='aqua';
-
-	include("css/day.css");
 } else {
-	include("css/night.css");
+	$bgimgm = 'island6';
 }
 
 ?>
 
-body {
- background-image: url(/theme/images/backgrounds/<?php echo($bgimgm); ?>.PNG) !important;
+div#window {
+ background-color: <?php echo($bgcolor); ?>;
+ background-image: url(/theme/images/backgrounds/<?php echo($bgimgm); ?>.PNG);
+ background-position: bottom left;
+ background-repeat: repeat-x;
+ background-attachment: fixed;
+ padding: 0 !important;
 }
+
+<?php
+
+if ($bgcolor == 'aqua')
+{
+?>
+
+div#content div#actual-content {
+	background-color: rgba(255, 255, 255, 0.5);
+}
+
+<?php
+} else {
+?>
+
+div#content div#actual-content {
+	background-color: rgba(0, 0, 0, 0.75);
+}
+
+.light-at-night {
+	color: #536482;
+}
+
+<?php
+}
+
+?>

@@ -48,10 +48,10 @@ sd_solar_annual('WCA Day',5,5); //DateFinder
 sd_lunar_annual('Mothers Day',5,7,2); //BG Pic; DateFinder; Header Pic
 sd_lunar_annual('Memorial Day',5,1,4); //BG Pic; DateFinder; Header Pic
 sd_easter(); //BG Pic; DateFinder
-sd_solar_annual('Hatkirbys B-Day',6,7); //BG Pic; DateFinder; Header Pic
 sd_solar_annual('Flag Day',6,14); //BG Pic; DateFinder
+sd_solar_annual('Hatkirbys B-Day',6,17); //BG Pic; DateFinder; Header Pic
 sd_lunar_annual('Fathers Day',6,7,3); //BG Pic; DateFinder
-sd_solar_annual('CTNH',6,17); //Header Pic
+sd_solar_annual('CTNH',6,17); //Header Pic; DateFinder
 sd_solar_annual('Independance Day',7,4); //BG Pic; DateFinder
 sd_lunar_annual('SysAdminDay',7,5,4); //DateFinder
 sd_lunar_annual('Labor Day',9,1,1); //Yet to be implemented
@@ -306,6 +306,54 @@ function sd_addDateIn($id,$dateid)
 {
 	global $specialdates;
 	$specialdates[$dateid] = $id;
+}
+
+function sd_dateFinder()
+{
+	if (sd_ifNoSpecialDay())
+	{
+		$did = sd_getMonthStart(date('n')-1);
+		$did += (date('j')-1);
+		$did = sd_findNextDay() - $did;
+		return ($did . ' more days until the next holiday!');
+	} else {
+		switch (sd_getCurrentDay())
+		{
+			case 'New Years Day': return 'Happy new years!';
+			case 'Martin Luther King Day': return 'Happy Martin Luther King Day!';
+			case 'Groundhog Day': return 'It\'s groundhog day? Will he see his shadow?';
+			case 'Presidents Day': return 'Happy President\'s Day!';
+			case 'Valentines Day': return 'Happy Valentines Day! Will you be mine?';
+			case 'St Patricks Day': return 'Happy St. Patrick\'s Day! If you\'re not wearing green, I\'ll pinch you!';
+			case 'Mothers Day': return 'Happy Mothers Day!';
+			case 'Memorial Day': return 'Remember...';
+			case 'Easter': return 'Happy Easter! Where are those eggs?';
+			case 'Mardi Gras': return 'Happy Mardi Gras! Time to get fat!';
+			case 'Ash Wednesday': return 'Happy Ash Wednesday! Did you get your ashes?';
+			case 'Palm Sunday': return 'Happy Palm Sunday!';
+			case 'Holy Thursday': return 'Happy Holy Thursday!';
+			case 'Hatkirbys B-Day': return 'Happy Birthday to me! Happy Birthday to me! Happy Birthday dear Hatkirby! Happy Birthday to me!';
+			case 'Flag Day': return 'Happy Flag Day!';
+			case 'Fathers Day': return 'Happy Fathers Day!';
+			case 'Independance Day': return 'Happy 4th of July!';
+			case 'Labor Day': return 'Happy Labor Day!';
+			case 'Four Island A': return ('Happy birthday Four Island! Four Island is ' . (date('Y')-2007) . ' years old!');
+			case 'Columbus Day': return 'Happy Columbus Day!';
+			case 'Halloween': return 'Happy Halloween!';
+			case 'Veterans Day': return 'Only 2 minutes of silence. Remember... remember...';
+			case 'Thanksgiving': return 'Happy Thanksgiving! Gobble gobble gobble gobble!';
+			case 'Kirby Week': return 'It\'s Kirby Week! Not only is it a time of celebreation and fun on Four Island, it\'s only a week before Christmas!';
+			case 'Christmas Eve': return '"1 Day Left" says Fourie!';
+			case 'Christmas Day': return 'Merry Christmas! Time for presents!';
+			case 'New Years Eve': return '5... 4... 3... 2...';
+			case 'SysAdminDay': return '<A HREF="http://www.sysadminday.com">If you can read this, thank your <I><B>sysadmin</B></I></A>';
+			case 'WCA Day': return '<A HREF="http://wca2001.keenspace.com">Webcomic Appreciation Day!</A> Stare in wonder at all of your favorite webcomics! Like Pillowcase, for instance!';
+			case 'Leap Day': return 'What day is it? LEAP DAY? This only happens once every four years! LET\'S LEAP IN JOY!';
+			case 'Tris CIEday': return 'This is the day that shei came.';
+			case 'Silence Day': return 'Support LGBT people by keeping the silence until 5 PM.';
+			case 'CTNH': return '<A HREF="/fuhsdiufgsadiufgaisfioas.php">It never happened.</A>';
+		}
+	}
 }
 
 ?>

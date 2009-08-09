@@ -1,8 +1,8 @@
-<H2>Edit a post</H2><P>
+<h2>Edit a post</h2>
 
-<FORM ACTION="/admin/editPost.php?id=<!--ID-->&submit=" METHOD="POST">
-	Post Title: <INPUT TYPE="text" NAME="title" VALUE="<!--TITLE-->"><BR>
-	<TEXTAREA NAME="text" COLS="80" ROWS="20"><!--TEXT--></TEXTAREA><P>
-	Tags (comma-seperated): <INPUT TYPE="text" NAME="tags" VALUE="<!--TAGS-->"><BR>
-	<INPUT TYPE="submit" VALUE="Edit post">
-</FORM>
+<form action="/admin/editPost.php?id=<!--ID-->&amp;submit=" method="post">
+	Post Title: <input type="text" name="title" value="<!--TITLE-->" /><br />
+	<textarea name="text" cols="80" rows="20"><!--TEXT--></textarea><br />
+	Tags (comma-seperated): <input type="text" name="tags" value="<!--TAGS-->" /><br />
+	<input type="submit" value="Edit post" />
+</form>
