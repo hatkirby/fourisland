@@ -66,6 +66,11 @@ $headerTemp->add('TODAY', $gethits3['value']);
 
 $headerTemp->add('DATEFINDER', sd_dateFinder());
 
+if ($usingIE)
+{
+	$headerTemp->add('FLASH', 'It appears you are using Internet Explorer. Four Island is not likely to work properly in IE due to a <a href="http://www.webdevout.net/articles/beware-of-xhtml#ie">huge bug</a> in it. <a href="http://getfirefox.com/">There are better browsers out there, why not try one?</a>');
+}
+
 $headerTemp->display();
 
 ?>

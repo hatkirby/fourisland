@@ -16,7 +16,7 @@
 	</head>
 
 	<body id="<!--CATEGORY-->">
-		<div id="flash"></div>
+		<div id="flash"><!--FLASH--></div>
 
 		<div id="header">
 			<div id="banner"><a href="http://fourisland.com/">Four Island</a></div>

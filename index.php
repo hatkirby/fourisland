@@ -20,7 +20,14 @@
 
 require('headerproc.php');
 
-header('Content-type: application/xhtml+xml');
+if (preg_match('|MSIE ([0-9].[0-9]{1,2})|', $_SERVER['HTTP_USER_AGENT'], $matched))
+{
+	header('Content-type: text/html');
+	$usingIE = true;
+} else {
+	header('Content-type: application/xhtml+xml');
+}
+
 header('X-Pingback: http://fourisland.com/xmlrpc.php');
 
 include('../security/config.php');
