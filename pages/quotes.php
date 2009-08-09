@@ -154,7 +154,7 @@ if (isset($_GET['id']) && !(is_numeric($_GET['id'])))
 		{
 			$settrack = "UPDATE rash_tracking SET vote = \"" . $gettrack3['vote'] . "," . $quote_num . "\" WHERE id = " . $gettrack3['id'];
 		} else {
-			$settrack = "INSERT INTO tracking (ip,vote) VALUES (\"" . $_SERVER['REMOTE_ADDR'] . "\",\"" . $quote_num . "\")";
+			$settrack = "INSERT INTO rash_tracking (ip,vote) VALUES (\"" . $_SERVER['REMOTE_ADDR'] . "\",\"" . $quote_num . "\")";
 		}
 		$settrack2 = mysql_query($settrack) or die($settrack);
 
