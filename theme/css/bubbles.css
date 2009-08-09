@@ -56,6 +56,6 @@ div.module.unrounded {
 	padding: 5px;
 }
 
-div.module.sidebar {
-	width: 250px;
+div#sidebar div.module.sidebar {
+	width: 95%;
 }
