@@ -1,0 +1,81 @@
+p {
+	margin: 1em 0;
+}
+
+div#flash {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	background-color: yellow;
+	padding: 10px 0;
+	text-align: center;
+	border-bottom: 1px solid black;
+	z-index: 9999;
+}
+
+body {
+	background: url(/theme/images/backgrounds/island6.PNG) aqua repeat-x bottom left fixed;
+}
+
+h1 {
+	background: url(/theme/images/header.png);
+	margin: 0 auto;
+}
+
+h1, h1 a {
+	width: 800px;
+	height: 200px;
+}
+
+div#header {
+	background: url(/theme/images/header-repeat.png);
+}
+
+div#manage-options {
+	margin: .5em 0;
+	padding: .5em;
+	background-color: gray;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -khtml-border-radius: 10px;
+	border-radius: 10px;
+}
+
+h2 {
+	float: none;
+}
+
+div.manage-pagination {
+	margin: .5em 0;
+	padding: .5em;
+	text-align: center;
+}
+
+.uniForm { background: #F2FAFF; }
+.uniForm fieldset{ margin: 0 0 1.5em 0; }
+.uniForm .inlineLabel em{ left: 10px !important; }            
+.uniForm .inlineLabels .ctrlHolder .multiField.phoneNum .blockLabel{ width: auto; }
+.uniForm .inlineLabels .ctrlHolder .multiField .blockLabel #phone_ccode.textInput,
+.uniForm .inlineLabels .ctrlHolder .multiField .blockLabel #phone_area.textInput{ width: 4em; }
+.uniForm .blockLabels .ctrlHolder textarea { width: 99%; }
+
+td.table-img {
+	width: 17px;
+	padding: 0 5px !important;
+}
+
+td.table-author {
+	text-align: right;
+	padding-right: 20px;
+}
+
+td.table-checkbox {
+	width: 17px;
+	padding: 0 5px;
+}
+
+tr.table-header td {
+	font-weight: bold;
+	text-align: center;
+}

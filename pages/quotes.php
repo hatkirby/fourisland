@@ -168,11 +168,19 @@ if (isset($_GET['id']) && !(is_numeric($_GET['id'])))
 	}
 } else if (is_numeric($_GET['act']))
 {
-	$query = "SELECT * FROM rash_quotes WHERE id = " . $_GET['act'];
-	quote_generation($query, "#" . $_GET['act'], -1);
+	$getquote = "SELECT * FROM rash_quotes WHERE id = " . $_GET['act'];
+	$getquote2 = mysql_query($getquote);
+	$getquote3 = mysql_fetch_array($getquote2);
 
-	$page_id = 'quote-' . $_GET['act'];
-	include('includes/comments.php');
+	if ($getquote3['id'] == $_GET['act'])
+	{
+		quote_generation($getquote, "#" . $_GET['act'], -1);
+
+		$page_id = 'quote-' . $_GET['act'];
+		include('includes/comments.php');
+	} else {
+		generateError('404');
+	}
 } else {
 	generateError('404');
 }

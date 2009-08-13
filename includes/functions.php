@@ -65,7 +65,14 @@ function dispIfNotOld($datTim)
 function getpercent($getpoll3,$num)
 {
 	$maxper = ($getpoll3['clicks1'] + $getpoll3['clicks2'] + $getpoll3['clicks3'] + $getpoll3['clicks4']);
-	$percent = round(($getpoll3['clicks' . $num] / $maxper) * 100);
+
+	if ($maxper == 0)
+	{
+		return 0;
+	} else {
+		$percent = round(($getpoll3['clicks' . $num] / $maxper) * 100);
+	}
+
 	return($percent);
 }
 

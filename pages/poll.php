@@ -88,36 +88,37 @@ if (!isset($_GET['id']))
 	$getpoll2 = mysql_query($getpoll);
 	$getpoll3 = mysql_fetch_array($getpoll2);
 
-	$template->add('QUESTION', $getpoll3['question']);
-
-	$getrss = "SELECT * FROM pollrss WHERE id = " . $_GET['id'];
-	$getrss2 = mysql_query($getrss);
-	$getrss3 = mysql_fetch_array($getrss2);
-
-	if ($getrss3['id'] == $_GET['id'])
+	if ($getpoll3['id'] == $_GET['id'])
 	{
-		$template->adds_block('COMPLETE', array(	'RSS' => parseText($getrss3['rss']),
-								'AUTHOR' => $getrss3['author'],
-								'DATE' => date("F jS Y \a\\t g:i:s a",strtotime($getrss3['date'])),
-								'OPTION1' => $getpoll3['option1'],
-								'OPTION2' => $getpoll3['option2'],
-								'OPTION3' => $getpoll3['option3'],
-								'OPTION4' => $getpoll3['option4'],
-								'CLICKS1' => $getpoll3['clicks1'],
-								'CLICKS2' => $getpoll3['clicks2'],
-								'CLICKS3' => $getpoll3['clicks3'],
-								'CLICKS4' => $getpoll3['clicks4']));
+		$template->add('QUESTION', $getpoll3['question']);
+
+		if ($getpoll3['text'] != '')
+		{
+			$template->adds_block('COMPLETE', array(	'RSS' => parseText($getpoll3['text']),
+									'AUTHOR' => $getrss3['author'],
+									'DATE' => date("F jS Y \a\\t g:i:s a",strtotime($getpoll3['week'])),
+									'OPTION1' => $getpoll3['option1'],
+									'OPTION2' => $getpoll3['option2'],
+									'OPTION3' => $getpoll3['option3'],
+									'OPTION4' => $getpoll3['option4'],
+									'CLICKS1' => $getpoll3['clicks1'],
+									'CLICKS2' => $getpoll3['clicks2'],
+									'CLICKS3' => $getpoll3['clicks3'],
+									'CLICKS4' => $getpoll3['clicks4']));
+		} else {
+			$template->adds_block('INCOMPLETE', array('exi'=>1));
+		}
+
+		$template->add('POTW', getPollOfTheWeek($_GET['id']));
+		$template->display();
+
+		$page_id = 'polloftheweek-' . $getpoll3['id'];
+		include('includes/comments.php');
+
+		displayRelated($getpoll3['question']);
 	} else {
-		$template->adds_block('INCOMPLETE', array('exi'=>1));
+		generateError('404');
 	}
-
-	$template->add('POTW', getPollOfTheWeek($_GET['id']));
-	$template->display();
-
-	$page_id = 'polloftheweek-' . $getpoll3['id'];
-	include('includes/comments.php');
-
-	displayRelated($getpoll3['question']);
 }
 
 ?>

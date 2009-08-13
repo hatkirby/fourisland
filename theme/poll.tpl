@@ -16,7 +16,7 @@
 	</p>
 </div>
 
-<cite class="rounded"><strong><!--COMPLETE.AUTHOR--></strong> on <!--COMPLETE.DATE--></cite>
+<cite class="rounded"><!--COMPLETE.DATE--></cite>
 <!--END COMPLETE-->
 <!--BEGIN INCOMPLETE-->
 	The results of this poll of the week are pending. Meanwhile, if you haven't voted yet, why not do so?
