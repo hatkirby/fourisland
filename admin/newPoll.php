@@ -83,6 +83,9 @@ if (isset($_GET['submit']))
 
 		$id = mysql_insert_id();
 
+		$cleardid = "TRUNCATE TABLE didpollalready";
+		$cleardid2 = mysql_query($cleardid);
+
 		$template->add('QUESTIONVALUE', $_POST['question']);
 		$template->add('OPTION1VALUE', $_POST['option1']);
 		$template->add('OPTION2VALUE', $_POST['option2']);
