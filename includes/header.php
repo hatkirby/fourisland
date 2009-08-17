@@ -71,6 +71,26 @@ if ($usingIE)
 	$headerTemp->add('FLASH', 'It appears you are using Internet Explorer. Four Island is not likely to work properly in IE due to a <a href="http://www.webdevout.net/articles/beware-of-xhtml#ie">huge bug</a> in it. <a href="http://getfirefox.com/">There are better browsers out there, why not try one?</a>');
 }
 
+$getaffs = "SELECT * FROM links WHERE type = \"affiliates\" ORDER BY id ASC";
+$getaffs2 = mysql_query($getaffs);
+$i=0;
+while ($getaffs3 = mysql_fetch_array($getaffs2))
+{
+	$headerTemp->adds_block('AFFILIATES', array(	'COLOR' => getTagColor($i++),
+							'TITLE' => $getaffs3['title'],
+							'URL' => $getaffs3['url']));
+}
+
+$getwebps = "SELECT * FROM links WHERE type = \"webprojs\" ORDER BY id ASC";
+$getwebps2 = mysql_query($getwebps);
+$i=0;
+while ($getwebps3 = mysql_fetch_array($getwebps2))
+{
+	$headerTemp->adds_block('WEBPROJS', array(	'COLOR' => getTagColor($i++),
+							'TITLE' => $getwebps3['title'],
+							'URL' => $getwebps3['url']));
+}
+
 $headerTemp->display();
 
 ?>

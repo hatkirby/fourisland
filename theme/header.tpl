@@ -64,35 +64,12 @@
 					<h3>Affiliates</h3>
 
 					<ul>
+						<!--BEGIN AFFILIATES-->
 						<li>
-							<img src="/theme/images/icons/tag_blue.png" alt="The S Site" />
-							<a href="http://ssite.fourisland.com/">The S Site</a>
+							<img src="/theme/images/icons/tag_<!--AFFILIATES.COLOR-->.png" alt="<!--AFFILIATES.TITLE-->" />
+							<a href="<!--AFFILIATES.URL-->"><!--AFFILIATES.TITLE--></a>
 						</li>
-
-						<li>
-							<img src="/theme/images/icons/tag_green.png" alt="Wikipinia" />
-							<a href="http://nablecak.fourisland.com/">Wikipinia</a>
-						</li>
-
-						<li>
-							<img src="/theme/images/icons/tag_orange.png" alt="Color Pencils" />
-							<a href="http://gryph.fourisland.com/">Color Pencils</a>
-						</li>
-
-						<li>
-							<img src="/theme/images/icons/tag_pink.png" alt="Dream Weaver" />
-							<a href="http://timbo94.fourisland.com/">Dream Weaver</a>
-						</li>
-
-						<li>
-							<img src="/theme/images/icons/tag_purple.png" alt="Randomness" />
-							<a href="http://pyro.fourisland.com/">Randomness</a>
-						</li>
-
-						<li>
-							<img src="/theme/images/icons/tag_red.png" alt="Bubble Blog" />
-							<a href="http://sammi9494.fourisland.com/">Bubble Blog</a>
-						</li>
+						<!--END AFFILIATES-->
 					</ul>
 				</div>
 
@@ -100,25 +77,12 @@
 					<h3>Website Projects</h3>
 
 					<ul>
+						<!--BEGIN WEBPROJS-->
 						<li>
-							<img src="/theme/images/icons/tag_blue.png" alt="The Sabrina FanWiki" />
-							<a href="http://sabrina.fourisland.com/">The Sabrina FanWiki</a>
+							<img src="/theme/images/icons/tag_<!--WEBPROJS.COLOR-->.png" alt="<!--WEBPROJS.TITLE-->" />
+							<a href="<!--WEBPROJS.URL-->"><!--WEBPROJS.TITLE--></a>
 						</li>
-
-						<li>
-							<img src="/theme/images/icons/tag_green.png" alt="True Falsities" />
-							<a href="http://false.fourisland.com/">True Falsities</a>
-						</li>
-
-						<li>
-							<img src="/theme/images/icons/tag_orange.png" alt="Pillowcase" />
-							<a href="http://pillowcase.fourisland.com/">Pillowcase</a>
-						</li>
-
-						<li>
-							<img src="/theme/images/icons/tag_pink.png" alt="Endlenge" />
-							<a href="http://endlenge.fourisland.com/">Endlenge</a>
-						</li>
+						<!--END WEBPROJS-->
 					</ul>
 				</div>
 

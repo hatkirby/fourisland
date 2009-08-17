@@ -357,4 +357,18 @@ function getPollOfTheWeek($id = -1)
 	return $result;
 }
 
+function getTagColor($i)
+{
+	switch ($i % 7)
+	{
+		case 0: return 'blue';
+		case 1: return 'green';
+		case 2: return 'orange';
+		case 3: return 'pink';
+		case 4: return 'purple';
+		case 5: return 'red';
+		case 6: return 'yellow';
+	}
+}
+
 ?>
