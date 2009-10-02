@@ -82,7 +82,7 @@ foreach ($pager->getPageData() as $post)
 {
 	if (!empty($post))
 	{
-		$template->adds_block('POST', array(	'TITLE' => $post['title'],
+		$template->adds_block('POST', array(	'TITLE' => htmlentities($post['title']),
 							'AUTHOR' => $post['author'],
 							'ID' => $post['id'],
 							'CODED' => $post['slug'],

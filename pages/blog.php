@@ -43,7 +43,7 @@ if (isset($_GET['post']))
 	{
 		updatePop($getpost3['id'],'views');
 
-		$title = stripslashes($getpost3['title']) . ' - Blog Archive';
+		$title = stripslashes(htmlentities($getpost3['title'])) . ' - Blog Archive';
 
 		$getback = "SELECT * FROM updates WHERE id < " . $getpost3['id'] . " ORDER BY id DESC LIMIT 0,1";
 		$getback2 = mysql_query($getback);
@@ -51,7 +51,7 @@ if (isset($_GET['post']))
 		if (isset($getback3['title']))
 		{
 			$template->adds_block('BACK', array(	'CODED' => $getback3['slug'],
-								'TITLE' => $getback3['title']));
+								'TITLE' => htmlentities($getback3['title'])));
 		}
 
 		$getnext = "SELECT * FROM updates WHERE id > " . $getpost3['id'] . " ORDER BY id ASC LIMIT 0,1";
@@ -60,7 +60,7 @@ if (isset($_GET['post']))
 		if (isset($getnext3['title']))
 		{
 			$template->adds_block('NEXT', array(	'CODED' => $getnext3['slug'],
-								'TITLE' => $getnext3['title']));
+								'TITLE' => htmlentities($getnext3['title'])));
 		}
 
 		$template->add_ref(0, 'POST', array(	'ID' => $getpost3['id'],
@@ -69,7 +69,7 @@ if (isset($_GET['post']))
 							'MONTH' => date('M',strtotime($getpost3['pubDate'])),
 							'DAY' => date('d',strtotime($getpost3['pubDate'])),
 							'CODED' => $getpost3['slug'],
-							'TITLE' => $getpost3['title'],
+							'TITLE' => htmlentities($getpost3['title']),
 							'AUTHOR' => $getpost3['author'],
 							'RATING' => $getpost3['rating'],
 							'TEXT' => parseText($getpost3['text'])));
@@ -189,7 +189,7 @@ if (isset($_GET['post']))
 
 		$template->adds_ref_sub($curID, 'SMALL',array(	'DATE' => date('m-d-Y',strtotime($getposts3[$i]['pubDate'])),
 								'CODED' => $getposts3[$i]['slug'],
-								'TITLE' => $getposts3[$i]['title']));
+								'TITLE' => htmlentities($getposts3[$i]['title'])));
 		$i++;
 	}
 	if ($i==0)

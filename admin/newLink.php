@@ -80,7 +80,7 @@ if (isset($_GET['submit']))
 		$template->add('TYPEDISABLED', ' readonly="readonly"');
 	}
 
-	$template->add('TITLEVALUE', $_POST['title']);
+	$template->add('TITLEVALUE', htmlentities($_POST['title']));
 	$template->add('URLVALUE', $_POST['url']);
 	$template->add(strtoupper($_POST['type']) . 'SELECTED', ' checked="checked"');
 } else {

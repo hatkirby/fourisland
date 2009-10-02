@@ -53,7 +53,7 @@ if (!isset($_GET['id']))
 			$question .= '....';
 		}
 		$template->adds_block('POLL', array(	'ID' => $getpolls3[$i]['id'],
-							'QUESTION' => $question,
+							'QUESTION' => htmlentities($question),
 							'WEEK' => date('F jS Y', strtotime($getpolls3[$i]['week'])),
 							'EVEN' => (($i % 2 == 1) ? ' class="even"' : '')));
 		$i++;
@@ -90,7 +90,7 @@ if (!isset($_GET['id']))
 
 	if ($getpoll3['id'] == $_GET['id'])
 	{
-		$template->add('QUESTION', $getpoll3['question']);
+		$template->add('QUESTION', htmlentities($getpoll3['question']));
 
 		if ($getpoll3['text'] != '')
 		{

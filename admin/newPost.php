@@ -145,7 +145,7 @@ if (isset($_GET['submit']))
 		if ($type != 'drafts') $template->add('TAGSDISABLED', ' readonly="readonly"');
 	}
 
-	$template->add('TITLEVALUE', $_POST['title']);
+	$template->add('TITLEVALUE', htmlentities($_POST['title']));
 	$template->add('TEXTVALUE', $_POST['text']);
 	$template->add('TAGSVALUE', $_POST['tags']);
 	$template->add(strtoupper($_POST['type']) . 'SELECTED', ' checked="checked"');

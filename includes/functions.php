@@ -276,7 +276,7 @@ function displayRelated($title, $avoid = 0)
 			$template = new FITemplate('related');
 		}
 
-		$template->adds_block('POST', array(	'TITLE' => $getrelated3[$i]['title'],
+		$template->adds_block('POST', array(	'TITLE' => htmlentities($getrelated3[$i]['title']),
 							'CODED' => $getrelated3[$i]['slug'],
 							'AUTHOR' => $getrelated3[$i]['author'],
 							'DATE' => date('F jS Y',strtotime($getrelated3[$i]['pubDate']))));
@@ -326,11 +326,11 @@ function getPollOfTheWeek($id = -1)
 	$getpoll2 = mysql_query($getpoll);
 	$getpoll3 = mysql_fetch_array($getpoll2);
 
-	$potw->add('QUESTION', $getpoll3['question']);
-	$potw->add('OPTION1', $getpoll3['option1']);
-	$potw->add('OPTION2', $getpoll3['option2']);
-	$potw->add('OPTION3', $getpoll3['option3']);
-	$potw->add('OPTION4', $getpoll3['option4']);
+	$potw->add('QUESTION', stripslashes(htmlentities($getpoll3['question'])));
+	$potw->add('OPTION1', stripslashes(htmlentities($getpoll3['option1'])));
+	$potw->add('OPTION2', stripslashes(htmlentities($getpoll3['option2'])));
+	$potw->add('OPTION3', stripslashes(htmlentities($getpoll3['option3'])));
+	$potw->add('OPTION4', stripslashes(htmlentities($getpoll3['option4'])));
 
 	$getip = "SELECT * FROM didpollalready WHERE ip = \"" . $_SERVER['REMOTE_ADDR'] . "\"";
 	$getip2 = mysql_query($getip);

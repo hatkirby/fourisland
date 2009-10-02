@@ -201,13 +201,13 @@ if (!isset($_GET['type']) || !isset($_GET['id']) || !is_numeric($_GET['id']))
 				$template->add('ACTION', '/admin/editPost.php?type=' . $type . '&amp;id=' . $id . '&amp;submit=');
 			}
 
-			$template->add('TITLEVALUE', $_POST['title']);
+			$template->add('TITLEVALUE', htmlentities($_POST['title']));
 			$template->add('TEXTVALUE', $_POST['text']);
 			$template->add('TAGSVALUE', $_POST['tags']);
 			$template->add(strtoupper($_POST['type']) . 'SELECTED', ' checked="checked"');
 			if ($_POST['type'] != 'draft') $template->add('TAGSDISABLED', ' readonly="readonly"');
 		} else {
-			$template->add('TITLEVALUE', $getpost3['title']);
+			$template->add('TITLEVALUE', htmlentities($getpost3['title']));
 			$template->add('TEXTVALUE', $getpost3['text']);
 			$template->add('TAGSVALUE', implode(',', getTags($_GET['id'], $tableToTags[$_GET['type']])));
 			$template->add(strtoupper($tableToForm[$_GET['type']]) . 'SELECTED', ' checked="checked"');

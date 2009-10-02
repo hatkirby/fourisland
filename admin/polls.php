@@ -82,7 +82,7 @@ foreach ($pager->getPageData() as $post)
 {
 	if (!empty($post))
 	{
-		$template->adds_block('POST', array(	'TITLE' => $post['question'],
+		$template->adds_block('POST', array(	'TITLE' => htmlentities($post['question']),
 							'ID' => $post['id'],
 							'ODD' => ($j % 2 ? '' : ' class="odd"')));
 	}

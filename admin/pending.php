@@ -148,7 +148,7 @@ foreach ($pager->getPageData() as $post)
 {
 	if (!empty($post))
 	{
-		$template->add_ref($j, 'POST', array(	'TITLE' => $post['title'],
+		$template->add_ref($j, 'POST', array(	'TITLE' => htmlentities($post['title']),
 							'AUTHOR' => $post['author'],
 							'ID' => $post['id'],
 							'CODED' => $post['slug'],

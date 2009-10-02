@@ -77,7 +77,7 @@ $i=0;
 while ($getaffs3 = mysql_fetch_array($getaffs2))
 {
 	$headerTemp->adds_block('AFFILIATES', array(	'COLOR' => getTagColor($i++),
-							'TITLE' => $getaffs3['title'],
+							'TITLE' => htmlentities($getaffs3['title']),
 							'URL' => $getaffs3['url']));
 }
 
@@ -87,7 +87,7 @@ $i=0;
 while ($getwebps3 = mysql_fetch_array($getwebps2))
 {
 	$headerTemp->adds_block('WEBPROJS', array(	'COLOR' => getTagColor($i++),
-							'TITLE' => $getwebps3['title'],
+							'TITLE' => htmlentities($getwebps3['title']),
 							'URL' => $getwebps3['url']));
 }
 

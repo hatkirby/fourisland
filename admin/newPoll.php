@@ -77,6 +77,13 @@ if (isset($_GET['submit']))
 
 		$template->add('TITLE', 'New Poll');
 		$template->add('ACTION', '/admin/newPoll.php?submit=');
+
+		$template->add('QUESTIONVALUE', htmlentities($_POST['question']));
+		$template->add('OPTION1VALUE', htmlentities($_POST['option1']));
+		$template->add('OPTION2VALUE', htmlentities($_POST['option2']));
+		$template->add('OPTION3VALUE', htmlentities($_POST['option3']));
+		$template->add('OPTION4VALUE', htmlentities($_POST['option4']));
+		$template->add('TEXTVALUE', htmlentities($_POST['text']));
         } else {
 		$inspoll = "INSERT INTO polloftheweek (question,option1,option2,option3,option4,text) VALUES (\"" . mysql_real_escape_string($_POST['question']) . "\",\"" . mysql_real_escape_string($_POST['option1']) . "\",\"" . mysql_real_escape_string($_POST['option2']) . "\",\"" . mysql_real_escape_string($_POST['option3']) . "\",\"" . mysql_real_escape_string($_POST['option4']) . "\",\"" . mysql_real_escape_string($_POST['text']) . "\")";
 		$inspoll2 = mysql_query($inspoll);
@@ -86,12 +93,12 @@ if (isset($_GET['submit']))
 		$cleardid = "TRUNCATE TABLE didpollalready";
 		$cleardid2 = mysql_query($cleardid);
 
-		$template->add('QUESTIONVALUE', $_POST['question']);
-		$template->add('OPTION1VALUE', $_POST['option1']);
-		$template->add('OPTION2VALUE', $_POST['option2']);
-		$template->add('OPTION3VALUE', $_POST['option3']);
-		$template->add('OPTION4VALUE', $_POST['option4']);
-		$template->add('TEXTVALUE', $_POST['text']);
+		$template->add('QUESTIONVALUE', htmlentities($_POST['question']));
+		$template->add('OPTION1VALUE', htmlentities($_POST['option1']));
+		$template->add('OPTION2VALUE', htmlentities($_POST['option2']));
+		$template->add('OPTION3VALUE', htmlentities($_POST['option3']));
+		$template->add('OPTION4VALUE', htmlentities($_POST['option4']));
+		$template->add('TEXTVALUE', htmlentities($_POST['text']));
 
 		$template->add('TITLE', 'Edit Poll');
 		$template->add('ACTION', '/admin/editPoll.php?id=' . $id . '&amp;submit=');

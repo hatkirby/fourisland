@@ -1,4 +1,4 @@
-<?php
+ <?php
 /*
        444444444  
       4::::::::4  
@@ -65,7 +65,7 @@ while ($getcomments3[$i] = mysql_fetch_array($getcomments2))
 								'AREA' => 'blog',
 								'CODED' => $getpost3['slug'],
 								'ENDING' => '/',
-								'TITLE' => stripslashes($getpost3['title']),
+								'TITLE' => stripslashes(htmlentities($getpost3['title'])),
 								'AUTHOR' => (($website != '') ? '<a href="' . $website . '">' . $username . '</a>' : $username)));
 		$i++;
 	} else if (strpos($getcomments3[$i]['page_id'], 'quote') !== FALSE)
@@ -89,7 +89,7 @@ while ($getcomments3[$i] = mysql_fetch_array($getcomments2))
 								'AREA' => 'poll',
 								'CODED' => $getpotw3['id'],
 								'ENDING' => '.php',
-								'TITLE' => 'Poll "' . $getpotw3['question'] . '"',
+								'TITLE' => 'Poll "' . htmlentities($getpotw3['question']) . '"',
 								'AUTHOR' => (($website != '') ? '<a href="' . $website . '">' . $username . '</a>' : $username)));
 		$i++;			
 	}
@@ -169,7 +169,7 @@ $i=0;
 while ($getpopular3[$i] = mysql_fetch_array($getpopular2))
 {
 	$template->adds_block('POPULAR', array(	'CODED' => $getpopular3[$i]['slug'],
-						'TITLE' => stripslashes($getpopular3[$i]['title'])));
+						'TITLE' => stripslashes(htmlentities($getpopular3[$i]['title']))));
 	$i++;
 }
 

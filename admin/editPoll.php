@@ -81,21 +81,21 @@ if (isset($_GET['submit']))
 		$getpoll2 = mysql_query($getpoll);
 		$getpoll3 = mysql_fetch_array($getpoll2);
 
-		$template->add('QUESTIONVALUE', $_POST['question']);
-		$template->add('OPTION1VALUE', $_POST['option1']);
-		$template->add('OPTION2VALUE', $_POST['option2']);
-		$template->add('OPTION3VALUE', $_POST['option3']);
-		$template->add('OPTION4VALUE', $_POST['option4']);
+		$template->add('QUESTIONVALUE', htmlentities($_POST['question']));
+		$template->add('OPTION1VALUE', htmlentities($_POST['option1']));
+		$template->add('OPTION2VALUE', htmlentities($_POST['option2']));
+		$template->add('OPTION3VALUE', htmlentities($_POST['option3']));
+		$template->add('OPTION4VALUE', htmlentities($_POST['option4']));
 		$template->add('TEXTVALUE', $_POST['text']);
         } else {
 		$inspoll = "UPDATE polloftheweek SET question = \"" . mysql_real_escape_string($_POST['question']) . "\", option1 = \"" . mysql_real_escape_string($_POST['option1']) . "\", option2 = \"" . mysql_real_escape_string($_POST['option2']) . "\", option3 = \"" . mysql_real_escape_string($_POST['option3']) . "\", option4 = \"" . mysql_real_escape_string($_POST['option4']) . "\", text = \"" . mysql_real_escape_string($_POST['text']) . "\" WHERE id = " . $_GET['id'];
 		$inspoll2 = mysql_query($inspoll);
 
-		$template->add('QUESTIONVALUE', $_POST['question']);
-		$template->add('OPTION1VALUE', $_POST['option1']);
-		$template->add('OPTION2VALUE', $_POST['option2']);
-		$template->add('OPTION3VALUE', $_POST['option3']);
-		$template->add('OPTION4VALUE', $_POST['option4']);
+		$template->add('QUESTIONVALUE', htmlentities($_POST['question']));
+		$template->add('OPTION1VALUE', htmlentities($_POST['option1']));
+		$template->add('OPTION2VALUE', htmlentities($_POST['option2']));
+		$template->add('OPTION3VALUE', htmlentities($_POST['option3']));
+		$template->add('OPTION4VALUE', htmlentities($_POST['option4']));
 		$template->add('TEXTVALUE', $_POST['text']);
 
 		$template->adds_block('FLASH', array('TEXT' => 'Your poll has been sucessfully edited. <a href="/poll/' . $_GET['id'] . '.php">View poll</a>.'));
@@ -105,11 +105,11 @@ if (isset($_GET['submit']))
 	$getpoll2 = mysql_query($getpoll);
 	$getpoll3 = mysql_fetch_array($getpoll2);
 
-	$template->add('QUESTIONVALUE', $getpoll3['question']);
-	$template->add('OPTION1VALUE', $getpoll3['option1']);
-	$template->add('OPTION2VALUE', $getpoll3['option2']);
-	$template->add('OPTION3VALUE', $getpoll3['option3']);
-	$template->add('OPTION4VALUE', $getpoll3['option4']);
+	$template->add('QUESTIONVALUE', htmlentities($getpoll3['question']));
+	$template->add('OPTION1VALUE', htmlentities($getpoll3['option1']));
+	$template->add('OPTION2VALUE', htmlentities($getpoll3['option2']));
+	$template->add('OPTION3VALUE', htmlentities($getpoll3['option3']));
+	$template->add('OPTION4VALUE', htmlentities($getpoll3['option4']));
 	$template->add('TEXTVALUE', $getpoll3['text']);
 }
 
