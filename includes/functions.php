@@ -90,6 +90,11 @@ function generateSlug($title,$table)
 	}
 	$title = strtolower($title);
 
+	if (empty($title))
+	{
+		$title = 'special-characters';
+	}
+
 	$getprevs = "SELECT COUNT(*) FROM " . $table . " WHERE slug = \"" . $title . "\" OR slug LIKE \"" . $title . "-%\"";
 	$getprevs2 = mysql_query($getprevs);
 	@$getprevs3 = mysql_fetch_array($getprevs2);
