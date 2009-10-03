@@ -181,3 +181,10 @@ div#sidebar ul li.active a, div#sidebar ul li a:hover {
 	color: black;
 }
 
+div.module + cite {
+	top: -0.4em;
+}
+
+div.module.unrounded + cite {
+	top: -0.7em;
+}

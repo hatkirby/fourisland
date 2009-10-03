@@ -29,6 +29,9 @@ if (isset($_GET['post']))
 {
 	$template = new FITemplate('post');
 	$template->adds_block('INTERNAL',array('exi'=>1));
+	$template->add('IFXAMP', $xhtml ? '&amp;' : '&');
+	$template->add('IFXLT', $xhtml ? '&lt;' : '<');
+	$template->add('IFXGT', $xhtml ? '&gt;' : '>');
 
 	$getpost = "SELECT * FROM updates WHERE slug = \"" . urldecode($_GET['post']) . "\"";
 	$getpost2 = mysql_query($getpost);

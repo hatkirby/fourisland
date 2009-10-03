@@ -10,7 +10,7 @@ function voteQuote(id, dir)
 	jQuery.ajax({
 		type: "GET",
 		url: "/quotes/vote.php",
-		data: "id="+id+"&amp;dir="+dir,
+		data: "id="+id+"<!--IFXAMP-->dir="+dir,
 		dataType: "text",
 		success: function(msg) {
 			if (msg != "")

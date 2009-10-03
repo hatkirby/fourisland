@@ -245,3 +245,11 @@ span.post-vote {
  position: relative;
  top: -20px;
 }
+
+div.module + cite {
+	top: -0.15em;
+}
+
+div.module.unrounded + cite {
+	top: -0.4em;
+}

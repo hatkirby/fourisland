@@ -22,21 +22,6 @@ if (!defined('S_INCLUDE_FILE')) {define('S_INCLUDE_FILE',1);}
 
 require('headerproc.php');
 
-if (isset($_GET['layout']))
-{
-	if (!file_exists('theme/layouts/' . basename($_GET['layout'])))
-	{
-		$_GET['layout'] = '7';
-	}
-
-	setcookie('layout', $_GET['layout'], time()+60*60*24*30, '/', '.fourisland.com');
-
-	unset($_GET['layout']);
-
-	header('Location: ' . getRewriteURL());
-	exit;
-}
-
 $template = new FITemplate('layouts/' . getLayout() . '/layout');
 
 $template->add('CATEGORY',(isset($pageCategory)) ? $pageCategory : 'none');

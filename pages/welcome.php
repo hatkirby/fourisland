@@ -31,6 +31,9 @@ $hatNav = array(        array(  'title' => 'Archive',
 
 $template = new FITemplate('post');
 $template->adds_block('EXTERNAL',array('exi'=>1));
+$template->add('IFXAMP', $xhtml ? '&amp;' : '&');
+$template->add('IFXLT', $xhtml ? '&lt;' : '<');
+$template->add('IFXGT', $xhtml ? '&gt;' : '>');
 
 $curID = 0;
 

@@ -7,13 +7,13 @@
 
 function ratePost(id, dir)
 {
-	jQuery("#post-"+id+" .post-rating-up").addClass("post-action-done").html("&lt;img src='/theme/images/icons/thumb_up.png' alt='+1' /&gt;");
-	jQuery("#post-"+id+" .post-rating-down").addClass("post-action-done").html("&lt;img src='/theme/images/icons/thumb_down.png' alt='-1' /&gt;");
+	jQuery("#post-"+id+" .post-rating-up").addClass("post-action-done").html("<!--IFXLT-->img src='/theme/images/icons/thumb_up.png' alt='+1' /<!--IFXGT-->");
+	jQuery("#post-"+id+" .post-rating-down").addClass("post-action-done").html("<!--IFXLT-->img src='/theme/images/icons/thumb_down.png' alt='-1' /<!--IFXGT-->");
 	jQuery("#flash").text("Processing....").slideDown();
 	jQuery.ajax({
 		type: "GET",
 		url: "/vote.php",
-		data: "id="+id+"&amp;dir="+dir,
+		data: "id="+id+"<!--IFXAMP-->dir="+dir,
 		dataType: "text",
 		success: function(msg) {
 			if (msg != "")

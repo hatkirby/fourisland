@@ -1,8 +1,6 @@
-<a name="comments" />
+<a name="comments"></a>
 
 <!--BEGIN COMMENTS-->
-<a name="comment-<!--COMMENTS.ID-->" />
-
 <!--BEGIN COMMENTS.EDITOR-->
 <form action="/edit-comment.php?id=<!--COMMENTS.ID-->" method="post">
 <!--END COMMENTS.EDITOR-->

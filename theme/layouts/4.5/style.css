@@ -231,3 +231,11 @@ div#flash {
 * > html div#flash {
  position: absolute;
 }
+
+div.module + cite {
+	top: -0.15em;
+}
+
+div.module.unrounded + cite {
+	top: -0.4em;
+}

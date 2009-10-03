@@ -187,7 +187,11 @@ if (isset($_GET['id']) && !(is_numeric($_GET['id'])))
 
 function quote_generation($query, $origin, $page = 1, $quote_limit = 50, $page_limit = 10)
 {
+	global $xhtml;
+
 	$template = new FITemplate('quotes/browse');
+	$template->add('IFXAMP', $xhtml ? '&amp;' : '&');
+
 	if ($page != -1)
 	{
 		$template->adds_block('PAGENUMBERS',array('exi'=>1));
