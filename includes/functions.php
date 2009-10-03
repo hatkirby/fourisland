@@ -376,4 +376,64 @@ function getTagColor($i)
 	}
 }
 
+function getLayout()
+{
+	if (!isset($_COOKIE['layout']))
+	{
+		return '7';
+	} else {
+		return $_COOKIE['layout'];
+	}
+}
+
+function getRewriteURL()
+{
+	if (!isset($_GET['area']))
+	{
+		return '/';
+	} else {
+		if ($_GET['area'] == 'blog')
+		{
+			if (isset($_GET['author']))
+			{
+				return '/blog/author/' . $_GET['author'] . '.php';
+			} else if (isset($_GET['tag']))
+			{
+				return '/blog/tag/' . $_GET['tag'] . '.php';
+			} else if (isset($_GET['post']))
+			{
+				return '/blog/' . $_GET['post'] . '/';
+			} else {
+				return '/blog/';
+			}
+		} else if ($_GET['area'] == 'poll')
+		{
+			if (isset($_GET['id']))
+			{
+				return '/poll/' . $_GET['id'] . '.php';
+			} else {
+				return '/poll/';
+			}
+		} else if ($_GET['area'] == 'quotes')
+		{
+			if (isset($_GET['act']))
+			{
+				return '/quotes/' . $_GET['act'] . '.php';
+			} else {
+				return '/quotes/';
+			}
+		} else if ($_GET['area'] == 'error')
+		{
+			if (isset($_GET['id']))
+			{
+				return '/error/' . $_GET['id'] . '.php';
+			} else {
+				return '/error/';
+			}
+		} else {
+			return '/' . $_GET['area'] . '/';
+		}
+	}
+}
+
 ?>

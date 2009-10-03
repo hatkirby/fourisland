@@ -8,7 +8,7 @@
   4::::4  4::::4  
  4::::4   4::::4   Written and maintained by Starla Insigna
 4::::444444::::444
-4::::::::::::::::4  theme/css.php
+4::::::::::::::::4  theme/layouts/4.5/style.php
 4444444444:::::444
           4::::4   Please do not use, reproduce or steal the
           4::::4   contents of this file without explicit
@@ -18,17 +18,21 @@
         4444444444
 */
 
-require('../headerproc.php');
+if (!defined('S_INCLUDE_FILE')) {define('S_INCLUDE_FILE',1);}
 
-header('Content-type: text/css');
+require('headerproc.php');
 
-include('../includes/functions.php');
+include('layouts/4.5/style.css');
 
-include('css/website.css');
-include('layouts/' . getLayout() . '/style.php');
-include('css/blog.php');
-include('css/bubbles.css');
-include('css/quotes.css');
-include('css/holiday.php');
+if (((date('G') >= 20) || (date('G') <= 6)) || isset($_GET['night']) && !isset($_GET['day']))
+{
+	include('layouts/4.5/night.css');
+} else {
+	include('layouts/4.5/day.css');
+}
+
+include('layouts/4.5/headers.php');
+include('layouts/4.5/navigation.css');
+include('layouts/4.5/holiday.php');
 
 ?>

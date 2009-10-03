@@ -1,5 +1,7 @@
 ErrorDocument 404 /error/404.php
 
+# Remember, if you change this file, make sure to update getRewriteURL() in functions.php!
+
 RewriteEngine On
 
 RewriteCond %{HTTP_HOST} ^www.fourisland.com [NC]

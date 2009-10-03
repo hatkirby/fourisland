@@ -1,0 +1,183 @@
+/* Body */
+
+body {
+	font-family: "Lucida Grande", "Arial", sans;
+	background-color: #111;
+}
+
+div#header {
+	width: 100%;
+	height: 200px;
+	background-image: url(http://fourisland.com/theme/images/header-repeat.png);
+	background-repeat: repeat-x;
+}
+
+div#banner {
+	width: 800px;
+	height: 200px;
+	margin: 0 auto;
+	background-image: url(http://fourisland.com/theme/images/header.png);
+	background-position: bottom right;
+}
+
+div#header a {
+	width: 800px;
+	height: 200px;
+	text-indent: -5000px;
+	display: block;
+}
+
+div#sidebar {
+	width: 21%;
+	float: left;
+}
+
+div#content {
+	width: 69%;
+	float: right;
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-top: 20px;
+}
+
+div#content div.rounded {
+	padding: 10px;
+}
+
+div#footer {
+	width: 100%;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+div#footer div.foot-module {
+	margin: 0 auto;
+	float: left;
+	width: 20%;
+	margin-left: 4%;
+	color: white;
+	font-size: 0.9em;
+}
+
+div#footer a {
+	color: white;
+	border-bottom: 1px dotted white;
+}
+
+div#footer div.foot-module ul {
+	list-style-type: square;
+}
+
+div#footer p {
+	font-size: 0.5em;
+	color: white;
+	text-align: center;
+}
+
+div#page-content {
+	background-color: #00ff00; /*#8B4513;*/
+	padding-bottom: 10px;
+}
+
+body#fourm div#actual-content {
+	font-size: 60%;
+}
+
+ul#navbar {
+	text-align: center;
+	margin-top: 0;
+}
+
+ul#navbar li {
+	display: inline;
+	font-family: Verdana, sans-serif;
+	font-size: 1.1em;
+}
+
+ul#navbar li+li:before {
+	content: " - ";
+}
+
+ul#navbar li img, ul#navbar li.active span {
+	display: none;
+}
+
+ul#navbar li.active img {
+	display: inline;
+	background-color: white;
+	outline: white solid .5em;
+	margin: 0 .5em;
+}
+
+/* Sidebar */
+
+div#rightbar {
+	float: left;
+	width: 270px; /*210*/
+}
+
+div.sidebar {
+	width: 250px; /*250*/ /*240*/ /*210*/
+	padding: 0 10px;
+	margin-bottom: 5px;
+}
+
+div.sidebar h3 {
+	font-family: Verdana, Helvetica, Arial, sans-serif;
+	margin: 5px 0 0 0;
+	font-weight: bold;
+	color: #333333;
+}
+
+div.sidebar p {
+	font-size: 0.8em;
+	margin: 3px 0;
+}
+
+div#sidebar ul.hatnav {
+	list-style-type: none;
+	padding-left: 24px;
+	margin-top: 0 !important;
+	line-height: normal !important;
+	list-style-image: none !important;
+}
+
+div#sidebar ul {
+	list-style-type: none;
+}
+							
+div#sidebar ul.hatnav li {
+	text-align: right;
+	border: 1px gray solid;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	background-color: #111;
+	color: white;
+}
+				
+div#sidebar ul.hatnav li a {
+	display: block;
+	width: 95%;
+	color: white;
+}
+
+div#sidebar li img {
+	border: 0;
+	height: 16px;
+	width: 16px;
+}
+
+div#sidebar ul.hatnav li.active {
+	background-color:#00FF00;
+	border: none;
+}
+
+div#sidebar ul.hatnav li:hover {
+	background-color:yellow;
+	border: none;
+}
+
+div#sidebar ul li.active a, div#sidebar ul li a:hover {
+	color: black;
+}
+

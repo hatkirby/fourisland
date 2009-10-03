@@ -1,0 +1,247 @@
+/* Banner */
+		
+div#banner, div#fi-banner {
+ background-repeat: no-repeat;
+ width: 900px; /*728*/
+ height: 200px;
+ float: left;
+/* margin-top: 21px; */
+}
+
+div#banner {
+ background: white url("/theme/images/fourisland_header.png") center no-repeat;
+ width: 100%;
+}
+
+body div#banner h1, body div#fi-banner h1 {
+ margin: 0;
+}
+
+body div#banner h1 a, body div#fi-banner h1 a {
+ display: block;
+ width: 900px;
+ height: 200px;
+ text-indent: -5000px;
+ text-decoration: none;
+ margin: 0;
+}
+
+div#banner h1, div#fi-banner h1 {
+ margin: 0;
+ font-size: 3.0em;
+ font-weight: normal;
+}
+
+/* NavBar */
+
+div#fi-navbar {
+ position: relative;
+ background-color: #b7e0ff;
+ width: auto;
+ margin-bottom: 14px;
+ font: 0.9em "Lucida Grande", Lucida, Verdana, sans-serif;
+ height: 1.9em;
+ clear: both;
+}
+
+div#fi-navbar div {
+ padding: .001em 0;
+ margin: 10px;
+}
+
+div#fi-navbar ul {
+ margin: .25em 0;
+ padding-left: 1em;
+ text-align: center;
+}
+
+div#fi-navbar ul li {
+ display: inline;
+ font-family: Verdana, sans-serif;
+ font-size: 1.1em;
+}
+
+div#fi-navbar ul li+li:before {
+ content: " - ";
+}
+
+div#fi-navbar ul li img,
+div#fi-navbar ul li.active span {
+ display: none;
+}
+
+div#fi-navbar ul li.active img {
+ display: inline;
+ background-color: white;
+ outline: white solid .5em;
+ margin: 0 .5em;
+}
+
+div#fi-navbar div.bubble blockquote {
+ background: none;
+ font-size: 0.9em;
+}
+
+div#fi-navbar div.bubble blockquote a {
+ color: blue;
+}
+
+/* Sidebar */
+
+div#rightbar {
+ float: left;
+ width: 270px; /*210*/
+}
+
+div.sidebar {
+ width: 250px; /*250*/ /*240*/ /*210*/
+ padding: 0 10px;
+ margin-bottom: 5px;
+}
+
+div.sidebar h3 {
+ font-family: Verdana, Helvetica, Arial, sans-serif;
+ margin: 5px 0 0 0;
+ font-weight: bold;
+ color: #333333;
+}
+
+div.sidebar p {
+ font-size: 0.8em;
+ margin: 3px 0;
+}
+
+div.sidebar ul {
+ list-style-type: none;
+ padding: 0;
+ margin: 0;
+ line-height: normal !important;
+ list-style-image: none !important;
+}
+							
+div#sidebar ul li {
+ margin-top: 4px;
+}
+				
+div#sidebar ul li a {
+ display: block;
+ width: 230px;
+}
+
+div#sidebar li img {
+ border: 0;
+ height: 16px;
+ width: 16px;
+}
+
+/* Layout */
+
+#wrap {
+ width: 910px;
+ margin: 10px auto;
+ padding: 0;
+ background-color: white;
+ background-color: rgba(255, 255, 255, 0.5);
+ border: 4px solid gray;
+}
+
+#page-body {
+ margin: 0 30px;
+ clear: both;
+ position: relative;
+}
+
+body.fourm #page-body {
+ margin: 0 10px 0 25px;
+ width: 95%;
+ font-size: 62.5%;
+}
+
+#phpBB3-page-body {
+ margin: 4px 0 !important;
+ clear: both;
+}
+
+/* Content */
+															
+div#content {
+ float: right;
+ width: 555px; /*465*/ /*555*/
+}
+
+div#footer {
+ clear: both;
+ padding: .5em 0 1em 0;
+ margin-top: .5em;
+ text-align: center;
+ font-size: .68em;
+ border-top: 1px black solid;
+}
+
+div#footer ul.rows li {
+ display: list-item;
+}
+
+div#footer ul {
+ padding: 0;
+ margin: 0;
+ list-style-type: none;
+}
+
+div#footer ul li {
+ display: inline;
+ margin-right: 1em;
+}
+
+div#footer ul li img {
+ width: 20px;
+ height: 20px;
+ vertical-align: top;
+}
+
+div#content ul {
+ list-style: url(/theme/images/bullet_disk_big.png);
+}
+
+div#content a img {
+ border: solid transparent 1px;
+}
+
+div#content a:hover img {
+ border: dashed gray 1px;
+}
+
+div#hatbar.quotes-options ul {
+ list-style: none;
+}
+
+div.autosize {
+ margin-bottom: 6px !important;
+}
+
+body {
+ background: repeat-x bottom left fixed;
+ font-family: Arial, FreeSans;
+ margin: 0px;
+ padding: 0px 0px 30px !important;
+}
+
+body.fourm {
+ font-family: Verdana, Helvetica, Arial, sans-serif;
+}
+
+body.fourm div#content {
+ width: 100%;
+ float: none;
+}
+
+body {
+ background-color: aqua;
+ background-image: url(/theme/images/backgrounds/island6.PNG);
+}
+
+span.post-vote {
+ float: right;
+ position: relative;
+ top: -20px;
+}

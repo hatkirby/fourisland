@@ -1,0 +1,22 @@
+body {
+ background-color: black;
+ background-image: url(/theme/images/backgrounds/island6night.PNG);
+}
+
+div#wrap {
+ background-color: rgba(0, 0, 0, 0.75);
+}
+
+div#banner {
+ background-color: black;
+ background-image: url(/theme/images/fourisland_header_night.png);
+}
+
+div#fi-navbar ul li.active img {
+ background-color: black;
+ outline: black solid .5em;
+}
+
+.light-at-night, .light-at-night-l6p2 {
+ color: #555555;
+}

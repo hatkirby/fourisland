@@ -25,7 +25,7 @@ if (preg_match('|MSIE ([0-9].[0-9]{1,2})|', $_SERVER['HTTP_USER_AGENT'], $matche
 	header('Content-type: text/html');
 	$usingIE = true;
 } else {
-	header('Content-type: application/xhtml+xml');
+//	header('Content-type: application/xhtml+xml');
 }
 
 header('X-Pingback: http://fourisland.com/xmlrpc.php');
@@ -42,6 +42,12 @@ include('includes/functions.php');
 include('includes/hits.php');
 include('includes/updatePending.php');
 
+if (strpos($_SERVER['REQUEST_URI'],'index.php'))
+{
+	header('Location: ' . getRewriteURL());
+	exit;
+}
+
 ob_start();
 
 $pageName = isset($_GET['area']) ? $_GET['area'] : 'welcome';
@@ -53,13 +59,9 @@ if (file_exists('pages/' . $pageName . '.php'))
 	generateError('404');
 }
 
-$doc = ob_get_contents();
+$content = ob_get_contents();
 ob_end_clean();
 
-$doc = stripslashes($doc);
-
-include('includes/header.php');
-echo($doc);
-include('includes/footer.php');
+include('includes/layout.php');
 
 ?>

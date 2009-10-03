@@ -1,0 +1,233 @@
+body {
+ background-repeat: repeat-x;
+ background-attachment: fixed;
+ background-position: bottom left;
+ font-family: Arial, FreeSans;
+ margin: 0px;
+ padding: 0px 0px 30px !important;
+}
+
+body.fourm {
+ font-family: Verdana, Helvetica, Arial, sans-serif;
+}
+
+body.fourm div#content {
+ width: 100%;
+ float: none;
+}
+
+body.fourm div#wrap,
+body.poll div#wrap,
+body.quotes div#wrap,
+body.admin div#wrap {
+ background-image: url(/theme/images/bg_body.gif);
+ background-repeat: repeat-y;
+}
+
+div#banner, div#fi-banner {
+ background-repeat: no-repeat;
+ width: 850px;
+ height: 129px;
+ float: left;
+ margin-top: 21px;
+}
+
+#page-header {
+ background: url("/theme/images/bg_header.gif") repeat-x 0 0;
+ height: 150px;
+ clear: both;
+}
+
+div#banner {
+ background-image: url("/theme/images/fourisland_header.png");
+}
+
+body div#banner h1, body div#fi-banner h1 {
+ margin: 0;
+}
+
+body div#banner h1 a, body div#fi-banner h1 a {
+ display: block;
+ width: 850px;
+ height: 129px;
+ text-indent: -5000px;
+ text-decoration: none;
+ margin: 0;
+}
+
+div#banner h1, div#fi-banner h1 {
+ margin: 0;
+ font-size: 3.0em;
+ font-weight: normal;
+}
+				
+div#bannernav {
+ text-align: center;
+}
+
+span.side-left, span.side-right {
+ display: block;
+ width: 20px;
+ height: 150px;
+ background: url("/theme/images/sides_top.gif") no-repeat;
+}
+
+span.side-left {
+ float: left;
+ margin-right: 10px;
+}
+
+span.side-right {
+ background-position: 100% 0;
+ float: right;
+}
+
+/* Sidebar */
+
+div#rightbar {
+ float: right;
+ width: 250px; /*210*/
+ padding: 0 10;
+}
+
+div.sidebar {
+ width: 250px; /*250*/ /*240*/ /*210*/
+ padding: 0 10px;
+ margin-bottom: 5px;
+}
+
+div.sidebar h3 {
+ font-family: Verdana, Helvetica, Arial, sans-serif;
+ margin: 5px 0 0 0;
+ font-weight: bold;
+ color: #333333;
+}
+
+div.sidebar p {
+ font-size: 0.8em;
+ margin: 3px 0;
+}
+
+div.sidebar ul {
+ list-style-type: none;
+ padding: 0;
+ margin: 0;
+ line-height: normal !important;
+ list-style-image: none !important;
+}
+							
+div#sidebar ul li {
+ margin-top: 4px;
+}
+				
+div#sidebar ul li a {
+ display: block;
+ width: 230px;
+}
+
+div#sidebar li img {
+ border: 0;
+ height: 16px;
+ width: 16px;
+}
+
+/* Layout */
+
+#wrap {
+ background: #FFFFFF url("/theme/images/bg_body.gif") repeat-y 0 0;
+ width: 910px;
+ margin: 10px auto;
+ text-align: left;
+ padding: 0;
+ margin-top: 25px;
+}
+
+#page-body {
+ margin: 10px 55px 0 30px;
+ clear: both;
+ position: relative;
+}
+
+body.fourm #page-body {
+ margin-left: 25;
+ margin-right: 10;
+ width: 95%;
+ font-size: 62.5%;
+}
+
+#phpBB3-page-body {
+ margin: 4px 0 !important;
+ clear: both;
+}
+
+/* Content */
+															
+div#content {
+ float: left;
+ width: 555px; /*465*/ /*555*/
+}
+
+
+div#content h2 {
+ color: #59770e;
+ margin: 0px 0px 2px;
+ border-bottom: 1px dotted #CCCCCC;
+ letter-spacing: -1px;
+ font: normal 140%/100% "Trebuchet MS", Tahoma, Arial;
+ padding-bottom: 3px;
+}
+
+/* Random Divs/Spans */
+
+				
+div#footer {
+ clear: both;
+ padding-bottom: 1em;
+ padding-top: .5em;
+ margin-top: .5em;
+ text-align: center;
+ font-size: .68em;
+ width: 100%;
+ border-top: 1px black solid;
+ border-bottom: 4px gray solid;
+}
+
+div#footer ul.rows li {
+ display: list-item;
+}
+
+div#footer ul {
+ padding: 0;
+ margin: 0;
+ list-style-type: none;
+}
+
+div#footer ul li {
+ display: inline;
+ margin-right: 1em;
+}
+
+div#footer ul li img {
+ width: 20px;
+ height: 20px;
+ vertical-align: top;
+}
+
+div#flash {
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ background-color: #FBEC5D;
+ height: 20px;
+ z-index: 99;
+ padding-top: 5px;
+ text-align: center;
+ display: block;
+ padding-bottom: 0;
+ border-bottom: none;
+}
+
+* > html div#flash {
+ position: absolute;
+}

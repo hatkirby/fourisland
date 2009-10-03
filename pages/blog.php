@@ -22,11 +22,6 @@ if (!defined('S_INCLUDE_FILE')) {define('S_INCLUDE_FILE',1);}
 
 require('headerproc.php');
 
-if ((strpos($_SERVER['REQUEST_URI'],'index.php')) && (isset($_GET['post'])))
-{
-	header('Location: /blog/' . $_GET['post'] . '/');
-}
-
 $pageCategory = 'blog';
 $pageAID = 'archive';
 
