@@ -1,6 +1,6 @@
 <!--BEGIN INTERNAL-->
-<!--BEGIN BACK--><span class="back-post">&laquo; <a href="/blog/<!--BACK.CODED-->/"><!--BACK.TITLE--></a></span><!--END BACK-->
-<!--BEGIN NEXT--><span class="next-post"><a href="/blog/<!--NEXT.CODED-->/"><!--NEXT.TITLE--></a> &raquo;</span><!--END NEXT-->
+<!--BEGIN BACK--><span class="back-post"><a href="/blog/<!--BACK.CODED-->/"><!--BACK.TITLE--></a></span><!--END BACK-->
+<!--BEGIN NEXT--><span class="next-post"><a href="/blog/<!--NEXT.CODED-->/"><!--NEXT.TITLE--></a></span><!--END NEXT-->
 <!--END INTERNAL-->
 
 <script type="text/javascript">

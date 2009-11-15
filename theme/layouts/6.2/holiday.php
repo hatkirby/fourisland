@@ -8,7 +8,7 @@
   4::::4  4::::4  
  4::::4   4::::4   Written and maintained by Starla Insigna
 4::::444444::::444
-4::::::::::::::::4  theme/css/holiday.php
+4::::::::::::::::4  theme/layouts/6.2/holiday.php
 4444444444:::::444
           4::::4   Please do not use, reproduce or steal the
           4::::4   contents of this file without explicit
@@ -21,7 +21,7 @@
 if (!defined('S_INCLUDE_FILE')) {define('S_INCLUDE_FILE',1);}
 
 require('headerproc.php');
-include('../includes/specialdates.php');
+include_once('../includes/specialdates.php');
 
 $bgcolor='aqua';
 
@@ -102,13 +102,12 @@ if (sd_isSpecialDay('Four Island A'))
 
 ?>
 
-div#window {
+body {
  background-color: <?php echo($bgcolor); ?>;
  background-image: url(/theme/images/backgrounds/<?php echo($bgimgm); ?>.PNG);
  background-position: bottom left;
  background-repeat: repeat-x;
  background-attachment: fixed;
- padding: 0 !important;
 }
 
 <?php
@@ -117,7 +116,7 @@ if ($bgcolor == 'aqua')
 {
 ?>
 
-div#content div#actual-content {
+div#wrap {
 	background-color: rgba(255, 255, 255, 0.5);
 }
 
@@ -125,12 +124,22 @@ div#content div#actual-content {
 } else {
 ?>
 
-div#content div#actual-content {
-	background-color: rgba(0, 0, 0, 0.75);
+div#wrap {
+ background-color: rgba(0, 0, 0, 0.75);
 }
 
-.light-at-night {
-	color: #536482;
+div#banner {
+ background-color: black;
+ background-image: url(/theme/images/fourisland_header_night.png);
+}
+
+div#fi-navbar ul li.active img {
+ background-color: black;
+ outline: black solid .5em;
+}
+
+.light-at-night, .light-at-night-l6p2 {
+ color: #555555;
 }
 
 <?php

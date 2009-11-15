@@ -29,4 +29,6 @@ if (((date('G') >= 20) || (date('G') <= 6)) || isset($_GET['night']) && !isset($
 	include('layouts/6.2/night.css');
 }
 
+include('layouts/6.2/holiday.php');
+
 ?>

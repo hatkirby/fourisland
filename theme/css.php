@@ -29,6 +29,5 @@ include('layouts/' . getLayout() . '/style.php');
 include('css/blog.php');
 include('css/bubbles.css');
 include('css/quotes.css');
-include('css/holiday.php');
 
 ?>

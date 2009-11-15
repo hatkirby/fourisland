@@ -8,7 +8,7 @@
   4::::4  4::::4  
  4::::4   4::::4   Written and maintained by Starla Insigna
 4::::444444::::444
-4::::::::::::::::4  theme/css/holiday.php
+4::::::::::::::::4  theme/layouts/7/holiday.php
 4444444444:::::444
           4::::4   Please do not use, reproduce or steal the
           4::::4   contents of this file without explicit
@@ -21,6 +21,9 @@
 if (!defined('S_INCLUDE_FILE')) {define('S_INCLUDE_FILE',1);}
 
 require('headerproc.php');
+include_once('../includes/specialdates.php');
+
+$bgcolor='aqua';
 
 if (sd_isSpecialDay('Four Island A'))
 {
@@ -93,20 +96,44 @@ if (sd_isSpecialDay('Four Island A'))
 } elseif (sd_isSpecialDay('Valentines Day'))
 {
 	$bgimgm = 'valentines';
-}
-
-$bodyID = $_GET['id'];
-if (!isset($bgcolor))
-{
-	$bgcolor='aqua';
-
-	include("layouts/4.5/day.css");
 } else {
-	include("layouts/4.5/night.css");
+	$bgimgm = 'island6';
 }
 
 ?>
 
-body {
- background-image: url(/theme/images/backgrounds/<?php echo($bgimgm); ?>.PNG) !important;
+div#window {
+ background-color: <?php echo($bgcolor); ?>;
+ background-image: url(/theme/images/backgrounds/<?php echo($bgimgm); ?>.PNG);
+ background-position: bottom left;
+ background-repeat: repeat-x;
+ background-attachment: fixed;
+ padding: 0 !important;
 }
+
+<?php
+
+if ($bgcolor == 'aqua')
+{
+?>
+
+div#content div#actual-content {
+	background-color: rgba(255, 255, 255, 0.5);
+}
+
+<?php
+} else {
+?>
+
+div#content div#actual-content {
+	background-color: rgba(0, 0, 0, 0.75);
+}
+
+.light-at-night {
+	color: #536482;
+}
+
+<?php
+}
+
+?>

@@ -36,9 +36,17 @@ span.back-post {
  font-size: 0.9em;
 }
 
+span.back-post:before {
+ content: "\ab\a0";
+}
+
 span.next-post {
  float: right;
  font-size: 0.9em;
+}
+
+span.next-post:after {
+ content: "\a0\bb";
 }
 
 div.post-date-1 {

@@ -23,5 +23,6 @@ if (!defined('S_INCLUDE_FILE')) {define('S_INCLUDE_FILE',1);}
 require('headerproc.php');
 
 include('layouts/7/style.css');
+include('layouts/7/holiday.php');
 
 ?>
