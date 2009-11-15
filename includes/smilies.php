@@ -32,6 +32,7 @@ class Smilies
 		$this->smilies[':)'] = '001_smile.gif';
 		$this->smilies[':('] = 'sad.gif';
 		$this->smilies[':D'] = 'biggrin.gif';
+		$this->smilies[':P'] = '001_tongue.gif';
 
 		$this->init = true;
 	}
