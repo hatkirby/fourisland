@@ -93,6 +93,8 @@ if (sd_isSpecialDay('Four Island A'))
 } elseif (sd_isSpecialDay('Valentines Day'))
 {
 	$bgimgm = 'valentines';
+} else {
+	$bgimgm = 'island6';
 }
 
 $bodyID = $_GET['id'];
