@@ -27,8 +27,8 @@ include('layouts/6.2/style.css');
 if (((date('G') >= 20) || (date('G') <= 6)) || isset($_GET['night']) && !isset($_GET['day']))
 {
 	include('layouts/6.2/night.css');
+} else {
+	include('layouts/6.2/holiday.php');
 }
-
-include('layouts/6.2/holiday.php');
 
 ?>

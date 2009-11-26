@@ -229,7 +229,7 @@ div.post-date-4 {
 span.post-vote {
  float: right;
  position: relative;
- top: -2em;
+ top: -.5em;
  right: 1em;
 }
 

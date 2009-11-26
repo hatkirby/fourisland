@@ -51,6 +51,14 @@
 							</A>
 						</LI>
 
+
+						<LI<!--WIKIACTIVE-->>
+							<A HREF="http://fourisland.com/wiki/">
+								<IMG SRC="/theme/images/icons/report.png" ALT="Wiki">
+								<SPAN>Wiki</SPAN>
+							</A>
+						</LI>
+
 						<LI<!--POLLACTIVE-->>
 							<A HREF="http://fourisland.com/poll/">
 								<IMG SRC="/theme/images/icons/overlays.png" ALT="Polls">
@@ -121,6 +129,8 @@
 
 					<P />
 		                        <!--END CREATE_HATNAV-->
+
+					<!--EXTRASIDEBAR-->
 					
 					<div class="module rounded sidebar">
                                         	<h3>Poll of the Week</h3>

@@ -77,12 +77,12 @@ while ($getpost3 = mysql_fetch_array($getpost2))
 							'MONTH' => date('M',strtotime($getpost3['pubDate'])),
 							'DAY' => date('d',strtotime($getpost3['pubDate'])),
 							'CODED' => $getpost3['slug'],
-							'TITLE' => htmlentities($getpost3['title']),
+							'TITLE' => htmlentities(stripslashes($getpost3['title'])),
 							'AUTHOR' => $getpost3['author'],
 							'PLURALCOMMENT' => (isset($plural) ? $plural : ''),
 							'COMMENTS' => $comText,
 							'RATING' => $getpost3['rating'],
-							'TEXT' => parseText($getpost3['text'])));
+							'TEXT' => parseText(stripslashes($getpost3['text']))));
 
 	$tags = getTags($getpost3['id']);
 	foreach ($tags as $tag)

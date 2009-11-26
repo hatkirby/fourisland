@@ -70,7 +70,7 @@ if (isset($_GET['id']) && !(is_numeric($_GET['id'])))
 	$template = new FITemplate('quotes/add');
 	if (isset($_GET['submit']))
 	{
-		$template->adds_block('SUBMITTED',array('QUOTE' => str_replace("\n","<br />",htmlentities($_POST['rash_quote']))));
+		$template->adds_block('SUBMITTED',array('QUOTE' => str_replace("\n","<br />",htmlentities(stripslashes($_POST['rash_quote'])))));
 		if (!isLoggedIn())
 		{
 			$insquote = "INSERT INTO rash_queue (quote) VALUES(\"" . mysql_real_escape_string(htmlspecialchars($_POST['rash_quote'])) . "\")";

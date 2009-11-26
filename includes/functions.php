@@ -390,7 +390,12 @@ function getRewriteURL()
 {
 	if (!isset($_GET['area']))
 	{
-		return '/';
+		if (strpos($_SERVER['PHP_SELF'], 'wiki') !== false)
+		{
+			return $_SERVER['PHP_SELF'];
+		} else {
+			return '/';
+		}
 	} else {
 		if ($_GET['area'] == 'blog')
 		{

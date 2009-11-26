@@ -55,6 +55,8 @@
 				<!--BEGIN CREATE_HATNAV-->
 				</ul>
 				<!--END CREATE_HATNAV-->
+
+				<!--EXTRASIDEBAR-->
 				
 				<div class="module rounded sidebar">
 					<h3>Poll of the Week</h3>
@@ -133,6 +135,13 @@
 						<a href="http://fourisland.com/fourm/">
 							<img src="/theme/images/icons/comment.png" alt="The Fourm" />
 							<span>The Fourm</span>
+						</a>
+					</li>
+
+					<li<!--WIKIACTIVE-->>
+						<a href="http://fourisland.com/wiki/">
+							<img src="/theme/images/icons/report.png" alt="Wiki" />
+							<span>Wiki</span>
 						</a>
 					</li>
 

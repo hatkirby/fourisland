@@ -53,7 +53,7 @@ if (!isset($_GET['id']))
 			$question .= '....';
 		}
 		$template->adds_block('POLL', array(	'ID' => $getpolls3[$i]['id'],
-							'QUESTION' => htmlentities($question),
+							'QUESTION' => htmlentities(stripslashes($question)),
 							'WEEK' => date('F jS Y', strtotime($getpolls3[$i]['week'])),
 							'EVEN' => (($i % 2 == 1) ? ' class="even"' : '')));
 		$i++;
@@ -90,17 +90,17 @@ if (!isset($_GET['id']))
 
 	if ($getpoll3['id'] == $_GET['id'])
 	{
-		$template->add('QUESTION', htmlentities($getpoll3['question']));
+		$template->add('QUESTION', htmlentities(stripslashes($getpoll3['question'])));
 
 		if ($getpoll3['text'] != '')
 		{
-			$template->adds_block('COMPLETE', array(	'RSS' => parseText($getpoll3['text']),
+			$template->adds_block('COMPLETE', array(	'RSS' => parseText(stripslashes($getpoll3['text'])),
 									'AUTHOR' => $getrss3['author'],
 									'DATE' => date("F jS Y \a\\t g:i:s a",strtotime($getpoll3['week'])),
-									'OPTION1' => $getpoll3['option1'],
-									'OPTION2' => $getpoll3['option2'],
-									'OPTION3' => $getpoll3['option3'],
-									'OPTION4' => $getpoll3['option4'],
+									'OPTION1' => stripslashes($getpoll3['option1']),
+									'OPTION2' => stripslashes($getpoll3['option2']),
+									'OPTION3' => stripslashes($getpoll3['option3']),
+									'OPTION4' => stripslashes($getpoll3['option4']),
 									'CLICKS1' => $getpoll3['clicks1'],
 									'CLICKS2' => $getpoll3['clicks2'],
 									'CLICKS3' => $getpoll3['clicks3'],

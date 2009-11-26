@@ -72,7 +72,7 @@ while ($getcomments3[$i] = mysql_fetch_array($getcomments2))
 								'USERNAME' => (($website != '') ? '<a href="' . $website . '">' . $username . '</a>' : $username),
 								'DATE' => date("F jS Y \a\\t g:i:s a",strtotime($getcomments3[$i]['posttime'])),
 								'ID' => $getcomments3[$i]['id'],
-								'TEXT' => parseText($getcomments3[$i]['comment'])));
+								'TEXT' => parseText(stripslashes($getcomments3[$i]['comment']))));
 
 		if (isLoggedIn())
 		{

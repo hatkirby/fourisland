@@ -37,6 +37,7 @@
 					<LI id="bannernav-home"><A HREF="/" REL="home"><B><SPAN>Home</SPAN></B></A></LI>
 					<LI id="bannernav-projects"><A HREF="http://projects.fourisland.com"><B><SPAN>Projects</SPAN></B></A></LI>
 					<LI id="bannernav-fourm"><A HREF="/fourm/"><B><SPAN>Fourm</SPAN></B></A></LI>
+					<LI id="bannernav-wiki"><A HREF="/wiki/"><B><SPAN>Wiki</SPAN></B></A></LI>
 					<LI id="bannernav-poll"><A HREF="/poll/"><B><SPAN>Poll</SPAN></B></A></LI>
 					<LI id="bannernav-quotes"><A HREF="/quotes/"><B><SPAN>Quotes</SPAN></B></A></LI>
 					<LI id="bannernav-<!--LOWERLOGDATA-->"><A HREF="http://fourisland.com/fourm/ucp.php?mode=log<!--LOGDATA-->&amp;redirect=<!--REDIRPAGE-->&amp;sid=<!--SID-->"><B><SPAN>Log<!--LOGDATA--></SPAN></B></A></LI>
@@ -87,6 +88,8 @@
 
 					<P />
 		                        <!--END CREATE_HATNAV-->
+
+					<!--EXTRASIDEBAR-->
 					
 					<div class="module rounded sidebar">
                                         	<h3>Poll of the Week</h3>

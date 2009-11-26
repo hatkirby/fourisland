@@ -20,27 +20,18 @@
 
 require('headerproc.php');
 
-header('Content-type: application/xhtml+xml');
-
 include('../security/config.php');
 include('includes/db.php');
-include('includes/template.php');
-include('includes/session.php');
-include('includes/parsers.php');
-include('includes/xmlrpc/xmlrpc.inc');
-include('includes/specialdates.php');
-include('includes/functions.php');
+include('includes/common.php');
 
 if (!isAdmin())
 {
 	ob_start();
 	generateError('404');
-	$doc = ob_get_contents();
+	$content = ob_get_contents();
 	ob_end_clean();
 
-	include('includes/header.php');
-	echo($doc);
-	include('includes/footer.php');
+	include('includes/layout.php');
 
 	exit;
 }

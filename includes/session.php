@@ -22,7 +22,7 @@ if (!defined('S_INCLUDE_FILE')) {define('S_INCLUDE_FILE',1);}
 
 require('headerproc.php');
 
-session_start();
+@session_start();
 
 function getSessionID()
 {

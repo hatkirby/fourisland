@@ -28,19 +28,17 @@ $template->add('CATEGORY',(isset($pageCategory)) ? $pageCategory : 'none');
 $template->add('AID',(isset($pageAID)) ? $pageAID : 'none');
 $template->add('EXTRATITLE',isset($title) ? ($title . ' - ') : '');
 $template->add(strtoupper($pageCategory) . 'ACTIVE', ' class="active"');
+$template->add('EXTRASIDEBAR', isset($extraSidebar) ? $extraSidebar : '');
 
-if (($pageCategory != 'fourm') && ($pageCategory != 'wiki'))
+$template->add('REDIRPAGE',rawurlencode($_SERVER['REQUEST_URI']));
+$template->add('LOGDATA',echoLogData());
+$template->add('LOWERLOGDATA','log' . strtolower(echoLogData()));
+$template->add('SID',getSessionID());
+$template->adds_block('MEMBERS',array('exi' => 1));
+
+if (isAdmin())
 {
-	$template->add('REDIRPAGE',rawurlencode($_SERVER['REQUEST_URI']));
-	$template->add('LOGDATA',echoLogData());
-	$template->add('LOWERLOGDATA','log' . strtolower(echoLogData()));
-	$template->add('SID',getSessionID());
-	$template->adds_block('MEMBERS',array('exi' => 1));
-
-	if (isAdmin())
-	{
-		$template->adds_block('ADMIN',array('exi' => 1));
-	}
+	$template->adds_block('ADMIN',array('exi' => 1));
 }
 
 if (isset($hatNav) && is_array($hatNav))
@@ -278,7 +276,7 @@ if (!isset($noRightbar))
 
 $template->add('ME', getRewriteURL());
 
-$template->add('CONTENT', stripslashes($content));
+$template->add('CONTENT', $content);
 
 $template->display();
 
