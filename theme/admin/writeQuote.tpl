@@ -23,7 +23,7 @@
 			<p id="error<!--QUOTEERROR.ID-->" class="errorField"><strong><!--QUOTEERROR.TEXT--></strong></p>
 			<!--END QUOTEERROR-->
 			<label for="quote">Quote</label>
-			<textarea name="quote" id="quote" style="height: 24em"><![CDATA[<!--QUOTEVALUE-->]]></textarea>
+			<textarea name="quote" id="quote" style="height: 24em"><!--QUOTEVALUE--></textarea>
 		</div>
 	</fieldset>
 

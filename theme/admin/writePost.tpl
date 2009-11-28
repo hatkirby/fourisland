@@ -33,7 +33,7 @@
 			<p id="error<!--TEXTERROR.ID-->" class="errorField"><strong><!--TEXTERROR.TEXT--></strong></p>
 			<!--END TEXTERROR-->
 			<label for="text">Text</label>
-			<textarea name="text" id="text" style="height: 24em"><![CDATA[<!--TEXTVALUE-->]]></textarea>
+			<textarea name="text" id="text" style="height: 24em"><!--TEXTVALUE--></textarea>
 		</div>
 	</fieldset>
 
