@@ -30,13 +30,14 @@ $hatNav = array(        array(  'title' => 'Archive',
                                 'icon' => '16-file-archive'));
 
 $template = new FITemplate('post');
-$template->adds_block('INTERNAL',array('exi'=>1));
 $template->add('IFXAMP', $xhtml ? '&amp;' : '&');
 $template->add('IFXLT', $xhtml ? '&lt;' : '<');
 $template->add('IFXGT', $xhtml ? '&gt;' : '>');
 
 if (isset($_GET['post']))
 {
+	$template->adds_block('INTERNAL',array('exi'=>1));
+
 	$getpost = "SELECT * FROM updates WHERE slug = \"" . urldecode($_GET['post']) . "\"";
 	$getpost2 = mysql_query($getpost);
 	$getpost3 = mysql_fetch_array($getpost2);
@@ -126,6 +127,8 @@ if (isset($_GET['post']))
 		generateError('404');
 	}
 } else {
+	$template->adds_block('EXTERNAL',array('exi'=>1));
+
 	$curID = 0;
 
 	$gettrack = "SELECT * FROM tracking WHERE ip = \"" . $_SERVER['REMOTE_ADDR'] . "\"";
