@@ -87,7 +87,7 @@ while ($getposts3[$i] = mysql_fetch_array($getposts2))
 
 	$template->adds_ref_sub($curID, 'SMALL',array(	'DATE' => date('m-d-Y',strtotime($getposts3[$i]['pubDate'])),
 							'CODED' => $getposts3[$i]['slug'],
-							'TITLE' => htmlentities($getposts3[$i]['title'])));
+							'TITLE' => htmlentities(stripslashes($getposts3[$i]['title']))));
 	$i++;
 }
 if ($i==0)
