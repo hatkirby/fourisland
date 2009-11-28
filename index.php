@@ -34,7 +34,7 @@ if (strpos($_SERVER['REQUEST_URI'],'index.php'))
 
 ob_start();
 
-$pageName = isset($_GET['area']) ? $_GET['area'] : 'welcome';
+$pageName = basename($_GET['area']);
 
 if (file_exists('pages/' . $pageName . '.php'))
 {

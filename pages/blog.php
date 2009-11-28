@@ -25,14 +25,18 @@ require('headerproc.php');
 $pageCategory = 'blog';
 $pageAID = 'archive';
 
+$hatNav = array(        array(  'title' => 'Archive',
+                                'url' => 'http://fourisland.com/blog/',
+                                'icon' => '16-file-archive'));
+
+$template = new FITemplate('post');
+$template->adds_block('INTERNAL',array('exi'=>1));
+$template->add('IFXAMP', $xhtml ? '&amp;' : '&');
+$template->add('IFXLT', $xhtml ? '&lt;' : '<');
+$template->add('IFXGT', $xhtml ? '&gt;' : '>');
+
 if (isset($_GET['post']))
 {
-	$template = new FITemplate('post');
-	$template->adds_block('INTERNAL',array('exi'=>1));
-	$template->add('IFXAMP', $xhtml ? '&amp;' : '&');
-	$template->add('IFXLT', $xhtml ? '&lt;' : '<');
-	$template->add('IFXGT', $xhtml ? '&gt;' : '>');
-
 	$getpost = "SELECT * FROM updates WHERE slug = \"" . urldecode($_GET['post']) . "\"";
 	$getpost2 = mysql_query($getpost);
 	$getpost3 = mysql_fetch_array($getpost2);
@@ -122,48 +126,21 @@ if (isset($_GET['post']))
 		generateError('404');
 	}
 } else {
-	$template = new FITemplate('archive');
-	if (isset($_GET['author']))
-	{
-		$title = 'Author: ' . $_GET['author'] . ' - Blog Archive';
-		$template->add('HEADER', 'Posts by ' . $_GET['author']);
-		$getposts = "SELECT * FROM updates AS u WHERE author = \"" . $_GET['author'] . "\" ORDER BY id DESC";
-		$getbio = "SELECT * FROM bio WHERE username = \"" . $_GET['author'] . "\"";
-		$getbio2 = mysql_query($getbio);
-		$getbio3 = mysql_fetch_array($getbio2);
-		if ($getbio3['username'] == $_GET['author'])
-		{
-			$template->adds_block('BIO', array(	'TEXT' => $getbio3['text'],
-								'USERNAME' => $getbio3['username'],
-								'DATE' => date('F jS Y \a\\t g:i:s a',strtotime($getbio3['lastUpdated']))));
-		}
-	} elseif (isset($_GET['tag']))
-	{
-		$title = 'Tag: ' . $_GET['tag'] . ' - Blog Archive';
-		$template->add('HEADER', 'Posts tagged with ' . $_GET['tag']);
-		$getposts = "SELECT * FROM updates AS u, tags AS t WHERE u.id = t.post_id AND t.post_type = \"published\" AND t.tag = \"" . $_GET['tag'] . "\" ORDER BY u.id DESC";
-	} else {
-		$title = 'Blog Archive';
-		$template->add('HEADER', 'Blog Archive');
-		$getposts = "SELECT * FROM updates AS u ORDER BY id DESC";
-	}
-	$getposts2 = mysql_query($getposts);
-	$i=0;
-	while ($getposts3[$i] = mysql_fetch_array($getposts2))
-	{
-		if ((!isset($lastmonth)) || ($lastmonth != date('m-Y',strtotime($getposts3[$i]['pubDate']))))
-		{
-			if (!isset($curID))
-			{
-				$curID = 0;
-			} else {
-				$curID++;
-			}
-			$template->add_ref($curID, 'MONTH', array('TITLE' => date('F Y',strtotime($getposts3[$i]['pubDate']))));
-			$lastmonth = date('m-Y',strtotime($getposts3[$i]['pubDate']));
-		}
+	$curID = 0;
 
-		$page_id = 'updates-' . $getposts3[$i]['id'];
+	$gettrack = "SELECT * FROM tracking WHERE ip = \"" . $_SERVER['REMOTE_ADDR'] . "\"";
+	$gettrack2 = mysql_query($gettrack);
+	$gettrack3 = mysql_fetch_array($gettrack2);
+
+	$trackArr = explode(',',$gettrack3['rating']);
+
+	$getpost = "SELECT * FROM updates ORDER BY id DESC LIMIT 0,4";
+	$getpost2 = mysql_query($getpost);
+	while ($getpost3 = mysql_fetch_array($getpost2))
+	{
+		updatePop($getpost3['id'],'home_views');
+
+		$page_id = 'updates-' . $getpost3['id'];
 		$getcomments = "SELECT * FROM comments WHERE page_id = \"" . $page_id . "\" ORDER BY posttime";
 		$getcomments2 = mysql_query($getcomments);
 		$total_post=0;
@@ -185,15 +162,35 @@ if (isset($_GET['post']))
 			$comText = $total_post . ' Comments';
 		}
 
-		$template->adds_ref_sub($curID, 'SMALL',array(	'DATE' => date('m-d-Y',strtotime($getposts3[$i]['pubDate'])),
-								'CODED' => $getposts3[$i]['slug'],
-								'TITLE' => htmlentities($getposts3[$i]['title'])));
-		$i++;
+		$template->add_ref($curID, 'POST', array(	'ID' => $getpost3['id'],
+								'YEARID' => ((date('Y',strtotime($getpost3['pubDate']))-2006) % 4),
+								'DATE' => date('F jS Y \a\\t g:i:s a',strtotime($getpost3['pubDate'])),
+								'MONTH' => date('M',strtotime($getpost3['pubDate'])),
+								'DAY' => date('d',strtotime($getpost3['pubDate'])),
+								'CODED' => $getpost3['slug'],
+								'TITLE' => htmlentities(stripslashes($getpost3['title'])),
+								'AUTHOR' => $getpost3['author'],
+								'PLURALCOMMENT' => (isset($plural) ? $plural : ''),
+								'COMMENTS' => $comText,
+								'RATING' => $getpost3['rating'],
+								'TEXT' => parseText(stripslashes($getpost3['text']))));
+
+		$tags = getTags($getpost3['id']);
+		foreach ($tags as $tag)
+		{
+			$template->adds_ref_sub($curID, 'TAGS', array('TAG' => $tag));
+		}
+
+		if (($gettrack3['ip'] != $_SERVER['REMOTE_ADDR']) || (array_search($getpost3['id'],$trackArr) === FALSE))
+		{
+			$template->adds_ref_sub($curID, 'CANVOTE', array('exi'=>1));
+		} else {
+			$template->adds_ref_sub($curID, 'NOVOTE', array('exi'=>1));
+		}
+
+		$curID++;
 	}
-	if ($i==0)
-	{
-		generateError('404');
-	}
+
 	$template->display();
 }
 

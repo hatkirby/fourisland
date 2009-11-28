@@ -399,15 +399,20 @@ function getRewriteURL()
 	} else {
 		if ($_GET['area'] == 'blog')
 		{
+			if (isset($_GET['post']))
+			{
+				return '/blog/' . $_GET['post'] . '/';
+			} else {
+				return '/';
+			}
+		} else if ($_GET['area'] == 'archive')
+		{
 			if (isset($_GET['author']))
 			{
 				return '/blog/author/' . $_GET['author'] . '.php';
 			} else if (isset($_GET['tag']))
 			{
 				return '/blog/tag/' . $_GET['tag'] . '.php';
-			} else if (isset($_GET['post']))
-			{
-				return '/blog/' . $_GET['post'] . '/';
 			} else {
 				return '/blog/';
 			}
