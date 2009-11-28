@@ -49,7 +49,7 @@ if (isset($_GET['post']))
 		if (isset($getback3['title']))
 		{
 			$template->adds_block('BACK', array(	'CODED' => $getback3['slug'],
-								'TITLE' => htmlentities($getback3['title'])));
+								'TITLE' => htmlentities(stripslashes($getback3['title']))));
 		}
 
 		$getnext = "SELECT * FROM updates WHERE id > " . $getpost3['id'] . " ORDER BY id ASC LIMIT 0,1";
@@ -58,7 +58,7 @@ if (isset($_GET['post']))
 		if (isset($getnext3['title']))
 		{
 			$template->adds_block('NEXT', array(	'CODED' => $getnext3['slug'],
-								'TITLE' => htmlentities($getnext3['title'])));
+								'TITLE' => htmlentities(stripslashes($getnext3['title']))));
 		}
 
 		$template->add_ref(0, 'POST', array(	'ID' => $getpost3['id'],
