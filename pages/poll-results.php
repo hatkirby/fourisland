@@ -24,26 +24,21 @@ require('headerproc.php');
 
 if ((isset($_GET['id'])) && (is_numeric($_GET['id'])) && ($_GET['id'] >= 1) && ($_GET['id'] <= 4))
 {
-	if (isLoggedIn())
+	$getip = "SELECT * FROM didpollalready WHERE ip = \"" . $_SERVER['REMOTE_ADDR'] . "\"";
+	$getip2 = mysql_query($getip);
+	$getip3 = mysql_fetch_array($getip2);
+
+	if ($getip3['ip'] != $_SERVER['REMOTE_ADDR'])
 	{
-		$getip = "SELECT * FROM didpollalready WHERE ip = \"" . $_SERVER['REMOTE_ADDR'] . "\"";
-		$getip2 = mysql_query($getip);
-		$getip3 = mysql_fetch_array($getip2);
+		$setip = "INSERT INTO didpollalready SET ip = \"" . $_SERVER['REMOTE_ADDR'] . "\"";
+		$setip2 = mysql_query($setip);
+		$getpoll = "SELECT * FROM polloftheweek ORDER BY id DESC LIMIT 0,1";
+		$getpoll2 = mysql_query($getpoll);
+		$getpoll3 = mysql_fetch_array($getpoll2);
+		$setpoll = "UPDATE polloftheweek SET clicks" . $_GET['id'] . " = " . ($getpoll3['clicks' . $_GET['id']]+1) . " WHERE id = " . $getpoll3['id'];
+		$setpoll2 = mysql_query($setpoll);
 
-		if ($getip3['ip'] != $_SERVER['REMOTE_ADDR'])
-		{
-			$setip = "INSERT INTO didpollalready SET ip = \"" . $_SERVER['REMOTE_ADDR'] . "\"";
-			$setip2 = mysql_query($setip);
-			$getpoll = "SELECT * FROM polloftheweek ORDER BY id DESC LIMIT 0,1";
-			$getpoll2 = mysql_query($getpoll);
-			$getpoll3 = mysql_fetch_array($getpoll2);
-			$setpoll = "UPDATE polloftheweek SET clicks" . $_GET['id'] . " = " . ($getpoll3['clicks' . $_GET['id']]+1) . " WHERE id = " . $getpoll3['id'];
-			$setpoll2 = mysql_query($setpoll);
-
-			die(getPollOfTheWeek());
-		} else {
-			generateError('404');
-		}
+		die(getPollOfTheWeek());
 	} else {
 		generateError('404');
 	}
