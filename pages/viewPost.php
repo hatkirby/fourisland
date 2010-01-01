@@ -36,7 +36,7 @@ if (!isAdmin())
 	if ($getpost3['id'] == $_GET['id'])
 	{
 		$template->add_ref(0, 'POST', array(	'ID' => $getpost3['id'],
-							'YEARID' => ((date('Y')-2006) % 4),
+							'YEARID' => (((date('Y')-2007) % 4) + 1),
 							'DATE' => date('F jS Y \a\\t g:i:s a'),
 							'MONTH' => date('M'),
 							'DAY' => date('d'),

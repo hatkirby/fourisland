@@ -67,7 +67,7 @@ if (isset($_GET['post']))
 		}
 
 		$template->add_ref(0, 'POST', array(	'ID' => $getpost3['id'],
-							'YEARID' => ((date('Y',strtotime($getpost3['pubDate']))-2006) % 4),
+							'YEARID' => (((date('Y',strtotime($getpost3['pubDate']))-2007) % 4) + 1),
 							'DATE' => date('F jS Y \a\\t g:i:s a',strtotime($getpost3['pubDate'])),
 							'MONTH' => date('M',strtotime($getpost3['pubDate'])),
 							'DAY' => date('d',strtotime($getpost3['pubDate'])),
@@ -166,7 +166,7 @@ if (isset($_GET['post']))
 		}
 
 		$template->add_ref($curID, 'POST', array(	'ID' => $getpost3['id'],
-								'YEARID' => ((date('Y',strtotime($getpost3['pubDate']))-2006) % 4),
+								'YEARID' => (((date('Y',strtotime($getpost3['pubDate']))-2007) % 4) + 1),
 								'DATE' => date('F jS Y \a\\t g:i:s a',strtotime($getpost3['pubDate'])),
 								'MONTH' => date('M',strtotime($getpost3['pubDate'])),
 								'DAY' => date('d',strtotime($getpost3['pubDate'])),
