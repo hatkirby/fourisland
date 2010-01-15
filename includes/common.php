@@ -50,12 +50,6 @@ if (isset($_GET['layout']))
 if (preg_match('|MSIE ([0-9].[0-9]{1,2})|', $_SERVER['HTTP_USER_AGENT'], $matched))
 {
 	$usingIE = true;
-} else {
-	if (getLayout() == '7')
-	{
-		header('Content-type: application/xhtml+xml');
-		$xhtml = true;
-	}
 }
 
 ?>
