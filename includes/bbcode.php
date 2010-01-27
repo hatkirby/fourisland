@@ -68,7 +68,7 @@ class BBCode
 			$this->init();
 		}
 
-		$to_parse = str_replace("\n",'[br]',htmlentities($text));
+		$to_parse = str_replace("\n",'[br]',$text);
 		
 		foreach ($this->bbcodes as $name => $value)
 		{
