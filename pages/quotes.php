@@ -25,31 +25,31 @@ require('headerproc.php');
 $pageCategory = 'quotes';
 
 $hatNav = array(	array(	'title' => 'Latest',
-							'url' => 'http://fourisland.com/quotes/latest.php',
+							'url' => '/quotes/latest.php',
 							'icon' => '16-star-hot'
 					),
 					array(	'title' => 'Best',
-							'url' => 'http://fourisland.com/quotes/top.php',
+							'url' => '/quotes/top.php',
 							'icon' => 'medal_gold_1'
 					),
 					array(	'title' => 'Worst',
-							'url' => 'http://fourisland.com/quotes/bottom.php',
+							'url' => '/quotes/bottom.php',
 							'icon' => '16-message-warn'
 					),
 					array(	'title' => 'Browse All',
-							'url' => 'http://fourisland.com/quotes/browse.php',
+							'url' => '/quotes/browse.php',
 							'icon' => '16-file-archive'
 					),
 					array(	'title' => 'Random',
-							'url' => 'http://fourisland.com/quotes/random.php',
+							'url' => '/quotes/random.php',
 							'icon' => '16-clock'
 					),
 					array(	'title' => 'Add',
-							'url' => 'http://fourisland.com/quotes/add.php',
+							'url' => '/quotes/add.php',
 							'icon' => '16-em-pencil'
 					),
 					array(	'title' => 'Search',
-							'url' => 'http://fourisland.com/quotes/search.php',
+							'url' => '/quotes/search.php',
 							'icon' => 'book_open'
 					));
 

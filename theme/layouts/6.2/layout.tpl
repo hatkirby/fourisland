@@ -4,9 +4,9 @@
 	<HEAD>
 		<TITLE><!--EXTRATITLE-->Four Island</TITLE>
 
-		<LINK REL="stylesheet" TYPE="text/css" HREF="http://fourisland.com/theme/css.php?id=<!--BODYID-->&amp;cat=<!--CATEGORY-->">
-		<!--[if IE]><LINK REL="stylesheet" TYPE="text/css" HREF="http://fourisland.com/theme/css/ie.css"><![endif]-->
-		<LINK REL="stylesheet" TYPE="text/css" HREF="http://fourisland.com/theme/css/print.css" MEDIA="print">
+		<LINK REL="stylesheet" TYPE="text/css" HREF="/theme/css.php?id=<!--BODYID-->&amp;cat=<!--CATEGORY-->">
+		<!--[if IE]><LINK REL="stylesheet" TYPE="text/css" HREF="/theme/css/ie.css"><![endif]-->
+		<LINK REL="stylesheet" TYPE="text/css" HREF="/theme/css/print.css" MEDIA="print">
 		<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 		<META HTTP-EQUIV="Content-Language" CONTENT="en">
 		<LINK REL="alternate" TYPE="application/rss+xml" HREF="http://feeds.feedburner.com/FourIsland?format=xml" TITLE="Four Island">
@@ -34,7 +34,7 @@
 				<DIV>
 					<UL>
 						<LI<!--HOMEACTIVE-->>
-							<A HREF="http://fourisland.com/">
+							<A HREF="/">
 								<IMG SRC="/theme/images/icons/newspaper.png" ALT="Blog">
 								<SPAN>Blog</SPAN>
 							</A>
@@ -45,7 +45,7 @@
 						</LI>
 
 						<LI<!--FOURMACTIVE-->>
-							<A HREF="http://fourisland.com/fourm/">
+							<A HREF="/fourm/">
 								<IMG SRC="/theme/images/icons/comment.png" ALT="The Fourm">
 								<SPAN>The Fourm</SPAN>
 							</A>
@@ -53,21 +53,21 @@
 
 
 						<LI<!--WIKIACTIVE-->>
-							<A HREF="http://fourisland.com/wiki/">
+							<A HREF="/wiki/">
 								<IMG SRC="/theme/images/icons/report.png" ALT="Wiki">
 								<SPAN>Wiki</SPAN>
 							</A>
 						</LI>
 
 						<LI<!--POLLACTIVE-->>
-							<A HREF="http://fourisland.com/poll/">
+							<A HREF="/poll/">
 								<IMG SRC="/theme/images/icons/overlays.png" ALT="Polls">
 								<SPAN>Polls</SPAN>
 							</A>
 						</LI>
 
 						<LI<!--QUOTESACTIVE-->>
-							<A HREF="http://fourisland.com/quotes/">
+							<A HREF="/quotes/">
 								<IMG SRC="/theme/images/icons/16-file-page.png" ALT="Quotes">
 								<SPAN>Quotes</SPAN>
 							</A>
@@ -75,7 +75,7 @@
 
 						<!--BEGIN MEMBERS-->
 						<LI<!--LOGACTIVE-->>
-							<A HREF="http://fourisland.com/fourm/ucp.php?mode=log<!--LOGDATA-->&amp;redirect=<!--REDIRPAGE-->&amp;sid=<!--SID-->">
+							<A HREF="/fourm/ucp.php?mode=log<!--LOGDATA-->&amp;redirect=<!--REDIRPAGE-->&amp;sid=<!--SID-->">
 								<IMG SRC="/theme/images/icons/door_in.png" ALT="Log<!--LOGDATA-->">
 								<SPAN>Log<!--LOGDATA--></SPAN>
 							</A>
@@ -84,7 +84,7 @@
 
 						<!--BEGIN ADMIN-->
 						<LI<!--PANELACTIVE-->>
-							<A HREF="http://fourisland.com/admin/">
+							<A HREF="/admin/">
 								<IMG SRC="/theme/images/icons/rainbow.png" ALT="Admin">
 								<SPAN>Admin</SPAN>
 							</A>

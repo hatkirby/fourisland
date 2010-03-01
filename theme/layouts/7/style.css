@@ -8,7 +8,7 @@ body {
 div#header {
 	width: 100%;
 	height: 200px;
-	background-image: url(http://fourisland.com/theme/images/header-repeat.png);
+	background-image: url(/theme/images/header-repeat.png);
 	background-repeat: repeat-x;
 }
 
@@ -16,7 +16,7 @@ div#banner {
 	width: 800px;
 	height: 200px;
 	margin: 0 auto;
-	background-image: url(http://fourisland.com/theme/images/header.png);
+	background-image: url(/theme/images/header.png);
 	background-position: bottom right;
 }
 
