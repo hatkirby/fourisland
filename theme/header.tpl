@@ -3,9 +3,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 	<head>
 		<title><!--EXTRATITLE-->Four Island</title>
-		<link rel="stylesheet" type="text/css" href="http://fourisland.com/theme/css.php" />
-		<!--[if IE]><link rel="stylesheet" type="text/css" href="http://fourisland.com/theme/css/ie.css" /><![endif]-->
-		<link rel="stylesheet" type="text/css" href="http://fourisland.com/theme/css/print.css" media="print" />
+		<link rel="stylesheet" type="text/css" href="/theme/css.php" />
+		<!--[if IE]><link rel="stylesheet" type="text/css" href="/theme/css/ie.css" /><![endif]-->
+		<link rel="stylesheet" type="text/css" href="/theme/css/print.css" media="print" />
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta http-equiv="Content-Language" content="en" />
 		<link rel="alternate" type="application/rss+xml" href="http://feeds.feedburner.com/FourIsland?format=xml" title="Four Island" />
@@ -19,7 +19,7 @@
 		<div id="flash"><!--FLASH--></div>
 
 		<div id="header">
-			<div id="banner"><a href="http://fourisland.com/">Four Island</a></div>
+			<div id="banner"><a href="/">Four Island</a></div>
 		</div>
 		
 		<div id="page-content">
@@ -108,7 +108,7 @@
 			<div id="content">
 				<ul id="navbar">
 					<li<!--BLOGACTIVE-->>
-						<a href="http://fourisland.com/">
+						<a href="/">
 							<img src="/theme/images/icons/newspaper.png" alt="Blog" />
 							<span>Blog</span>
 						</a>
@@ -119,21 +119,21 @@
 					</li>
 
 					<li<!--FOURMACTIVE-->>
-						<a href="http://fourisland.com/fourm/">
+						<a href="/fourm/">
 							<img src="/theme/images/icons/comment.png" alt="The Fourm" />
 							<span>The Fourm</span>
 						</a>
 					</li>
 
 					<li<!--POLLACTIVE-->>
-						<a href="http://fourisland.com/poll/">
+						<a href="/poll/">
 							<img src="/theme/images/icons/overlays.png" alt="Polls" />
 							<span>Polls</span>
 						</a>
 					</li>
 
 					<li<!--QUOTESACTIVE-->>
-						<a href="http://fourisland.com/quotes/">
+						<a href="/quotes/">
 							<img src="/theme/images/icons/16-file-page.png" alt="Quotes" />
 							<span>Quotes</span>
 						</a>
@@ -141,7 +141,7 @@
 
 					<!--BEGIN MEMBERS-->
 					<li<!--LOGACTIVE-->>
-						<a href="http://fourisland.com/fourm/ucp.php?mode=log<!--LOGDATA-->&amp;redirect=<!--REDIRPAGE-->&amp;sid=<!--SID-->">
+						<a href="/fourm/ucp.php?mode=log<!--LOGDATA-->&amp;redirect=<!--REDIRPAGE-->&amp;sid=<!--SID-->">
 							<img src="/theme/images/icons/door_in.png" alt="Log<!--LOGDATA-->" />
 							<span>Log<!--LOGDATA--></span>
 						</a>
@@ -150,7 +150,7 @@
 
 					<!--BEGIN ADMIN-->
 					<li<!--PANELACTIVE-->>
-						<a href="http://fourisland.com/admin/">
+						<a href="/admin/">
 							<img src="/theme/images/icons/rainbow.png" alt="Admin" />
 							<span>Admin</span>
 						</a>

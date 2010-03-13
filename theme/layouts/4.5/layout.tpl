@@ -2,8 +2,8 @@
 	<HEAD>
 		<TITLE><!--EXTRATITLE-->Four Island</TITLE>
 
-		<LINK REL="stylesheet" TYPE="text/css" HREF="http://fourisland.com/theme/css.php?id=<!--BODYID-->&amp;cat=<!--CATEGORY-->" />
-		<LINK REL="stylesheet" TYPE="text/css" HREF="http://fourisland.com/theme/css/thickbox.css" />
+		<LINK REL="stylesheet" TYPE="text/css" HREF="/theme/css.php?id=<!--BODYID-->&amp;cat=<!--CATEGORY-->" />
+		<LINK REL="stylesheet" TYPE="text/css" HREF="/theme/css/thickbox.css" />
 		<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8" />
 		<META HTTP-EQUIV="Content-Language" CONTENT="en" />
 		<LINK REL="alternate" TYPE="application/rss+xml" HREF="http://feeds.feedburner.com/FourIsland?format=xml" TITLE="Four Island" />
@@ -40,7 +40,7 @@
 					<LI id="bannernav-wiki"><A HREF="/wiki/"><B><SPAN>Wiki</SPAN></B></A></LI>
 					<LI id="bannernav-poll"><A HREF="/poll/"><B><SPAN>Poll</SPAN></B></A></LI>
 					<LI id="bannernav-quotes"><A HREF="/quotes/"><B><SPAN>Quotes</SPAN></B></A></LI>
-					<LI id="bannernav-<!--LOWERLOGDATA-->"><A HREF="http://fourisland.com/fourm/ucp.php?mode=log<!--LOGDATA-->&amp;redirect=<!--REDIRPAGE-->&amp;sid=<!--SID-->"><B><SPAN>Log<!--LOGDATA--></SPAN></B></A></LI>
+					<LI id="bannernav-<!--LOWERLOGDATA-->"><A HREF="/fourm/ucp.php?mode=log<!--LOGDATA-->&amp;redirect=<!--REDIRPAGE-->&amp;sid=<!--SID-->"><B><SPAN>Log<!--LOGDATA--></SPAN></B></A></LI>
 					<!--BEGIN PANEL-->
 					<LI id="bannernav-panel"><A HREF="/admin/"><B><SPAN>Panel</SPAN></B></A></LI>
 					<!--END PANEL-->

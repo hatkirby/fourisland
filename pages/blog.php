@@ -26,7 +26,7 @@ $pageCategory = 'blog';
 $pageAID = 'archive';
 
 $hatNav = array(        array(  'title' => 'Archive',
-                                'url' => 'http://fourisland.com/blog/',
+                                'url' => '/blog/',
                                 'icon' => '16-file-archive'));
 
 $template = new FITemplate('post');
