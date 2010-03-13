@@ -21,9 +21,7 @@
 if (!defined('S_INCLUDE_FILE')) {define('S_INCLUDE_FILE',1);}
 
 require('headerproc.php');
-
-include('includes/recaptchalib.php');
-$privatekey = "6LfgvgEAAAAAAD0_UVLp57MU7tqcypsbZPS9qTnr";
+require('includes/securimage/securimage.php');
 
 if (!isset($_POST['id']))
 {
@@ -41,10 +39,11 @@ if (!isset($_POST['id']))
 			} else {
 				if (preg_match('/^[A-Za-z0-9!#$&\'*+-\/=?^_`{|}~]+@[-A-Za-z0-9]+(\.[-A-Za-z0-9]+)+[A-Za-z]$/', $_POST['email']))
 				{
-					$resp = recaptcha_check_answer ($privatekey, $_SERVER["REMOTE_ADDR"], $_POST["recaptcha_challenge_field"], $_POST["recaptcha_response_field"]);
-					if (!$resp->is_valid)
+					$img = new Securimage;
+					
+					if ($img->check($_POST['code']) == false)
 					{
-						die('The reCAPTCHA wasn\'t entered correctly. Go back and try it again.');
+						die('The CAPTCHA wasn\'t entered correctly. Go back and try it again.');
 					} else {
 						$getanon = "SELECT * FROM anon_commenters WHERE username = \"" . $_POST['username'] . "\"";
 						$getanon2 = mysql_query($getanon);

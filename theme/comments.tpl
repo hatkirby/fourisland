@@ -73,8 +73,7 @@ function postComment()
 			username: jQuery("#newComment input:text[name=username]").val(),
 			email: jQuery("#newComment input:text[name=email]").val(),
 			website: jQuery("#newComment input:text[name=website]").val(),
-			recaptcha_challenge_field: jQuery("#newComment input[name=recaptcha_challenge_field]").val(),
-			recaptcha_response_field: jQuery("#newComment input[name=recaptcha_response_field]").val()
+			code: jQuery("#newComment input:text[name=code]").val()
 		}),
 		dataType: "text",
 		success: function(msg) {
@@ -110,7 +109,9 @@ function postComment()
 			<p>
 			Name: <input type="text" name="username" /><br />
 			Email: <input type="text" name="email" /><br />
-			Website (Optional): <input type="text" name="website" />
+			Website (Optional): <input type="text" name="website" /><br />
+			Security Image: <img src="/includes/securimage/securimage_show.php" alt="CAPTCHA Image" /><br />
+			Security Code: <input type="text" name="code" />
 			</p>
 			<!--END NOLOG-->
 			<button type="button" onclick="postComment();">Post</button>
