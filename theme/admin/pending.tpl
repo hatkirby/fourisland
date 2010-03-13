@@ -7,7 +7,7 @@ function deletePost(id)
 {
 	if (confirm("Are you sure you would like to delete this pending post?"))
 	{
-		postwith("/admin/pending.php?pageID=<!--PAGEID-->&amp;action=delete",{id:id});
+		postwith("/admin/pending.php?pageID=<!--PAGEID-->&action=delete",{id:id});
 	}
 }
 
@@ -41,7 +41,7 @@ function bulkAction()
 		{
 			if (confirm("Are you sure you would like to delete the selected posts?"))
 			{
-				postwith("/admin/pending.php?pageID=<!--PAGEID-->&amp;action=deletes",{ids:ids});
+				postwith("/admin/pending.php?pageID=<!--PAGEID-->&action=deletes",{ids:ids});
 			}
 		}
 	}	

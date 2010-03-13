@@ -7,7 +7,7 @@ function deleteQuote(id)
 {
 	if (confirm("Are you sure you would like to delete this quote?"))
 	{
-		postwith("/admin/quotes.php?<!--FLAGGED-->pageID=<!--PAGEID-->&amp;action=delete",{id:id});
+		postwith("/admin/quotes.php?<!--FLAGGED-->pageID=<!--PAGEID-->&action=delete",{id:id});
 	}
 }
 
@@ -41,7 +41,7 @@ function bulkAction()
 		{
 			if (confirm("Are you sure you would like to delete the selected quotes?"))
 			{
-				postwith("/admin/quotes.php?<!--FLAGGED-->pageID=<!--PAGEID-->&amp;action=deletes",{ids:ids});
+				postwith("/admin/quotes.php?<!--FLAGGED-->pageID=<!--PAGEID-->&action=deletes",{ids:ids});
 			}
 		}
 	}	

@@ -7,13 +7,13 @@ function denyComment(id)
 {
 	if (confirm("Are you sure you would like to deny this comment?"))
 	{
-		postwith("/admin/comments.php?pageID=<!--PAGEID-->&amp;action=deny",{id:id});
+		postwith("/admin/comments.php?pageID=<!--PAGEID-->&action=deny",{id:id});
 	}
 }
 
 function approveComment(id)
 {
-	postwith("/admin/comments.php?pageID=<!--PAGEID-->&amp;action=approve",{id:id});
+	postwith("/admin/comments.php?pageID=<!--PAGEID-->&action=approve",{id:id});
 }
 
 // following function taken from http://mentaljetsam.wordpress.com/2008/06/02/using-javascript-to-post-data-between-pages/
@@ -46,13 +46,13 @@ function bulkAction()
 		{
 			if (confirm("Are you sure you would like to deny the selected comments?"))
 			{
-				postwith("/admin/comments.php?pageID=<!--PAGEID-->&amp;action=denys",{ids:ids});
+				postwith("/admin/comments.php?pageID=<!--PAGEID-->&action=denys",{ids:ids});
 			}
 		} else if ($('#manage-bulk select').val() == "approve")
 		{
 			if (confirm("Are you sure you would like to approve the selected comments?"))
 			{
-				postwith("/admin/comments.php?pageID=<!--PAGEID-->&amp;action=approves",{ids:ids});
+				postwith("/admin/comments.php?pageID=<!--PAGEID-->&action=approves",{ids:ids});
 			}
 		}
 	}	

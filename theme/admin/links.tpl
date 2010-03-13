@@ -7,7 +7,7 @@ function deleteLink(id)
 {
 	if (confirm("Are you sure you would like to delete this link?"))
 	{
-		postwith("/admin/links.php?pageID=<!--PAGEID-->&amp;action=delete",{id:id});
+		postwith("/admin/links.php?pageID=<!--PAGEID-->&action=delete",{id:id});
 	}
 }
 
@@ -41,7 +41,7 @@ function bulkAction()
 		{
 			if (confirm("Are you sure you would like to delete the selected links?"))
 			{
-				postwith("/admin/links.php?pageID=<!--PAGEID-->&amp;action=deletes",{ids:ids});
+				postwith("/admin/links.php?pageID=<!--PAGEID-->&action=deletes",{ids:ids});
 			}
 		}
 	}	

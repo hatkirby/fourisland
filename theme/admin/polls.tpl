@@ -7,7 +7,7 @@ function deletePoll(id)
 {
 	if (confirm("Are you sure you would like to delete this poll?"))
 	{
-		postwith("/admin/polls.php?pageID=<!--PAGEID-->&amp;action=delete",{id:id});
+		postwith("/admin/polls.php?pageID=<!--PAGEID-->&action=delete",{id:id});
 	}
 }
 
@@ -41,7 +41,7 @@ function bulkAction()
 		{
 			if (confirm("Are you sure you would like to delete the selected polls?"))
 			{
-				postwith("/admin/polls.php?pageID=<!--PAGEID-->&amp;action=deletes",{ids:ids});
+				postwith("/admin/polls.php?pageID=<!--PAGEID-->&action=deletes",{ids:ids});
 			}
 		}
 	}	

@@ -7,7 +7,7 @@ function deletePost(id)
 {
 	if (confirm("Are you sure you would like to delete this draft?"))
 	{
-		postwith("/admin/drafts.php?pageID=<!--PAGEID-->&amp;action=delete",{id:id});
+		postwith("/admin/drafts.php?pageID=<!--PAGEID-->&action=delete",{id:id});
 	}
 }
 
@@ -41,7 +41,7 @@ function bulkAction()
 		{
 			if (confirm("Are you sure you would like to delete the selected drafts?"))
 			{
-				postwith("/admin/drafts.php?pageID=<!--PAGEID-->&amp;action=deletes",{ids:ids});
+				postwith("/admin/drafts.php?pageID=<!--PAGEID-->&action=deletes",{ids:ids});
 			}
 		}
 	}	
