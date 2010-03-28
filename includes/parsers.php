@@ -22,6 +22,7 @@ if (!defined('S_INCLUDE_FILE')) {define('S_INCLUDE_FILE',1);}
 
 require('headerproc.php');
 
+include_once('includes/specialdates.php');
 include('includes/bbcode.php');
 include('includes/smilies.php');
 
