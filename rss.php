@@ -24,6 +24,7 @@ include('../security/config.php');
 include('includes/db.php');
 include('includes/functions.php');
 include('includes/parsers.php');
+include_once('includes/specialdates.php');
 
 header('Content-type: application/rss+xml');
 
