@@ -35,7 +35,7 @@
 			<DIV ID="banner-nav">
 				<UL ID="bannernav">
 					<LI id="bannernav-home"><A HREF="/" REL="home"><B><SPAN>Home</SPAN></B></A></LI>
-					<LI id="bannernav-projects"><A HREF="http://projects.fourisland.com"><B><SPAN>Projects</SPAN></B></A></LI>
+					<LI id="bannernav-projects"><A HREF="http://projects.fourisland.com/"><B><SPAN>Projects</SPAN></B></A></LI>
 					<LI id="bannernav-fourm"><A HREF="/fourm/"><B><SPAN>Fourm</SPAN></B></A></LI>
 					<LI id="bannernav-wiki"><A HREF="/wiki/"><B><SPAN>Wiki</SPAN></B></A></LI>
 					<LI id="bannernav-poll"><A HREF="/poll/"><B><SPAN>Poll</SPAN></B></A></LI>

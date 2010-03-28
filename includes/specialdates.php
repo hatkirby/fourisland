@@ -42,6 +42,7 @@ sd_lunar_annual('Presidents Day',2,1,3); //DateFinder
 sd_solar_annual('Valentines Day',2,14); //BG Pic; DateFinder
 sd_solar_multiannual('Leap Day',2,29,4,2004); //DateFinder
 sd_solar_annual('St Patricks Day',3,17); //DateFinder
+sd_solar_annual('April Fools Day',4,1); //Awesome
 sd_solar_annual('Tri\'s CIEday',4,22); //DateFinder
 sd_solar_annual('Silence Day',4,25); //DateFinder
 sd_solar_annual('WCA Day',5,5); //DateFinder
@@ -352,8 +353,22 @@ function sd_dateFinder()
 			case 'Tris CIEday': return 'This is the day that shei came.';
 			case 'Silence Day': return 'Support LGBT people by keeping the silence until 5 PM.';
 			case 'CTNH': return '<A HREF="/fuhsdiufgsadiufgaisfioas.php">It never happened.</A>';
+			case 'April Fools Day': return 'Long live the three!';
 		}
 	}
+}
+
+function doAprilFoolsDay($text)
+{
+	if (sd_isSpecialDay('April Fools Day'))
+        {
+                $text = str_replace('four', 'three', $text);
+                $text = str_replace('Four', 'Three', $text);
+                //$text = str_replace('4', '3', $text);
+                $text = str_replace('FOUR', 'THREE', $text);
+        }
+        
+        return $text;
 }
 
 ?>

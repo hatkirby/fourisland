@@ -47,6 +47,14 @@ if (isset($_GET['layout']))
 	exit;
 }
 
+if (sd_isSpecialDay('April Fools Day') && ($_COOKIE['layout'] != '7'))
+{
+	setcookie('layout', 7, time()+60*60*24*30, '/', '.fourisland.com');
+
+	header('Location: ' . getRewriteURL());
+	exit;
+}
+
 if (preg_match('|MSIE ([0-9].[0-9]{1,2})|', $_SERVER['HTTP_USER_AGENT'], $matched))
 {
 	$usingIE = true;

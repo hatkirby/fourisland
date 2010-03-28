@@ -29,6 +29,7 @@ function parseText($text)
 {
 	$text = parseBBCode($text);
 	$text = parseSmilies($text);
+	$text = doAprilFoolsDay($text);
 
 	return $text;
 }

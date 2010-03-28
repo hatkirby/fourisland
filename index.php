@@ -44,6 +44,7 @@ if (file_exists('pages/' . $pageName . '.php'))
 }
 
 $content = ob_get_contents();
+
 ob_end_clean();
 
 include('includes/layout.php');

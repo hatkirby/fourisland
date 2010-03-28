@@ -47,7 +47,7 @@ if (isset($hatNav) && is_array($hatNav))
 	
 	foreach ($hatNav as $item)
 	{
-		$template->adds_block('HATNAV',array('TITLE' => $item['title'], 'URL' => $item['url'], 'ICON' => $item['icon']));
+		$template->adds_block('HATNAV',array('TITLE' => doAprilFoolsDay($item['title']), 'URL' => $item['url'], 'ICON' => $item['icon']));
 	}
 }
 
@@ -76,7 +76,7 @@ $i=0;
 while ($getaffs3 = mysql_fetch_array($getaffs2))
 {
 	$template->adds_block('AFFILIATES', array(	'COLOR' => getTagColor($i++),
-							'TITLE' => htmlentities($getaffs3['title']),
+							'TITLE' => doAprilFoolsDay(htmlentities($getaffs3['title'])),
 							'URL' => $getaffs3['url']));
 }
 
@@ -86,7 +86,7 @@ $i=0;
 while ($getwebps3 = mysql_fetch_array($getwebps2))
 {
 	$template->adds_block('WEBPROJS', array(	'COLOR' => getTagColor($i++),
-							'TITLE' => htmlentities($getwebps3['title']),
+							'TITLE' => doAprilFoolsDay(htmlentities($getwebps3['title'])),
 							'URL' => $getwebps3['url']));
 }
 
@@ -235,7 +235,7 @@ $i=0;
 while ($getpopular3[$i] = mysql_fetch_array($getpopular2))
 {
 	$template->adds_block('POPULAR', array(	'CODED' => $getpopular3[$i]['slug'],
-						'TITLE' => stripslashes(htmlentities($getpopular3[$i]['title']))));
+						'TITLE' => doAprilFoolsDay(stripslashes(htmlentities($getpopular3[$i]['title'])))));
 	$i++;
 }
 
@@ -278,6 +278,17 @@ $template->add('ME', getRewriteURL());
 
 $template->add('CONTENT', $content);
 
+ob_start();
 $template->display();
+$document = ob_get_contents();
+ob_end_clean();
+
+$document = doAprilFoolsDay($document);
+$document = str_replace(doAprilFoolsDay($content), $content, $document);
+$document = str_replace("id=\"threem\"", "id=\"fourm\"", $document);
+$document = str_replace("id=\"threeipedia\"", "id=\"fouripedia\"", $document);
+$document = str_replace('CLASS="threem none threem-none"', 'CLASS="fourm none fourm-none"', $document);
+$document = str_replace("threeisland.com/", "fourisland.com/", $document);
+echo($document);
 
 ?>

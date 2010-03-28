@@ -53,7 +53,7 @@ if (!isset($_GET['id']))
 			$question .= '....';
 		}
 		$template->adds_block('POLL', array(	'ID' => $getpolls3[$i]['id'],
-							'QUESTION' => htmlentities(stripslashes($question)),
+							'QUESTION' => doAprilFoolsDay(htmlentities(stripslashes($question))),
 							'WEEK' => date('F jS Y', strtotime($getpolls3[$i]['week'])),
 							'EVEN' => (($i % 2 == 1) ? ' class="even"' : '')));
 		$i++;
@@ -97,10 +97,10 @@ if (!isset($_GET['id']))
 			$template->adds_block('COMPLETE', array(	'RSS' => parseText(stripslashes($getpoll3['text'])),
 									'AUTHOR' => $getrss3['author'],
 									'DATE' => date("F jS Y \a\\t g:i:s a",strtotime($getpoll3['week'])),
-									'OPTION1' => stripslashes($getpoll3['option1']),
-									'OPTION2' => stripslashes($getpoll3['option2']),
-									'OPTION3' => stripslashes($getpoll3['option3']),
-									'OPTION4' => stripslashes($getpoll3['option4']),
+									'OPTION1' => doAprilFoolsDay(stripslashes($getpoll3['option1'])),
+									'OPTION2' => doAprilFoolsDay(stripslashes($getpoll3['option2'])),
+									'OPTION3' => doAprilFoolsDay(stripslashes($getpoll3['option3'])),
+									'OPTION4' => doAprilFoolsDay(stripslashes($getpoll3['option4'])),
 									'CLICKS1' => $getpoll3['clicks1'],
 									'CLICKS2' => $getpoll3['clicks2'],
 									'CLICKS3' => $getpoll3['clicks3'],

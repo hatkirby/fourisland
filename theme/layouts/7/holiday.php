@@ -100,6 +100,17 @@ if (sd_isSpecialDay('Four Island A'))
 	$bgimgm = 'island6';
 }
 
+if (sd_isSpecialDay('April Fools Day'))
+{
+?>
+
+div#banner {
+ background-image: url(/theme/images/afd-l7.png);
+}
+
+<?php
+}
+
 ?>
 
 div#window {

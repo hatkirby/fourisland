@@ -22,9 +22,11 @@ if (!defined('S_INCLUDE_FILE')) {define('S_INCLUDE_FILE',1);}
 
 require('headerproc.php');
 
+include_once('../includes/specialdates.php');
+
 include('layouts/6.2/style.css');
 
-if (((date('G') >= 20) || (date('G') <= 6)) || isset($_GET['night']) && !isset($_GET['day']))
+if ((((date('G') >= 20) || (date('G') <= 6)) || (isset($_GET['night']) && !isset($_GET['day']))) && sd_ifNoSpecialDay())
 {
 	include('layouts/6.2/night.css');
 } else {
