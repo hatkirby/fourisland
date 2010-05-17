@@ -25,9 +25,9 @@ header('Content-type: text/css');
 include('../includes/functions.php');
 
 include('css/website.css');
+include('css/bubbles.css');
 include('layouts/' . getLayout() . '/style.php');
 include('css/blog.php');
-include('css/bubbles.css');
 include('css/quotes.css');
 
 ?>

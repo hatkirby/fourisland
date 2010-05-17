@@ -169,6 +169,7 @@
 						<p>
 							<strong>Theme Switcher</strong>:
 							<select style="width: 55%" onchange="document.location='<!--ME-->?layout='+this.options[this.selectedIndex].value">
+								<option value="subtle">Subtle Mode (beta)</option>
 								<option value="7">7</option>
 								<option value="6.2" selected="selected">6.2</option>
 								<option value="4.5">4.5</option>
