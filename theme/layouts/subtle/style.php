@@ -107,7 +107,7 @@ cite {
 h4 {
 	/* Forum and topic list titles */
 	font-family: "Trebuchet MS", Verdana, Helvetica, Arial, Sans-serif;
-	font-size: 1.3em;
+	before: 1.3em;
 }
 
 ul.topiclist {
@@ -136,7 +136,7 @@ ul.topiclist dt {
 	display: block;
 	float: left;
 	width: 50%;
-	font-size: 1.1em;
+	before: 1.1em;
 	padding-left: 5px;
 	padding-right: 5px;
 }
@@ -193,21 +193,21 @@ dd.posts, dd.topics, dd.views {
 	width: 8%;
 	text-align: center;
 	line-height: 2.2em;
-	font-size: 1.2em;
+	before: 1.2em;
 }
 
 dd.lastpost {
 	width: 25%;
-	font-size: 1.1em;
+	before: 1.1em;
 }
 
 dd.redirect {
-	font-size: 1.1em;
+	before: 1.1em;
 	line-height: 2.5em;
 }
 
 dd.moderation {
-	font-size: 1.1em;
+	before: 1.1em;
 }
 
 dd.lastpost span, ul.topiclist dd.searchby span, ul.topiclist dd.info span, ul.topiclist dd.time span, dd.redirect span, dd.moderation span {
@@ -218,14 +218,14 @@ dd.lastpost span, ul.topiclist dd.searchby span, ul.topiclist dd.info span, ul.t
 dd.time {
 	width: auto;
 	line-height: 200%;
-	font-size: 1.1em;
+	before: 1.1em;
 }
 
 dd.extra {
 	width: 12%;
 	line-height: 200%;
 	text-align: center;
-	font-size: 1.1em;
+	before: 1.1em;
 }
 
 dd.mark {
@@ -233,7 +233,7 @@ dd.mark {
 	width: 9%;
 	text-align: center;
 	line-height: 200%;
-	font-size: 1.2em;
+	before: 1.2em;
 }
 
 dd.info {
@@ -244,19 +244,19 @@ dd.option {
 	width: 15%;
 	line-height: 200%;
 	text-align: center;
-	font-size: 1.1em;
+	before: 1.1em;
 }
 
 dd.searchby {
 	width: 47%;
-	font-size: 1.1em;
+	before: 1.1em;
 	line-height: 1em;
 }
 
 ul.topiclist dd.searchextra {
 	margin-left: 5px;
 	padding: 0.2em 0;
-	font-size: 1.1em;
+	before: 1.1em;
 	color: #333333;
 	border-left: none;
 	clear: both;
@@ -267,7 +267,7 @@ ul.topiclist dd.searchextra {
 /* Container for post/reply buttons and pagination */
 .topic-actions {
 	margin-bottom: 3px;
-	font-size: 1.1em;
+	before: 1.1em;
 	height: 28px;
 	min-height: 28px;
 }
@@ -309,7 +309,7 @@ div[class].topic-actions {
 	overflow: hidden;
 	line-height: 1.4em;
 	font-family: "Lucida Grande", "Trebuchet MS", Verdana, Helvetica, Arial, sans-serif;
-	font-size: 1em;
+	before: 1em;
 	color: #333333;
 }
 
@@ -317,7 +317,7 @@ div[class].topic-actions {
 	font-weight: normal;
 	color: #989898;
 	border-bottom: 1px solid #CCCCCC;
-	font-size: 1.6em;
+	before: 1.6em;
 	margin-top: 0.5em;
 	margin-bottom: 0.5em;
 	padding-bottom: 0.5em;
@@ -328,21 +328,21 @@ div[class].topic-actions {
 }
 
 .panel p {
-	font-size: 1.2em;
+	before: 1.2em;
 	margin-bottom: 1em;
 	line-height: 1.4em;
 }
 
 .content p {
 	font-family: "Lucida Grande", "Trebuchet MS", Verdana, Helvetica, Arial, sans-serif;
-	font-size: 1.2em;
+	before: 1.2em;
 	margin-bottom: 1em;
 	line-height: 1.4em;
 }
 
 dl.faq {
 	font-family: "Lucida Grande", Verdana, Helvetica, Arial, sans-serif;
-	font-size: 1.1em;
+	before: 1.1em;
 	margin-top: 1em;
 	margin-bottom: 2em;
 	line-height: 1.4em;
@@ -354,7 +354,7 @@ dl.faq dt {
 }
 
 .content dl.faq {
-	font-size: 1.2em;
+	before: 1.2em;
 	margin-bottom: 0.5em;
 }
 
@@ -384,7 +384,7 @@ p.author {
 	margin: 0 15em 0.6em 0;
 	padding: 0 0 5px 0;
 	font-family: Verdana, Helvetica, Arial, sans-serif;
-	font-size: 1em;
+	before: 1em;
 	line-height: 1.2em;
 }
 
@@ -392,7 +392,7 @@ p.author {
 .signature {
 	margin-top: 1.5em;
 	padding-top: 0.2em;
-	font-size: 1.1em;
+	before: 1.1em;
 	border-top: 1px solid #CCCCCC;
 	clear: left;
 	line-height: 140%;
@@ -413,7 +413,7 @@ dd .signature {
 	width: auto;
 	margin-top: 1.5em;
 	padding-top: 0.2em;
-	font-size: 1em;
+	before: 1em;
 	border-top: 1px dashed #CCCCCC;
 	clear: left;
 	line-height: 130%;
@@ -432,7 +432,7 @@ ul.searchresults {
 #phpBB3-page-body blockquote {
 	background: #ebebeb none 6px 8px no-repeat;
 	border: 1px solid #dbdbdb;
-	font-size: 0.95em;
+	before: 0.95em;
 	margin: 0.5em 1px 0 25px;
 	overflow: hidden;
 	padding: 5px;
@@ -441,7 +441,7 @@ ul.searchresults {
 blockquote blockquote {
 	/* Nested quotes */
 	background-color: #bababa;
-	font-size: 1em;
+	before: 1em;
 	margin: 0.5em 1px 0 15px;	
 }
 
@@ -456,11 +456,11 @@ blockquote cite {
 	font-weight: bold;
 	margin-left: 20px;
 	display: block;
-	font-size: 0.9em;
+	before: 0.9em;
 }
 
 blockquote cite cite {
-	font-size: 1em;
+	before: 1em;
 }
 
 blockquote.uncited {
@@ -472,14 +472,14 @@ dl.codebox {
 	padding: 3px;
 	background-color: #FFFFFF;
 	border: 1px solid #d8d8d8;
-	font-size: 1em;
+	before: 1em;
 }
 
 dl.codebox dt {
 	text-transform: uppercase;
 	border-bottom: 1px solid #CCCCCC;
 	margin-bottom: 3px;
-	font-size: 0.8em;
+	before: 0.8em;
 	font-weight: bold;
 	display: block;
 }
@@ -576,7 +576,7 @@ div.inline-attachment dl.thumbnail, div.inline-attachment dl.file {
 }
 
 div.inline-attachment p {
-	font-size: 100%;
+	before: 100%;
 }
 
 dl.file {
@@ -611,7 +611,7 @@ dl.thumbnail dd {
 }
 
 .attachbox dl.thumbnail dd {
-	font-size: 100%;
+	before: 100%;
 }
 
 dl.thumbnail dt a:hover {
@@ -649,7 +649,7 @@ fieldset.polls dt {
 	border-right: none;
 	padding: 0;
 	margin: 0;
-	font-size: 1.1em;
+	before: 1.1em;
 }
 
 fieldset.polls dd {
@@ -658,7 +658,7 @@ fieldset.polls dd {
 	border-left: none;
 	padding: 0 5px;
 	margin-left: 0;
-	font-size: 1.1em;
+	before: 1.1em;
 }
 
 fieldset.polls dd.resultbar {
@@ -855,7 +855,7 @@ hr.divider {
 }
 
 span.corners-top, span.corners-bottom, span.corners-top span, span.corners-bottom span {
-	font-size: 1px;
+	before: 1px;
 	line-height: 1px;
 	display: block;
 	height: 5px;
@@ -914,7 +914,7 @@ ul.linklist li {
 	float: left;
 	width: auto;
 	margin-right: 5px;
-	font-size: 1.1em;
+	before: 1.1em;
 	line-height: 2.2em;
 }
 
@@ -961,7 +961,7 @@ table.table1 thead th {
 	text-transform: uppercase;
 	color: #FFFFFF;
 	line-height: 1.3em;
-	font-size: 0.8em; /* 1em */
+	before: 0.8em; /* 1em */
 	padding: 0 0 4px 3px;
 }
 
@@ -980,7 +980,7 @@ table.table1 tbody tr:hover, table.table1 tbody tr.hover {
 
 table.table1 td {
 	color: #6a6a6a;
-	font-size: 0.8em; /* 1.1em*/
+	before: 0.8em; /* 1.1em*/
 }
 
 table.table1 tbody td {
@@ -1059,7 +1059,7 @@ table.info tbody th {
 
 dl.details {
 	/*font-family: "Lucida Grande", Verdana, Helvetica, Arial, sans-serif;*/
-	font-size: 1.1em;
+	before: 1.1em;
 }
 
 dl.details dt {
@@ -1109,7 +1109,7 @@ li.pagination {
 	color: #FFFFFF;
 	background-color: #bfbfbf;
 	border: 1px solid #bfbfbf;
-	font-size: 0.9em;
+	before: 0.9em;
 }
 
 .pagination span a, .pagination span a:link, .pagination span a:visited, .pagination span a:active {
@@ -1120,7 +1120,7 @@ li.pagination {
 	padding: 0 2px;
 	background-color: #eeeeee;
 	border: 1px solid #bababa;
-	font-size: 0.9em;
+	before: 0.9em;
 	line-height: 1.5em;
 }
 
@@ -1142,7 +1142,7 @@ li.pagination {
 	width: auto;
 	margin-top: 0;
 	padding: 1px 0 1px 15px;
-	font-size: 0.9em;
+	before: 0.9em;
 	background: none 0 50% no-repeat;
 }
 
@@ -1334,4 +1334,14 @@ ul.profile-icons li.warn-icon	{ width: {IMG_ICON_USER_WARN_WIDTH}px; height: {IM
 ul.profile-icons li.edit-icon	{ margin: 0 0 0 3px; }
 ul.profile-icons li.quote-icon	{ margin: 0 0 0 10px; }
 ul.profile-icons li.info-icon, ul.profile-icons li.report-icon	{ margin: 0 3px 0 0; }
+
+div#window {
+        width: 100%;
+        background-color: #67E6EC !important;
+        background-image: none;
+}
+
+div#actual-content {
+        background-color: #67E6EC !important;
+}
 
