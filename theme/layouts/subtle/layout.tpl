@@ -14,6 +14,13 @@
 		<link rel="icon" href="/images/kirbyfolder.ico" />
 		<link rel="pingback" href="http://fourisland.com/xmlrpc.php" />
 		<script type="text/javascript" src="/theme/js/jquery.js"></script>
+		<script type="text/javascript" src="/theme/js/audio-player/audio-player.js"></script>  
+		<script type="text/javascript">  
+AudioPlayer.setup("http://dev.fourisland.com/theme/js/audio-player/player.swf", {  
+	width: 290,
+	transparentpagebg: "yes"
+});  
+		</script>
 	</head>
 
 	<body id="<!--CATEGORY-->">
