@@ -57,6 +57,7 @@ class BBCode
 		$this->bbcodes['thumb'] = '<a href="/images/{CONTENT}"><img src="http://fourisland.com/thumb.php?file=images/{CONTENT}&amp;mode=scale&amp;by=521&amp;side=0" alt="Image" /></a>';
 		$this->bbcodes['thumb2'] = '<a href="/images/{CONTENT}"><img src="http://fourisland.com/thumb.php?file=images/{CONTENT}&amp;mode=scale&amp;by=260&amp;side=0" align="right" alt="Image" /></a>';
 		$this->bbcodes['project'] = '<a href="http://projects.fourisland.com/projects/show/{CONTENT}">{CONTENT}</a>';
+		$this->bbcodes['hr'] = '<hr size="2" color="black" />';
 
 		$this->init = true;
 	}
