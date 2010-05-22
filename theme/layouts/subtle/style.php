@@ -1345,3 +1345,26 @@ div#actual-content {
         background-color: #67E6EC !important;
 }
 
+#phpBB3-page-body {
+	font-size: 0.75em;
+}
+
+span.corners-top,
+span.corners-top span,
+span.corners-bottom,
+span.corners-bottom span {
+	background-image: none;
+}
+
+.navbar {
+	background-color: none;
+	padding: 0;
+}
+
+ul.navlinks {
+	border-bottom: none;
+}
+
+#actual-content .navbar li + li:before {
+	content: "";
+}
