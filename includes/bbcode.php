@@ -58,7 +58,7 @@ class BBCode
 		$this->bbcodes['thumb2'] = '<a href="/images/{CONTENT}"><img src="http://fourisland.com/thumb.php?file=images/{CONTENT}&amp;mode=scale&amp;by=260&amp;side=0" align="right" alt="Image" /></a>';
 		$this->bbcodes['project'] = '<a href="http://projects.fourisland.com/projects/show/{CONTENT}">{CONTENT}</a>';
 		$this->bbcodes['hr'] = '<hr size="2" color="black" />';
-		$this->bbcodes2['audio'] = '<p id="audioplayer_{CONTENT}">{CONTENT}</p><script>AudioPlayer.embed("audioplayer_{CONTENT}", {soundFile: "{PARAM}", titles: "{CONTENT}"});</script>';
+		$this->bbcodes2['audio'] = '<p id="audioplayer_{CONTENT}">Click to download: <a href="{PARAM}">{CONTENT}</a></p><script>AudioPlayer.embed("audioplayer_{CONTENT}", {soundFile: "{PARAM}", titles: "{CONTENT}"});</script>';
 
 		$this->init = true;
 	}
