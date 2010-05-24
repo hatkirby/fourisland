@@ -188,3 +188,36 @@ div.module + cite {
 div.module.unrounded + cite {
 	top: -0.7em;
 }
+
+#phpBB3-page-body .post,
+#phpBB3-page-body .rules {
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-khtml-border-radius: 10px;
+	border-radius: 10px;
+	padding: 10px;
+}
+
+#phpBB3-page-body .forabg,
+#phpBB3-page-body .forumbg {
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-khtml-border-radius: 10px;
+	border-radius: 10px;
+	padding: 5px;
+}
+
+.navbar,
+.panel {
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-khtml-border-radius: 10px;
+	border-radius: 10px;
+}
+
+span.corners-top,
+span.corners-bottom,
+span.corners-top span,
+span.corners-bottom span {
+	visibility: hidden;
+}
