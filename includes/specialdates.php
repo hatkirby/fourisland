@@ -47,7 +47,7 @@ sd_solar_annual('Tri\'s CIEday',4,22); //DateFinder
 sd_solar_annual('Silence Day',4,25); //DateFinder
 sd_solar_annual('WCA Day',5,5); //DateFinder
 sd_lunar_annual('Mothers Day',5,7,2); //BG Pic; DateFinder; Header Pic
-sd_lunar_annual('Memorial Day',5,1,4); //BG Pic; DateFinder; Header Pic
+sd_lunar_annual('Memorial Day',5,1,5); //BG Pic; DateFinder; Header Pic
 sd_easter(); //BG Pic; DateFinder
 sd_solar_annual('Flag Day',6,14); //BG Pic; DateFinder
 sd_solar_annual('Hatkirbys B-Day',6,17); //BG Pic; DateFinder; Header Pic
