@@ -16,7 +16,7 @@
 		<SCRIPT TYPE="text/javascript" SRC="/theme/js/jquery.js"></SCRIPT>
 		<script type="text/javascript" src="/theme/js/audio-player/audio-player.js"></script>  
 		<script type="text/javascript">  
-AudioPlayer.setup("http://dev.fourisland.com/theme/js/audio-player/player.swf", {  
+AudioPlayer.setup("http://fourisland.com/theme/js/audio-player/player.swf", {  
 	width: 290,
 	transparentpagebg: "yes"
 });  
