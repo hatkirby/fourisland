@@ -55,6 +55,7 @@ sd_lunar_annual('Fathers Day',6,7,3); //BG Pic; DateFinder
 sd_solar_annual('CTNH',6,17); //Header Pic; DateFinder
 sd_solar_annual('Independance Day',7,4); //BG Pic; DateFinder
 sd_lunar_annual('SysAdminDay',7,5,4); //DateFinder
+sd_solar_annual('Opposite Day',8,25); //Yet to be implemented
 sd_lunar_annual('Labor Day',9,1,1); //Yet to be implemented
 sd_solar_annual('Four Island A',9,22); //BG Pic; DateFinder; Header Pic
 sd_lunar_annual('Columbus Day',10,1,2); //BG Pic; DateFinder

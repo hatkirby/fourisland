@@ -279,6 +279,15 @@ AudioPlayer.setup("http://fourisland.com/theme/js/audio-player/player.swf", {
 			</DIV>
 		</DIV>
 
+<script type="text/javascript"> 
+var _tbdef = {user: 'starla4444'};
+(function(){
+var d = document;var tbjs = d.createElement('script'); tbjs.type = 'text/javascript';
+tbjs.async = true; tbjs.src = 'http://tweetboard.com/tb.js'; var tbel = d.getElementsByTagName('head')[0];
+if(!tbel) tbel = d.getElementsByTagName('head')[0]; tbel.appendChild(tbjs);
+})();
+</script>
+
 		<!--Google Analytics-->
 		<script type="text/javascript">
 			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
