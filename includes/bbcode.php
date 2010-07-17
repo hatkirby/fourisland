@@ -37,6 +37,7 @@ class BBCode
 		$this->bbcodes2['url'] = '<a href="{PARAM}">{CONTENT}</a>';
 		$this->bbcodes['img'] = '<img src="{CONTENT}" alt="Image" />';
 		$this->bbcodes2['img'] = '<img src="{CONTENT}" alt="{PARAM}" title="{PARAM}" />';
+		$this->bbcodes['imgright'] = '<img src="{CONTENT}" align="right" alt="Image" />';
 		$this->bbcodes['big'] = '<big>{CONTENT}</big>';
 		$this->bbcodes['small'] = '<small>{CONTENT}</small>';
 		$this->bbcodes['ul'] = '<ul>{CONTENT}</ul>';
