@@ -137,7 +137,7 @@ if (isset($_GET['post']))
 
 	$trackArr = explode(',',$gettrack3['rating']);
 
-	$getpost = "SELECT * FROM updates ORDER BY id DESC LIMIT 0,4";
+	$getpost = "SELECT * FROM updates ORDER BY id DESC LIMIT 0,10";
 	$getpost2 = mysql_query($getpost);
 	while ($getpost3 = mysql_fetch_array($getpost2))
 	{
