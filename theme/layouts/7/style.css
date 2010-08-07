@@ -1,7 +1,14 @@
+/* @font-face */
+@font-face {
+    font-family: DeliciousRoman;
+    src: url(http://fourisland.com/theme/layouts/7/Delicious-Roman.otf);
+    font-weight: 400;
+}
+
 /* Body */
 
 body {
-	font-family: "Lucida Grande", "Arial", sans;
+	font-family: DeliciousRoman, Verdana, sans;
 	background-color: #111;
 }
 
