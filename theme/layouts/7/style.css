@@ -8,7 +8,7 @@
 /* Body */
 
 body {
-	font-family: DeliciousRoman, Verdana, sans;
+	font-family: 'Lucida Grande', sans;
 	background-color: #111;
 }
 
@@ -227,4 +227,8 @@ span.corners-bottom,
 span.corners-top span,
 span.corners-bottom span {
 	visibility: hidden;
+}
+
+.post .entry {
+	font-family: DeliciousRoman, Verdana, sans;
 }
