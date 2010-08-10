@@ -5,6 +5,13 @@
     font-weight: 400;
 }
 
+@font-face {
+    font-family: DeliciousItalic;
+    src: url(http://fourisland.com/theme/layouts/7/Delicious-Italic.otf);
+    font-weight: 400;
+    font-style: italic;
+}
+
 /* Body */
 
 body {
@@ -232,4 +239,10 @@ span.corners-bottom span {
 .post .entry {
 	font-family: DeliciousRoman, Verdana, sans-serif;
 	font-size: 1.01em;
+}
+
+.post .entry em {
+	font-family: DeliciousItalic, Verdana, sans-serif;
+	font-size: 1.01em;
+	font-style: italic;
 }
