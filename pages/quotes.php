@@ -70,7 +70,7 @@ if (isset($_GET['id']) && !(is_numeric($_GET['id'])))
 	$template = new FITemplate('quotes/add');
 	if (isset($_GET['submit']))
 	{
-		$template->adds_block('SUBMITTED',array('QUOTE' => str_replace("\n","<br />",htmlentities(stripslashes($_POST['rash_quote'])))));
+		$template->adds_block('SUBMITTED',array('QUOTE' => str_replace("\n","<br />",htmlspecialchars(stripslashes($_POST['rash_quote'])))));
 		if (!isLoggedIn())
 		{
 			$insquote = "INSERT INTO rash_queue (quote) VALUES(\"" . mysql_real_escape_string(htmlspecialchars($_POST['rash_quote'])) . "\")";
@@ -236,7 +236,7 @@ function quote_generation($query, $origin, $page = 1, $quote_limit = 50, $page_l
 		$template->add_ref($curID,'QUOTES',array(	'NUMBER' => $getquotes3[$i]['id'],
 								'RATING' => $getquotes3[$i]['rating'],
 								'DATE' => ($getquotes3[$i]['date'] != 0 ? date('F jS Y \a\\t g:i:s a', $getquotes3[$i]['date']) : ''),
-								'QUOTE' => doAprilFoolsDay(str_replace("\n","<br />",htmlentities(stripslashes($getquotes3[$i]['quote'])))),
+								'QUOTE' => doAprilFoolsDay(str_replace("\n","<br />",htmlspecialchars(stripslashes($getquotes3[$i]['quote'])))),
 								'COMMENTS' => $comments));
 
 		if (($gettrack3['ip'] != $_SERVER['REMOTE_ADDR']) || (array_search($getquotes3[$i]['id'],$trackArr) === FALSE))
