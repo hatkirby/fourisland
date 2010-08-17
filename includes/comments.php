@@ -22,6 +22,10 @@ if (!defined('S_INCLUDE_FILE')) {define('S_INCLUDE_FILE',1);}
 
 require('headerproc.php');
 
+include('includes/recaptchalib.php');
+$publickey = "6LfgvgEAAAAAAG_BJMkWk8sNcT1nBaGoXKJYb-JT";
+$privatekey = "6LfgvgEAAAAAAD0_UVLp57MU7tqcypsbZPS9qTnr";
+
 $curID = 0;
 
 $template = new FITemplate('comments');
@@ -30,6 +34,7 @@ $template->add('USERNAME',(isLoggedIn() ? getSessionUsername() : 'Anonymous'));
 
 if (!isLoggedIn())
 {
+	$template->add('RECAPTCHA',recaptcha_get_html($publickey));
 	$template->adds_block('NOLOG',array('exi'=>1));
 }
 
