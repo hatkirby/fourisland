@@ -1,7 +1,7 @@
 <!--BEGIN FORM-->
 <div id="potw-ajax">
 	<span style="font-size: 16px; text-align: center">
-		<!--QUESTION-->
+		<a href="/poll/<!--ID-->.php"><!--QUESTION--></a>
 	</span>
 
 	<br />
@@ -32,7 +32,7 @@
 
 <!--BEGIN DISPLAY-->
 <span style="font-size: 16px; text-align: center">
-	<!--QUESTION-->
+	<a href="/poll/<!--ID-->.php"><!--QUESTION--></a>
 </span>
 
 <table width="100%" border="0" style="font-size: 12px">

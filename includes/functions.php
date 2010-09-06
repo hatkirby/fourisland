@@ -331,6 +331,7 @@ function getPollOfTheWeek($id = -1)
 	$getpoll2 = mysql_query($getpoll);
 	$getpoll3 = mysql_fetch_array($getpoll2);
 
+	$potw->add('ID', $getpoll3['id']);
 	$potw->add('QUESTION', doAprilFoolsDay(stripslashes(htmlentities($getpoll3['question']))));
 	$potw->add('OPTION1', doAprilFoolsDay(stripslashes(htmlentities($getpoll3['option1']))));
 	$potw->add('OPTION2', doAprilFoolsDay(stripslashes(htmlentities($getpoll3['option2']))));
