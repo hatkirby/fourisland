@@ -98,12 +98,6 @@ AudioPlayer.setup("http://fourisland.com/theme/js/audio-player/player.swf", {
 
 					<!--EXTRASIDEBAR-->
 					
-					<div class="module rounded sidebar">
-                                        	<h3>Poll of the Week</h3>
-
-                                        	<!--POTW-->
-	                                </div>
-
 					<P />
 
 					<DIV class="sidebar module rounded">

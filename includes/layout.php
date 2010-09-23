@@ -51,8 +51,6 @@ if (isset($hatNav) && is_array($hatNav))
 	}
 }
 
-$template->add('POTW', getPollOfTheWeek());
-
 $gethits = "SELECT * FROM config WHERE name = \"hits\"";
 $gethits2 = mysql_query($gethits);
 $gethits3 = mysql_fetch_array($gethits2);

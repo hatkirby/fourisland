@@ -28,14 +28,7 @@ if (!isset($_GET['id']))
 {
 	$template = new FITemplate('pollIndex');
 
-	if (isset($_GET['start']))
-	{
-		$start = $_GET['start'] * 10;
-	} else {
-		$start = 0;
-	}
-
-	$getpolls = "SELECT * FROM polloftheweek ORDER BY id DESC LIMIT " . $start . ",10";
+	$getpolls = "SELECT * FROM polloftheweek ORDER BY id DESC";
 	$getpolls2 = mysql_query($getpolls);
 	$i=0;
 	while ($getpolls3[$i] = mysql_fetch_array($getpolls2))
@@ -59,18 +52,6 @@ if (!isset($_GET['id']))
 		$i++;
 	}
 
-	if ($i==0)
-	{
-		generateError('404');
-		exit;
-	}
-
-	$start /= 10;
-	if ($start > 0)
-	{
-		$template->adds_block('PREVIOUS', array('ID' => ($start-1)));
-	}
-
 	$cntpolls = "SELECT COUNT(*) FROM polloftheweek";
 	$cntpolls2 = mysql_query($cntpolls);
 	$cntpolls3 = mysql_fetch_array($cntpolls2);
@@ -79,7 +60,6 @@ if (!isset($_GET['id']))
 		$template->adds_block('NEXT', array('ID' => ($start+1)));
 	}
 
-	$template->add('POTW', getPollOfTheWeek());
 	$template->display();
 } else {
 	$template = new FITemplate('poll');
