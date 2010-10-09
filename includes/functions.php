@@ -281,7 +281,7 @@ function displayRelated($title, $avoid = 0)
 			$template = new FITemplate('related');
 		}
 
-		$template->adds_block('POST', array(	'TITLE' => doAprilFoolsDay(htmlentities($getrelated3[$i]['title'])),
+		$template->adds_block('POST', array(	'TITLE' => doAprilFoolsDay(htmlentities(stripslashes($getrelated3[$i]['title']))),
 							'CODED' => $getrelated3[$i]['slug'],
 							'AUTHOR' => $getrelated3[$i]['author'],
 							'DATE' => date('F jS Y',strtotime($getrelated3[$i]['pubDate']))));
