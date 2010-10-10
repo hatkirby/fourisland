@@ -98,7 +98,7 @@ if (isset($_GET['post']))
 
 		$template->display();
 
-		$getpings = "SELECT * FROM pingbacks WHERE post_id = " . $getpost3['id'];
+		$getpings = "SELECT * FROM pingbacks WHERE post_id = " . $getpost3['id'] . " ORDER BY pubDate ASC";
 		$getpings2 = mysql_query($getpings);
 		$i=0;
 		while ($getpings3[$i] = mysql_fetch_array($getpings2))
