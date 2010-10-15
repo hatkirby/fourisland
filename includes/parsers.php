@@ -28,8 +28,9 @@ include('includes/smilies.php');
 function parseText($text)
 {
 	$text = htmlspecialchars($text);
+	$text = parseSmiliesFirstPass($text);
 	$text = parseBBCode($text);
-	$text = parseSmilies($text);
+	$text = parseSmiliesSecondPass($text);
 	$text = doAprilFoolsDay($text);
 
 	return $text;

@@ -58,9 +58,10 @@ class BBCode
 		$this->bbcodes['thumb'] = '<a href="/images/{CONTENT}"><img src="http://fourisland.com/thumb.php?file=images/{CONTENT}&amp;mode=scale&amp;by=521&amp;side=0" alt="Image" /></a>';
 		$this->bbcodes['thumb2'] = '<a href="/images/{CONTENT}"><img src="http://fourisland.com/thumb.php?file=images/{CONTENT}&amp;mode=scale&amp;by=260&amp;side=0" align="right" alt="Image" /></a>';
 		$this->bbcodes['thumb3'] = '<a href="/images/{CONTENT}"><img src="http://fourisland.com/thumb.php?file=images/{CONTENT}&amp;mode=scale&amp;by=260&amp;side=0" align="left" style="margin-right: 2em" alt="Image" /></a>';
-		$this->bbcodes['project'] = '<a href="http://projects.fourisland.com/projects/show/{CONTENT}">{CONTENT}</a>';
+ 		$this->bbcodes['project'] = '<a href="http://projects.fourisland.com/projects/show/{CONTENT}">{CONTENT}</a>';
 		$this->bbcodes['hr'] = '<hr size="2" color="black" />';
 		$this->bbcodes2['audio'] = '<p id="audioplayer_{CONTENT}">Click to download: <a href="{PARAM}">{CONTENT}</a></p><script>AudioPlayer.embed("audioplayer_{CONTENT}", {soundFile: "{PARAM}", titles: "{CONTENT}"});</script>';
+		$this->bbcodes['nosmilies'] = '{CONTENT}';
 
 		$this->init = true;
 	}
@@ -85,9 +86,14 @@ class BBCode
 				$to_parse = substr_replace($to_parse, $otag, $bbpos, strlen($name) + 2);
 				$to_parse = substr_replace($to_parse, $ctag, strpos(substr($to_parse, $bbpos), '[/' . $name . ']') + $bbpos, strlen($name) + 3);
 
-				if (strpos($this->bbcodes[$name], '<pre>') !== -1)
+				if (strpos($this->bbcodes[$name], '<pre>') !== FALSE)
 				{
 					$to_parse = substr_replace($to_parse, str_replace('[br]', '', substr($to_parse, strpos($to_parse, $otag) + strlen($otag), strpos($to_parse, $ctag) - (strpos($to_parse, $otag) + strlen($otag)))), strpos($to_parse, $otag) + strlen($otag), strpos($to_parse, $ctag) - (strpos($to_parse, $otag) + strlen($otag)));
+				}
+
+				if ($name == 'nosmilies')
+				{
+					$to_parse = preg_replace('/\[emoticon\](..)\[\/emoticon\]/', '\1', $to_parse);
 				}
 
 				$value = str_replace('{CONTENT}', '\1', $value);

@@ -37,7 +37,7 @@ class Smilies
 		$this->init = true;
 	}
 
-	function parseSmilies($text)
+	function parseSmiliesFirstPass($text)
 	{
 		if (!$this->init)
 		{
@@ -46,14 +46,29 @@ class Smilies
 
 		foreach ($this->smilies as $name => $value)
 		{
-			$text = str_replace($name, '<img src="http://fourisland.com/theme/images/smilies/' . $value . '" alt="' . $name . '" />', $text);
+			$text = str_replace($name, '[emoticon]' . $name . '[/emoticon]', $text);
+		}
+
+		return $text;
+	}
+
+	function parseSmiliesSecondPass($text)
+	{
+		if (!$this->init)
+		{
+			$this->init();
+		}
+
+		foreach ($this->smilies as $name => $value)
+		{
+			$text = str_replace('[emoticon]' . $name . '[/emoticon]', '<img src="/theme/images/smilies/' . $value . '" alt="' . $name . '" />', $text);
 		}
 
 		return $text;
 	}
 }
 
-function parseSmilies($text)
+function parseSmiliesFirstPass($text)
 {
 	global $smilies;
 	if (!isset($smilies))
@@ -61,7 +76,19 @@ function parseSmilies($text)
 		$smilies = new Smilies();
 	}
 
-	return $smilies->parseSmilies($text);
+	return $smilies->parseSmiliesFirstPass($text);
 }
+
+function parseSmiliesSecondPass($text)
+{
+	global $smilies;
+	if (!isset($smilies))
+	{
+		$smilies = new Smilies();
+	}
+
+	return $smilies->parseSmiliesSecondPass($text);
+}
+
 
 ?>
