@@ -22,18 +22,28 @@ if (!defined('S_INCLUDE_FILE')) {define('S_INCLUDE_FILE',1);}
 
 require('headerproc.php');
 
-$getconfig = "SELECT * FROM config WHERE name = \"maintenanceMode\"";
-$getconfig2 = mysql_query($getconfig);
-$getconfig3 = mysql_fetch_array($getconfig2);
-if ($getconfig3['value'] == '1')
+function isInMaintenance()
 {
-	if (($_SERVER['REMOTE_ADDR'] != '127.0.0.1') && (!isAdmin()))
-	{
-		$template = new FITemplate('maintenance');
-		$template->display($template);
+  $getconfig = "SELECT * FROM config WHERE name = \"maintenanceMode\"";
+  $getconfig2 = mysql_query($getconfig);
+  $getconfig3 = mysql_fetch_array($getconfig2);
+  if ($getconfig3['value'] == '1')
+  {
+	  if (($_SERVER['REMOTE_ADDR'] != '127.0.0.1') && (!isAdmin()))
+	  {
+	    return true;
+    }
+  }
+  
+  return false;
+}
 
-		exit;
-	}
+if (isInMaintenance())
+{
+	$template = new FITemplate('maintenance');
+	$template->display($template);
+
+	exit;
 }
 
 ?>
