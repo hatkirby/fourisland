@@ -38,7 +38,7 @@ function isInMaintenance()
   return false;
 }
 
-if (isInMaintenance())
+if ((isset($dbwebpasswd)) && (isInMaintenance()))
 {
 	$template = new FITemplate('maintenance');
 	$template->display($template);
