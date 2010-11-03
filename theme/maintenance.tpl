@@ -56,7 +56,7 @@
   <body>
     <nav id="options">
       <ul>
-        <li><a href="http://dev.fourisland.com/fourm/ucp.php?mode=login">Login</a></li>
+        <li><a href="http://fourisland.com/fourm/ucp.php?mode=login">Login</a></li>
       </ul>
     </nav>
     
