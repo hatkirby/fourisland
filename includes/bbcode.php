@@ -43,6 +43,7 @@ class BBCode
 		$this->bbcodes['ul'] = '<ul>{CONTENT}</ul>';
 		$this->bbcodes['ol'] = '<ol>{CONTENT}</ol>';
 		$this->bbcodes['li'] = '<li>{CONTENT}</li>';
+		$this->bbcodes2['li'] = '<li value="{PARAM}">{CONTENT}</li>';
 		$this->bbcodes['code'] = '<code>{CONTENT}</code>';
 		$this->bbcodes['pre'] = '<pre><code>{CONTENT}</code></pre>';
 		$this->bbcodes['pref'] = '<pre>{CONTENT}</pre>';
