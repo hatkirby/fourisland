@@ -66,13 +66,6 @@ AudioPlayer.setup("http://fourisland.com/theme/js/audio-player/player.swf", {
 							</A>
 						</LI>
 
-						<LI<!--POLLACTIVE-->>
-							<A HREF="/poll/">
-								<IMG SRC="/theme/images/icons/overlays.png" ALT="Polls">
-								<SPAN>Polls</SPAN>
-							</A>
-						</LI>
-
 						<LI<!--QUOTESACTIVE-->>
 							<A HREF="/quotes/">
 								<IMG SRC="/theme/images/icons/16-file-page.png" ALT="Quotes">

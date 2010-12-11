@@ -74,10 +74,10 @@ if (isset($_GET['submit']))
 		$template->adds_block('FLASH', array('TEXT' => 'Your link has been sucessfully edited.'));
 	}
 
-	$template->add('TITLEVALUE', htmlentities($_POST['title']));
+	$template->add('TITLEVALUE', htmlspecialchars($_POST['title']));
 	$template->add('URLVALUE', $_POST['url']);
 } else {
-	$template->add('TITLEVALUE', htmlentities($getlink3['title']));
+	$template->add('TITLEVALUE', htmlspecialchars($getlink3['title']));
 	$template->add('URLVALUE', $getlink3['url']);
 }
 

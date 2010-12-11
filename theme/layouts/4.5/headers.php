@@ -73,9 +73,6 @@ body.webs div#banner {
 body.quotes div#banner {
  background-image: url("/theme/images/headers/quotes.png");
 }
-body.poll div#banner {
- background-image: url("/theme/images/headers/potw.png");
-}
 /* AID-Based Headers */
 <?php
 }

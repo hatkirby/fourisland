@@ -68,7 +68,7 @@ if (!isset($_POST['id']))
 								$template = new FITemplate('new-comment');
 								$template->add('ID', $cid);
 								$template->add('CODEDEMAIL', md5(strtolower($getanon3['email'])));
-								$template->add('TEXT', stripslashes($_POST['comment']));
+								$template->add('TEXT', $_POST['comment']);
 								$template->add('USERNAME', $getanon3['username']);
 								$template->add('DATE', date("F jS Y \a\\t g:i:s a"));
 								$template->display();
@@ -108,7 +108,7 @@ if (!isset($_POST['id']))
 			$template = new FITemplate('new-comment');
 			$template->add('ID', $cid);
 			$template->add('CODEDEMAIL', md5(strtolower($getuser3['user_email'])));
-			$template->add('TEXT', stripslashes($_POST['comment']));
+			$template->add('TEXT', $_POST['comment']);
 			$template->add('USERNAME', getSessionUsername());
 			$template->add('DATE', date("F jS Y \a\\t g:i:s a"));
 			$template->display();

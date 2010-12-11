@@ -50,8 +50,6 @@ if (file_exists('admin/' . $pageName . '.php'))
 $doc = ob_get_contents();
 ob_end_clean();
 
-$doc = stripslashes($doc);
-
 $template = new FITemplate('admin/header');
 $template->add(strtoupper($category) . 'ACTIVECAT', ' class="active"');
 $template->adds_block(strtoupper($category) . 'ISACTIVECAT', array('exi'=>1));

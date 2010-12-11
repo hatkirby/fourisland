@@ -19,9 +19,6 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^wiki/(.+) /w/index.php?title=$1 [QSA,L]
 
-RewriteRule ^poll/$ /index.php?area=poll [QSA,L]
-RewriteRule ^poll/(.+).php /index.php?area=poll&id=$1 [QSA,L]
-
 RewriteRule ^quotes/$ /index.php?area=quotes [QSA,L]
 RewriteRule ^quotes/(.+).php /index.php?area=quotes&act=$1 [QSA,L]
 

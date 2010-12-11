@@ -22,7 +22,6 @@
 			<ul id="mainNav">
 				<li><a href="/admin/"<!--HOMEACTIVECAT-->>DASHBOARD</a></li>
 				<li><a href="/admin/posts.php"<!--POSTSACTIVECAT-->>POSTS</a></li>
-				<li><a href="/admin/polls.php"<!--POLLSACTIVECAT-->>POLLS</a></li>
 				<li><a href="/admin/quotes.php"<!--QUOTESACTIVECAT-->>QUOTES</a></li>
 				<li><a href="/admin/links.php"<!--LINKSACTIVECAT-->>LINKS</a></li>
 				<li class="logout"><a href="/">FOUR ISLAND</a></li>
@@ -43,10 +42,6 @@
 							<li><a href="/admin/pending.php"<!--PENDINGACTIVE-->>Manage Pending Posts</a></li>
 							<li><a href="/admin/comments.php"<!--COMMENTSACTIVE-->>Moderate Comments</a></li>
 							<!--END POSTSISACTIVECAT-->
-							<!--BEGIN POLLSISACTIVECAT-->
-							<li><a href="/admin/newPoll.php"<!--NEWPOLLACTIVE-->>Write a new poll</a></li>
-							<li><a href="/admin/polls.php"<!--POLLSACTIVE-->>Manage Polls</a></li>
-							<!--END POLLSISACTIVECAT-->
 							<!--BEGIN QUOTESISACTIVECAT-->
 							<li><a href="/admin/quotes.php"<!--QUOTESACTIVE-->>Manage Quotes</a></li>
 							<li><a href="/admin/modquotes.php"<!--MODQUOTESACTIVE-->>Moderate Quotes</a></li>

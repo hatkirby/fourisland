@@ -46,11 +46,6 @@ $cntcomments2 = mysql_query($cntcomments);
 $cntcomments3 = mysql_fetch_array($cntcomments2);
 $template->add('COMMENTS', $cntcomments3['COUNT(*)']);
 
-$cntpolls = "SELECT COUNT(*) FROM polloftheweek";
-$cntpolls2 = mysql_query($cntpolls);
-$cntpolls3 = mysql_fetch_array($cntpolls2);
-$template->add('POLLS', $cntpolls3['COUNT(*)']);
-
 $cntquotes = "SELECT COUNT(*) FROM rash_quotes";
 $cntquotes2 = mysql_query($cntquotes);
 $cntquotes3 = mysql_fetch_array($cntquotes2);

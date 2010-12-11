@@ -9,9 +9,5 @@
 </p>
 
 <p>
-	There are <!--POLLS--> polls.
-</p>
-
-<p>
 	There are <!--QUOTES--> quotes, including <!--FLAGGED--> flagged quotes. There are also <!--MODCOM--> unmoderated quotes.
 </p>

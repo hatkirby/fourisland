@@ -53,12 +53,6 @@
 				<!--BEGIN CREATE_HATNAV-->
 				</ul>
 				<!--END CREATE_HATNAV-->
-				
-				<div class="module rounded sidebar">
-					<h3>Poll of the Week</h3>
-					
-					<!--POTW-->
-				</div>
 
 				<div class="module rounded sidebar">
 					<h3>Affiliates</h3>
@@ -122,13 +116,6 @@
 						<a href="/fourm/">
 							<img src="/theme/images/icons/comment.png" alt="The Fourm" />
 							<span>The Fourm</span>
-						</a>
-					</li>
-
-					<li<!--POLLACTIVE-->>
-						<a href="/poll/">
-							<img src="/theme/images/icons/overlays.png" alt="Polls" />
-							<span>Polls</span>
 						</a>
 					</li>
 

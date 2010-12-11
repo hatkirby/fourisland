@@ -22,6 +22,9 @@ if (!defined('S_INCLUDE_FILE')) {define('S_INCLUDE_FILE',1);}
 
 require('headerproc.php');
 
+$result = mysql_query('SET NAMES utf8');
+$result = mysql_query('SET CHARACTER SET utf8');
+
 include('includes/template.php');
 include('includes/session.php');
 include('includes/maintenance.php');

@@ -120,7 +120,7 @@ foreach ($pager->getPageData() as $quote)
 {
 	if (!empty($quote))
 	{
-		$template->adds_block('QUOTE', array(	'TEXT' => str_replace("\n","<br />",htmlentities(stripslashes($quote['quote']))),
+		$template->adds_block('QUOTE', array(	'TEXT' => str_replace("\n","<br />",htmlspecialchars($quote['quote'])),
 							'ID' => $quote['id'],
 							'ODD' => ($j % 2 ? '' : ' class="odd"')));
 	}

@@ -62,20 +62,6 @@ function dispIfNotOld($datTim)
 	}
 }
 
-function getpercent($getpoll3,$num)
-{
-	$maxper = ($getpoll3['clicks1'] + $getpoll3['clicks2'] + $getpoll3['clicks3'] + $getpoll3['clicks4']);
-
-	if ($maxper == 0)
-	{
-		return 0;
-	} else {
-		$percent = round(($getpoll3['clicks' . $num] / $maxper) * 100);
-	}
-
-	return($percent);
-}
-
 function generateSlug($title,$table)
 {
 	$title = preg_replace('/[^A-Za-z0-9]/','-',$title);
@@ -110,7 +96,7 @@ function postBlogPost($title,$author,$tags,$content)
 {
 	$slug = generateSlug($title,'updates');
 
-	$inspost = "INSERT INTO updates (title,slug,author,text) VALUES (\"" . $title . "\",\"" . $slug . "\",\"" . $author . "\",\"" . mysql_real_escape_string($content) . "\")";
+	$inspost = "INSERT INTO updates (title,slug,author,text) VALUES (\"" . mysql_real_escape_string($title) . "\",\"" . $slug . "\",\"" . $author . "\",\"" . mysql_real_escape_string($content) . "\")";
 	$inspost2 = mysql_query($inspost);
 
 	$id = mysql_insert_id();
@@ -269,31 +255,6 @@ if (!function_exists('unique_id'))
 	}
 }
 
-function displayRelated($title, $avoid = 0)
-{
-	$getrelated = "SELECT *, MATCH (title, text) AGAINST (\"" . mysql_real_escape_string($title) . "\") AS score FROM updates WHERE MATCH (title, text) AGAINST (\"" . mysql_real_escape_string($title) . "\") AND id <> " . $avoid . " LIMIT 0,5";
-	$getrelated2 = mysql_query($getrelated);
-	$i=0;
-	while ($getrelated3[$i] = mysql_fetch_array($getrelated2))
-	{
-		if ($i==0)
-		{
-			$template = new FITemplate('related');
-		}
-
-		$template->adds_block('POST', array(	'TITLE' => doAprilFoolsDay(htmlentities(stripslashes($getrelated3[$i]['title']))),
-							'CODED' => $getrelated3[$i]['slug'],
-							'AUTHOR' => $getrelated3[$i]['author'],
-							'DATE' => date('F jS Y',strtotime($getrelated3[$i]['pubDate']))));
-		$i++;
-	}
-
-	if ($i > 0)
-	{
-		$template->display();
-	}
-}
-
 function getCommentUrl($getcomment3)
 {
 	$page_id = $getcomment3['page_id'];
@@ -307,60 +268,10 @@ function getCommentUrl($getcomment3)
 		$getupdate3 = mysql_fetch_array($getupdate2);
 
 		return '/blog/' . $getupdate3['slug'] . '/';
-	} else if ($comType == 'polloftheweek')
-	{
-		return '/poll/' . $comID . '.php';
 	} else if ($comType == 'quote')
 	{
 		return '/quotes/' . $comID . '.php';
 	}
-}
-
-function getPollOfTheWeek($id = -1)
-{
-	static $showed_form = false;
-
-	$potw = new FITemplate('polloftheweek');
-	
-	if ($id == -1)
-	{
-		$getpoll = "SELECT * FROM polloftheweek ORDER BY id DESC LIMIT 0,1";
-	} else {
-		$getpoll = "SELECT * FROM polloftheweek WHERE id = " . $id;
-	}
-	$getpoll2 = mysql_query($getpoll);
-	$getpoll3 = mysql_fetch_array($getpoll2);
-
-	$potw->add('ID', $getpoll3['id']);
-	$potw->add('QUESTION', doAprilFoolsDay(stripslashes(htmlentities($getpoll3['question']))));
-	$potw->add('OPTION1', doAprilFoolsDay(stripslashes(htmlentities($getpoll3['option1']))));
-	$potw->add('OPTION2', doAprilFoolsDay(stripslashes(htmlentities($getpoll3['option2']))));
-	$potw->add('OPTION3', doAprilFoolsDay(stripslashes(htmlentities($getpoll3['option3']))));
-	$potw->add('OPTION4', doAprilFoolsDay(stripslashes(htmlentities($getpoll3['option4']))));
-
-	$getip = "SELECT * FROM didpollalready WHERE ip = \"" . $_SERVER['REMOTE_ADDR'] . "\"";
-	$getip2 = mysql_query($getip);
-	$getip3 = mysql_fetch_array($getip2);
-
-	if (($getip3['ip'] != $_SERVER['REMOTE_ADDR']) && ($id == -1) && ($showed_form == false))
-	{
-		$potw->adds_block('FORM',array('exi'=>1));
-		$showed_form = true;
-	} else {
-		$potw->adds_block('DISPLAY',array('exi'=>1));
-
-		$potw->add('PERCENT1', getpercent($getpoll3,'1'));
-		$potw->add('PERCENT2', getpercent($getpoll3,'2'));
-		$potw->add('PERCENT3', getpercent($getpoll3,'3'));
-		$potw->add('PERCENT4', getpercent($getpoll3,'4'));
-	}
-	
-	ob_start();
-	$potw->display();
-	$result = ob_get_contents();
-	ob_end_clean();
-	
-	return $result;
 }
 
 function getTagColor($i)
@@ -416,14 +327,6 @@ function getRewriteURL()
 				return '/blog/tag/' . $_GET['tag'] . '.php';
 			} else {
 				return '/blog/';
-			}
-		} else if ($_GET['area'] == 'poll')
-		{
-			if (isset($_GET['id']))
-			{
-				return '/poll/' . $_GET['id'] . '.php';
-			} else {
-				return '/poll/';
 			}
 		} else if ($_GET['area'] == 'quotes')
 		{

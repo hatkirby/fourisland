@@ -17,7 +17,6 @@ body.fourm div#content {
 }
 
 body.fourm div#wrap,
-body.poll div#wrap,
 body.quotes div#wrap,
 body.admin div#wrap {
  background-image: url(/theme/images/bg_body.gif);

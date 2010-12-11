@@ -89,15 +89,6 @@ ul#bannernav li#bannernav-webs a:hover {
  background-image: url("/theme/images/Links_ro.gif");
 }
 
-ul#bannernav li#bannernav-poll a {
- background-image: url("/theme/images/Poll.gif");
-}
-
-body.poll ul#bannernav li#bannernav-poll a,
-ul#bannernav li#bannernav-poll a:hover {
- background-image: url("/theme/images/Poll_ro.gif");
-}
-
 ul#bannernav li#bannernav-quotes a {
  background-image: url("/theme/images/Quotes.gif");
 }

@@ -59,9 +59,6 @@ if (isset($_GET['mode']))
 		case 'quotes':
 ?> Quotes<?php
 			break;
-		case 'poll':
-?> Polls<?php
-			break;
 		case 'comments':
 ?> Comments<?php
 			break;
@@ -94,9 +91,6 @@ if (isset($_GET['mode']))
 			break;
 		case 'quotes':
 ?>An archive of all Four Island quotes<?php
-			break;
-		case 'poll':
-?>An archive of all of the Four Island POTWs<?php
 			break;
 		case 'comments':
 ?>An archive of all of the comments people have left on Four Island<?php
@@ -149,18 +143,6 @@ if (!isset($_GET['mode']) || ($_GET['mode'] == 'quotes'))
 	}
 }
 
-if ($_GET['mode'] == 'poll')
-{
-	$getpolls = "SELECT * FROM polloftheweek";
-	$getpolls2 = mysql_query($getpolls);
-	while (($items[$i] = mysql_fetch_array($getpolls2)) && ($i < ($si+10)))
-	{
-		$items[$i]['sortDate'] = strtotime($items[$i]['week']);
-		$items[$i]['itemType'] = 'poll';
-		$i++;
-	}
-}
-
 if (!isset($_GET['mode']) || ($_GET['mode'] == 'comments'))
 {
 	$getcomments = "SELECT * FROM comments ORDER BY id DESC LIMIT 0,10";
@@ -204,14 +186,6 @@ if (!isset($_GET['mode']) || ($_GET['mode'] == 'comments'))
 				$items[$i]['title'] = '"' . $getpost3['title'] . '"';
 				$items[$i]['url'] = 'blog/' . $getpost3['slug'] . '/';
 				break;
-			case 'polloftheweek':
-				$getpoll = "SELECT * FROM polloftheweek WHERE id = " . $comID;
-				$getpoll2 = mysql_query($getpoll);
-				$getpoll3 = mysql_fetch_array($getpoll2);
-
-				$items[$i]['title'] = '"' . $getpoll3['question'] . '"';
-				$items[$i]['url'] = 'poll/' . $getpoll3['id'] . '.php';
-				break;
 			case 'quote':
 				$getquote = "SELECT * FROM rash_quotes WHERE id = " . $comID;
 				$getquote2 = mysql_query($getquote);
@@ -253,7 +227,7 @@ foreach ($items as $key => $value)
 
 			<link>http://fourisland.com/blog/<?php echo($value['slug']); ?>/</link>
 
-			<description><?php echo(stripslashes(htmlentities(parseText($value['text'])))); ?></description>
+			<description><?php echo(htmlspecialchars(parseText($value['text']))); ?></description>
 
 			<pubDate><?php echo(date('D, d M Y H:i:s O',$value['sortDate'])); ?></pubDate>
 		</item>
@@ -266,13 +240,11 @@ foreach ($items as $key => $value)
 
 			<link>http://fourisland.com/quotes/<?php echo(urlencode($value['id'])); ?>.php</link>
 
-			<description><?php echo(htmlentities(nl2br($value['quote']))); ?></description>
+			<description><?php echo(htmlspecialchars(nl2br($value['quote']))); ?></description>
 
 			<pubDate><?php echo(date('D, d M Y H:i:s O',$value['sortDate'])); ?></pubDate>
 		</item>
 <?php
-			break;
-		case 'poll':
 			break;
 		case 'comment':
 ?>
@@ -281,7 +253,7 @@ foreach ($items as $key => $value)
 
 			<link>http://fourisland.com/<?php echo($value['url']); ?>#comment-<?php echo($value['id']); ?></link>
 
-			<description><?php echo(stripslashes(htmlentities(parseText($value['comment'])))); ?></description>
+			<description><?php echo(htmlspecialchars(parseText($value['comment']))); ?></description>
 
 			<pubDate><?php echo(date('D, d M Y H:i:s O',$value['sortDate'])); ?></pubDate>
 		</item>

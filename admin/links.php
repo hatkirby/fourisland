@@ -97,7 +97,7 @@ foreach ($pager->getPageData() as $link)
 {
 	if (!empty($link))
 	{
-		$template->adds_block('LINK', array(	'TITLE' => htmlentities($link['title']),
+		$template->adds_block('LINK', array(	'TITLE' => htmlspecialchars($link['title']),
 							'URL' => $link['url'],
 							'ID' => $link['id'],
 							'ODD' => ($j % 2 ? '' : ' class="odd"')));

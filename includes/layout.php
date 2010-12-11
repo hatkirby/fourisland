@@ -74,7 +74,7 @@ $i=0;
 while ($getaffs3 = mysql_fetch_array($getaffs2))
 {
 	$template->adds_block('AFFILIATES', array(	'COLOR' => getTagColor($i++),
-							'TITLE' => doAprilFoolsDay(htmlentities(stripslashes($getaffs3['title']))),
+							'TITLE' => doAprilFoolsDay(htmlspecialchars($getaffs3['title'])),
 							'URL' => $getaffs3['url']));
 }
 
@@ -84,7 +84,7 @@ $i=0;
 while ($getwebps3 = mysql_fetch_array($getwebps2))
 {
 	$template->adds_block('WEBPROJS', array(	'COLOR' => getTagColor($i++),
-							'TITLE' => doAprilFoolsDay(htmlentities(stripslashes($getwebps3['title']))),
+							'TITLE' => doAprilFoolsDay(htmlspecialchars($getwebps3['title'])),
 							'URL' => $getwebps3['url']));
 }
 
@@ -129,7 +129,7 @@ while ($getcomments3[$i] = mysql_fetch_array($getcomments2))
 								'AREA' => 'blog',
 								'CODED' => $getpost3['slug'],
 								'ENDING' => '/',
-								'TITLE' => stripslashes(htmlentities($getpost3['title'])),
+								'TITLE' => htmlspecialchars($getpost3['title']),
 								'AUTHOR' => (($website != '') ? '<a href="' . $website . '">' . $username . '</a>' : $username)));
 		$i++;
 	} else if (strpos($getcomments3[$i]['page_id'], 'quote') !== FALSE)
@@ -143,20 +143,7 @@ while ($getcomments3[$i] = mysql_fetch_array($getcomments2))
 								'TITLE' => 'Quote #' . $num,
 								'AUTHOR' => (($website != '') ? '<a href="' . $website . '">' . $username . '</a>' : $username)));
 		$i++;			
-	} else if (strpos($getcomments3[$i]['page_id'], 'polloftheweek') !== FALSE)
-	{
-		$getpotw = "SELECT * FROM polloftheweek WHERE id = " . substr($getcomments3[$i]['page_id'],strpos($getcomments3[$i]['page_id'],'-')+1);
-		$getpotw2 = mysql_query($getpotw);
-		$getpotw3 = mysql_fetch_array($getpotw2);
-
-		$template->adds_block('COMMENTS', array(	'ID' => $getcomments3[$i]['id'],
-								'AREA' => 'poll',
-								'CODED' => $getpotw3['id'],
-								'ENDING' => '.php',
-								'TITLE' => 'Poll "' . htmlentities($getpotw3['question']) . '"',
-								'AUTHOR' => (($website != '') ? '<a href="' . $website . '">' . $username . '</a>' : $username)));
-		$i++;			
-	}
+		}
 }
 
 $users = array();
@@ -233,7 +220,7 @@ $i=0;
 while ($getpopular3[$i] = mysql_fetch_array($getpopular2))
 {
 	$template->adds_block('POPULAR', array(	'CODED' => $getpopular3[$i]['slug'],
-						'TITLE' => doAprilFoolsDay(stripslashes(htmlentities($getpopular3[$i]['title'])))));
+						'TITLE' => doAprilFoolsDay(htmlspecialchars($getpopular3[$i]['title']))));
 	$i++;
 }
 
