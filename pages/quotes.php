@@ -70,14 +70,15 @@ if (isset($_GET['id']) && !(is_numeric($_GET['id'])))
 	$template = new FITemplate('quotes/add');
 	if (isset($_GET['submit']))
 	{
-		$template->adds_block('SUBMITTED',array('QUOTE' => str_replace("\n","<br />",htmlspecialchars($_POST['rash_quote']))));
 		if (!isLoggedIn())
 		{
-			$insquote = "INSERT INTO rash_queue (quote) VALUES(\"" . mysql_real_escape_string(htmlspecialchars($_POST['rash_quote'])) . "\")";
+			$template->adds_block('ERROR', array('exi'=>1));
 		} else {
 			$insquote = "INSERT INTO rash_quotes (quote, rating, flag, date) VALUES (\"" . mysql_real_escape_string($_POST['rash_quote']) . "\", 0, 0, \"" . time() . "\")";
+			$insquote2 = mysql_query($insquote);
+			
+			$template->adds_block('SUBMITTED',array('QUOTE' => str_replace("\n","<br />",htmlspecialchars($_POST['rash_quote']))));
 		}
-		$insquote2 = mysql_query($insquote);
 	}
 	$template->display();
 } elseif ($_GET['act'] == 'bottom')
