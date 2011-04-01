@@ -44,7 +44,7 @@ sd_solar_multiannual('Leap Day',2,29,4,2004); //DateFinder
 sd_solar_annual('St Patricks Day',3,17); //DateFinder
 sd_solar_annual('April Fools Day',4,1); //Awesome
 sd_solar_annual('Tri\'s CIEday',4,22); //DateFinder
-sd_solar_annual('Silence Day',4,25); //DateFinder
+sd_solar_annual('Silence Day',4,15); //DateFinder
 sd_solar_annual('WCA Day',5,5); //DateFinder
 sd_lunar_annual('Mothers Day',5,7,2); //BG Pic; DateFinder; Header Pic
 sd_lunar_annual('Memorial Day',5,1,5); //BG Pic; DateFinder; Header Pic
@@ -354,7 +354,7 @@ function sd_dateFinder()
 			case 'Tris CIEday': return 'This is the day that shei came.';
 			case 'Silence Day': return 'Support LGBT people by keeping the silence until 5 PM.';
 			case 'CTNH': return '<A HREF="/fuhsdiufgsadiufgaisfioas.php">It never happened.</A>';
-			case 'April Fools Day': return 'Long live the three!';
+			case 'April Fools Day': return 'It\'s FRIDAY, FRIDAY, GOTTA GET DOWN ON FRIDAY!';
 		}
 	}
 }
@@ -363,10 +363,12 @@ function doAprilFoolsDay($text)
 {
 	if (sd_isSpecialDay('April Fools Day'))
         {
-                $text = str_replace('four', 'three', $text);
-                $text = str_replace('Four', 'Three', $text);
+                $text = str_replace('four', 'friday', $text);
+                $text = str_replace('Four', 'Friday', $text);
                 //$text = str_replace('4', '3', $text);
-                $text = str_replace('FOUR', 'THREE', $text);
+                $text = str_replace('FOUR', 'FRIDAY', $text);
+                $text = preg_replace('/([A-Za-z0-9 ]*)\: ([A-Za-z0-9 ]*)/', ' Rebecca Black: \2', $text);
+                $text = str_replace('Hatkirby', 'Rebecca Black', $text);
         }
         
         return $text;

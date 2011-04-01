@@ -32,6 +32,16 @@ if (strpos($_SERVER['REQUEST_URI'],'index.php'))
 	exit;
 }
 
+if (sd_isSpecialDay('April Fools Day'))
+{
+  if (rand(0,20) == 4)
+  {
+    header('Location: http://www.youtube.com/watch?v=CD2LRROpph0');
+    echo(" ");
+    exit;
+  }
+}
+
 ob_start();
 
 $pageName = basename($_GET['area']);

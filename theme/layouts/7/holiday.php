@@ -105,7 +105,7 @@ if (sd_isSpecialDay('April Fools Day'))
 ?>
 
 div#banner {
- background-image: url(/theme/images/afd-l7.png);
+ background-image: url(/theme/images/afd-l7-2011.png);
 }
 
 <?php
