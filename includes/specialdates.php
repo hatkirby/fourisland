@@ -369,6 +369,7 @@ function doAprilFoolsDay($text)
                 $text = str_replace('FOUR', 'FRIDAY', $text);
                 $text = preg_replace('/([A-Za-z0-9 ]*)\: ([A-Za-z0-9 ]*)/', ' Rebecca Black: \2', $text);
                 $text = str_replace('Hatkirby', 'Rebecca Black', $text);
+		$text = str_replace('fridayisland.com', 'fourisland.com', $text);
         }
         
         return $text;
