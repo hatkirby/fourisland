@@ -270,10 +270,9 @@ ob_end_clean();
 
 $document = doAprilFoolsDay($document);
 $document = str_replace(doAprilFoolsDay($content), $content, $document);
-$document = str_replace("id=\"threem\"", "id=\"fourm\"", $document);
-$document = str_replace("id=\"threeipedia\"", "id=\"fouripedia\"", $document);
-$document = str_replace('CLASS="threem none threem-none"', 'CLASS="fourm none fourm-none"', $document);
-$document = str_replace("threeisland.com/", "fourisland.com/", $document);
+$document = str_replace("id=\"fridaym\"", "id=\"fourm\"", $document);
+$document = str_replace("id=\"fridayipedia\"", "id=\"fouripedia\"", $document);
+$document = str_replace('CLASS="fridaym none fridaym-none"', 'CLASS="fourm none fourm-none"', $document);
 echo($document);
 
 ?>
