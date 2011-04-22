@@ -321,20 +321,21 @@ function sd_dateFinder()
 	} else {
 		switch (sd_getCurrentDay())
 		{
-			case 'New Years Day': return 'Happy new years!';
+			case 'New Years Day': return 'HAPPY NEW YEAR YAYS!';
 			case 'Martin Luther King Day': return 'Happy Martin Luther King Day!';
 			case 'Groundhog Day': return 'It\'s groundhog day? Will he see his shadow?';
 			case 'Presidents Day': return 'Happy President\'s Day!';
 			case 'Valentines Day': return 'Happy Valentines Day! Will you be mine?';
-			case 'St Patricks Day': return 'Happy St. Patrick\'s Day! If you\'re not wearing green, I\'ll pinch you!';
+			case 'St Patricks Day': return 'Happy St. Patrick\'s Day!';
 			case 'Mothers Day': return 'Happy Mothers Day!';
 			case 'Memorial Day': return 'Remember...';
-			case 'Easter': return 'Happy Easter! Where are those eggs?';
-			case 'Mardi Gras': return 'Happy Mardi Gras! Time to get fat!';
-			case 'Ash Wednesday': return 'Happy Ash Wednesday! Did you get your ashes?';
+			case 'Easter': return 'Happy Easter!';
+			case 'Mardi Gras': return 'It\'s Shrove Tuesday!';
+			case 'Ash Wednesday': return 'Happy Ash Wednesday!';
 			case 'Palm Sunday': return 'Happy Palm Sunday!';
 			case 'Holy Thursday': return 'Happy Holy Thursday!';
-			case 'Hatkirbys B-Day': return 'Happy Birthday to me! Happy Birthday to me! Happy Birthday dear Hatkirby! Happy Birthday to me!';
+			case 'Good Friday': return 'Happy Good Friday!';
+			case 'Hatkirbys B-Day': return 'Remember 6/17/08';
 			case 'Flag Day': return 'Happy Flag Day!';
 			case 'Fathers Day': return 'Happy Fathers Day!';
 			case 'Independance Day': return 'Happy 4th of July!';
@@ -346,7 +347,7 @@ function sd_dateFinder()
 			case 'Thanksgiving': return 'Happy Thanksgiving! Gobble gobble gobble gobble!';
 			case 'Kirby Week': return 'It\'s Kirby Week! Not only is it a time of celebreation and fun on Four Island, it\'s only a week before Christmas!';
 			case 'Christmas Eve': return '"1 Day Left" says Fourie!';
-			case 'Christmas Day': return 'Merry Christmas! Time for presents!';
+			case 'Christmas Day': return 'Merry Christmas!';
 			case 'New Years Eve': return '5... 4... 3... 2...';
 			case 'SysAdminDay': return '<A HREF="http://www.sysadminday.com">If you can read this, thank your <I><B>sysadmin</B></I></A>';
 			case 'WCA Day': return '<A HREF="http://wca2001.keenspace.com">Webcomic Appreciation Day!</A> Stare in wonder at all of your favorite webcomics! Like Pillowcase, for instance!';

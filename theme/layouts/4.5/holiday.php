@@ -62,9 +62,6 @@ if (sd_isSpecialDay('Four Island A'))
 } elseif (sd_isSpecialDay('New Years Day'))
 {
 	$bgimgm = 'newYear';
-} elseif (sd_isSpecialDay('Ash Wednesday'))
-{
-	$bgimgm = 'ashWeds';
 } elseif (sd_isSpecialDay('Columbus Day'))
 {
 	$bgimgm = 'columbus';
@@ -74,9 +71,6 @@ if (sd_isSpecialDay('Four Island A'))
 } elseif (sd_isSpecialDay('Flag Day'))
 {
 	$bgimgm = 'flagDay';
-} elseif (sd_isSpecialDay('Good Friday'))
-{
-	$bgimgm = 'goodFriday';
 } elseif (sd_isSpecialDay('Groundhog Day'))
 {
 	$bgimgm = 'groundhog';
